@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated fhir-single -->
+      <package
+            uri="http://www.w3.org/1999/xhtml"
+            class="org.w3._1999.xhtml.XhtmlPackage"
+            genModel="model/fhir-single.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated fhir-single -->
+      <parser
+            type="xhtml"
+            class="org.w3._1999.xhtml.util.XhtmlResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated fhir-single -->
+      <package
+            uri="http://hl7.org/fhir"
+            class="org.hl7.fhir.FhirPackage"
+            genModel="model/fhir-single.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated fhir-single -->
+      <parser
+            type="fhir"
+            class="org.hl7.fhir.util.FhirResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

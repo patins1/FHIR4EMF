@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.fhir4emf.metamodel.fhir-rest/src" modelPluginID="org.fhir4emf.metamodel.fhir-rest"
+    modelName="Fhir-rest" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../org.fhir4emf.metamodel.fhir/model/fhir-single.genmodel#//xhtml ../../org.fhir4emf.metamodel.fhir/model/fhir-single.genmodel#//fhir ../../org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>fhir-rest.ecore</foreignModel>
+  <genPackages prefix="Fhirrest" disposableProviderFactory="true" ecorePackage="fhir-rest.ecore#/">
+    <genClasses ecoreClass="fhir-rest.ecore#//ReadRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//ReadRequest/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//ReadRequest/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//ReadRequest/_format"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//ReadResponse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//ReadResponse/content"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//VReadRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//VReadRequest/vid"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//VReadResponse"/>
+    <genClasses ecoreClass="fhir-rest.ecore#//UpdateRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//UpdateRequest/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//UpdateRequest/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//UpdateRequest/_format"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir-rest.ecore#//UpdateRequest/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//UpdateResponse"/>
+    <genClasses ecoreClass="fhir-rest.ecore#//DeleteRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//DeleteRequest/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//DeleteRequest/id"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//DeleteResponse"/>
+    <genClasses ecoreClass="fhir-rest.ecore#//CreateRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//CreateRequest/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//CreateRequest/_format"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir-rest.ecore#//CreateRequest/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//CreateResponse"/>
+    <genClasses ecoreClass="fhir-rest.ecore#//SearchRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//SearchRequest/_type"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//SearchResponse">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fhir-rest.ecore#//SearchResponse/result"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//ErrorResponse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//ErrorResponse/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//TransformRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformRequest/inputFormat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformRequest/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformRequest/outputFormat"/>
+    </genClasses>
+    <genClasses ecoreClass="fhir-rest.ecore#//TransformResponse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformResponse/content"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

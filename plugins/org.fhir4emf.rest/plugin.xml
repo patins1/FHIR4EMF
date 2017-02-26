@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+
+   <extension
+         point="org.eclipse.rap.ui.entrypoint">
+      <entrypoint
+            brandingId="org.fhir4emf.rest.branding"
+            class="org.fhir4emf.rest.EntryPoint"
+            id="org.fhir4emf.rest.entrypoint"
+            path="/fhirrest">
+      </entrypoint>
+   </extension>
+   
+   <extension
+         point="org.eclipse.rap.ui.serviceHandler">
+      <serviceHandler
+            class="org.fhir4emf.rest.FhirServiceHandler"
+            id="fhirrest">
+      </serviceHandler>
+   </extension>
+   
+</plugin>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FHIR Editor</title>
+<link rel="stylesheet" href="fhir.css" />
+<script src="jquery-2.0.3.js"></script>
+<script src="angular.js"></script>
+<script src="fhir.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" id="appId">
+	<form id="translate_ocl_form">
+		<label for="packageDropDown">FHIR type:</label> <select
+			name="packageDropDown" size="1" id="packageDropDown"><option
+				value="Patient">Patient</option>
+			<option value="StructureDefinition">StructureDefinition</option>
+			<option value="StructureDefinition">DiagnosticReport</option></select><br />
+		<label for="classDropDown">FHIR Document ID:</label><select
+			name="classDropDown" size="1" id="classDropDown"><option
+				ng-repeat="x in classNames" value="{{x}}">{{x}}</option></select><br /> <label
+			for="ocl_text">FHIR Document Content:</label> <br />
+		<textarea id="ocl_text" type="text" rows="40"> </textarea>
+		</textarea>
+		<br /> <select name="formatDropDown" size="1" id="formatDropDown"><option
+				value="ORIGINAL">ORIGINAL</option>
+			<option value="EMFXML">EMFXML</option>
+			<option value="RAASXML">RAASXML</option>
+			<option value="RAASJSON">RAASJSON</option>
+			<option value="HAPIXML">HAPIXML</option>
+			<option value="HAPIJSON">HAPIJSON</option>
+			<option value="IGPUBLISHER">IGPUBLISHER</option>
+		</select><br />
+	</form>
+
+	<div id="status"></div>
+
+</body>
+</html>

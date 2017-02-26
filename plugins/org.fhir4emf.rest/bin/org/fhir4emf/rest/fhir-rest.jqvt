@@ -1,0 +1,229 @@
+/**
+ * Copyright (c) 2017 Joerg Kiegeland
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
+package org.fhir4emf.rest.gen;
+
+import fhirrest.ReadRequest
+import fhirrest.ReadResponse
+import fhirrest.SearchRequest
+import fhirrest.SearchResponse
+import fhirrest.TransformRequest
+import fhirrest.TransformResponse
+import java.io.File
+import java.util.Date
+import org.eclipse.emf.cdo.common.lob.CDOBlob
+import org.eclipse.emf.ecore.EClass
+import org.fhir4emf.rest.Activator
+import org.hl7.fhir.Bundle
+import org.hl7.fhir.BundleEntry
+import org.hl7.fhir.FhirPackage
+import org.hl7.fhir.Resource
+import org.hl7.fhir.ResourceContainer
+import org.raas4emf.cms.core.FileUtil
+import org.raas4emf.cms.core.RAASUtils
+import raascms.Artifact
+import raascms.Folder
+
+transformation documentinformationgenerator ( source : documents , target : embeddedapi ) {
+
+	top relation HandleReadRequest {
+
+		id : String;
+		type : String;
+		markupUUID : String;
+		user : String;
+		creationDate : Date;
+		fhirResource : Resource;
+		eClass : EClass;
+		format : String;
+		content : String;
+		filename : String;
+
+		enforce domain source request : ReadRequest {
+			id = id
+			type = type
+			_format = format
+		}
+
+		enforce domain source documentFolder : Folder {
+			name = type
+			artifacts = resourceArtifact : Artifact {
+				name = filename
+				FileContent = contents : CDOBlob { }
+			}
+		}
+
+		enforce domain target response : ReadResponse {
+			content = content
+		}
+
+		when {
+			content = FileUtil.inputstreamToString(contents.contents);
+			content.contains("\"" + id + "\"");
+		}
+		where {
+			eClass = FhirPackage.eINSTANCE.getEClassifier(type) as EClass;
+			fhirResource = if ("ORIGINAL" == format) null else RAASUtils.decodeJsonOrXml(resourceArtifact , eClass) as Resource;
+			if ( "EMFXML" == format ) { content = RAASUtils.encodeEMFXML(fhirResource) ; };
+			if ( "RAASXML" == format ) { content = RAASUtils.encodeJAXBXML(fhirResource) ; };
+			if ( "RAASJSON" == format ) { content = RAASUtils.encodeJAXBJSON(fhirResource) ; };
+			if ( "HAPIXML" == format ) { content = Activator.writeHAPIXML(Activator.readHAPI(type , content , filename)) ; };
+			if ( "HAPIJSON" == format ) { content = Activator.writeHAPIJSON(Activator.readHAPI(type , content , filename)) ; };
+			if ( "IGPUBLISHER" == format ) { content = Activator.writeIG(Activator.readHAPI(type , content , filename)) ; };
+		}
+
+	}
+
+	top relation HandleSearchRequest {
+
+		myName : String;
+		type : String;
+		artifactName : String;
+		uuid : String;
+		artifactState : String;
+		ratio : Double;
+		percentageParsing : int;
+		geometryAvailable : boolean;
+		geometryErrorFile : File;
+		fhirResource : Resource;
+		eClass : EClass;
+
+		enforce domain source documentInformationRequest : SearchRequest {
+			_type = type
+		}
+
+		enforce domain source documentFolder : Folder {
+			name = type
+			artifacts = artifact : Artifact {
+				name = artifactName
+			}
+		}
+
+		enforce domain target documentInformationResponse : SearchResponse {
+			result = b : Bundle { }
+		}
+
+		enforce domain target b : Bundle {
+			entry = e : BundleEntry {
+				resource = r : ResourceContainer { }
+			}
+		}
+
+		--		enforce domain target b2 : Bundle {
+		--			entry = e2 : BundleEntry {
+		--				resource = r2 : ResourceContainer { 
+		--					DiagnosticReport = diagnosticReport : DiagnosticReport {
+		--						Contained = procedureRequest : ProcedureRequest {
+		--							id= iddd : Id {
+		--								value = "req"
+		--							} 	
+		--						}
+		--					}
+		--				}
+		--			}	
+		--		}
+
+		where {
+			eClass = FhirPackage.eINSTANCE.getEClassifier(type) as EClass;
+			fhirResource = RAASUtils.decodeJsonOrXml(artifact , eClass) as Resource;
+			r.eSet(r.eClass.getEStructuralFeature(type.substring(0 , 1).toLowerCase() + type.substring(1)) , fhirResource);
+		}
+
+	}
+
+	--	top relation HandleCreateRequest {
+	--		
+	--		type : String;
+	--		myName : String;
+	--		postponeParsing : Boolean;
+	--		blob : CDOBlob;
+	--		
+	--		enforce domain source request : CreateRequest {
+	--			type = type
+	--			resource = inputStream : InputStream { }
+	--		}
+	--		
+	--		enforce domain source rootFolder : Folder {
+	--			name = "FHIRResources"
+	--		}
+	--				
+	--		enforce domain target response : CreateResponse {
+	--		}
+	--		
+	--		enforce domain target rootFolder : Folder {
+	--			folders = documentFolder : Folder {
+	--				name = type
+	--				artifacts = artifact : Artifact {			
+	--					name =new Random().nextInt(10000)+".fhir"	
+	--		            FileContent = blob;
+	--				}
+	--			}
+	--		}
+	--		
+	--		when {
+	--			blob = new CDOBlob(inputStream);
+	--		}
+	--				
+	--		where {
+	--			{
+	--				artifact.eResource().save(null);
+	--			};
+	--		} 
+	--		  
+	--	}	
+	top relation HandleTransformRequest {
+
+		id : String;
+		type : String;
+		markupUUID : String;
+		user : String;
+		creationDate : Date;
+		fhirResource : Resource;
+		eClass : EClass;
+		outputFormat : String;
+		content : String;
+		inputFormat : String;
+
+		enforce domain source request : TransformRequest {
+			content = content
+			inputFormat = inputFormat
+			outputFormat = outputFormat
+		}
+
+		enforce domain target response : TransformResponse {
+			content = content
+		}
+
+		where {
+			type = "Resource";
+			eClass = FhirPackage.eINSTANCE.getEClassifier(type) as EClass;
+			fhirResource = null;
+			if ( "XML" == inputFormat ) { fhirResource = RAASUtils.decodeEMFXML(content) as Resource ; };
+			if ( "JSON" == inputFormat ) { fhirResource = RAASUtils.decodeJSON(content , eClass) as Resource ; };
+			if ( "XML" == outputFormat ) { content = removeNamespacePrefixes(RAASUtils.encodeEMFXML(fhirResource)) ; };
+			if ( "JSON" == outputFormat ) { content = RAASUtils.encodeJAXBJSON(fhirResource) ; };
+--			if ( "HAPIXML" == outputFormat ) { content = Activator.writeHAPIXML(Activator.readHAPI(type , content , filename)) ; };
+--			if ( "HAPIJSON" == outputFormat ) { content = Activator.writeHAPIJSON(Activator.readHAPI(type , content , filename)) ; };
+			--			if ( "IGPUBLISHER" == format ) { content = Activator.writeIG(Activator.readHAPI(type , content , filename)) ; };
+
+		}
+
+	}
+	
+	query removeNamespacePrefixes(String xmi): String {
+		return xmi
+		.replace("<xhtml:div>","<div xmlns=\"http://www.w3.org/1999/xhtml\">")
+		.replace("<xhtml:","<")
+		.replace("</xhtml:","</")
+		.replace("<fhir:","<")
+		.replace("</fhir:","</")
+		.replace(" xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\"","")
+		.replace(" xmlns:fhir=\"http://hl7.org/fhir\""," xmlns=\"http://hl7.org/fhir\"")
+		.replace(" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\"","");
+	}
+
+}
