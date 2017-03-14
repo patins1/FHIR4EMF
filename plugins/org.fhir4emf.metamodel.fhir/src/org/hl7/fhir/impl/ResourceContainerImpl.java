@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.hl7.fhir.*;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Resource Container</b></em>'. <!-- end-user-doc -->
  * <p>

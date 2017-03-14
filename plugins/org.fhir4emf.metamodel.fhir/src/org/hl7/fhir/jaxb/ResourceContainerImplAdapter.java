@@ -11,10 +11,10 @@ import org.hl7.fhir.FhirFactory;
 import org.hl7.fhir.ResourceContainer;
 import org.hl7.fhir.impl.ResourceImpl;
 
-public class ResourceContainerImplAdapter extends XmlAdapter<Object, ResourceContainer> {
+public class ResourceContainerImplAdapter extends XmlAdapter<ResourceImpl, ResourceContainer> {
 
 	@Override
-	public ResourceContainer unmarshal(Object v) throws Exception {
+	public ResourceContainer unmarshal(ResourceImpl v) throws Exception {
 		ResourceContainer rc = FhirFactory.eINSTANCE.createResourceContainer();
 		for (EStructuralFeature f : rc.eClass().getEAllStructuralFeatures()) {
 			if (f.getEType().isInstance(v)) {
@@ -26,7 +26,7 @@ public class ResourceContainerImplAdapter extends XmlAdapter<Object, ResourceCon
 	}
 
 	@Override
-	public Object marshal(ResourceContainer v) throws Exception {
+	public ResourceImpl marshal(ResourceContainer v) throws Exception {
 		TreeIterator<Object> it = EcoreUtil.getAllContents(Arrays.asList(v));
 		while (it.hasNext()) {
 			Object o = it.next();

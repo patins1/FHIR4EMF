@@ -5,6 +5,7 @@ package fhirrest.impl;
 import fhirrest.FhirrestPackage;
 import fhirrest.TransformRequest;
 
+import java.io.InputStream;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link fhirrest.impl.TransformRequestImpl#getInputFormat <em>Input Format</em>}</li>
  *   <li>{@link fhirrest.impl.TransformRequestImpl#getContent <em>Content</em>}</li>
  *   <li>{@link fhirrest.impl.TransformRequestImpl#getOutputFormat <em>Output Format</em>}</li>
+ *   <li>{@link fhirrest.impl.TransformRequestImpl#getBinaryContent <em>Binary Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +94,26 @@ public class TransformRequestImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected String outputFormat = OUTPUT_FORMAT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBinaryContent() <em>Binary Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBinaryContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final InputStream BINARY_CONTENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getBinaryContent() <em>Binary Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBinaryContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected InputStream binaryContent = BINARY_CONTENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +202,27 @@ public class TransformRequestImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public InputStream getBinaryContent() {
+		return binaryContent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBinaryContent(InputStream newBinaryContent) {
+		InputStream oldBinaryContent = binaryContent;
+		binaryContent = newBinaryContent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirrestPackage.TRANSFORM_REQUEST__BINARY_CONTENT, oldBinaryContent, binaryContent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -189,6 +232,8 @@ public class TransformRequestImpl extends MinimalEObjectImpl.Container implement
 				return getContent();
 			case FhirrestPackage.TRANSFORM_REQUEST__OUTPUT_FORMAT:
 				return getOutputFormat();
+			case FhirrestPackage.TRANSFORM_REQUEST__BINARY_CONTENT:
+				return getBinaryContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -209,6 +254,9 @@ public class TransformRequestImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case FhirrestPackage.TRANSFORM_REQUEST__OUTPUT_FORMAT:
 				setOutputFormat((String)newValue);
+				return;
+			case FhirrestPackage.TRANSFORM_REQUEST__BINARY_CONTENT:
+				setBinaryContent((InputStream)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -231,6 +279,9 @@ public class TransformRequestImpl extends MinimalEObjectImpl.Container implement
 			case FhirrestPackage.TRANSFORM_REQUEST__OUTPUT_FORMAT:
 				setOutputFormat(OUTPUT_FORMAT_EDEFAULT);
 				return;
+			case FhirrestPackage.TRANSFORM_REQUEST__BINARY_CONTENT:
+				setBinaryContent(BINARY_CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -249,6 +300,8 @@ public class TransformRequestImpl extends MinimalEObjectImpl.Container implement
 				return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
 			case FhirrestPackage.TRANSFORM_REQUEST__OUTPUT_FORMAT:
 				return OUTPUT_FORMAT_EDEFAULT == null ? outputFormat != null : !OUTPUT_FORMAT_EDEFAULT.equals(outputFormat);
+			case FhirrestPackage.TRANSFORM_REQUEST__BINARY_CONTENT:
+				return BINARY_CONTENT_EDEFAULT == null ? binaryContent != null : !BINARY_CONTENT_EDEFAULT.equals(binaryContent);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -269,6 +322,8 @@ public class TransformRequestImpl extends MinimalEObjectImpl.Container implement
 		result.append(content);
 		result.append(", outputFormat: ");
 		result.append(outputFormat);
+		result.append(", binaryContent: ");
+		result.append(binaryContent);
 		result.append(')');
 		return result.toString();
 	}

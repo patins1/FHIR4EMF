@@ -4,6 +4,7 @@ package fhirrest;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -648,13 +649,22 @@ public interface FhirrestPackage extends EPackage {
 	int TRANSFORM_REQUEST__OUTPUT_FORMAT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Binary Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORM_REQUEST__BINARY_CONTENT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Transform Request</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORM_REQUEST_FEATURE_COUNT = 3;
+	int TRANSFORM_REQUEST_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Transform Request</em>' class.
@@ -685,13 +695,22 @@ public interface FhirrestPackage extends EPackage {
 	int TRANSFORM_RESPONSE__CONTENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Binary Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORM_RESPONSE__BINARY_CONTENT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Transform Response</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORM_RESPONSE_FEATURE_COUNT = 1;
+	int TRANSFORM_RESPONSE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Transform Response</em>' class.
@@ -701,6 +720,28 @@ public interface FhirrestPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRANSFORM_RESPONSE_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '<em>Binary Content</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.io.InputStream
+	 * @see fhirrest.impl.FhirrestPackageImpl#getBinaryContent()
+	 * @generated
+	 */
+	int BINARY_CONTENT = 15;
+
+
+	/**
+	 * The meta object id for the '<em>File Download</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.io.File
+	 * @see fhirrest.impl.FhirrestPackageImpl#getFileDownload()
+	 * @generated
+	 */
+	int FILE_DOWNLOAD = 16;
 
 
 	/**
@@ -1064,6 +1105,17 @@ public interface FhirrestPackage extends EPackage {
 	EAttribute getTransformRequest_OutputFormat();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fhirrest.TransformRequest#getBinaryContent <em>Binary Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Binary Content</em>'.
+	 * @see fhirrest.TransformRequest#getBinaryContent()
+	 * @see #getTransformRequest()
+	 * @generated
+	 */
+	EAttribute getTransformRequest_BinaryContent();
+
+	/**
 	 * Returns the meta object for class '{@link fhirrest.TransformResponse <em>Transform Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1083,6 +1135,39 @@ public interface FhirrestPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTransformResponse_Content();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fhirrest.TransformResponse#getBinaryContent <em>Binary Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Binary Content</em>'.
+	 * @see fhirrest.TransformResponse#getBinaryContent()
+	 * @see #getTransformResponse()
+	 * @generated
+	 */
+	EAttribute getTransformResponse_BinaryContent();
+
+	/**
+	 * Returns the meta object for data type '{@link java.io.InputStream <em>Binary Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Binary Content</em>'.
+	 * @see java.io.InputStream
+	 * @model instanceClass="java.io.InputStream"
+	 * @generated
+	 */
+	EDataType getBinaryContent();
+
+	/**
+	 * Returns the meta object for data type '{@link java.io.File <em>File Download</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>File Download</em>'.
+	 * @see java.io.File
+	 * @model instanceClass="java.io.File"
+	 * @generated
+	 */
+	EDataType getFileDownload();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1408,6 +1493,14 @@ public interface FhirrestPackage extends EPackage {
 		EAttribute TRANSFORM_REQUEST__OUTPUT_FORMAT = eINSTANCE.getTransformRequest_OutputFormat();
 
 		/**
+		 * The meta object literal for the '<em><b>Binary Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORM_REQUEST__BINARY_CONTENT = eINSTANCE.getTransformRequest_BinaryContent();
+
+		/**
 		 * The meta object literal for the '{@link fhirrest.impl.TransformResponseImpl <em>Transform Response</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1424,6 +1517,34 @@ public interface FhirrestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRANSFORM_RESPONSE__CONTENT = eINSTANCE.getTransformResponse_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Binary Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORM_RESPONSE__BINARY_CONTENT = eINSTANCE.getTransformResponse_BinaryContent();
+
+		/**
+		 * The meta object literal for the '<em>Binary Content</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.io.InputStream
+		 * @see fhirrest.impl.FhirrestPackageImpl#getBinaryContent()
+		 * @generated
+		 */
+		EDataType BINARY_CONTENT = eINSTANCE.getBinaryContent();
+
+		/**
+		 * The meta object literal for the '<em>File Download</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.io.File
+		 * @see fhirrest.impl.FhirrestPackageImpl#getFileDownload()
+		 * @generated
+		 */
+		EDataType FILE_DOWNLOAD = eINSTANCE.getFileDownload();
 
 	}
 

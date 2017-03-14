@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FHIR Editor</title>
+<link rel="stylesheet" href="fhir.css" />
+<link rel="stylesheet" href="angular-ui-tree.css">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+<script src="jquery-2.0.3.js"></script>
+<script src="angular.js"></script>
+<script src="angular-ui-tree.js"></script>
+<script src="ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="fhireditor.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" id="appId" class="main">
+	
+	<div id="status">Press buttons to convert between left or right representations !</div>
+	
+<!-- Nested node template -->
+<script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><span
+        class="glyphicon"
+        ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span></a>
+    {{node.title}}
+    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span
+        class="glyphicon glyphicon-remove"></span></a>
+    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span
+        class="glyphicon glyphicon-plus"></span></a>
+  </div>
+  <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+    </li>
+  </ol>
+</script>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Basic Example</h3>
+
+    <button ng-click="expandAll()">Expand all</button>
+    <button ng-click="collapseAll()">Collapse all</button>
+	<button ng-click="loadExample2(this,'?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport.profile.json')">Load diagnosticreport.profile.json</button>
+	<button ng-click="loadExample2(this,'?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/MyQuestionnaire.structuredefinition.json')">Load MyQuestionnaire.structuredefinition.json</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div ui-tree id="tree-root">
+      <ol ui-tree-nodes ng-model="data">
+        <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="info">
+      {{info}}
+    </div>
+    <pre class="code">{{ data | json }}</pre>
+  </div>
+</div>
+	
+</body>
+</html>

@@ -7,6 +7,8 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>fhir-rest.ecore</foreignModel>
   <genPackages prefix="Fhirrest" disposableProviderFactory="true" ecorePackage="fhir-rest.ecore#/">
+    <genDataTypes ecoreDataType="fhir-rest.ecore#//BinaryContent"/>
+    <genDataTypes ecoreDataType="fhir-rest.ecore#//FileDownload"/>
     <genClasses ecoreClass="fhir-rest.ecore#//ReadRequest">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//ReadRequest/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//ReadRequest/id"/>
@@ -50,9 +52,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformRequest/inputFormat"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformRequest/content"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformRequest/outputFormat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformRequest/binaryContent"/>
     </genClasses>
     <genClasses ecoreClass="fhir-rest.ecore#//TransformResponse">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformResponse/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fhir-rest.ecore#//TransformResponse/binaryContent"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

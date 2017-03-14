@@ -6,11 +6,49 @@ var startRestRequest;
 var classInstances = {};
 
 var app = angular.module('myApp', []);
+
+app.directive('bindFile', [function () {
+    return {
+        require: "ngModel",
+        restrict: 'A',
+        link: function ($scope, el, attrs, ngModel) {
+            el.bind('change', function (event) {
+                ngModel.$setViewValue(event.target.files[0]);
+                $scope.$apply();
+            });
+
+            $scope.$watch(function () {
+                return ngModel.$viewValue;
+            }, function (value) {
+                if (!value) {
+                    el.val("");
+                }
+            });
+        }
+    };
+}]);
+
 app.controller('myCtrl', function($scope) {
     $scope.trafoResult = {javaText:'(empty)',csharpText:'(empty)',xpathText:'(empty)'};
     $scope.classNames = [""];
     $scope.packageURIs = ["Loading FHIR types from server.."];
+    $scope.hasFormatInput=function (from) {
+    	var pane = $("#pane"+from).scope();
+    	return pane.FormatIsBinary() ? pane.data : pane.text; 
+    };
 });
+
+
+app.controller('DataSource', function($scope) {
+    $scope.FormatIsBinary=function () { 
+    	return ["BSON","Avro","CBOR","Protobuf","SMILE"].includes($scope.format); 
+    };
+    $scope.clearInputs=function () { 
+    	$scope.data = ""; 
+    	$scope.text = "";
+    };
+});
+
 
 $(function () {
 	$('#packageDropDown').change(loadClassesForPackage);
@@ -64,45 +102,143 @@ function translateOCL() {
 		
 }
 
-function loadExample(type,id,format1,format2) {
-	
+function loadExample(type,id,format1,format2,_format) {
+		if (!_format) _format = "ORIGINAL";
 		performRESTRequest(
-				"ReadRequest&_format=ORIGINAL&type="+type+"&id="+id,
+				"ReadRequest&_format="+_format+"&type="+type+"&id="+id,
 				function(data) {
-					 $("#text1").val(data.content);
-					 $("#text2").val("");
-					 $("#format1").val(format1);
-					 $("#format2").val(format2);
+					var pane1 = $("#pane1").scope();
+					var pane2 = $("#pane2").scope();
+					pane1.text = data.content;
+					pane2.text = "";
+					pane1.format = format1;
+					pane2.format = format2;
+					pane1.$parent.$digest();
 				}
 		);
 		
+}
+
+function loadExample2(url,format1,format2) {
+
+	beforeRequest();
+	$.ajax({
+		//  dataType: "json",
+		  url: url}).done(
+			function(data) {
+				if (updateStatus(data)) {
+					var pane1 = $("#pane1").scope();
+					var pane2 = $("#pane2").scope();
+					pane1.text = data;
+					pane2.text = "";
+					pane1.format = format1;
+					pane2.format = format2;
+					pane1.$parent.$digest();
+				}
+
+			}).fail(failFunction);		
+	
+};
+
+function blobToFile(theBlob, fileName){
+    //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    theBlob.lastModifiedDate = new Date();
+    theBlob.name = fileName;
+    return theBlob;
 }
 
 function transformFHIR(from,to) {
 	
 	beforeRequest();
 
-	var formData = new FormData();
-	formData.append("content", $("#text"+from).val());
+	from = $("#pane"+from).scope();
+	to = $("#pane"+to).scope();
+
+	var endpoint = baseURL + "TransformRequest&inputFormat=" + from.format + "&outputFormat=" + to.format;
 	
-	$.ajax({
-		url : baseURL + "TransformRequest&inputFormat=" + $("#format"+from+" option:selected").text()+"&outputFormat=" + $("#format"+to+" option:selected").text(),
-		data : formData,
-		cache : false,
-		contentType : false,
-		processData : false,
-		type : 'POST',
-		dataType : "json",
-		success : function(data) {
+//	if (to.FormatIsBinary()) {
+//		postByFORM(endpoint, {"content" : from.text});
+//		return;
+//	}
+
+	var formData = new FormData();
+	if (from.FormatIsBinary()) {
+		formData.append("binaryContent", from.data);
+	} else {
+		formData.append("content", from.text);
+	}
+	
+
+	// see http://stackoverflow.com/questions/16086162/handle-file-download-from-ajax-post#answer-23797348
+	// jQuery mangles the binary data!	
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', endpoint, true);
+	if (to.FormatIsBinary()) xhr.responseType = 'arraybuffer';
+	xhr.onload = function () {
+	    if (this.status === 200 && to.FormatIsBinary()) {
+	        var filename = "";
+	        var disposition = xhr.getResponseHeader('Content-Disposition');
+	        if (disposition && disposition.indexOf('attachment') !== -1) {
+	            var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+	            var matches = filenameRegex.exec(disposition);
+	            if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+	        }
+	        var type = xhr.getResponseHeader('Content-Type');
+
+	        var blob = new Blob([this.response], { type: type });
+	        if (typeof window.navigator.msSaveBlob !== 'undefined') {
+	            // IE workaround for "HTML7007: One or more blob URLs were revoked by closing the blob for which they were created. These URLs will no longer resolve as the data backing the URL has been freed."
+	            window.navigator.msSaveBlob(blob, filename);
+	        } else {
+	            var URL = window.URL || window.webkitURL;
+	            var downloadUrl = URL.createObjectURL(blob);
+
+	            if (filename) {
+	                // use HTML5 a[download] attribute to specify filename
+	                var a = document.createElement("a");
+	                // safari doesn't support this yet
+	                if (typeof a.download === 'undefined') {
+	                    window.location = downloadUrl;
+	                } else {
+	                    a.href = downloadUrl;
+	                    a.download = filename;
+	                    document.body.appendChild(a);
+	                    a.click();
+	                    // store resulting file, however input[file] UI is not updated correspondingly 
+	                    var file = blobToFile(blob);
+	                    to.data = file;
+	                    to.$parent.$digest();
+	                }
+	            } else {
+	                window.location = downloadUrl;
+	            }
+
+	            setTimeout(function () { URL.revokeObjectURL(downloadUrl); }, 100); // cleanup
+	        }
+	    } else {
+	    	var str = "";
+	    	if (to.FormatIsBinary()) {
+		        var arr = new Uint8Array(xhr.response);
+		        str = String.fromCharCode.apply(String, arr);
+	    	} else {
+	    		str = xhr.responseText;
+	    	}
+	    	
+	        var data = JSON.parse(str);
+
 			if (updateStatus(data)) {
 				var content = data.content;
-				if ( $("#format"+to+" option:selected").text() == "JSON" ) {
+				if ( to.format == "JSON" ) {
 					content = JSON.stringify(JSON.parse(content), null, 2);
 				}					
-				$("#text"+to).val(content);
+				to.text = content;
+				to.$parent.$digest();
 			}
-		}
-	}).fail(failFunction);
+
+	    }
+	};
+	//xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.send(formData);
 	
 }
 

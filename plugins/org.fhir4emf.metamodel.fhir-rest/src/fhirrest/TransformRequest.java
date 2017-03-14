@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.eclipse.emf.ecore.EObject;
 
 import fhirrest.jaxb.TransformRequestImplAdapter;
+import java.io.InputStream;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +21,7 @@ import fhirrest.jaxb.TransformRequestImplAdapter;
  *   <li>{@link fhirrest.TransformRequest#getInputFormat <em>Input Format</em>}</li>
  *   <li>{@link fhirrest.TransformRequest#getContent <em>Content</em>}</li>
  *   <li>{@link fhirrest.TransformRequest#getOutputFormat <em>Output Format</em>}</li>
+ *   <li>{@link fhirrest.TransformRequest#getBinaryContent <em>Binary Content</em>}</li>
  * </ul>
  *
  * @see fhirrest.FhirrestPackage#getTransformRequest()
@@ -105,5 +107,31 @@ public interface TransformRequest extends EObject {
 	 * @generated
 	 */
 	void setOutputFormat(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Binary Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Binary Content</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Binary Content</em>' attribute.
+	 * @see #setBinaryContent(InputStream)
+	 * @see fhirrest.FhirrestPackage#getTransformRequest_BinaryContent()
+	 * @model dataType="fhirrest.BinaryContent"
+	 * @generated
+	 */
+	InputStream getBinaryContent();
+
+	/**
+	 * Sets the value of the '{@link fhirrest.TransformRequest#getBinaryContent <em>Binary Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Binary Content</em>' attribute.
+	 * @see #getBinaryContent()
+	 * @generated
+	 */
+	void setBinaryContent(InputStream value);
 
 } // TransformRequest

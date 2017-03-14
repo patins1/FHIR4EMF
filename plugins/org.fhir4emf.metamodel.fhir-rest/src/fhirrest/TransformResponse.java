@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.eclipse.emf.ecore.EObject;
 
 import fhirrest.jaxb.TransformResponseImplAdapter;
+import java.io.File;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import fhirrest.jaxb.TransformResponseImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link fhirrest.TransformResponse#getContent <em>Content</em>}</li>
+ *   <li>{@link fhirrest.TransformResponse#getBinaryContent <em>Binary Content</em>}</li>
  * </ul>
  *
  * @see fhirrest.FhirrestPackage#getTransformResponse()
@@ -51,5 +53,31 @@ public interface TransformResponse extends EObject {
 	 * @generated
 	 */
 	void setContent(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Binary Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Binary Content</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Binary Content</em>' attribute.
+	 * @see #setBinaryContent(File)
+	 * @see fhirrest.FhirrestPackage#getTransformResponse_BinaryContent()
+	 * @model dataType="fhirrest.FileDownload"
+	 * @generated
+	 */
+	File getBinaryContent();
+
+	/**
+	 * Sets the value of the '{@link fhirrest.TransformResponse#getBinaryContent <em>Binary Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Binary Content</em>' attribute.
+	 * @see #getBinaryContent()
+	 * @generated
+	 */
+	void setBinaryContent(File value);
 
 } // TransformResponse

@@ -161,7 +161,6 @@ public class DomainResourceImpl extends ResourceImpl implements DomainResource {
 	 */
 	@XmlElement
 	@XmlJavaTypeAdapter(ResourceContainerImplAdapter.class)
-	// @JsonTypeInfo(property = "resourceType", include = JsonTypeInfo.As.EXTERNAL_PROPERTY, use = JsonTypeInfo.Id.NAME)
 	public List<ResourceContainer> getContained() {
 		if (contained == null) {
 			contained = new EObjectContainmentEList<ResourceContainer>(ResourceContainer.class, this, FhirPackage.DOMAIN_RESOURCE__CONTAINED);

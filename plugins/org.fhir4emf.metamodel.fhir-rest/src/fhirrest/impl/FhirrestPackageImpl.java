@@ -20,8 +20,11 @@ import fhirrest.UpdateResponse;
 import fhirrest.VReadRequest;
 import fhirrest.VReadResponse;
 
+import java.io.File;
+import java.io.InputStream;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -142,6 +145,20 @@ public class FhirrestPackageImpl extends EPackageImpl implements FhirrestPackage
 	 * @generated
 	 */
 	private EClass transformResponseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType binaryContentEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType fileDownloadEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -519,6 +536,15 @@ public class FhirrestPackageImpl extends EPackageImpl implements FhirrestPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTransformRequest_BinaryContent() {
+		return (EAttribute)transformRequestEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTransformResponse() {
 		return transformResponseEClass;
 	}
@@ -530,6 +556,33 @@ public class FhirrestPackageImpl extends EPackageImpl implements FhirrestPackage
 	 */
 	public EAttribute getTransformResponse_Content() {
 		return (EAttribute)transformResponseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTransformResponse_BinaryContent() {
+		return (EAttribute)transformResponseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getBinaryContent() {
+		return binaryContentEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getFileDownload() {
+		return fileDownloadEDataType;
 	}
 
 	/**
@@ -607,9 +660,15 @@ public class FhirrestPackageImpl extends EPackageImpl implements FhirrestPackage
 		createEAttribute(transformRequestEClass, TRANSFORM_REQUEST__INPUT_FORMAT);
 		createEAttribute(transformRequestEClass, TRANSFORM_REQUEST__CONTENT);
 		createEAttribute(transformRequestEClass, TRANSFORM_REQUEST__OUTPUT_FORMAT);
+		createEAttribute(transformRequestEClass, TRANSFORM_REQUEST__BINARY_CONTENT);
 
 		transformResponseEClass = createEClass(TRANSFORM_RESPONSE);
 		createEAttribute(transformResponseEClass, TRANSFORM_RESPONSE__CONTENT);
+		createEAttribute(transformResponseEClass, TRANSFORM_RESPONSE__BINARY_CONTENT);
+
+		// Create data types
+		binaryContentEDataType = createEDataType(BINARY_CONTENT);
+		fileDownloadEDataType = createEDataType(FILE_DOWNLOAD);
 	}
 
 	/**
@@ -694,9 +753,15 @@ public class FhirrestPackageImpl extends EPackageImpl implements FhirrestPackage
 		initEAttribute(getTransformRequest_InputFormat(), ecorePackage.getEString(), "inputFormat", null, 0, 1, TransformRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransformRequest_Content(), ecorePackage.getEString(), "content", null, 0, 1, TransformRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransformRequest_OutputFormat(), ecorePackage.getEString(), "outputFormat", null, 0, 1, TransformRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformRequest_BinaryContent(), this.getBinaryContent(), "binaryContent", null, 0, 1, TransformRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transformResponseEClass, TransformResponse.class, "TransformResponse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransformResponse_Content(), ecorePackage.getEString(), "content", null, 0, 1, TransformResponse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformResponse_BinaryContent(), this.getFileDownload(), "binaryContent", null, 0, 1, TransformResponse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(binaryContentEDataType, InputStream.class, "BinaryContent", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(fileDownloadEDataType, File.class, "FileDownload", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

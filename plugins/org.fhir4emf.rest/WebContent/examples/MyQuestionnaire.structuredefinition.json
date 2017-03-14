@@ -1,0 +1,5379 @@
+{
+  "resourceType": "StructureDefinition",
+  "meta": {
+    "lastUpdated": "2017-03-14T01:17:43.365+0000"
+  },
+  "date": "2017-03-14T00:14:07.863+0000",
+  "snapshot": {
+    "element": [
+      {
+        "definition": "A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Resource",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "A structured set of questions",
+        "path": "Questionnaire",
+        "alias": [
+          "Form",
+          "CRF",
+          "Survey"
+        ],
+        "type": [
+          {
+            "code": "DomainResource"
+          }
+        ],
+        "constraint": [
+          {
+            "xpath": "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+            "extension": [
+              {
+                "valueString": "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "dom-4",
+            "severity": "error",
+            "human": "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"
+          },
+          {
+            "xpath": "not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat('#', $id))]))",
+            "extension": [
+              {
+                "valueString": "contained.where(('#'+id in %resource.descendants().reference).not()).empty()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "dom-3",
+            "severity": "error",
+            "human": "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource"
+          },
+          {
+            "xpath": "not(parent::f:contained and f:contained)",
+            "extension": [
+              {
+                "valueString": "contained.contained.empty()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "dom-2",
+            "severity": "error",
+            "human": "If the resource is contained in another resource, it SHALL NOT contain nested Resources"
+          },
+          {
+            "xpath": "not(parent::f:contained and f:text)",
+            "extension": [
+              {
+                "valueString": "contained.text.empty()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "dom-1",
+            "severity": "error",
+            "human": "If the resource is contained in another resource, it SHALL NOT contain any narrative"
+          },
+          {
+            "xpath": "f:group/f:required/@value=true()",
+            "extension": [
+              {
+                "valueString": "group.required = true",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "que-3",
+            "severity": "error",
+            "human": "If root group must be \"required\""
+          },
+          {
+            "xpath": "count(descendant::f:linkId/@value)=count(distinct-values(descendant::f:linkId/@value))",
+            "extension": [
+              {
+                "valueString": "descendants().linkId.isDistinct()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "que-2",
+            "severity": "error",
+            "human": "The link ids for groups and questions must be unique within the questionnaire"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "Entity. Role, or Act"
+          },
+          {
+            "identity": "rim",
+            "map": "Observation[moodCode=DEF]"
+          },
+          {
+            "identity": "w5",
+            "map": "infrastructure.information"
+          }
+        ]
+      },
+      {
+        "definition": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "comments": "The only time that a resource does not have an id is when it is being submitted to the server using a create operation. Bundles always have an id, though it is usually a generated UUID.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.id",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Logical id of this artifact",
+        "path": "Questionnaire.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.meta",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Metadata about the resource",
+        "path": "Questionnaire.meta",
+        "type": [
+          {
+            "code": "Meta"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.",
+        "comments": "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.implicitRules",
+          "min": 0,
+          "max": "1"
+        },
+        "isModifier": true,
+        "isSummary": true,
+        "short": "A set of rules under which this content was created",
+        "path": "Questionnaire.implicitRules",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "The base language in which the resource is written.",
+        "comments": "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.language",
+          "min": 0,
+          "max": "1"
+        },
+        "binding": {
+          "description": "A human language.",
+          "valueSetUri": "http://tools.ietf.org/html/bcp47",
+          "strength": "required"
+        },
+        "short": "Language of the resource content",
+        "path": "Questionnaire.language",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+        "comments": "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "DomainResource.text",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "Text summary of the resource, for human interpretation",
+        "path": "Questionnaire.text",
+        "alias": [
+          "narrative",
+          "html",
+          "xhtml",
+          "display"
+        ],
+        "type": [
+          {
+            "code": "Narrative"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "dom-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          },
+          {
+            "identity": "rim",
+            "map": "Act.text?"
+          }
+        ]
+      },
+      {
+        "definition": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
+        "comments": "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.contained",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Contained, inline Resources",
+        "path": "Questionnaire.contained",
+        "alias": [
+          "inline resources",
+          "anonymous resources",
+          "contained resources"
+        ],
+        "type": [
+          {
+            "code": "Resource"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "Entity. Role, or Act"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.modifierExtension",
+          "min": 0,
+          "max": "*"
+        },
+        "isModifier": true,
+        "short": "Extensions that cannot be ignored",
+        "path": "Questionnaire.modifierExtension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "This records identifiers associated with this question set that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).",
+        "requirements": "Need to allow connection to a wider workflow.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Questionnaire.identifier",
+          "min": 0,
+          "max": "*"
+        },
+        "isSummary": true,
+        "short": "External identifiers for this questionnaire",
+        "path": "Questionnaire.identifier",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "CX / EI (occasionally, more often EI maps to a resource id or a URL)"
+          },
+          {
+            "identity": "rim",
+            "map": "II - see see identifier pattern at http://wiki.hl7.org/index.php?title=Common_Design_Patterns#Identifier_Pattern for relevant discussion. The Identifier class is a little looser than the v3 type II because it allows URIs as well as registered OIDs or GUIDs.  Also maps to Role[classCode=IDENT]"
+          },
+          {
+            "identity": "servd",
+            "map": "Identifier"
+          },
+          {
+            "identity": "rim",
+            "map": ".id[use=BUS]"
+          },
+          {
+            "identity": "w5",
+            "map": "id"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.identifier.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.identifier.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "The purpose of this identifier.",
+        "comments": "This is labeled as \"Is Modifier\" because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary.",
+        "requirements": "Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Identifier.use",
+          "min": 0,
+          "max": "1"
+        },
+        "isModifier": true,
+        "isSummary": true,
+        "binding": {
+          "description": "Identifies the purpose for this identifier, if known .",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/identifier-use"
+          },
+          "strength": "required"
+        },
+        "short": "usual | official | temp | secondary (If known)",
+        "path": "Questionnaire.identifier.use",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "N/A"
+          },
+          {
+            "identity": "rim",
+            "map": "Role.code or implied by context"
+          }
+        ]
+      },
+      {
+        "definition": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+        "comments": "This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type.",
+        "requirements": "Allows users to make use of identifiers when the identifier system is not known.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Identifier.type",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "binding": {
+          "description": "A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/identifier-type"
+          },
+          "strength": "extensible"
+        },
+        "short": "Description of identifier",
+        "path": "Questionnaire.identifier.type",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "CE/CNE/CWE"
+          },
+          {
+            "identity": "rim",
+            "map": "CD"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:CodeableConcept rdfs:subClassOf dt:CD"
+          },
+          {
+            "identity": "v2",
+            "map": "CX.5"
+          },
+          {
+            "identity": "rim",
+            "map": "Role.code or implied by context"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.identifier.type.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.identifier.type.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "A reference to a code defined by a terminology system.",
+        "comments": "Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true.",
+        "requirements": "Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "CodeableConcept.coding",
+          "min": 0,
+          "max": "*"
+        },
+        "isSummary": true,
+        "short": "Code defined by a terminology system",
+        "path": "Questionnaire.identifier.type.coding",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "CE/CNE/CWE subset one of the sets of component 1-3 or 4-6"
+          },
+          {
+            "identity": "rim",
+            "map": "CV"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding rdfs:subClassOf dt:CDCoding"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.1-8, C*E.10-22"
+          },
+          {
+            "identity": "rim",
+            "map": "union(., ./translation)"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.identifier.type.coding.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.identifier.type.coding.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "The identification of the code system that defines the meaning of the symbol in the code.",
+        "comments": "The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously.",
+        "requirements": "Need to be unambiguous about the source of the definition of the symbol.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.system",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Identity of the terminology system",
+        "path": "Questionnaire.identifier.type.coding.system",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.3"
+          },
+          {
+            "identity": "rim",
+            "map": "./codeSystem"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.system rdfs:subPropertyOf dt:CDCoding.codeSystem"
+          }
+        ]
+      },
+      {
+        "definition": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+        "comments": "Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.version",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Version of the system - if relevant",
+        "path": "Questionnaire.identifier.type.coding.version",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.7"
+          },
+          {
+            "identity": "rim",
+            "map": "./codeSystemVersion"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.version rdfs:subPropertyOf dt:CDCoding.codeSystemVersion"
+          }
+        ]
+      },
+      {
+        "definition": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "Need to refer to a particular code in the system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.code",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Symbol in syntax defined by the system",
+        "path": "Questionnaire.identifier.type.coding.code",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.1"
+          },
+          {
+            "identity": "rim",
+            "map": "./code"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.code rdfs:subPropertyOf dt:CDCoding.code"
+          }
+        ]
+      },
+      {
+        "definition": "A representation of the meaning of the code in the system, following the rules of the system.",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "Need to be able to carry a human-readable meaning of the code for readers that do not know  the system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.display",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Representation defined by the system",
+        "path": "Questionnaire.identifier.type.coding.display",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.2 - but note this is not well followed"
+          },
+          {
+            "identity": "rim",
+            "map": "CV.displayName"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.display rdfs:subPropertyOf dt:CDCoding.displayName"
+          }
+        ]
+      },
+      {
+        "definition": "Indicates that this coding was chosen by a user directly - i.e. off a pick list of available items (codes or displays).",
+        "comments": "Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely.",
+        "requirements": "This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.userSelected",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "If this coding was chosen directly by the user",
+        "path": "Questionnaire.identifier.type.coding.userSelected",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "Sometimes implied by being first"
+          },
+          {
+            "identity": "rim",
+            "map": "CD.codingRationale"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.userSelected fhir:mapsTo dt:CDCoding.codingRationale. fhir:Coding.userSelected fhir:hasMap fhir:Coding.userSelected.map. fhir:Coding.userSelected.map a fhir:Map;   fhir:target dt:CDCoding.codingRationale. fhir:Coding.userSelected\\#true a [     fhir:source \"true\";     fhir:target dt:CDCoding.codingRationale\\#O   ]"
+          }
+        ]
+      },
+      {
+        "definition": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+        "comments": "Very often the text is the same as a displayName of one of the codings.",
+        "requirements": "The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "CodeableConcept.text",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Plain text representation of the concept",
+        "path": "Questionnaire.identifier.type.text",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.9. But note many systems use C*E.2 for this"
+          },
+          {
+            "identity": "rim",
+            "map": "./originalText[mediaType/code=\"text/plain\"]/data"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText"
+          }
+        ]
+      },
+      {
+        "definition": "Establishes the namespace in which set of possible id values is unique.",
+        "comments": "see http://en.wikipedia.org/wiki/Uniform_resource_identifier",
+        "requirements": "There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Identifier.system",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "The namespace for the identifier",
+        "path": "Questionnaire.identifier.system",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "CX.4 / EI-2-4"
+          },
+          {
+            "identity": "rim",
+            "map": "II.root or Role.id.root"
+          },
+          {
+            "identity": "servd",
+            "map": "./IdentifierType"
+          }
+        ]
+      },
+      {
+        "definition": "The portion of the identifier typically displayed to the user and which is unique within the context of the system.",
+        "comments": "If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Identifier.value",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "The value that is unique",
+        "path": "Questionnaire.identifier.value",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "CX.1 / EI.1"
+          },
+          {
+            "identity": "rim",
+            "map": "II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)"
+          },
+          {
+            "identity": "servd",
+            "map": "./Value"
+          }
+        ]
+      },
+      {
+        "definition": "Time period during which identifier is/was valid for use.",
+        "comments": "This is not a duration - that's a measure of time (a separate type), but a duration that occurs at a fixed value of time. A Period specifies a range of time; the context of use will specify whether the entire range applies (e.g. \"the patient was an inpatient of the hospital for this time range\") or one value from the range applies (e.g. \"give to the patient between these two times\"). If duration is required, specify the type as Interval|Duration.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Identifier.period",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Time period when id is/was valid for use",
+        "path": "Questionnaire.identifier.period",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          },
+          {
+            "xpath": "not(exists(f:start)) or not(exists(f:end)) or (f:start/@value <= f:end/@value)",
+            "extension": [
+              {
+                "valueString": "start.empty() or end.empty() or (start <= end)",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "per-1",
+            "severity": "error",
+            "human": "If present, start SHALL have a lower value than end"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "DR"
+          },
+          {
+            "identity": "rim",
+            "map": "IVL<TS>[lowClosed=\"true\" and highClosed=\"true\"] or URG<TS>[lowClosed=\"true\" and highClosed=\"true\"]"
+          },
+          {
+            "identity": "v2",
+            "map": "CX.7 + CX.8"
+          },
+          {
+            "identity": "rim",
+            "map": "Role.effectiveTime or implied by context"
+          },
+          {
+            "identity": "servd",
+            "map": "./StartDate and ./EndDate"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.identifier.period.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.identifier.period.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "The start of the period. The boundary is inclusive.",
+        "comments": "If the low element is missing, the meaning is that the low boundary is not known.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Period.start",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Starting time with inclusive boundary",
+        "path": "Questionnaire.identifier.period.start",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "per-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "DR.1"
+          },
+          {
+            "identity": "rim",
+            "map": "./low"
+          }
+        ]
+      },
+      {
+        "definition": "The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
+        "comments": "The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has a end value of 2012-02-03.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Period.end",
+          "min": 0,
+          "max": "1"
+        },
+        "meaningWhenMissing": "If the end of the period is missing, it means that the period is ongoing",
+        "isSummary": true,
+        "short": "End time with inclusive boundary, if not ongoing",
+        "path": "Questionnaire.identifier.period.end",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "per-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "DR.2"
+          },
+          {
+            "identity": "rim",
+            "map": "./high"
+          }
+        ]
+      },
+      {
+        "definition": "Organization that issued/manages the identifier.",
+        "comments": "The reference may be just a text description of the assigner.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Identifier.assigner",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Organization that issued id (may be just text)",
+        "path": "Questionnaire.identifier.assigner",
+        "type": [
+          {
+            "profile": "http://hl7.org/fhir/StructureDefinition/Organization",
+            "code": "Reference"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          },
+          {
+            "xpath": "not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])",
+            "extension": [
+              {
+                "valueString": "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ref-1",
+            "severity": "error",
+            "human": "SHALL have a local reference if the resource is provided inline"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "The target of a resource reference is a RIM entry point (Act, Role, or Entity)"
+          },
+          {
+            "identity": "v2",
+            "map": "CX.4 / (CX.4,CX.9,CX.10)"
+          },
+          {
+            "identity": "rim",
+            "map": "II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper"
+          },
+          {
+            "identity": "servd",
+            "map": "./IdentifierIssuingAuthority"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.identifier.assigner.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.identifier.assigner.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+        "comments": "Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure \"/[type]/[id]\" then it should be assumed that the reference is to a FHIR RESTful server.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Reference.reference",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Relative, internal or absolute URL reference",
+        "path": "Questionnaire.identifier.assigner.reference",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "ref-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "Plain text narrative that identifies the resource in addition to the resource reference.",
+        "comments": "This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Reference.display",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Text alternative for the resource",
+        "path": "Questionnaire.identifier.assigner.display",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "In some cases, separate resource instances might be created for each version (if an older version can be maintained once a new version exists).",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.version",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Logical identifier for this version of Questionnaire",
+        "path": "Questionnaire.version",
+        "alias": [
+          "N/A - MIF rather than RIM level"
+        ],
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".id[use=VER]"
+          },
+          {
+            "identity": "w5",
+            "map": "id.version"
+          }
+        ]
+      },
+      {
+        "definition": "The lifecycle status of the questionnaire as a whole.",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.status",
+          "min": 1,
+          "max": "1"
+        },
+        "isModifier": true,
+        "isSummary": true,
+        "binding": {
+          "description": "Lifecycle status of the questionnaire.",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/questionnaire-status"
+          },
+          "strength": "required"
+        },
+        "short": "draft | published | retired",
+        "path": "Questionnaire.status",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".statusCode (also whether there's a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)"
+          },
+          {
+            "identity": "w5",
+            "map": "status"
+          }
+        ]
+      },
+      {
+        "definition": "The date that this questionnaire was last changed.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.date",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Date this version was authored",
+        "path": "Questionnaire.date",
+        "alias": [
+          "Date created",
+          "Date published",
+          "Date issued",
+          "Date updated"
+        ],
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".participation[typeCode=AUT].time"
+          },
+          {
+            "identity": "w5",
+            "map": "when.recorded"
+          }
+        ]
+      },
+      {
+        "definition": "Organization or person responsible for developing and maintaining the questionnaire.",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "Conveys responsibility for the questions and their organization and also helps evaluate the questionnaire's \"authority\".",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.publisher",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Organization/individual who designed the questionnaire",
+        "path": "Questionnaire.publisher",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".participation[typeCode=AUT].role"
+          },
+          {
+            "identity": "w5",
+            "map": "who.witness"
+          }
+        ]
+      },
+      {
+        "definition": "Contact details to assist a user in finding and communicating with the publisher.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Questionnaire.telecom",
+          "min": 0,
+          "max": "*"
+        },
+        "isSummary": true,
+        "short": "Contact information of the publisher",
+        "path": "Questionnaire.telecom",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          },
+          {
+            "xpath": "not(exists(f:value)) or exists(f:system)",
+            "extension": [
+              {
+                "valueString": "value.empty() or system",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "cpt-2",
+            "severity": "error",
+            "human": "A system is required if a value is provided."
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "XTN"
+          },
+          {
+            "identity": "rim",
+            "map": "TEL"
+          },
+          {
+            "identity": "servd",
+            "map": "ContactPoint"
+          },
+          {
+            "identity": "rim",
+            "map": ".participation[typeCode=AUT].role.telecom"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.telecom.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.telecom.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "Telecommunications form for contact point - what communications system is required to make use of the contact.",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "ContactPoint.system",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "binding": {
+          "description": "Telecommunications form for contact point",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/contact-point-system"
+          },
+          "strength": "required"
+        },
+        "short": "phone | fax | email | pager | other",
+        "path": "Questionnaire.telecom.system",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "cpt-2"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "XTN.3"
+          },
+          {
+            "identity": "rim",
+            "map": "./scheme"
+          },
+          {
+            "identity": "servd",
+            "map": "./ContactPointType"
+          }
+        ]
+      },
+      {
+        "definition": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).",
+        "comments": "Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value.",
+        "requirements": "Need to support legacy numbers that are not in a tightly controlled format.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "ContactPoint.value",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "The actual contact point details",
+        "path": "Questionnaire.telecom.value",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "XTN.1 (or XTN.12)"
+          },
+          {
+            "identity": "rim",
+            "map": "./url"
+          },
+          {
+            "identity": "servd",
+            "map": "./Value"
+          }
+        ]
+      },
+      {
+        "definition": "Identifies the purpose for the contact point.",
+        "comments": "This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old contact etc.for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old.",
+        "requirements": "Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "ContactPoint.use",
+          "min": 0,
+          "max": "1"
+        },
+        "isModifier": true,
+        "isSummary": true,
+        "binding": {
+          "description": "Use of contact point",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/contact-point-use"
+          },
+          "strength": "required"
+        },
+        "short": "home | work | temp | old | mobile - purpose of this contact point",
+        "path": "Questionnaire.telecom.use",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "XTN.2 - but often indicated by field"
+          },
+          {
+            "identity": "rim",
+            "map": "unique(./use)"
+          },
+          {
+            "identity": "servd",
+            "map": "./ContactPointPurpose"
+          }
+        ]
+      },
+      {
+        "definition": "Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.",
+        "comments": "Note that rank does not necessarily follow the order in which the contacts are represented in the instance.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "ContactPoint.rank",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Specify preferred order of use (1 = highest)",
+        "path": "Questionnaire.telecom.rank",
+        "type": [
+          {
+            "code": "positiveInt"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "Time period when the contact point was/is in use.",
+        "comments": "This is not a duration - that's a measure of time (a separate type), but a duration that occurs at a fixed value of time. A Period specifies a range of time; the context of use will specify whether the entire range applies (e.g. \"the patient was an inpatient of the hospital for this time range\") or one value from the range applies (e.g. \"give to the patient between these two times\"). If duration is required, specify the type as Interval|Duration.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "ContactPoint.period",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Time period when the contact point was/is in use",
+        "path": "Questionnaire.telecom.period",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          },
+          {
+            "xpath": "not(exists(f:start)) or not(exists(f:end)) or (f:start/@value <= f:end/@value)",
+            "extension": [
+              {
+                "valueString": "start.empty() or end.empty() or (start <= end)",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "per-1",
+            "severity": "error",
+            "human": "If present, start SHALL have a lower value than end"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "DR"
+          },
+          {
+            "identity": "rim",
+            "map": "IVL<TS>[lowClosed=\"true\" and highClosed=\"true\"] or URG<TS>[lowClosed=\"true\" and highClosed=\"true\"]"
+          },
+          {
+            "identity": "v2",
+            "map": "N/A"
+          },
+          {
+            "identity": "rim",
+            "map": "./useablePeriod[type=\"IVL<TS>\"]"
+          },
+          {
+            "identity": "servd",
+            "map": "./StartDate and ./EndDate"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.telecom.period.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.telecom.period.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "The start of the period. The boundary is inclusive.",
+        "comments": "If the low element is missing, the meaning is that the low boundary is not known.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Period.start",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Starting time with inclusive boundary",
+        "path": "Questionnaire.telecom.period.start",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "per-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "DR.1"
+          },
+          {
+            "identity": "rim",
+            "map": "./low"
+          }
+        ]
+      },
+      {
+        "definition": "The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
+        "comments": "The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has a end value of 2012-02-03.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Period.end",
+          "min": 0,
+          "max": "1"
+        },
+        "meaningWhenMissing": "If the end of the period is missing, it means that the period is ongoing",
+        "isSummary": true,
+        "short": "End time with inclusive boundary, if not ongoing",
+        "path": "Questionnaire.telecom.period.end",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "per-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "DR.2"
+          },
+          {
+            "identity": "rim",
+            "map": "./high"
+          }
+        ]
+      },
+      {
+        "definition": "Identifies the types of subjects that can be the subject of the questionnaire.",
+        "comments": "If none are specified, then the subject is unlimited.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Questionnaire.subjectType",
+          "min": 0,
+          "max": "*"
+        },
+        "isSummary": true,
+        "binding": {
+          "description": "One of the resource types defined as part of FHIR.",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/resource-types"
+          },
+          "strength": "required"
+        },
+        "short": "Resource that can be subject of QuestionnaireResponse",
+        "path": "Questionnaire.subjectType",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode"
+          }
+        ]
+      },
+      {
+        "definition": "A collection of related questions (or further groupings of questions).",
+        "comments": "The Questionnaire itself has one \"root\" group with the actual contents of the Questionnaire.  Information on this root group applies to the questionnaire as a whole.",
+        "requirements": "Need to be able to logically group answers to grouped questions.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group",
+          "min": 1,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Grouped questions",
+        "extension": [
+          {
+            "valueString": "Group",
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+          }
+        ],
+        "path": "Questionnaire.group",
+        "alias": [
+          "Section"
+        ],
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "que-3"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          },
+          {
+            "xpath": "not(exists(f:group) and exists(f:question))",
+            "extension": [
+              {
+                "valueString": "group.empty() or question.empty()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "que-1",
+            "severity": "error",
+            "human": "Groups may either contain questions or groups but not both"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.group.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.group.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "BackboneElement.modifierExtension",
+          "min": 0,
+          "max": "*"
+        },
+        "isModifier": true,
+        "short": "Extensions that cannot be ignored",
+        "path": "Questionnaire.group.modifierExtension",
+        "alias": [
+          "extensions",
+          "user content",
+          "modifiers"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "An identifier that is unique within the Questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.",
+        "comments": "May be omitted if there is no expectation to link answers back to a questionnaire.  This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.",
+        "requirements": "[[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.linkId",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "To link questionnaire with questionnaire response",
+        "path": "Questionnaire.group.linkId",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".id"
+          }
+        ]
+      },
+      {
+        "definition": "The human-readable name for this section of the questionnaire.",
+        "comments": "The title of the \"root\" group is the title for the questionnaire.",
+        "requirements": "When including text for the questionnaire with the answers, sections may have a section header.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.title",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Name to be displayed for group",
+        "path": "Questionnaire.group.title",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".title"
+          }
+        ]
+      },
+      {
+        "definition": "Identifies a how this group of questions is known in a particular terminology such as LOINC.",
+        "comments": "The code(s) for the \"root\" group apply to the questionnaire as a whole.",
+        "requirements": "Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Questionnaire.group.concept",
+          "min": 0,
+          "max": "*"
+        },
+        "isSummary": true,
+        "binding": {
+          "description": "Codes for groupings of questionnaire questions.",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/questionnaire-questions"
+          },
+          "strength": "example"
+        },
+        "short": "Concept that represents this section in a questionnaire",
+        "path": "Questionnaire.group.concept",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "CE/CNE/CWE subset one of the sets of component 1-3 or 4-6"
+          },
+          {
+            "identity": "rim",
+            "map": "CV"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding rdfs:subClassOf dt:CDCoding"
+          },
+          {
+            "identity": "rim",
+            "map": ".code"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.group.concept.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.group.concept.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "The identification of the code system that defines the meaning of the symbol in the code.",
+        "comments": "The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously.",
+        "requirements": "Need to be unambiguous about the source of the definition of the symbol.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.system",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Identity of the terminology system",
+        "path": "Questionnaire.group.concept.system",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.3"
+          },
+          {
+            "identity": "rim",
+            "map": "./codeSystem"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.system rdfs:subPropertyOf dt:CDCoding.codeSystem"
+          }
+        ]
+      },
+      {
+        "definition": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+        "comments": "Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.version",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Version of the system - if relevant",
+        "path": "Questionnaire.group.concept.version",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.7"
+          },
+          {
+            "identity": "rim",
+            "map": "./codeSystemVersion"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.version rdfs:subPropertyOf dt:CDCoding.codeSystemVersion"
+          }
+        ]
+      },
+      {
+        "definition": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "Need to refer to a particular code in the system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.code",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Symbol in syntax defined by the system",
+        "path": "Questionnaire.group.concept.code",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.1"
+          },
+          {
+            "identity": "rim",
+            "map": "./code"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.code rdfs:subPropertyOf dt:CDCoding.code"
+          }
+        ]
+      },
+      {
+        "definition": "A representation of the meaning of the code in the system, following the rules of the system.",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "Need to be able to carry a human-readable meaning of the code for readers that do not know  the system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.display",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Representation defined by the system",
+        "path": "Questionnaire.group.concept.display",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.2 - but note this is not well followed"
+          },
+          {
+            "identity": "rim",
+            "map": "CV.displayName"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.display rdfs:subPropertyOf dt:CDCoding.displayName"
+          }
+        ]
+      },
+      {
+        "definition": "Indicates that this coding was chosen by a user directly - i.e. off a pick list of available items (codes or displays).",
+        "comments": "Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely.",
+        "requirements": "This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.userSelected",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "If this coding was chosen directly by the user",
+        "path": "Questionnaire.group.concept.userSelected",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "Sometimes implied by being first"
+          },
+          {
+            "identity": "rim",
+            "map": "CD.codingRationale"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.userSelected fhir:mapsTo dt:CDCoding.codingRationale. fhir:Coding.userSelected fhir:hasMap fhir:Coding.userSelected.map. fhir:Coding.userSelected.map a fhir:Map;   fhir:target dt:CDCoding.codingRationale. fhir:Coding.userSelected\\#true a [     fhir:source \"true\";     fhir:target dt:CDCoding.codingRationale\\#O   ]"
+          }
+        ]
+      },
+      {
+        "definition": "Additional text for the group, used for display purposes.",
+        "comments": "Common extensions are defined for more specialized types of display text.",
+        "requirements": "When including text for the questionnaire, each section may contain additional explanations are background text.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.text",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "Additional text for the group",
+        "path": "Questionnaire.group.text",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".text"
+          }
+        ]
+      },
+      {
+        "definition": "If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.required",
+          "min": 0,
+          "max": "1"
+        },
+        "defaultValueBoolean": false,
+        "short": "Whether the group must be included in data results",
+        "path": "Questionnaire.group.required",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "Not supported - MIF/templating layer"
+          }
+        ]
+      },
+      {
+        "definition": "Whether the group may occur multiple times in the instance, containing multiple sets of answers.",
+        "requirements": "Groups may be used to create set of (related) questions that can be repeated to give multiple answers to such a set.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.repeats",
+          "min": 0,
+          "max": "1"
+        },
+        "defaultValueBoolean": false,
+        "short": "Whether the group may repeat",
+        "path": "Questionnaire.group.repeats",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "Not supported - MIF/templating layer"
+          }
+        ]
+      },
+      {
+        "definition": "A sub-group within a group. The ordering of groups within this group is relevant.",
+        "requirements": "Reports can consist of complex nested groups.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Questionnaire.group.group",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Nested questionnaire group",
+        "path": "Questionnaire.group.group",
+        "condition": [
+          "que-1"
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]"
+          }
+        ]
+      },
+      {
+        "definition": "Set of questions within this group. The order of questions within the group is relevant.",
+        "requirements": "Must register answers to questions.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Questionnaire.group.question",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Questions in this group",
+        "extension": [
+          {
+            "valueString": "Question",
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+          }
+        ],
+        "path": "Questionnaire.group.question",
+        "alias": [
+          "Responses",
+          "Contents"
+        ],
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "que-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          },
+          {
+            "xpath": "not(f:options and f:option)",
+            "extension": [
+              {
+                "valueString": "option.empty() or options.empty()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "que-4",
+            "severity": "error",
+            "human": "A question must use either option or options, not both"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN or DEF]"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.group.question.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.group.question.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "BackboneElement.modifierExtension",
+          "min": 0,
+          "max": "*"
+        },
+        "isModifier": true,
+        "short": "Extensions that cannot be ignored",
+        "path": "Questionnaire.group.question.modifierExtension",
+        "alias": [
+          "extensions",
+          "user content",
+          "modifiers"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.",
+        "comments": "May be omitted if there is no expectation to link answers back to a questionnaire.  This *can* be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.",
+        "requirements": "[[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.question.linkId",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "To link questionnaire with questionnaire response",
+        "path": "Questionnaire.group.question.linkId",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".id"
+          }
+        ]
+      },
+      {
+        "definition": "Identifies a how this question is known in a particular terminology such as LOINC.",
+        "comments": "Codes may be defined very casually in enumerations or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.",
+        "requirements": "Allows linking of questions (and their answers) to formal terminologies.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Questionnaire.group.question.concept",
+          "min": 0,
+          "max": "*"
+        },
+        "isSummary": true,
+        "binding": {
+          "description": "Codes corresponding to individual questions.",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/questionnaire-questions"
+          },
+          "strength": "example"
+        },
+        "short": "Concept that represents this question on a questionnaire",
+        "path": "Questionnaire.group.question.concept",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "CE/CNE/CWE subset one of the sets of component 1-3 or 4-6"
+          },
+          {
+            "identity": "rim",
+            "map": "CV"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding rdfs:subClassOf dt:CDCoding"
+          },
+          {
+            "identity": "rim",
+            "map": ".code"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.group.question.concept.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.group.question.concept.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "The identification of the code system that defines the meaning of the symbol in the code.",
+        "comments": "The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously.",
+        "requirements": "Need to be unambiguous about the source of the definition of the symbol.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.system",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Identity of the terminology system",
+        "path": "Questionnaire.group.question.concept.system",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.3"
+          },
+          {
+            "identity": "rim",
+            "map": "./codeSystem"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.system rdfs:subPropertyOf dt:CDCoding.codeSystem"
+          }
+        ]
+      },
+      {
+        "definition": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+        "comments": "Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.version",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Version of the system - if relevant",
+        "path": "Questionnaire.group.question.concept.version",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.7"
+          },
+          {
+            "identity": "rim",
+            "map": "./codeSystemVersion"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.version rdfs:subPropertyOf dt:CDCoding.codeSystemVersion"
+          }
+        ]
+      },
+      {
+        "definition": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "Need to refer to a particular code in the system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.code",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Symbol in syntax defined by the system",
+        "path": "Questionnaire.group.question.concept.code",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.1"
+          },
+          {
+            "identity": "rim",
+            "map": "./code"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.code rdfs:subPropertyOf dt:CDCoding.code"
+          }
+        ]
+      },
+      {
+        "definition": "A representation of the meaning of the code in the system, following the rules of the system.",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "Need to be able to carry a human-readable meaning of the code for readers that do not know  the system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.display",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Representation defined by the system",
+        "path": "Questionnaire.group.question.concept.display",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.2 - but note this is not well followed"
+          },
+          {
+            "identity": "rim",
+            "map": "CV.displayName"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.display rdfs:subPropertyOf dt:CDCoding.displayName"
+          }
+        ]
+      },
+      {
+        "definition": "Indicates that this coding was chosen by a user directly - i.e. off a pick list of available items (codes or displays).",
+        "comments": "Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely.",
+        "requirements": "This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.userSelected",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "If this coding was chosen directly by the user",
+        "path": "Questionnaire.group.question.concept.userSelected",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "Sometimes implied by being first"
+          },
+          {
+            "identity": "rim",
+            "map": "CD.codingRationale"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.userSelected fhir:mapsTo dt:CDCoding.codingRationale. fhir:Coding.userSelected fhir:hasMap fhir:Coding.userSelected.map. fhir:Coding.userSelected.map a fhir:Map;   fhir:target dt:CDCoding.codingRationale. fhir:Coding.userSelected\\#true a [     fhir:source \"true\";     fhir:target dt:CDCoding.codingRationale\\#O   ]"
+          }
+        ]
+      },
+      {
+        "definition": "The actual question as shown to the user to prompt them for an answer.",
+        "comments": "Common extensions are defined for more specialized types of display text.",
+        "requirements": "When including text for the questionnaire, each question may contain its actual question display text.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.question.text",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "Text of the question as it is shown to the user",
+        "path": "Questionnaire.group.question.text",
+        "alias": [
+          "Question"
+        ],
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": ".code.display"
+          }
+        ]
+      },
+      {
+        "definition": "The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.",
+        "comments": "Additional constraints on the type of answer can be conveyed by extensions.",
+        "requirements": "Defines the format in which the user is to be prompted for the answer.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.question.type",
+          "min": 0,
+          "max": "1"
+        },
+        "binding": {
+          "description": "The expected format of an answer.",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/answer-format"
+          },
+          "strength": "required"
+        },
+        "short": "boolean | decimal | integer | date | dateTime +",
+        "path": "Questionnaire.group.question.type",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A - MIF rather than RIM level"
+          }
+        ]
+      },
+      {
+        "definition": "If true, indicates that the question must be answered and have required groups within it also present.  If false, the question and any contained groups may be skipped when answering the questionnaire.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.question.required",
+          "min": 0,
+          "max": "1"
+        },
+        "defaultValueBoolean": false,
+        "short": "Whether the question must be answered in data results",
+        "path": "Questionnaire.group.question.required",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "Not supported - MIF/templating layer"
+          }
+        ]
+      },
+      {
+        "definition": "If true, the question may have more than one answer.",
+        "comments": "Whether the question itself will be displayed for each answer is a rendering choice typically based on whether there are nested groups.",
+        "requirements": "Used for \"check all that apply\" types of questions or \"list your top 3\", etc.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.question.repeats",
+          "min": 0,
+          "max": "1"
+        },
+        "defaultValueBoolean": false,
+        "short": "Whether the question  can have multiple answers",
+        "path": "Questionnaire.group.question.repeats",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "Not supported - MIF/templating layer"
+          }
+        ]
+      },
+      {
+        "definition": "Reference to a value set containing a list of codes representing permitted answers for the question.",
+        "comments": "LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist).",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Questionnaire.group.question.options",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Valueset containing permitted answers",
+        "path": "Questionnaire.group.question.options",
+        "type": [
+          {
+            "profile": "http://hl7.org/fhir/StructureDefinition/ValueSet",
+            "code": "Reference"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "que-4"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          },
+          {
+            "xpath": "not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])",
+            "extension": [
+              {
+                "valueString": "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ref-1",
+            "severity": "error",
+            "human": "SHALL have a local reference if the resource is provided inline"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "The target of a resource reference is a RIM entry point (Act, Role, or Entity)"
+          },
+          {
+            "identity": "rim",
+            "map": "Not supported - MIF/templating layer to capture value set"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.group.question.options.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.group.question.options.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+        "comments": "Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure \"/[type]/[id]\" then it should be assumed that the reference is to a FHIR RESTful server.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Reference.reference",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Relative, internal or absolute URL reference",
+        "path": "Questionnaire.group.question.options.reference",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "ref-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "Plain text narrative that identifies the resource in addition to the resource reference.",
+        "comments": "This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Reference.display",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Text alternative for the resource",
+        "path": "Questionnaire.group.question.options.display",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "For a \"choice\" question, identifies one of the permitted answers for the question.",
+        "comments": "Codes may be defined very casually in enumerations or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Questionnaire.group.question.option",
+          "min": 0,
+          "max": "*"
+        },
+        "isSummary": true,
+        "binding": {
+          "description": "Allowed values to answer questions.",
+          "valueSetReference": {
+            "reference": "http://hl7.org/fhir/ValueSet/questionnaire-answers"
+          },
+          "strength": "example"
+        },
+        "short": "Permitted answer",
+        "path": "Questionnaire.group.question.option",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "condition": [
+          "ele-1",
+          "que-4"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "CE/CNE/CWE subset one of the sets of component 1-3 or 4-6"
+          },
+          {
+            "identity": "rim",
+            "map": "CV"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding rdfs:subClassOf dt:CDCoding"
+          },
+          {
+            "identity": "rim",
+            "map": "Not supported - MIF/templating layer to capture value set"
+          }
+        ]
+      },
+      {
+        "definition": "unique id for the element within a resource (for internal references).",
+        "comments": "RFC 4122",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "short": "xml:id (or equivalent in JSON)",
+        "path": "Questionnaire.group.question.option.id",
+        "type": [
+          {
+            "code": "id"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Additional Content defined by implementations",
+        "path": "Questionnaire.group.question.option.extension",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "definition": "The identification of the code system that defines the meaning of the symbol in the code.",
+        "comments": "The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously.",
+        "requirements": "Need to be unambiguous about the source of the definition of the symbol.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.system",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Identity of the terminology system",
+        "path": "Questionnaire.group.question.option.system",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.3"
+          },
+          {
+            "identity": "rim",
+            "map": "./codeSystem"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.system rdfs:subPropertyOf dt:CDCoding.codeSystem"
+          }
+        ]
+      },
+      {
+        "definition": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+        "comments": "Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.version",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Version of the system - if relevant",
+        "path": "Questionnaire.group.question.option.version",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.7"
+          },
+          {
+            "identity": "rim",
+            "map": "./codeSystemVersion"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.version rdfs:subPropertyOf dt:CDCoding.codeSystemVersion"
+          }
+        ]
+      },
+      {
+        "definition": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "Need to refer to a particular code in the system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.code",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Symbol in syntax defined by the system",
+        "path": "Questionnaire.group.question.option.code",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.1"
+          },
+          {
+            "identity": "rim",
+            "map": "./code"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.code rdfs:subPropertyOf dt:CDCoding.code"
+          }
+        ]
+      },
+      {
+        "definition": "A representation of the meaning of the code in the system, following the rules of the system.",
+        "comments": "Note that FHIR strings may not exceed 1MB in size",
+        "requirements": "Need to be able to carry a human-readable meaning of the code for readers that do not know  the system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.display",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "Representation defined by the system",
+        "path": "Questionnaire.group.question.option.display",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "C*E.2 - but note this is not well followed"
+          },
+          {
+            "identity": "rim",
+            "map": "CV.displayName"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.display rdfs:subPropertyOf dt:CDCoding.displayName"
+          }
+        ]
+      },
+      {
+        "definition": "Indicates that this coding was chosen by a user directly - i.e. off a pick list of available items (codes or displays).",
+        "comments": "Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely.",
+        "requirements": "This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Coding.userSelected",
+          "min": 0,
+          "max": "1"
+        },
+        "isSummary": true,
+        "short": "If this coding was chosen directly by the user",
+        "path": "Questionnaire.group.question.option.userSelected",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "xpath": "@value|f:*|h:div",
+            "extension": [
+              {
+                "valueString": "children()",
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"
+              }
+            ],
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          },
+          {
+            "identity": "v2",
+            "map": "Sometimes implied by being first"
+          },
+          {
+            "identity": "rim",
+            "map": "CD.codingRationale"
+          },
+          {
+            "identity": "orim",
+            "map": "fhir:Coding.userSelected fhir:mapsTo dt:CDCoding.codingRationale. fhir:Coding.userSelected fhir:hasMap fhir:Coding.userSelected.map. fhir:Coding.userSelected.map a fhir:Map;   fhir:target dt:CDCoding.codingRationale. fhir:Coding.userSelected\\#true a [     fhir:source \"true\";     fhir:target dt:CDCoding.codingRationale\\#O   ]"
+          }
+        ]
+      },
+      {
+        "definition": "Nested group, containing nested question for this question. The order of groups within the question is relevant.",
+        "requirements": "It is useful to have \"sub-questions\", questions which normally appear when certain answers are given and which collect additional details.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Questionnaire.group.question.group",
+          "min": 0,
+          "max": "*"
+        },
+        "short": "Nested questionnaire group",
+        "path": "Questionnaire.group.question.group",
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]"
+          }
+        ]
+      }
+    ]
+  },
+  "differential": {
+    "element": [
+      {
+        "path": "Questionnaire"
+      },
+      {
+        "path": "Questionnaire.group.question.options"
+      },
+      {
+        "path": "Questionnaire.group.question.option"
+      },
+      {
+        "path": "Questionnaire.group.question.group"
+      }
+    ]
+  },
+  "url": "StructureDefinition/MyQuestionnaire",
+  "name": "MyQuestionnaire",
+  "status": "draft",
+  "kind": "resource",
+  "abstract": false
+}

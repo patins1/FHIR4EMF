@@ -39,7 +39,7 @@
 	<classpathentry kind="lib" path="hapi/unbescape-1.1.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="hapi/woodstox-core-asl-4.4.1.jar"/>
 	<classpathentry kind="lib" path="hapi/xpp3_min-1.1.4c.jar"/>
-	<classpathentry kind="lib" path="hapi/hapi-fhir-base-2.2.jar"/>
+	<classpathentry kind="lib" path="hapi/hapi-fhir-base-2.2.jar" sourcepath="C:/Users/Joe/git/hapi-fhir/hapi-fhir-base/src/main/java"/>
 	<classpathentry kind="lib" path="hapi/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="hl7/org.hl7.fhir.igpublisher.jar"/>
 	<classpathentry kind="output" path="bin"/>

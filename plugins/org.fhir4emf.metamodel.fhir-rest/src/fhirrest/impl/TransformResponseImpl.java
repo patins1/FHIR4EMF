@@ -5,6 +5,7 @@ package fhirrest.impl;
 import fhirrest.FhirrestPackage;
 import fhirrest.TransformResponse;
 
+import java.io.File;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link fhirrest.impl.TransformResponseImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link fhirrest.impl.TransformResponseImpl#getBinaryContent <em>Binary Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,6 +52,26 @@ public class TransformResponseImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected String content = CONTENT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBinaryContent() <em>Binary Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBinaryContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final File BINARY_CONTENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getBinaryContent() <em>Binary Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBinaryContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected File binaryContent = BINARY_CONTENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,11 +118,34 @@ public class TransformResponseImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public File getBinaryContent() {
+		return binaryContent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBinaryContent(File newBinaryContent) {
+		File oldBinaryContent = binaryContent;
+		binaryContent = newBinaryContent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirrestPackage.TRANSFORM_RESPONSE__BINARY_CONTENT, oldBinaryContent, binaryContent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FhirrestPackage.TRANSFORM_RESPONSE__CONTENT:
 				return getContent();
+			case FhirrestPackage.TRANSFORM_RESPONSE__BINARY_CONTENT:
+				return getBinaryContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -115,6 +160,9 @@ public class TransformResponseImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case FhirrestPackage.TRANSFORM_RESPONSE__CONTENT:
 				setContent((String)newValue);
+				return;
+			case FhirrestPackage.TRANSFORM_RESPONSE__BINARY_CONTENT:
+				setBinaryContent((File)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,6 +179,9 @@ public class TransformResponseImpl extends MinimalEObjectImpl.Container implemen
 			case FhirrestPackage.TRANSFORM_RESPONSE__CONTENT:
 				setContent(CONTENT_EDEFAULT);
 				return;
+			case FhirrestPackage.TRANSFORM_RESPONSE__BINARY_CONTENT:
+				setBinaryContent(BINARY_CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -145,6 +196,8 @@ public class TransformResponseImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case FhirrestPackage.TRANSFORM_RESPONSE__CONTENT:
 				return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
+			case FhirrestPackage.TRANSFORM_RESPONSE__BINARY_CONTENT:
+				return BINARY_CONTENT_EDEFAULT == null ? binaryContent != null : !BINARY_CONTENT_EDEFAULT.equals(binaryContent);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -161,6 +214,8 @@ public class TransformResponseImpl extends MinimalEObjectImpl.Container implemen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (content: ");
 		result.append(content);
+		result.append(", binaryContent: ");
+		result.append(binaryContent);
 		result.append(')');
 		return result.toString();
 	}

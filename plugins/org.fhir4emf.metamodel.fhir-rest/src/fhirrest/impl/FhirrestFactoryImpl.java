@@ -4,7 +4,10 @@ package fhirrest.impl;
 
 import fhirrest.*;
 
+import java.io.File;
+import java.io.InputStream;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -73,6 +76,40 @@ public class FhirrestFactoryImpl extends EFactoryImpl implements FhirrestFactory
 			case FhirrestPackage.TRANSFORM_RESPONSE: return createTransformResponse();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case FhirrestPackage.BINARY_CONTENT:
+				return createBinaryContentFromString(eDataType, initialValue);
+			case FhirrestPackage.FILE_DOWNLOAD:
+				return createFileDownloadFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case FhirrestPackage.BINARY_CONTENT:
+				return convertBinaryContentToString(eDataType, instanceValue);
+			case FhirrestPackage.FILE_DOWNLOAD:
+				return convertFileDownloadToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -224,6 +261,42 @@ public class FhirrestFactoryImpl extends EFactoryImpl implements FhirrestFactory
 	public TransformResponse createTransformResponse() {
 		TransformResponseImpl transformResponse = new TransformResponseImpl();
 		return transformResponse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InputStream createBinaryContentFromString(EDataType eDataType, String initialValue) {
+		return (InputStream)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBinaryContentToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public File createFileDownloadFromString(EDataType eDataType, String initialValue) {
+		return (File)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFileDownloadToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>FHIR Editor</title>
+<title>FHIR Format Transform</title>
 <link rel="stylesheet" href="fhir.css" />
 <script src="jquery-2.0.3.js"></script>
 <script src="angular.js"></script>
@@ -9,51 +9,56 @@
 </head>
 <body ng-app="myApp" ng-controller="myCtrl" id="appId" class="main">
 	<div id="panes">
-		<div id="pane1" class="pane">
+		<div id="pane1" class="pane" ng-controller="DataSource" data-ng-init="format='XML'">
 
-			<select name="format1" size="1" id="format1" class="chooseformat"><option
-					value="XML">XML</option>
+			<select name="format1" size="1" id="format1" class="chooseformat" ng-model="format" ng-change="clearInputs()">
+				<option value="XML">XML</option>
 				<option value="JSON">JSON</option>
+				<option value="Java Properties">Java Properties</option>
+				<option value="YALM">YALM</option>
+				<option value="BSON">BSON (binary format)</option>
+				<option value="CBOR">CBOR (binary format)</option>
+				<option value="SMILE">SMILE (binary format)</option>
 			</select>
 
-			<textarea id="text1" type="text" class="choosetext"></textarea>
+			<textarea id="text1" type="text" class="choosetext" ng-show="!FormatIsBinary()" ng-model="text"></textarea>
+			<input id="data1" type="file" ng-show="FormatIsBinary()" bind-file ng-model="data" accept="{{'.'+format.replace('SMILE','SML').toLowerCase()}}"/>
 
 		</div>
 		<div class="buttonpane">
 			<div class="buttonpanefiller"></div>
-			<button onclick="transformFHIR(1,2)" class="transformbutton"
-				title="Transform from left to right">&gt;&gt;</button>
-			<button onclick="transformFHIR(2,1)" class="transformbutton"
-				title="Transform from right to left">&lt;&lt;</button>
+			<button onclick="transformFHIR(1,2)" class="transformbutton" ng-disabled="!hasFormatInput('1')">&gt;&gt;</button>
+			<button onclick="transformFHIR(2,1)" class="transformbutton" ng-disabled="!hasFormatInput('2')">&lt;&lt;</button>
 			<div class="buttonpanefiller"></div>
 		</div>
-		<div id="pane2" class="pane">
+		<div id="pane2" class="pane" ng-controller="DataSource" data-ng-init="format='JSON'">
 
-			<select name="format2" size="1" id="format2" class="chooseformat"><option
-					value="XML">XML</option>
-				<option value="JSON" selected>JSON</option>
+			<select name="format2" size="1" id="format2" class="chooseformat" ng-model="format" ng-change="clearInputs()">
+				<option value="XML">XML</option>
+				<option value="JSON">JSON</option>
+				<option value="Java Properties">Java Properties</option>
+				<option value="YALM">YALM</option>
+				<option value="BSON">BSON (binary format)</option>
+				<option value="CBOR">CBOR (binary format)</option>
+				<option value="SMILE">SMILE (binary format)</option>
 			</select>
 
-			<textarea id="text2" type="text" class="choosetext"> </textarea>
-
+			<textarea id="text2" type="text" class="choosetext" ng-show="!FormatIsBinary()" ng-model="text"></textarea>
+			<input id="data2" type="file" ng-show="FormatIsBinary()" bind-file ng-model="data" accept="{{'.'+format.replace('SMILE','SML').toLowerCase()}}" />
 		</div>
-		<div id="pane2"></div class="pane">
 	</div>
 
-	<div id="status">Press buttons to convert between left or right
-		representations !</div>
+	<div id="status">Press buttons to convert between left or right representations !</div>
 
+	<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport.profile.json','JSON','XML')" class="examplebutton">Load diagnosticreport.profile.json</button>
+	<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport-example-101.json','JSON','XML')" class="examplebutton">Load diagnosticreport-example-101.json</button>
+	<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/MyQuestionnaire.structuredefinition.xml','XML','JSON')" class="examplebutton">Load MyQuestionnaire.structuredefinition.xml</button>
 
-	<button
-		onclick="loadExample('StructureDefinition','example','XML','JSON')"
-		class="examplebutton">Load an example StructureDefinition for
-		DiagnosticReport</button>
-	<button onclick="loadExample('DiagnosticReport','f001','JSON','XML')"
-		class="examplebutton">Load an example DiagnosticReport
-		instance encoded in JSON</button>
-	<button onclick="loadExample('DiagnosticReport','xml101','XML','JSON')"
-		class="examplebutton">Load an example DiagnosticReport
-		instance encoded in XML</button>
-
+<!-- 
+	<button onclick="loadExample('StructureDefinition','example','XML','JSON')" class="examplebutton">Load an example StructureDefinition for DiagnosticReport</button>
+	<button onclick="loadExample('StructureDefinition','example','JSON','XML','RAASJSON')" class="examplebutton">Load an example StructureDefinition for DiagnosticReport as JSON</button>
+	<button onclick="loadExample('DiagnosticReport','f001','JSON','XML')" class="examplebutton">Load an example DiagnosticReport instance encoded in JSON</button>
+	<button onclick="loadExample('DiagnosticReport','xml101','XML','JSON')" class="examplebutton">Load an example DiagnosticReport instance encoded in XML</button>
+ -->
 </body>
 </html>
