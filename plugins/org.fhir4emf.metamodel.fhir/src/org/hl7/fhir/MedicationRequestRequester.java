@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.MedicationRequestRequesterImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
+ * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
  * <!-- end-model-doc -->
  *
  * <p>

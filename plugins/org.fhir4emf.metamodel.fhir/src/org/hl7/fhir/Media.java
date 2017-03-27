@@ -23,17 +23,24 @@ import org.hl7.fhir.jaxb.MediaImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Media#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getSubtype <em>Subtype</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getView <em>View</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getOperator <em>Operator</em>}</li>
- *   <li>{@link org.hl7.fhir.Media#getDeviceName <em>Device Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getHeight <em>Height</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getWidth <em>Width</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getFrames <em>Frames</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getContent <em>Content</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedia()
@@ -57,6 +64,22 @@ public interface Media extends DomainResource {
 	 * @generated
 	 */
 	List<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A procedure that is fulfilled in whole or in part by the creation of this media.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedia_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getBasedOn();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -163,6 +186,84 @@ public interface Media extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The encounter or episode of care that establishes the context for this media.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Context()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getContext <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
+	 * @generated
+	 */
+	void setContext(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date and time(s) at which the media was collected. (choose any one of occurrence*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #setOccurrenceDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_OccurrenceDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrenceDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getOccurrenceDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getOccurrenceDateTime <em>Occurrence Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #getOccurrenceDateTime()
+	 * @generated
+	 */
+	void setOccurrenceDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurrence Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date and time(s) at which the media was collected. (choose any one of occurrence*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #setOccurrencePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_OccurrencePeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrencePeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getOccurrencePeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getOccurrencePeriod <em>Occurrence Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #getOccurrencePeriod()
+	 * @generated
+	 */
+	void setOccurrencePeriod(Period value);
+
+	/**
 	 * Returns the value of the '<em><b>Operator</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,30 +290,72 @@ public interface Media extends DomainResource {
 	void setOperator(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Device Name</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the device / manufacturer of the device  that was used to make the recording.
+	 * Describes why the event occurred in coded or textual form.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Device Name</em>' containment reference.
-	 * @see #setDeviceName(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getMedia_DeviceName()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedia_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='deviceName' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDeviceName();
+	List<CodeableConcept> getReasonCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Media#getDeviceName <em>Device Name</em>}' containment reference.
+	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Device Name</em>' containment reference.
-	 * @see #getDeviceName()
+	 * <!-- begin-model-doc -->
+	 * Indicates the site on the subject's body where the media was collected (i.e. the target site).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Body Site</em>' containment reference.
+	 * @see #setBodySite(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_BodySite()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='bodySite' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setDeviceName(org.hl7.fhir.String value);
+	CodeableConcept getBodySite();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getBodySite <em>Body Site</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Body Site</em>' containment reference.
+	 * @see #getBodySite()
+	 * @generated
+	 */
+	void setBodySite(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Device</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The device used to collect the media.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Device</em>' containment reference.
+	 * @see #setDevice(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Device()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='device' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getDevice();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getDevice <em>Device</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Device</em>' containment reference.
+	 * @see #getDevice()
+	 * @generated
+	 */
+	void setDevice(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Height</b></em>' containment reference.
@@ -343,5 +486,21 @@ public interface Media extends DomainResource {
 	 * @generated
 	 */
 	void setContent(Attachment value);
+
+	/**
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Comments made about the media by the performer, subject or other participants.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Note()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Annotation> getNote();
 
 } // Media

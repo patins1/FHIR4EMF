@@ -64,9 +64,9 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -160,6 +160,16 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
+
+	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,16 +188,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @ordered
 	 */
 	protected EList<ContactDetail> contact;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -671,6 +671,50 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
@@ -721,50 +765,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.CODE_SYSTEM__CONTACT);
 		}
 		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__DATE, newDate, newDate));
 	}
 
 	/**
@@ -1295,12 +1295,12 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return basicSetStatus(null, msgs);
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.CODE_SYSTEM__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.CODE_SYSTEM__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.CODE_SYSTEM__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CODE_SYSTEM__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.CODE_SYSTEM__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.CODE_SYSTEM__USE_CONTEXT:
@@ -1357,12 +1357,12 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return getStatus();
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.CODE_SYSTEM__DATE:
+				return getDate();
 			case FhirPackage.CODE_SYSTEM__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.CODE_SYSTEM__CONTACT:
 				return getContact();
-			case FhirPackage.CODE_SYSTEM__DATE:
-				return getDate();
 			case FhirPackage.CODE_SYSTEM__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.CODE_SYSTEM__USE_CONTEXT:
@@ -1427,15 +1427,15 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.CODE_SYSTEM__DATE:
+				setDate((DateTime)newValue);
+				return;
 			case FhirPackage.CODE_SYSTEM__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
-				return;
-			case FhirPackage.CODE_SYSTEM__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -1520,14 +1520,14 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.CODE_SYSTEM__DATE:
+				setDate((DateTime)null);
+				return;
 			case FhirPackage.CODE_SYSTEM__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__CONTACT:
 				getContact().clear();
-				return;
-			case FhirPackage.CODE_SYSTEM__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1600,12 +1600,12 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return status != null;
 			case FhirPackage.CODE_SYSTEM__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.CODE_SYSTEM__DATE:
+				return date != null;
 			case FhirPackage.CODE_SYSTEM__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.CODE_SYSTEM__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.CODE_SYSTEM__DATE:
-				return date != null;
 			case FhirPackage.CODE_SYSTEM__DESCRIPTION:
 				return description != null;
 			case FhirPackage.CODE_SYSTEM__USE_CONTEXT:

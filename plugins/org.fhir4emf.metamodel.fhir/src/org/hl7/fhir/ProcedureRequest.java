@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.ProcedureRequestImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A record of a request for a diagnostic investigation service to be performed.
+ * A record of a request for diagnostic investigations, treatments, or operations to be performed.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -157,13 +157,13 @@ public interface ProcedureRequest extends DomainResource {
 	 * The status of the order.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(RequestStatus)
 	 * @see org.hl7.fhir.FhirPackage#getProcedureRequest_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	RequestStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ProcedureRequest#getStatus <em>Status</em>}' containment reference.
@@ -173,7 +173,7 @@ public interface ProcedureRequest extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(RequestStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Intent</b></em>' containment reference.
@@ -183,13 +183,13 @@ public interface ProcedureRequest extends DomainResource {
 	 * Whether the request is a proposal, plan, an original order or a reflex order.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Intent</em>' containment reference.
-	 * @see #setIntent(Code)
+	 * @see #setIntent(RequestIntent)
 	 * @see org.hl7.fhir.FhirPackage#getProcedureRequest_Intent()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='intent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getIntent();
+	RequestIntent getIntent();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ProcedureRequest#getIntent <em>Intent</em>}' containment reference.
@@ -199,7 +199,7 @@ public interface ProcedureRequest extends DomainResource {
 	 * @see #getIntent()
 	 * @generated
 	 */
-	void setIntent(Code value);
+	void setIntent(RequestIntent value);
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
@@ -209,13 +209,13 @@ public interface ProcedureRequest extends DomainResource {
 	 * Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
-	 * @see #setPriority(Code)
+	 * @see #setPriority(RequestPriority)
 	 * @see org.hl7.fhir.FhirPackage#getProcedureRequest_Priority()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getPriority();
+	RequestPriority getPriority();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ProcedureRequest#getPriority <em>Priority</em>}' containment reference.
@@ -225,7 +225,7 @@ public interface ProcedureRequest extends DomainResource {
 	 * @see #getPriority()
 	 * @generated
 	 */
-	void setPriority(Code value);
+	void setPriority(RequestPriority value);
 
 	/**
 	 * Returns the value of the '<em><b>Do Not Perform</b></em>' containment reference.

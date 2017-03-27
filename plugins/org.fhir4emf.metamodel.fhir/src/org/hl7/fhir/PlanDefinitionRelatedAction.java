@@ -19,7 +19,7 @@ import org.hl7.fhir.jaxb.PlanDefinitionRelatedActionImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.PlanDefinitionRelatedAction#getActionIdentifier <em>Action Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinitionRelatedAction#getActionId <em>Action Id</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionRelatedAction#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionRelatedAction#getOffsetDuration <em>Offset Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionRelatedAction#getOffsetRange <em>Offset Range</em>}</li>
@@ -32,30 +32,30 @@ import org.hl7.fhir.jaxb.PlanDefinitionRelatedActionImplAdapter;
 @XmlJavaTypeAdapter(PlanDefinitionRelatedActionImplAdapter.class)
 public interface PlanDefinitionRelatedAction extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Action Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Action Id</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The unique identifier of the related action.
+	 * The element id of the related action.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action Identifier</em>' containment reference.
-	 * @see #setActionIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionRelatedAction_ActionIdentifier()
+	 * @return the value of the '<em>Action Id</em>' containment reference.
+	 * @see #setActionId(Id)
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionRelatedAction_ActionId()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='actionIdentifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='actionId' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getActionIdentifier();
+	Id getActionId();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionRelatedAction#getActionIdentifier <em>Action Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionRelatedAction#getActionId <em>Action Id</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Action Identifier</em>' containment reference.
-	 * @see #getActionIdentifier()
+	 * @param value the new value of the '<em>Action Id</em>' containment reference.
+	 * @see #getActionId()
 	 * @generated
 	 */
-	void setActionIdentifier(Identifier value);
+	void setActionId(Id value);
 
 	/**
 	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference.

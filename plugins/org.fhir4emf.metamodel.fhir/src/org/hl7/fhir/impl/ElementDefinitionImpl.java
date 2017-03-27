@@ -102,7 +102,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getSlicing <em>Slicing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getShort <em>Short</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getComments <em>Comments</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getMin <em>Min</em>}</li>
@@ -149,6 +149,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getDefaultValueTiming <em>Default Value Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getDefaultValueMeta <em>Default Value Meta</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getMeaningWhenMissing <em>Meaning When Missing</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getOrderMeaning <em>Order Meaning</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getFixedBase64Binary <em>Fixed Base64 Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getFixedBoolean <em>Fixed Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionImpl#getFixedCode <em>Fixed Code</em>}</li>
@@ -340,14 +341,14 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	protected Markdown definition;
 
 	/**
-	 * The cached value of the '{@link #getComments() <em>Comments</em>}' containment reference.
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComments()
+	 * @see #getComment()
 	 * @generated
 	 * @ordered
 	 */
-	protected Markdown comments;
+	protected Markdown comment;
 
 	/**
 	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference.
@@ -377,7 +378,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Integer min;
+	protected UnsignedInt min;
 
 	/**
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' containment reference.
@@ -808,6 +809,16 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * @ordered
 	 */
 	protected Markdown meaningWhenMissing;
+
+	/**
+	 * The cached value of the '{@link #getOrderMeaning() <em>Order Meaning</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrderMeaning()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String orderMeaning;
 
 	/**
 	 * The cached value of the '{@link #getFixedBase64Binary() <em>Fixed Base64 Binary</em>}' containment reference.
@@ -2155,8 +2166,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * @generated
 	 */
 	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
-	public Markdown getComments() {
-		return comments;
+	public Markdown getComment() {
+		return comment;
 	}
 
 	/**
@@ -2164,11 +2175,11 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetComments(Markdown newComments, NotificationChain msgs) {
-		Markdown oldComments = comments;
-		comments = newComments;
+	public NotificationChain basicSetComment(Markdown newComment, NotificationChain msgs) {
+		Markdown oldComment = comment;
+		comment = newComment;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__COMMENTS, oldComments, newComments);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__COMMENT, oldComment, newComment);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -2179,18 +2190,18 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setComments(Markdown newComments) {
-		if (newComments != comments) {
+	public void setComment(Markdown newComment) {
+		if (newComment != comment) {
 			NotificationChain msgs = null;
-			if (comments != null)
-				msgs = ((InternalEObject)comments).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__COMMENTS, null, msgs);
-			if (newComments != null)
-				msgs = ((InternalEObject)newComments).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__COMMENTS, null, msgs);
-			msgs = basicSetComments(newComments, msgs);
+			if (comment != null)
+				msgs = ((InternalEObject)comment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__COMMENT, null, msgs);
+			if (newComment != null)
+				msgs = ((InternalEObject)newComment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__COMMENT, null, msgs);
+			msgs = basicSetComment(newComment, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__COMMENTS, newComments, newComments));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__COMMENT, newComment, newComment));
 	}
 
 	/**
@@ -2256,8 +2267,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
-	public org.hl7.fhir.Integer getMin() {
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
+	public UnsignedInt getMin() {
 		return min;
 	}
 
@@ -2266,8 +2277,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMin(org.hl7.fhir.Integer newMin, NotificationChain msgs) {
-		org.hl7.fhir.Integer oldMin = min;
+	public NotificationChain basicSetMin(UnsignedInt newMin, NotificationChain msgs) {
+		UnsignedInt oldMin = min;
 		min = newMin;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__MIN, oldMin, newMin);
@@ -2281,7 +2292,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMin(org.hl7.fhir.Integer newMin) {
+	public void setMin(UnsignedInt newMin) {
 		if (newMin != min) {
 			NotificationChain msgs = null;
 			if (min != null)
@@ -4131,6 +4142,50 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING, newMeaningWhenMissing, newMeaningWhenMissing));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	public org.hl7.fhir.String getOrderMeaning() {
+		return orderMeaning;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOrderMeaning(org.hl7.fhir.String newOrderMeaning, NotificationChain msgs) {
+		org.hl7.fhir.String oldOrderMeaning = orderMeaning;
+		orderMeaning = newOrderMeaning;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__ORDER_MEANING, oldOrderMeaning, newOrderMeaning);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrderMeaning(org.hl7.fhir.String newOrderMeaning) {
+		if (newOrderMeaning != orderMeaning) {
+			NotificationChain msgs = null;
+			if (orderMeaning != null)
+				msgs = ((InternalEObject)orderMeaning).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__ORDER_MEANING, null, msgs);
+			if (newOrderMeaning != null)
+				msgs = ((InternalEObject)newOrderMeaning).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION__ORDER_MEANING, null, msgs);
+			msgs = basicSetOrderMeaning(newOrderMeaning, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION__ORDER_MEANING, newOrderMeaning, newOrderMeaning));
 	}
 
 	/**
@@ -8519,8 +8574,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return basicSetShort(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__DEFINITION:
 				return basicSetDefinition(null, msgs);
-			case FhirPackage.ELEMENT_DEFINITION__COMMENTS:
-				return basicSetComments(null, msgs);
+			case FhirPackage.ELEMENT_DEFINITION__COMMENT:
+				return basicSetComment(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__REQUIREMENTS:
 				return basicSetRequirements(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__ALIAS:
@@ -8613,6 +8668,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return basicSetDefaultValueMeta(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING:
 				return basicSetMeaningWhenMissing(null, msgs);
+			case FhirPackage.ELEMENT_DEFINITION__ORDER_MEANING:
+				return basicSetOrderMeaning(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__FIXED_BASE64_BINARY:
 				return basicSetFixedBase64Binary(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION__FIXED_BOOLEAN:
@@ -8847,8 +8904,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return getShort();
 			case FhirPackage.ELEMENT_DEFINITION__DEFINITION:
 				return getDefinition();
-			case FhirPackage.ELEMENT_DEFINITION__COMMENTS:
-				return getComments();
+			case FhirPackage.ELEMENT_DEFINITION__COMMENT:
+				return getComment();
 			case FhirPackage.ELEMENT_DEFINITION__REQUIREMENTS:
 				return getRequirements();
 			case FhirPackage.ELEMENT_DEFINITION__ALIAS:
@@ -8941,6 +8998,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return getDefaultValueMeta();
 			case FhirPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING:
 				return getMeaningWhenMissing();
+			case FhirPackage.ELEMENT_DEFINITION__ORDER_MEANING:
+				return getOrderMeaning();
 			case FhirPackage.ELEMENT_DEFINITION__FIXED_BASE64_BINARY:
 				return getFixedBase64Binary();
 			case FhirPackage.ELEMENT_DEFINITION__FIXED_BOOLEAN:
@@ -9186,8 +9245,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 			case FhirPackage.ELEMENT_DEFINITION__DEFINITION:
 				setDefinition((Markdown)newValue);
 				return;
-			case FhirPackage.ELEMENT_DEFINITION__COMMENTS:
-				setComments((Markdown)newValue);
+			case FhirPackage.ELEMENT_DEFINITION__COMMENT:
+				setComment((Markdown)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__REQUIREMENTS:
 				setRequirements((Markdown)newValue);
@@ -9197,7 +9256,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				getAlias().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__MIN:
-				setMin((org.hl7.fhir.Integer)newValue);
+				setMin((UnsignedInt)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__MAX:
 				setMax((org.hl7.fhir.String)newValue);
@@ -9328,6 +9387,9 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING:
 				setMeaningWhenMissing((Markdown)newValue);
+				return;
+			case FhirPackage.ELEMENT_DEFINITION__ORDER_MEANING:
+				setOrderMeaning((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__FIXED_BASE64_BINARY:
 				setFixedBase64Binary((Base64Binary)newValue);
@@ -9678,8 +9740,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 			case FhirPackage.ELEMENT_DEFINITION__DEFINITION:
 				setDefinition((Markdown)null);
 				return;
-			case FhirPackage.ELEMENT_DEFINITION__COMMENTS:
-				setComments((Markdown)null);
+			case FhirPackage.ELEMENT_DEFINITION__COMMENT:
+				setComment((Markdown)null);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__REQUIREMENTS:
 				setRequirements((Markdown)null);
@@ -9688,7 +9750,7 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				getAlias().clear();
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__MIN:
-				setMin((org.hl7.fhir.Integer)null);
+				setMin((UnsignedInt)null);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__MAX:
 				setMax((org.hl7.fhir.String)null);
@@ -9818,6 +9880,9 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING:
 				setMeaningWhenMissing((Markdown)null);
+				return;
+			case FhirPackage.ELEMENT_DEFINITION__ORDER_MEANING:
+				setOrderMeaning((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION__FIXED_BASE64_BINARY:
 				setFixedBase64Binary((Base64Binary)null);
@@ -10156,8 +10221,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return short_ != null;
 			case FhirPackage.ELEMENT_DEFINITION__DEFINITION:
 				return definition != null;
-			case FhirPackage.ELEMENT_DEFINITION__COMMENTS:
-				return comments != null;
+			case FhirPackage.ELEMENT_DEFINITION__COMMENT:
+				return comment != null;
 			case FhirPackage.ELEMENT_DEFINITION__REQUIREMENTS:
 				return requirements != null;
 			case FhirPackage.ELEMENT_DEFINITION__ALIAS:
@@ -10250,6 +10315,8 @@ public class ElementDefinitionImpl extends ElementImpl implements ElementDefinit
 				return defaultValueMeta != null;
 			case FhirPackage.ELEMENT_DEFINITION__MEANING_WHEN_MISSING:
 				return meaningWhenMissing != null;
+			case FhirPackage.ELEMENT_DEFINITION__ORDER_MEANING:
+				return orderMeaning != null;
 			case FhirPackage.ELEMENT_DEFINITION__FIXED_BASE64_BINARY:
 				return fixedBase64Binary != null;
 			case FhirPackage.ELEMENT_DEFINITION__FIXED_BOOLEAN:

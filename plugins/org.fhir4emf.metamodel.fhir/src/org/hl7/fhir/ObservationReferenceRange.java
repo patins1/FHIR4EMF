@@ -92,7 +92,7 @@ public interface ObservationReferenceRange extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Codes to indicate the what part of targeted reference population it applies to. For example the normal or therapeutic range.
+	 * Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
@@ -119,7 +119,7 @@ public interface ObservationReferenceRange extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.
+	 * Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Applies To</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getObservationReferenceRange_AppliesTo()

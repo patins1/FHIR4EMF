@@ -21,7 +21,6 @@ import org.hl7.fhir.jaxb.DiagnosticReportPerformerImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.DiagnosticReportPerformer#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReportPerformer#getActor <em>Actor</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticReportPerformer#getOnBehalfOf <em>On Behalf Of</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getDiagnosticReportPerformer()
@@ -81,31 +80,5 @@ public interface DiagnosticReportPerformer extends BackboneElement {
 	 * @generated
 	 */
 	void setActor(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>On Behalf Of</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The organization the practitioner was acting on behalf of.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>On Behalf Of</em>' containment reference.
-	 * @see #setOnBehalfOf(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReportPerformer_OnBehalfOf()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='onBehalfOf' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOnBehalfOf();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticReportPerformer#getOnBehalfOf <em>On Behalf Of</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On Behalf Of</em>' containment reference.
-	 * @see #getOnBehalfOf()
-	 * @generated
-	 */
-	void setOnBehalfOf(Reference value);
 
 } // DiagnosticReportPerformer

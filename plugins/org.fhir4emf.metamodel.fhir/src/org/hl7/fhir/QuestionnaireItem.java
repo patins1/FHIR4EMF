@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.QuestionnaireItemImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -95,7 +95,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * * maxLength (ElementDefinition.maxLength)
 	 * * options (ElementDefinition.binding)
 	 * 
-	 * Any information provided in these elements overrides the information from the definition.
+	 * Any information provided in these elements on a Questionnaire Item overrides the information from the definition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Definition</em>' containment reference.
 	 * @see #setDefinition(Uri)
@@ -122,7 +122,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Terminology code that corresponds to this group or question (e.g. LOINC).
+	 * A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireItem_Code()
@@ -137,7 +137,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A short label for a particular group, question or set of display text within the questionnaire.
+	 * A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Prefix</em>' containment reference.
 	 * @see #setPrefix(org.hl7.fhir.String)
@@ -163,7 +163,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of a section, the text of a question or text content for a text item.
+	 * The name of a section, the text of a question or text content for a display item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Text</em>' containment reference.
 	 * @see #setText(org.hl7.fhir.String)
@@ -189,7 +189,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
+	 * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(QuestionnaireItemType)
@@ -216,7 +216,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.
+	 * A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Enable When</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireItem_EnableWhen()
@@ -231,7 +231,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, indicates that the item must be present in a "completed" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
+	 * An indication, if true, that the item must be present in a "completed" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Required</em>' containment reference.
 	 * @see #setRequired(org.hl7.fhir.Boolean)
@@ -257,7 +257,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether the item may occur multiple times in the instance, containing multiple sets of answers.
+	 * An indication, if true, that the item may occur multiple times in the response, collecting multiple answers answers for questions or multiple sets of answers for groups.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Repeats</em>' containment reference.
 	 * @see #setRepeats(org.hl7.fhir.Boolean)
@@ -283,7 +283,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, the value cannot be changed by a human respondent to the Questionnaire.
+	 * An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Read Only</em>' containment reference.
 	 * @see #setReadOnly(org.hl7.fhir.Boolean)
@@ -335,7 +335,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference to a value set containing a list of codes representing permitted answers for the question.
+	 * A reference to a value set containing a list of codes representing permitted answers for a "choice" or "open-choice" question.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Options</em>' containment reference.
 	 * @see #setOptions(Reference)
@@ -362,7 +362,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * For a "choice" question, identifies one of the permitted answers for the question.
+	 * One of the permitted answers for a "choice" or "open-choice" question.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Option</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireItem_Option()
@@ -377,7 +377,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Boolean</em>' containment reference.
 	 * @see #setInitialBoolean(org.hl7.fhir.Boolean)
@@ -403,7 +403,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Decimal</em>' containment reference.
 	 * @see #setInitialDecimal(Decimal)
@@ -429,7 +429,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Integer</em>' containment reference.
 	 * @see #setInitialInteger(org.hl7.fhir.Integer)
@@ -455,7 +455,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Date</em>' containment reference.
 	 * @see #setInitialDate(Date)
@@ -481,7 +481,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Date Time</em>' containment reference.
 	 * @see #setInitialDateTime(DateTime)
@@ -507,7 +507,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Time</em>' containment reference.
 	 * @see #setInitialTime(Time)
@@ -533,7 +533,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial String</em>' containment reference.
 	 * @see #setInitialString(org.hl7.fhir.String)
@@ -559,7 +559,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Uri</em>' containment reference.
 	 * @see #setInitialUri(Uri)
@@ -585,7 +585,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Attachment</em>' containment reference.
 	 * @see #setInitialAttachment(Attachment)
@@ -611,7 +611,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Coding</em>' containment reference.
 	 * @see #setInitialCoding(Coding)
@@ -637,7 +637,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Quantity</em>' containment reference.
 	 * @see #setInitialQuantity(Quantity)
@@ -663,7 +663,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value that should be defaulted when rendering the questionnaire for user input. (choose any one of initial*, but only one)
+	 * The value that should be defaulted when initially rendering the questionnaire for user input. (choose any one of initial*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Initial Reference</em>' containment reference.
 	 * @see #setInitialReference(Reference)
@@ -690,7 +690,7 @@ public interface QuestionnaireItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Allows text, questions and other groups to be nested beneath a question or group.
+	 * Text, questions and other groups to be nested beneath a question or group.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Item</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireItem_Item()

@@ -23,16 +23,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coverage;
 import org.hl7.fhir.CoverageGrouping;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
 import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
@@ -85,7 +85,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -264,8 +264,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getStatus() {
+	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -274,8 +274,8 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE__STATUS, oldStatus, newStatus);
@@ -289,7 +289,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -952,7 +952,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.COVERAGE__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.COVERAGE__TYPE:
 				setType((CodeableConcept)newValue);
@@ -1014,7 +1014,7 @@ public class CoverageImpl extends DomainResourceImpl implements Coverage {
 				getIdentifier().clear();
 				return;
 			case FhirPackage.COVERAGE__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
 				return;
 			case FhirPackage.COVERAGE__TYPE:
 				setType((CodeableConcept)null);

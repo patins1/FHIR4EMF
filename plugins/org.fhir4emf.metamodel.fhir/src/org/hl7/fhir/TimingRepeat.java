@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.TimingRepeatImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.
+ * Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out.
  * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
@@ -286,7 +286,7 @@ public interface TimingRepeat extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range.
+	 * If present, indicates that the frequency is a range - so to repeat between [frequency] and [frequencyMax] times within the period or period range.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Frequency Max</em>' containment reference.
 	 * @see #setFrequencyMax(org.hl7.fhir.Integer)
@@ -418,30 +418,20 @@ public interface TimingRepeat extends Element {
 	List<Time> getTimeOfDay();
 
 	/**
-	 * Returns the value of the '<em><b>When</b></em>' containment reference.
+	 * Returns the value of the '<em><b>When</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.EventTiming}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A real world event that the occurrence of the event should be tied to.
+	 * Real world events that the occurrence of the event should be tied to.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>When</em>' containment reference.
-	 * @see #setWhen(EventTiming)
+	 * @return the value of the '<em>When</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_When()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='when' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EventTiming getWhen();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TimingRepeat#getWhen <em>When</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>When</em>' containment reference.
-	 * @see #getWhen()
-	 * @generated
-	 */
-	void setWhen(EventTiming value);
+	List<EventTiming> getWhen();
 
 	/**
 	 * Returns the value of the '<em><b>Offset</b></em>' containment reference.

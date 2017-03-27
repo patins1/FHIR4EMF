@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.DocumentReferenceImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A reference to a document .
+ * A reference to a document.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -24,16 +24,16 @@ import org.hl7.fhir.jaxb.DocumentReferenceImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.DocumentReference#getMasterIdentifier <em>Master Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getCustodian <em>Custodian</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getAuthenticator <em>Authenticator</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getIndexed <em>Indexed</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getDocStatus <em>Doc Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getIndexed <em>Indexed</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getAuthenticator <em>Authenticator</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getCustodian <em>Custodian</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getRelatesTo <em>Relates To</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getSecurityLabel <em>Security Label</em>}</li>
@@ -90,30 +90,56 @@ public interface DocumentReference extends DomainResource {
 	List<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).
+	 * The status of this document reference.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject</em>' containment reference.
-	 * @see #setSubject(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Subject()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(DocumentReferenceStatus)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Status()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSubject();
+	DocumentReferenceStatus getStatus();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getSubject <em>Subject</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getStatus <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject</em>' containment reference.
-	 * @see #getSubject()
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
 	 * @generated
 	 */
-	void setSubject(Reference value);
+	void setStatus(DocumentReferenceStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Doc Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The status of the underlying document.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Doc Status</em>' containment reference.
+	 * @see #setDocStatus(CompositionStatus)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_DocStatus()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='docStatus' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CompositionStatus getDocStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getDocStatus <em>Doc Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Doc Status</em>' containment reference.
+	 * @see #getDocStatus()
+	 * @generated
+	 */
+	void setDocStatus(CompositionStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -168,72 +194,30 @@ public interface DocumentReference extends DomainResource {
 	void setClass(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies who is responsible for adding the information to the document.
+	 * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Author</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Author()
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Subject()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Reference> getAuthor();
+	Reference getSubject();
 
 	/**
-	 * Returns the value of the '<em><b>Custodian</b></em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getSubject <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Custodian</em>' containment reference.
-	 * @see #setCustodian(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Custodian()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='custodian' namespace='##targetNamespace'"
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
 	 * @generated
 	 */
-	Reference getCustodian();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getCustodian <em>Custodian</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custodian</em>' containment reference.
-	 * @see #getCustodian()
-	 * @generated
-	 */
-	void setCustodian(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Authenticator</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Which person or organization authenticates that this document is valid.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Authenticator</em>' containment reference.
-	 * @see #setAuthenticator(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Authenticator()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='authenticator' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getAuthenticator();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getAuthenticator <em>Authenticator</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Authenticator</em>' containment reference.
-	 * @see #getAuthenticator()
-	 * @generated
-	 */
-	void setAuthenticator(Reference value);
+	void setSubject(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
@@ -288,56 +272,72 @@ public interface DocumentReference extends DomainResource {
 	void setIndexed(Instant value);
 
 	/**
-	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of this document reference.
+	 * Identifies who is responsible for adding the information to the document.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(DocumentReferenceStatus)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Status()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DocumentReferenceStatus getStatus();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getStatus <em>Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status</em>' containment reference.
-	 * @see #getStatus()
-	 * @generated
-	 */
-	void setStatus(DocumentReferenceStatus value);
-
-	/**
-	 * Returns the value of the '<em><b>Doc Status</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The status of the underlying document.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Doc Status</em>' containment reference.
-	 * @see #setDocStatus(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_DocStatus()
+	 * @return the value of the '<em>Author</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Author()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='docStatus' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getDocStatus();
+	List<Reference> getAuthor();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getDocStatus <em>Doc Status</em>}' containment reference.
+	 * Returns the value of the '<em><b>Authenticator</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Doc Status</em>' containment reference.
-	 * @see #getDocStatus()
+	 * <!-- begin-model-doc -->
+	 * Which person or organization authenticates that this document is valid.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Authenticator</em>' containment reference.
+	 * @see #setAuthenticator(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Authenticator()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='authenticator' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setDocStatus(CodeableConcept value);
+	Reference getAuthenticator();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getAuthenticator <em>Authenticator</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Authenticator</em>' containment reference.
+	 * @see #getAuthenticator()
+	 * @generated
+	 */
+	void setAuthenticator(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Custodian</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Custodian</em>' containment reference.
+	 * @see #setCustodian(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Custodian()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='custodian' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getCustodian();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getCustodian <em>Custodian</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Custodian</em>' containment reference.
+	 * @see #getCustodian()
+	 * @generated
+	 */
+	void setCustodian(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Relates To</b></em>' containment reference list.

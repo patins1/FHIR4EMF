@@ -26,6 +26,7 @@ import org.hl7.fhir.jaxb.ConceptMapGroupImplAdapter;
  *   <li>{@link org.hl7.fhir.ConceptMapGroup#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapGroup#getTargetVersion <em>Target Version</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapGroup#getElement <em>Element</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapGroup#getUnmapped <em>Unmapped</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getConceptMapGroup()
@@ -153,5 +154,31 @@ public interface ConceptMapGroup extends BackboneElement {
 	 * @generated
 	 */
 	List<ConceptMapElement> getElement();
+
+	/**
+	 * Returns the value of the '<em><b>Unmapped</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * What to do when there is no match in the mappings in the group.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Unmapped</em>' containment reference.
+	 * @see #setUnmapped(ConceptMapUnmapped)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapGroup_Unmapped()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='unmapped' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ConceptMapUnmapped getUnmapped();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapGroup#getUnmapped <em>Unmapped</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unmapped</em>' containment reference.
+	 * @see #getUnmapped()
+	 * @generated
+	 */
+	void setUnmapped(ConceptMapUnmapped value);
 
 } // ConceptMapGroup

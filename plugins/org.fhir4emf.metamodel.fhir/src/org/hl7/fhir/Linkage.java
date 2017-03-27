@@ -22,6 +22,7 @@ import org.hl7.fhir.jaxb.LinkageImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.Linkage#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.Linkage#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.Linkage#getItem <em>Item</em>}</li>
  * </ul>
@@ -32,6 +33,32 @@ import org.hl7.fhir.jaxb.LinkageImplAdapter;
  */
 @XmlJavaTypeAdapter(LinkageImplAdapter.class)
 public interface Linkage extends DomainResource {
+	/**
+	 * Returns the value of the '<em><b>Active</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates whether the asserted set of linkages are considered to be "in effect".
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Active</em>' containment reference.
+	 * @see #setActive(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getLinkage_Active()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='active' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getActive();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Linkage#getActive <em>Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Active</em>' containment reference.
+	 * @see #getActive()
+	 * @generated
+	 */
+	void setActive(org.hl7.fhir.Boolean value);
+
 	/**
 	 * Returns the value of the '<em><b>Author</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

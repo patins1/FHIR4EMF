@@ -33,17 +33,17 @@ import org.hl7.fhir.ClaimItem;
 import org.hl7.fhir.ClaimPayee;
 import org.hl7.fhir.ClaimProcedure;
 import org.hl7.fhir.ClaimRelated;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Use;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
 import org.hl7.fhir.jaxb.UseImplAdapter;
 
 /**
@@ -109,7 +109,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -428,8 +428,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getStatus() {
+	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -438,8 +438,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__STATUS, oldStatus, newStatus);
@@ -453,7 +453,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -1591,7 +1591,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.CLAIM__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.CLAIM__TYPE:
 				setType((CodeableConcept)newValue);
@@ -1701,7 +1701,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				getIdentifier().clear();
 				return;
 			case FhirPackage.CLAIM__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
 				return;
 			case FhirPackage.CLAIM__TYPE:
 				setType((CodeableConcept)null);

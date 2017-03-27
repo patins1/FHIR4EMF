@@ -24,11 +24,14 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.ProvenanceAgent;
 import org.hl7.fhir.ProvenanceEntity;
 import org.hl7.fhir.ProvenanceEntityRole;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.Uri;
 import org.hl7.fhir.jaxb.ProvenanceEntityRoleImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +42,9 @@ import org.hl7.fhir.jaxb.ProvenanceEntityRoleImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceEntityImpl#getRole <em>Role</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProvenanceEntityImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProvenanceEntityImpl#getWhatUri <em>What Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProvenanceEntityImpl#getWhatReference <em>What Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProvenanceEntityImpl#getWhatIdentifier <em>What Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceEntityImpl#getAgent <em>Agent</em>}</li>
  * </ul>
  *
@@ -59,14 +64,34 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 	protected ProvenanceEntityRole role;
 
 	/**
-	 * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getWhatUri() <em>What Uri</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReference()
+	 * @see #getWhatUri()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference reference;
+	protected Uri whatUri;
+
+	/**
+	 * The cached value of the '{@link #getWhatReference() <em>What Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWhatReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference whatReference;
+
+	/**
+	 * The cached value of the '{@link #getWhatIdentifier() <em>What Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWhatIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier whatIdentifier;
 
 	/**
 	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
@@ -147,9 +172,9 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
-	public Reference getReference() {
-		return reference;
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	public Uri getWhatUri() {
+		return whatUri;
 	}
 
 	/**
@@ -157,11 +182,11 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReference(Reference newReference, NotificationChain msgs) {
-		Reference oldReference = reference;
-		reference = newReference;
+	public NotificationChain basicSetWhatUri(Uri newWhatUri, NotificationChain msgs) {
+		Uri oldWhatUri = whatUri;
+		whatUri = newWhatUri;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_ENTITY__REFERENCE, oldReference, newReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_ENTITY__WHAT_URI, oldWhatUri, newWhatUri);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -172,18 +197,104 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReference(Reference newReference) {
-		if (newReference != reference) {
+	public void setWhatUri(Uri newWhatUri) {
+		if (newWhatUri != whatUri) {
 			NotificationChain msgs = null;
-			if (reference != null)
-				msgs = ((InternalEObject)reference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_ENTITY__REFERENCE, null, msgs);
-			if (newReference != null)
-				msgs = ((InternalEObject)newReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_ENTITY__REFERENCE, null, msgs);
-			msgs = basicSetReference(newReference, msgs);
+			if (whatUri != null)
+				msgs = ((InternalEObject)whatUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_ENTITY__WHAT_URI, null, msgs);
+			if (newWhatUri != null)
+				msgs = ((InternalEObject)newWhatUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_ENTITY__WHAT_URI, null, msgs);
+			msgs = basicSetWhatUri(newWhatUri, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_ENTITY__REFERENCE, newReference, newReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_ENTITY__WHAT_URI, newWhatUri, newWhatUri));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getWhatReference() {
+		return whatReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWhatReference(Reference newWhatReference, NotificationChain msgs) {
+		Reference oldWhatReference = whatReference;
+		whatReference = newWhatReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_ENTITY__WHAT_REFERENCE, oldWhatReference, newWhatReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWhatReference(Reference newWhatReference) {
+		if (newWhatReference != whatReference) {
+			NotificationChain msgs = null;
+			if (whatReference != null)
+				msgs = ((InternalEObject)whatReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_ENTITY__WHAT_REFERENCE, null, msgs);
+			if (newWhatReference != null)
+				msgs = ((InternalEObject)newWhatReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_ENTITY__WHAT_REFERENCE, null, msgs);
+			msgs = basicSetWhatReference(newWhatReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_ENTITY__WHAT_REFERENCE, newWhatReference, newWhatReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getWhatIdentifier() {
+		return whatIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWhatIdentifier(Identifier newWhatIdentifier, NotificationChain msgs) {
+		Identifier oldWhatIdentifier = whatIdentifier;
+		whatIdentifier = newWhatIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_ENTITY__WHAT_IDENTIFIER, oldWhatIdentifier, newWhatIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWhatIdentifier(Identifier newWhatIdentifier) {
+		if (newWhatIdentifier != whatIdentifier) {
+			NotificationChain msgs = null;
+			if (whatIdentifier != null)
+				msgs = ((InternalEObject)whatIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_ENTITY__WHAT_IDENTIFIER, null, msgs);
+			if (newWhatIdentifier != null)
+				msgs = ((InternalEObject)newWhatIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_ENTITY__WHAT_IDENTIFIER, null, msgs);
+			msgs = basicSetWhatIdentifier(newWhatIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_ENTITY__WHAT_IDENTIFIER, newWhatIdentifier, newWhatIdentifier));
 	}
 
 	/**
@@ -209,8 +320,12 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 		switch (featureID) {
 			case FhirPackage.PROVENANCE_ENTITY__ROLE:
 				return basicSetRole(null, msgs);
-			case FhirPackage.PROVENANCE_ENTITY__REFERENCE:
-				return basicSetReference(null, msgs);
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_URI:
+				return basicSetWhatUri(null, msgs);
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_REFERENCE:
+				return basicSetWhatReference(null, msgs);
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_IDENTIFIER:
+				return basicSetWhatIdentifier(null, msgs);
 			case FhirPackage.PROVENANCE_ENTITY__AGENT:
 				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
 		}
@@ -227,8 +342,12 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 		switch (featureID) {
 			case FhirPackage.PROVENANCE_ENTITY__ROLE:
 				return getRole();
-			case FhirPackage.PROVENANCE_ENTITY__REFERENCE:
-				return getReference();
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_URI:
+				return getWhatUri();
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_REFERENCE:
+				return getWhatReference();
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_IDENTIFIER:
+				return getWhatIdentifier();
 			case FhirPackage.PROVENANCE_ENTITY__AGENT:
 				return getAgent();
 		}
@@ -247,8 +366,14 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 			case FhirPackage.PROVENANCE_ENTITY__ROLE:
 				setRole((ProvenanceEntityRole)newValue);
 				return;
-			case FhirPackage.PROVENANCE_ENTITY__REFERENCE:
-				setReference((Reference)newValue);
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_URI:
+				setWhatUri((Uri)newValue);
+				return;
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_REFERENCE:
+				setWhatReference((Reference)newValue);
+				return;
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_IDENTIFIER:
+				setWhatIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.PROVENANCE_ENTITY__AGENT:
 				getAgent().clear();
@@ -269,8 +394,14 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 			case FhirPackage.PROVENANCE_ENTITY__ROLE:
 				setRole((ProvenanceEntityRole)null);
 				return;
-			case FhirPackage.PROVENANCE_ENTITY__REFERENCE:
-				setReference((Reference)null);
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_URI:
+				setWhatUri((Uri)null);
+				return;
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_REFERENCE:
+				setWhatReference((Reference)null);
+				return;
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_IDENTIFIER:
+				setWhatIdentifier((Identifier)null);
 				return;
 			case FhirPackage.PROVENANCE_ENTITY__AGENT:
 				getAgent().clear();
@@ -289,8 +420,12 @@ public class ProvenanceEntityImpl extends BackboneElementImpl implements Provena
 		switch (featureID) {
 			case FhirPackage.PROVENANCE_ENTITY__ROLE:
 				return role != null;
-			case FhirPackage.PROVENANCE_ENTITY__REFERENCE:
-				return reference != null;
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_URI:
+				return whatUri != null;
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_REFERENCE:
+				return whatReference != null;
+			case FhirPackage.PROVENANCE_ENTITY__WHAT_IDENTIFIER:
+				return whatIdentifier != null;
 			case FhirPackage.PROVENANCE_ENTITY__AGENT:
 				return agent != null && !agent.isEmpty();
 		}

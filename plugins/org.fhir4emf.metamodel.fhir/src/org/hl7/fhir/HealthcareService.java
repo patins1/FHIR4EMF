@@ -25,11 +25,11 @@ import org.hl7.fhir.jaxb.HealthcareServiceImplAdapter;
  *   <li>{@link org.hl7.fhir.HealthcareService#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getProvidedBy <em>Provided By</em>}</li>
- *   <li>{@link org.hl7.fhir.HealthcareService#getServiceCategory <em>Service Category</em>}</li>
- *   <li>{@link org.hl7.fhir.HealthcareService#getServiceType <em>Service Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.HealthcareService#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.HealthcareService#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getSpecialty <em>Specialty</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getLocation <em>Location</em>}</li>
- *   <li>{@link org.hl7.fhir.HealthcareService#getServiceName <em>Service Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.HealthcareService#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getExtraDetails <em>Extra Details</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getPhoto <em>Photo</em>}</li>
@@ -41,7 +41,6 @@ import org.hl7.fhir.jaxb.HealthcareServiceImplAdapter;
  *   <li>{@link org.hl7.fhir.HealthcareService#getProgramName <em>Program Name</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getCharacteristic <em>Characteristic</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getReferralMethod <em>Referral Method</em>}</li>
- *   <li>{@link org.hl7.fhir.HealthcareService#getPublicKey <em>Public Key</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getAppointmentRequired <em>Appointment Required</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getAvailableTime <em>Available Time</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getNotAvailable <em>Not Available</em>}</li>
@@ -124,46 +123,46 @@ public interface HealthcareService extends DomainResource {
 	void setProvidedBy(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Service Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifies the broad category of service being performed or delivered.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Category</em>' containment reference.
-	 * @see #setServiceCategory(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_ServiceCategory()
+	 * @return the value of the '<em>Category</em>' containment reference.
+	 * @see #setCategory(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_Category()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='serviceCategory' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getServiceCategory();
+	CodeableConcept getCategory();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getServiceCategory <em>Service Category</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getCategory <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Category</em>' containment reference.
-	 * @see #getServiceCategory()
+	 * @param value the new value of the '<em>Category</em>' containment reference.
+	 * @see #getCategory()
 	 * @generated
 	 */
-	void setServiceCategory(CodeableConcept value);
+	void setCategory(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Service Type</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The specific type of service that may be delivered or performed.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Type</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_ServiceType()
+	 * @return the value of the '<em>Type</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_Type()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='serviceType' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<CodeableConcept> getServiceType();
+	List<CodeableConcept> getType();
 
 	/**
 	 * Returns the value of the '<em><b>Specialty</b></em>' containment reference list.
@@ -198,30 +197,30 @@ public interface HealthcareService extends DomainResource {
 	List<Reference> getLocation();
 
 	/**
-	 * Returns the value of the '<em><b>Service Name</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Further description of the service as it would be presented to a consumer while searching.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Name</em>' containment reference.
-	 * @see #setServiceName(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_ServiceName()
+	 * @return the value of the '<em>Name</em>' containment reference.
+	 * @see #setName(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_Name()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='serviceName' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getServiceName();
+	org.hl7.fhir.String getName();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getServiceName <em>Service Name</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getName <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Name</em>' containment reference.
-	 * @see #getServiceName()
+	 * @param value the new value of the '<em>Name</em>' containment reference.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setServiceName(org.hl7.fhir.String value);
+	void setName(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
@@ -448,32 +447,6 @@ public interface HealthcareService extends DomainResource {
 	 * @generated
 	 */
 	List<CodeableConcept> getReferralMethod();
-
-	/**
-	 * Returns the value of the '<em><b>Public Key</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Public Key</em>' containment reference.
-	 * @see #setPublicKey(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_PublicKey()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='publicKey' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getPublicKey();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getPublicKey <em>Public Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Public Key</em>' containment reference.
-	 * @see #getPublicKey()
-	 * @generated
-	 */
-	void setPublicKey(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Appointment Required</b></em>' containment reference.

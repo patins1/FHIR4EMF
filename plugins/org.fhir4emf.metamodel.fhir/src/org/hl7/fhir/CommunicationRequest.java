@@ -23,21 +23,26 @@ import org.hl7.fhir.jaxb.CommunicationRequestImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getReplaces <em>Replaces</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.CommunicationRequest#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getMedium <em>Medium</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getPayload <em>Payload</em>}</li>
- *   <li>{@link org.hl7.fhir.CommunicationRequest#getRequestedOn <em>Requested On</em>}</li>
- *   <li>{@link org.hl7.fhir.CommunicationRequest#getScheduledDateTime <em>Scheduled Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.CommunicationRequest#getScheduledPeriod <em>Scheduled Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getOccurrencePeriod <em>Occurrence Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getSender <em>Sender</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getRequester <em>Requester</em>}</li>
- *   <li>{@link org.hl7.fhir.CommunicationRequest#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getCommunicationRequest()
@@ -63,6 +68,64 @@ public interface CommunicationRequest extends DomainResource {
 	List<Identifier> getIdentifier();
 
 	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A plan or proposal that is fulfilled in whole or in part by this request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getBasedOn();
+
+	/**
+	 * Returns the value of the '<em><b>Replaces</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Completed or terminated request(s) whose function is taken by this new request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Replaces</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Replaces()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='replaces' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getReplaces();
+
+	/**
+	 * Returns the value of the '<em><b>Group Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Group Identifier</em>' containment reference.
+	 * @see #setGroupIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_GroupIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='groupIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getGroupIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getGroupIdentifier <em>Group Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Group Identifier</em>' containment reference.
+	 * @see #getGroupIdentifier()
+	 * @generated
+	 */
+	void setGroupIdentifier(Identifier value);
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,13 +133,13 @@ public interface CommunicationRequest extends DomainResource {
 	 * The status of the proposal or order.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(RequestStatus)
 	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	RequestStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getStatus <em>Status</em>}' containment reference.
@@ -86,33 +149,7 @@ public interface CommunicationRequest extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
-
-	/**
-	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Priority</em>' containment reference.
-	 * @see #setPriority(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Priority()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getPriority();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getPriority <em>Priority</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Priority</em>' containment reference.
-	 * @see #getPriority()
-	 * @generated
-	 */
-	void setPriority(CodeableConcept value);
+	void setStatus(RequestStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
@@ -129,6 +166,32 @@ public interface CommunicationRequest extends DomainResource {
 	 * @generated
 	 */
 	List<CodeableConcept> getCategory();
+
+	/**
+	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Priority</em>' containment reference.
+	 * @see #setPriority(RequestPriority)
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Priority()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RequestPriority getPriority();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getPriority <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Priority</em>' containment reference.
+	 * @see #getPriority()
+	 * @generated
+	 */
+	void setPriority(RequestPriority value);
 
 	/**
 	 * Returns the value of the '<em><b>Medium</b></em>' containment reference list.
@@ -247,82 +310,82 @@ public interface CommunicationRequest extends DomainResource {
 	List<CommunicationRequestPayload> getPayload();
 
 	/**
-	 * Returns the value of the '<em><b>Requested On</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The time when the request was made.
+	 * The time when this communication is to occur. (choose any one of occurrence*, but only one)
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Requested On</em>' containment reference.
-	 * @see #setRequestedOn(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_RequestedOn()
+	 * @return the value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #setOccurrenceDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_OccurrenceDateTime()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requestedOn' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='occurrenceDateTime' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getRequestedOn();
+	DateTime getOccurrenceDateTime();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getRequestedOn <em>Requested On</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Requested On</em>' containment reference.
-	 * @see #getRequestedOn()
+	 * @param value the new value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #getOccurrenceDateTime()
 	 * @generated
 	 */
-	void setRequestedOn(DateTime value);
+	void setOccurrenceDateTime(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Scheduled Date Time</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Occurrence Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The time when this communication is to occur. (choose any one of scheduled*, but only one)
+	 * The time when this communication is to occur. (choose any one of occurrence*, but only one)
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Scheduled Date Time</em>' containment reference.
-	 * @see #setScheduledDateTime(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_ScheduledDateTime()
+	 * @return the value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #setOccurrencePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_OccurrencePeriod()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='scheduledDateTime' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='occurrencePeriod' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getScheduledDateTime();
+	Period getOccurrencePeriod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getScheduledDateTime <em>Scheduled Date Time</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getOccurrencePeriod <em>Occurrence Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scheduled Date Time</em>' containment reference.
-	 * @see #getScheduledDateTime()
+	 * @param value the new value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #getOccurrencePeriod()
 	 * @generated
 	 */
-	void setScheduledDateTime(DateTime value);
+	void setOccurrencePeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Scheduled Period</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Authored On</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The time when this communication is to occur. (choose any one of scheduled*, but only one)
+	 * For draft requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Scheduled Period</em>' containment reference.
-	 * @see #setScheduledPeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_ScheduledPeriod()
+	 * @return the value of the '<em>Authored On</em>' containment reference.
+	 * @see #setAuthoredOn(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_AuthoredOn()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='scheduledPeriod' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='authoredOn' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getScheduledPeriod();
+	DateTime getAuthoredOn();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getScheduledPeriod <em>Scheduled Period</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getAuthoredOn <em>Authored On</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scheduled Period</em>' containment reference.
-	 * @see #getScheduledPeriod()
+	 * @param value the new value of the '<em>Authored On</em>' containment reference.
+	 * @see #getAuthoredOn()
 	 * @generated
 	 */
-	void setScheduledPeriod(Period value);
+	void setAuthoredOn(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Sender</b></em>' containment reference.
@@ -355,16 +418,16 @@ public interface CommunicationRequest extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.
+	 * The individual who initiated the request and has responsibility for its activation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Requester</em>' containment reference.
-	 * @see #setRequester(Reference)
+	 * @see #setRequester(CommunicationRequestRequester)
 	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Requester()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='requester' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getRequester();
+	CommunicationRequestRequester getRequester();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getRequester <em>Requester</em>}' containment reference.
@@ -374,22 +437,54 @@ public interface CommunicationRequest extends DomainResource {
 	 * @see #getRequester()
 	 * @generated
 	 */
-	void setRequester(Reference value);
+	void setRequester(CommunicationRequestRequester value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The reason or justification for the communication request.
+	 * Describes why the request is being made in coded or textual form.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Reason()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<CodeableConcept> getReason();
+	List<CodeableConcept> getReasonCode();
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates another resource whose existence justifies this request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getReasonReference();
+
+	/**
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Comments made about the request by the requester, sender, recipient, subject or other participants.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Note()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Annotation> getNote();
 
 } // CommunicationRequest

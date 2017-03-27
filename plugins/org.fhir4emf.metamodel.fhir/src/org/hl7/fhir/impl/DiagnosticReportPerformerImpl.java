@@ -29,7 +29,6 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportPerformerImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportPerformerImpl#getActor <em>Actor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticReportPerformerImpl#getOnBehalfOf <em>On Behalf Of</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,16 +55,6 @@ public class DiagnosticReportPerformerImpl extends BackboneElementImpl implement
 	 * @ordered
 	 */
 	protected Reference actor;
-
-	/**
-	 * The cached value of the '{@link #getOnBehalfOf() <em>On Behalf Of</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnBehalfOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference onBehalfOf;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,49 +167,6 @@ public class DiagnosticReportPerformerImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOnBehalfOf() {
-		return onBehalfOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnBehalfOf(Reference newOnBehalfOf, NotificationChain msgs) {
-		Reference oldOnBehalfOf = onBehalfOf;
-		onBehalfOf = newOnBehalfOf;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ON_BEHALF_OF, oldOnBehalfOf, newOnBehalfOf);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnBehalfOf(Reference newOnBehalfOf) {
-		if (newOnBehalfOf != onBehalfOf) {
-			NotificationChain msgs = null;
-			if (onBehalfOf != null)
-				msgs = ((InternalEObject)onBehalfOf).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ON_BEHALF_OF, null, msgs);
-			if (newOnBehalfOf != null)
-				msgs = ((InternalEObject)newOnBehalfOf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ON_BEHALF_OF, null, msgs);
-			msgs = basicSetOnBehalfOf(newOnBehalfOf, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ON_BEHALF_OF, newOnBehalfOf, newOnBehalfOf));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -228,8 +174,6 @@ public class DiagnosticReportPerformerImpl extends BackboneElementImpl implement
 				return basicSetRole(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ACTOR:
 				return basicSetActor(null, msgs);
-			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ON_BEHALF_OF:
-				return basicSetOnBehalfOf(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -246,8 +190,6 @@ public class DiagnosticReportPerformerImpl extends BackboneElementImpl implement
 				return getRole();
 			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ACTOR:
 				return getActor();
-			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ON_BEHALF_OF:
-				return getOnBehalfOf();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,9 +207,6 @@ public class DiagnosticReportPerformerImpl extends BackboneElementImpl implement
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ACTOR:
 				setActor((Reference)newValue);
-				return;
-			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ON_BEHALF_OF:
-				setOnBehalfOf((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -287,9 +226,6 @@ public class DiagnosticReportPerformerImpl extends BackboneElementImpl implement
 			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ACTOR:
 				setActor((Reference)null);
 				return;
-			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ON_BEHALF_OF:
-				setOnBehalfOf((Reference)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -306,8 +242,6 @@ public class DiagnosticReportPerformerImpl extends BackboneElementImpl implement
 				return role != null;
 			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ACTOR:
 				return actor != null;
-			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER__ON_BEHALF_OF:
-				return onBehalfOf != null;
 		}
 		return super.eIsSet(featureID);
 	}

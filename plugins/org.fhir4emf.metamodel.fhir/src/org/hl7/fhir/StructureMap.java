@@ -29,9 +29,9 @@ import org.hl7.fhir.jaxb.StructureMapImplAdapter;
  *   <li>{@link org.hl7.fhir.StructureMap#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMap#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMap#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMap#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMap#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMap#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.StructureMap#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMap#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMap#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMap#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -53,7 +53,7 @@ public interface StructureMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure map is (or will be) published. The URL SHOULD include the major version of the structure map. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure map is (or will be) published. The URL SHOULD include the major version of the structure map. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -95,7 +95,7 @@ public interface StructureMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
+	 * The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -199,7 +199,7 @@ public interface StructureMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A boolean value to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -219,6 +219,32 @@ public interface StructureMap extends DomainResource {
 	 * @generated
 	 */
 	void setExperimental(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date  (and optionally time) when the structure map was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure map changes.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Date</em>' containment reference.
+	 * @see #setDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMap_Date()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMap#getDate <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date</em>' containment reference.
+	 * @see #getDate()
+	 * @generated
+	 */
+	void setDate(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
@@ -263,37 +289,11 @@ public interface StructureMap extends DomainResource {
 	List<ContactDetail> getContact();
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the structure map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure map changes.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getStructureMap_Date()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getDate();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.StructureMap#getDate <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
-	 * @generated
-	 */
-	void setDate(DateTime value);
-
-	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the structure map from the consumer's perspective.
+	 * A free text natural language description of the structure map from a consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Markdown)
@@ -320,7 +320,7 @@ public interface StructureMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate structure map instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getStructureMap_UseContext()
@@ -336,7 +336,7 @@ public interface StructureMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A jurisdiction in which the structure map is intended to be used.
+	 * A legal or geographic region in which the structure map is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getStructureMap_Jurisdiction()
@@ -351,7 +351,7 @@ public interface StructureMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explains why this structure map is needed and why it has been designed as it has.
+	 * Explaination of why this structure map is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -436,7 +436,7 @@ public interface StructureMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Named sections for reader convenience.
+	 * Organizes the mapping into managable chunks for human review/ease of maintenance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Group</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getStructureMap_Group()

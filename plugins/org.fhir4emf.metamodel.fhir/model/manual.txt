@@ -5,12 +5,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 
 
 
-
-DomainResourceImpl:
-
-	@XmlJavaTypeAdapter(ResourceContainerImplAdapter.class)
-	public java.util.List<ResourceContainer> getContained() {
-
 package org.hl7.fhir.jaxb;
 
 import java.util.Arrays;

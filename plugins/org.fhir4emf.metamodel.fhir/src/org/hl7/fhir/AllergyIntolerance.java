@@ -145,7 +145,7 @@ public interface AllergyIntolerance extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * The list contents are of type {@link org.hl7.fhir.AllergyIntoleranceCategory}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -157,7 +157,7 @@ public interface AllergyIntolerance extends DomainResource {
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<CodeableConcept> getCategory();
+	List<AllergyIntoleranceCategory> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Criticality</b></em>' containment reference.

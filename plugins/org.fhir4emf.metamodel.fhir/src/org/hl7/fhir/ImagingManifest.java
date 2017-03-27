@@ -22,7 +22,7 @@ import org.hl7.fhir.jaxb.ImagingManifestImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ImagingManifest#getUid <em>Uid</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingManifest#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingManifest#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingManifest#getAuthoringTime <em>Authoring Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingManifest#getAuthor <em>Author</em>}</li>
@@ -37,30 +37,30 @@ import org.hl7.fhir.jaxb.ImagingManifestImplAdapter;
 @XmlJavaTypeAdapter(ImagingManifestImplAdapter.class)
 public interface ImagingManifest extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.
+	 * Unique identifier of the DICOM Key Object Selection (KOS) that this resource represents.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Uid</em>' containment reference.
-	 * @see #setUid(Oid)
-	 * @see org.hl7.fhir.FhirPackage#getImagingManifest_Uid()
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getImagingManifest_Identifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='uid' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Oid getUid();
+	Identifier getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingManifest#getUid <em>Uid</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingManifest#getIdentifier <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uid</em>' containment reference.
-	 * @see #getUid()
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
 	 * @generated
 	 */
-	void setUid(Oid value);
+	void setIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.

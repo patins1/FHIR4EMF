@@ -60,7 +60,7 @@ public interface ExpansionProfileDesignation1 extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Designation uses for inclusion in the expansion.
+	 * Which kinds of designation to include in the expansion.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use</em>' containment reference.
 	 * @see #setUse(Coding)

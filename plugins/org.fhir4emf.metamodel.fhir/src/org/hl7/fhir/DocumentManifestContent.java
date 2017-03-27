@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.DocumentManifestContentImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A manifest that defines a set of documents.
+ * A collection of documents compiled for a purpose together with metadata that applies to the collection.
  * <!-- end-model-doc -->
  *
  * <p>

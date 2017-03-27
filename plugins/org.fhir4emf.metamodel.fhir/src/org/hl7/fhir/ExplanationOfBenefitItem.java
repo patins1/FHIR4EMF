@@ -43,6 +43,7 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitItemImplAdapter;
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getSubSite <em>Sub Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getAdjudication <em>Adjudication</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getDetail <em>Detail</em>}</li>
@@ -545,6 +546,22 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * @generated
 	 */
 	List<CodeableConcept> getSubSite();
+
+	/**
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A billed item may include goods or services provided in multiple encounters.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Encounter</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_Encounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getEncounter();
 
 	/**
 	 * Returns the value of the '<em><b>Note Number</b></em>' containment reference list.

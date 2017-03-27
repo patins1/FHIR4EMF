@@ -24,8 +24,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
-import org.hl7.fhir.MeasureReportGroup1;
 import org.hl7.fhir.MeasureReportStratifier;
+import org.hl7.fhir.MeasureReportStratum;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ import org.hl7.fhir.MeasureReportStratifier;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportStratifierImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasureReportStratifierImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureReportStratifierImpl#getStratum <em>Stratum</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,14 +55,14 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	protected Identifier identifier;
 
 	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference list.
+	 * The cached value of the '{@link #getStratum() <em>Stratum</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGroup()
+	 * @see #getStratum()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MeasureReportGroup1> group;
+	protected EList<MeasureReportStratum> stratum;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,7 +88,6 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Identifier getIdentifier() {
 		return identifier;
 	}
@@ -133,11 +132,11 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	 * @generated
 	 */
 	@XmlElement
-	public List<MeasureReportGroup1> getGroup() {
-		if (group == null) {
-			group = new EObjectContainmentEList<MeasureReportGroup1>(MeasureReportGroup1.class, this, FhirPackage.MEASURE_REPORT_STRATIFIER__GROUP);
+	public List<MeasureReportStratum> getStratum() {
+		if (stratum == null) {
+			stratum = new EObjectContainmentEList<MeasureReportStratum>(MeasureReportStratum.class, this, FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM);
 		}
-		return group;
+		return stratum;
 	}
 
 	/**
@@ -150,8 +149,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
 				return basicSetIdentifier(null, msgs);
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__GROUP:
-				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
+				return ((InternalEList<?>)getStratum()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -166,8 +165,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__GROUP:
-				return getGroup();
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
+				return getStratum();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,9 +183,9 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
 				setIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__GROUP:
-				getGroup().clear();
-				getGroup().addAll((Collection<? extends MeasureReportGroup1>)newValue);
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
+				getStratum().clear();
+				getStratum().addAll((Collection<? extends MeasureReportStratum>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -203,8 +202,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
 				setIdentifier((Identifier)null);
 				return;
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__GROUP:
-				getGroup().clear();
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
+				getStratum().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -220,8 +219,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
 				return identifier != null;
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__GROUP:
-				return group != null && !group.isEmpty();
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
+				return stratum != null && !stratum.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

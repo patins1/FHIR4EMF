@@ -87,7 +87,7 @@ public interface CodeSystemFilter extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Operator</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Code}.
+	 * The list contents are of type {@link org.hl7.fhir.FilterOperator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -99,7 +99,7 @@ public interface CodeSystemFilter extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='operator' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Code> getOperator();
+	List<FilterOperator> getOperator();
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' containment reference.

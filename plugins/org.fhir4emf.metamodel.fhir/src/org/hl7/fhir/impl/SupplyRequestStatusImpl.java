@@ -39,7 +39,7 @@ public class SupplyRequestStatusImpl extends ElementImpl implements SupplyReques
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SupplyRequestStatusList VALUE_EDEFAULT = SupplyRequestStatusList.REQUESTED;
+	protected static final SupplyRequestStatusList VALUE_EDEFAULT = SupplyRequestStatusList.DRAFT;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

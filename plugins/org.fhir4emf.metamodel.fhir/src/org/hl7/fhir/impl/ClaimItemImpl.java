@@ -69,6 +69,7 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getSubSite <em>Sub Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getDetail <em>Detail</em>}</li>
  * </ul>
  *
@@ -296,6 +297,16 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> subSite;
+
+	/**
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEncounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> encounter;
 
 	/**
 	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' containment reference list.
@@ -1046,6 +1057,19 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * @generated
 	 */
 	@XmlElement
+	public List<Reference> getEncounter() {
+		if (encounter == null) {
+			encounter = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLAIM_ITEM__ENCOUNTER);
+		}
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
 	public List<ClaimDetail> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<ClaimDetail>(ClaimDetail.class, this, FhirPackage.CLAIM_ITEM__DETAIL);
@@ -1105,6 +1129,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return basicSetBodySite(null, msgs);
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				return ((InternalEList<?>)getSubSite()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				return ((InternalEList<?>)getEncounter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				return ((InternalEList<?>)getDetail()).basicRemove(otherEnd, msgs);
 		}
@@ -1163,6 +1189,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return getBodySite();
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				return getSubSite();
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				return getDetail();
 		}
@@ -1252,6 +1280,10 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				getSubSite().clear();
 				getSubSite().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				getEncounter().clear();
+				getEncounter().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				getDetail().clear();
 				getDetail().addAll((Collection<? extends ClaimDetail>)newValue);
@@ -1334,6 +1366,9 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				getSubSite().clear();
 				return;
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				getEncounter().clear();
+				return;
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				getDetail().clear();
 				return;
@@ -1393,6 +1428,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return bodySite != null;
 			case FhirPackage.CLAIM_ITEM__SUB_SITE:
 				return subSite != null && !subSite.isEmpty();
+			case FhirPackage.CLAIM_ITEM__ENCOUNTER:
+				return encounter != null && !encounter.isEmpty();
 			case FhirPackage.CLAIM_ITEM__DETAIL:
 				return detail != null && !detail.isEmpty();
 		}

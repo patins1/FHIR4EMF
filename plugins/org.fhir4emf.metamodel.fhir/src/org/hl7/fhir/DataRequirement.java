@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.DataRequirementImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.
+ * Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.
  * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *

@@ -15,13 +15,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Code;
+import org.hl7.fhir.ActionRelationshipType;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Id;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.RequestGroupRelatedAction;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.ActionRelationshipTypeImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +32,7 @@ import org.hl7.fhir.jaxb.CodeImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.RequestGroupRelatedActionImpl#getActionIdentifier <em>Action Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RequestGroupRelatedActionImpl#getActionId <em>Action Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupRelatedActionImpl#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupRelatedActionImpl#getOffsetDuration <em>Offset Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupRelatedActionImpl#getOffsetRange <em>Offset Range</em>}</li>
@@ -43,14 +44,14 @@ import org.hl7.fhir.jaxb.CodeImplAdapter;
 @XmlRootElement(name = "fhir.RequestGroupRelatedAction")
 public class RequestGroupRelatedActionImpl extends BackboneElementImpl implements RequestGroupRelatedAction {
 	/**
-	 * The cached value of the '{@link #getActionIdentifier() <em>Action Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getActionId() <em>Action Id</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActionIdentifier()
+	 * @see #getActionId()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier actionIdentifier;
+	protected Id actionId;
 
 	/**
 	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference.
@@ -60,7 +61,7 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected Code relationship;
+	protected ActionRelationshipType relationship;
 
 	/**
 	 * The cached value of the '{@link #getOffsetDuration() <em>Offset Duration</em>}' containment reference.
@@ -106,9 +107,10 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	@XmlElement(required = true)
-	public Identifier getActionIdentifier() {
-		return actionIdentifier;
+	public Id getActionId() {
+		return actionId;
 	}
 
 	/**
@@ -116,11 +118,11 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetActionIdentifier(Identifier newActionIdentifier, NotificationChain msgs) {
-		Identifier oldActionIdentifier = actionIdentifier;
-		actionIdentifier = newActionIdentifier;
+	public NotificationChain basicSetActionId(Id newActionId, NotificationChain msgs) {
+		Id oldActionId = actionId;
+		actionId = newActionId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_IDENTIFIER, oldActionIdentifier, newActionIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_ID, oldActionId, newActionId);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -131,18 +133,18 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setActionIdentifier(Identifier newActionIdentifier) {
-		if (newActionIdentifier != actionIdentifier) {
+	public void setActionId(Id newActionId) {
+		if (newActionId != actionId) {
 			NotificationChain msgs = null;
-			if (actionIdentifier != null)
-				msgs = ((InternalEObject)actionIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_IDENTIFIER, null, msgs);
-			if (newActionIdentifier != null)
-				msgs = ((InternalEObject)newActionIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_IDENTIFIER, null, msgs);
-			msgs = basicSetActionIdentifier(newActionIdentifier, msgs);
+			if (actionId != null)
+				msgs = ((InternalEObject)actionId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_ID, null, msgs);
+			if (newActionId != null)
+				msgs = ((InternalEObject)newActionId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_ID, null, msgs);
+			msgs = basicSetActionId(newActionId, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_IDENTIFIER, newActionIdentifier, newActionIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_ID, newActionId, newActionId));
 	}
 
 	/**
@@ -150,9 +152,9 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(ActionRelationshipTypeImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getRelationship() {
+	public ActionRelationshipType getRelationship() {
 		return relationship;
 	}
 
@@ -161,8 +163,8 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRelationship(Code newRelationship, NotificationChain msgs) {
-		Code oldRelationship = relationship;
+	public NotificationChain basicSetRelationship(ActionRelationshipType newRelationship, NotificationChain msgs) {
+		ActionRelationshipType oldRelationship = relationship;
 		relationship = newRelationship;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_RELATED_ACTION__RELATIONSHIP, oldRelationship, newRelationship);
@@ -176,7 +178,7 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRelationship(Code newRelationship) {
+	public void setRelationship(ActionRelationshipType newRelationship) {
 		if (newRelationship != relationship) {
 			NotificationChain msgs = null;
 			if (relationship != null)
@@ -284,8 +286,8 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_IDENTIFIER:
-				return basicSetActionIdentifier(null, msgs);
+			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_ID:
+				return basicSetActionId(null, msgs);
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__RELATIONSHIP:
 				return basicSetRelationship(null, msgs);
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__OFFSET_DURATION:
@@ -304,8 +306,8 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_IDENTIFIER:
-				return getActionIdentifier();
+			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_ID:
+				return getActionId();
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__RELATIONSHIP:
 				return getRelationship();
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__OFFSET_DURATION:
@@ -324,11 +326,11 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_IDENTIFIER:
-				setActionIdentifier((Identifier)newValue);
+			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_ID:
+				setActionId((Id)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__RELATIONSHIP:
-				setRelationship((Code)newValue);
+				setRelationship((ActionRelationshipType)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__OFFSET_DURATION:
 				setOffsetDuration((Duration)newValue);
@@ -348,11 +350,11 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_IDENTIFIER:
-				setActionIdentifier((Identifier)null);
+			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_ID:
+				setActionId((Id)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__RELATIONSHIP:
-				setRelationship((Code)null);
+				setRelationship((ActionRelationshipType)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__OFFSET_DURATION:
 				setOffsetDuration((Duration)null);
@@ -372,8 +374,8 @@ public class RequestGroupRelatedActionImpl extends BackboneElementImpl implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_IDENTIFIER:
-				return actionIdentifier != null;
+			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__ACTION_ID:
+				return actionId != null;
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__RELATIONSHIP:
 				return relationship != null;
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION__OFFSET_DURATION:

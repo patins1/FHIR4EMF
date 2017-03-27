@@ -48,13 +48,13 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getMasterIdentifier <em>Master Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getRecipient <em>Recipient</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getRecipient <em>Recipient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getRelated <em>Related</em>}</li>
@@ -86,24 +86,14 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubject()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference subject;
-
-	/**
-	 * The cached value of the '{@link #getRecipient() <em>Recipient</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRecipient()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> recipient;
+	protected DocumentReferenceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -116,14 +106,14 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAuthor()
+	 * @see #getSubject()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> author;
+	protected Reference subject;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -136,6 +126,26 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	protected DateTime created;
 
 	/**
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthor()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> author;
+
+	/**
+	 * The cached value of the '{@link #getRecipient() <em>Recipient</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecipient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> recipient;
+
+	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,16 +154,6 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * @ordered
 	 */
 	protected Uri source;
-
-	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected DocumentReferenceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -265,8 +265,10 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSubject() {
-		return subject;
+	@XmlJavaTypeAdapter(DocumentReferenceStatusImplAdapter.class)
+	@XmlElement(required = true)
+	public DocumentReferenceStatus getStatus() {
+		return status;
 	}
 
 	/**
@@ -274,11 +276,11 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
-		Reference oldSubject = subject;
-		subject = newSubject;
+	public NotificationChain basicSetStatus(DocumentReferenceStatus newStatus, NotificationChain msgs) {
+		DocumentReferenceStatus oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_MANIFEST__SUBJECT, oldSubject, newSubject);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_MANIFEST__STATUS, oldStatus, newStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -289,31 +291,18 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubject(Reference newSubject) {
-		if (newSubject != subject) {
+	public void setStatus(DocumentReferenceStatus newStatus) {
+		if (newStatus != status) {
 			NotificationChain msgs = null;
-			if (subject != null)
-				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_MANIFEST__SUBJECT, null, msgs);
-			if (newSubject != null)
-				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_MANIFEST__SUBJECT, null, msgs);
-			msgs = basicSetSubject(newSubject, msgs);
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_MANIFEST__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_MANIFEST__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_MANIFEST__SUBJECT, newSubject, newSubject));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public List<Reference> getRecipient() {
-		if (recipient == null) {
-			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_MANIFEST__RECIPIENT);
-		}
-		return recipient;
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_MANIFEST__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -364,12 +353,42 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public List<Reference> getAuthor() {
-		if (author == null) {
-			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_MANIFEST__AUTHOR);
+	public Reference getSubject() {
+		return subject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
+		Reference oldSubject = subject;
+		subject = newSubject;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_MANIFEST__SUBJECT, oldSubject, newSubject);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return author;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubject(Reference newSubject) {
+		if (newSubject != subject) {
+			NotificationChain msgs = null;
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_MANIFEST__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_MANIFEST__SUBJECT, null, msgs);
+			msgs = basicSetSubject(newSubject, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_MANIFEST__SUBJECT, newSubject, newSubject));
 	}
 
 	/**
@@ -421,6 +440,32 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
+	public List<Reference> getAuthor() {
+		if (author == null) {
+			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_MANIFEST__AUTHOR);
+		}
+		return author;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<Reference> getRecipient() {
+		if (recipient == null) {
+			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_MANIFEST__RECIPIENT);
+		}
+		return recipient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getSource() {
 		return source;
@@ -458,51 +503,6 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_MANIFEST__SOURCE, newSource, newSource));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(DocumentReferenceStatusImplAdapter.class)
-	@XmlElement(required = true)
-	public DocumentReferenceStatus getStatus() {
-		return status;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetStatus(DocumentReferenceStatus newStatus, NotificationChain msgs) {
-		DocumentReferenceStatus oldStatus = status;
-		status = newStatus;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_MANIFEST__STATUS, oldStatus, newStatus);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStatus(DocumentReferenceStatus newStatus) {
-		if (newStatus != status) {
-			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_MANIFEST__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_MANIFEST__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_MANIFEST__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -587,20 +587,20 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 				return basicSetMasterIdentifier(null, msgs);
 			case FhirPackage.DOCUMENT_MANIFEST__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
-				return basicSetSubject(null, msgs);
-			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
-				return ((InternalEList<?>)getRecipient()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DOCUMENT_MANIFEST__TYPE:
-				return basicSetType(null, msgs);
-			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
-				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
-				return basicSetCreated(null, msgs);
-			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
-				return basicSetSource(null, msgs);
 			case FhirPackage.DOCUMENT_MANIFEST__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.DOCUMENT_MANIFEST__TYPE:
+				return basicSetType(null, msgs);
+			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
+				return basicSetSubject(null, msgs);
+			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
+				return basicSetCreated(null, msgs);
+			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
+				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
+				return ((InternalEList<?>)getRecipient()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
+				return basicSetSource(null, msgs);
 			case FhirPackage.DOCUMENT_MANIFEST__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.DOCUMENT_MANIFEST__CONTENT:
@@ -623,20 +623,20 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 				return getMasterIdentifier();
 			case FhirPackage.DOCUMENT_MANIFEST__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
-				return getSubject();
-			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
-				return getRecipient();
-			case FhirPackage.DOCUMENT_MANIFEST__TYPE:
-				return getType();
-			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
-				return getAuthor();
-			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
-				return getCreated();
-			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
-				return getSource();
 			case FhirPackage.DOCUMENT_MANIFEST__STATUS:
 				return getStatus();
+			case FhirPackage.DOCUMENT_MANIFEST__TYPE:
+				return getType();
+			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
+				return getSubject();
+			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
+				return getCreated();
+			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
+				return getAuthor();
+			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
+				return getRecipient();
+			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
+				return getSource();
 			case FhirPackage.DOCUMENT_MANIFEST__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.DOCUMENT_MANIFEST__CONTENT:
@@ -663,28 +663,28 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
-				setSubject((Reference)newValue);
-				return;
-			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
-				getRecipient().clear();
-				getRecipient().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.DOCUMENT_MANIFEST__STATUS:
+				setStatus((DocumentReferenceStatus)newValue);
 				return;
 			case FhirPackage.DOCUMENT_MANIFEST__TYPE:
 				setType((CodeableConcept)newValue);
+				return;
+			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
+				setSubject((Reference)newValue);
+				return;
+			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
+				setCreated((DateTime)newValue);
 				return;
 			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
 				getAuthor().clear();
 				getAuthor().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
-				setCreated((DateTime)newValue);
+			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
+				getRecipient().clear();
+				getRecipient().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
 				setSource((Uri)newValue);
-				return;
-			case FhirPackage.DOCUMENT_MANIFEST__STATUS:
-				setStatus((DocumentReferenceStatus)newValue);
 				return;
 			case FhirPackage.DOCUMENT_MANIFEST__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -715,26 +715,26 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 			case FhirPackage.DOCUMENT_MANIFEST__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
-				setSubject((Reference)null);
-				return;
-			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
-				getRecipient().clear();
+			case FhirPackage.DOCUMENT_MANIFEST__STATUS:
+				setStatus((DocumentReferenceStatus)null);
 				return;
 			case FhirPackage.DOCUMENT_MANIFEST__TYPE:
 				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
-				getAuthor().clear();
+			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
+				setSubject((Reference)null);
 				return;
 			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
 				setCreated((DateTime)null);
 				return;
+			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
+				getAuthor().clear();
+				return;
+			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
+				getRecipient().clear();
+				return;
 			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
 				setSource((Uri)null);
-				return;
-			case FhirPackage.DOCUMENT_MANIFEST__STATUS:
-				setStatus((DocumentReferenceStatus)null);
 				return;
 			case FhirPackage.DOCUMENT_MANIFEST__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -761,20 +761,20 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 				return masterIdentifier != null;
 			case FhirPackage.DOCUMENT_MANIFEST__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
-				return subject != null;
-			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
-				return recipient != null && !recipient.isEmpty();
-			case FhirPackage.DOCUMENT_MANIFEST__TYPE:
-				return type != null;
-			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
-				return author != null && !author.isEmpty();
-			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
-				return created != null;
-			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
-				return source != null;
 			case FhirPackage.DOCUMENT_MANIFEST__STATUS:
 				return status != null;
+			case FhirPackage.DOCUMENT_MANIFEST__TYPE:
+				return type != null;
+			case FhirPackage.DOCUMENT_MANIFEST__SUBJECT:
+				return subject != null;
+			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
+				return created != null;
+			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
+				return author != null && !author.isEmpty();
+			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
+				return recipient != null && !recipient.isEmpty();
+			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
+				return source != null;
 			case FhirPackage.DOCUMENT_MANIFEST__DESCRIPTION:
 				return description != null;
 			case FhirPackage.DOCUMENT_MANIFEST__CONTENT:

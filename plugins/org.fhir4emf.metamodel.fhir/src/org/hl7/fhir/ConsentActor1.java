@@ -34,7 +34,7 @@ public interface ConsentActor1 extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * How the individual is or was involved in the resourcescontent that is described in the exception.
+	 * How the individual is involved in the resources content that is described in the exception.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Role</em>' containment reference.
 	 * @see #setRole(CodeableConcept)

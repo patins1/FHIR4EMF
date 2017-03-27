@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Account;
+import org.hl7.fhir.AccountCoverage;
 import org.hl7.fhir.AccountGuarantor;
 import org.hl7.fhir.AccountStatus;
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
@@ -45,15 +45,14 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AccountImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AccountImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AccountImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AccountImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AccountImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AccountImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getActive <em>Active</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AccountImpl#getCurrency <em>Currency</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getBalance <em>Balance</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getCoverage <em>Coverage</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AccountImpl#getCoveragePeriod <em>Coverage Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AccountImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getGuarantor <em>Guarantor</em>}</li>
@@ -75,14 +74,14 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String name;
+	protected AccountStatus status;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -95,14 +94,34 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatus()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected AccountStatus status;
+	protected org.hl7.fhir.String name;
+
+	/**
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubject()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference subject;
+
+	/**
+	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period period;
 
 	/**
 	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
@@ -113,16 +132,6 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * @ordered
 	 */
 	protected Period active;
-
-	/**
-	 * The cached value of the '{@link #getCurrency() <em>Currency</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrency()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding currency;
 
 	/**
 	 * The cached value of the '{@link #getBalance() <em>Balance</em>}' containment reference.
@@ -142,27 +151,7 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> coverage;
-
-	/**
-	 * The cached value of the '{@link #getCoveragePeriod() <em>Coverage Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCoveragePeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period coveragePeriod;
-
-	/**
-	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubject()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference subject;
+	protected EList<AccountCoverage> coverage;
 
 	/**
 	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' containment reference.
@@ -231,9 +220,9 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getName() {
-		return name;
+	@XmlJavaTypeAdapter(AccountStatusImplAdapter.class)
+	public AccountStatus getStatus() {
+		return status;
 	}
 
 	/**
@@ -241,11 +230,11 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
-		org.hl7.fhir.String oldName = name;
-		name = newName;
+	public NotificationChain basicSetStatus(AccountStatus newStatus, NotificationChain msgs) {
+		AccountStatus oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__NAME, oldName, newName);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__STATUS, oldStatus, newStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -256,18 +245,18 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(org.hl7.fhir.String newName) {
-		if (newName != name) {
+	public void setStatus(AccountStatus newStatus) {
+		if (newStatus != status) {
 			NotificationChain msgs = null;
-			if (name != null)
-				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__NAME, null, msgs);
-			if (newName != null)
-				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__NAME, null, msgs);
-			msgs = basicSetName(newName, msgs);
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__NAME, newName, newName));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -318,9 +307,9 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AccountStatusImplAdapter.class)
-	public AccountStatus getStatus() {
-		return status;
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	public org.hl7.fhir.String getName() {
+		return name;
 	}
 
 	/**
@@ -328,11 +317,11 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(AccountStatus newStatus, NotificationChain msgs) {
-		AccountStatus oldStatus = status;
-		status = newStatus;
+	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
+		org.hl7.fhir.String oldName = name;
+		name = newName;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__STATUS, oldStatus, newStatus);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__NAME, oldName, newName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -343,18 +332,104 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(AccountStatus newStatus) {
-		if (newStatus != status) {
+	public void setName(org.hl7.fhir.String newName) {
+		if (newName != name) {
 			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
+			if (name != null)
+				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__NAME, null, msgs);
+			if (newName != null)
+				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__NAME, null, msgs);
+			msgs = basicSetName(newName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__STATUS, newStatus, newStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__NAME, newName, newName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getSubject() {
+		return subject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
+		Reference oldSubject = subject;
+		subject = newSubject;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__SUBJECT, oldSubject, newSubject);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubject(Reference newSubject) {
+		if (newSubject != subject) {
+			NotificationChain msgs = null;
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__SUBJECT, null, msgs);
+			msgs = basicSetSubject(newSubject, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__SUBJECT, newSubject, newSubject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getPeriod() {
+		return period;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
+		Period oldPeriod = period;
+		period = newPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__PERIOD, oldPeriod, newPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPeriod(Period newPeriod) {
+		if (newPeriod != period) {
+			NotificationChain msgs = null;
+			if (period != null)
+				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__PERIOD, null, msgs);
+			if (newPeriod != null)
+				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__PERIOD, null, msgs);
+			msgs = basicSetPeriod(newPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__PERIOD, newPeriod, newPeriod));
 	}
 
 	/**
@@ -398,49 +473,6 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__ACTIVE, newActive, newActive));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getCurrency() {
-		return currency;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCurrency(Coding newCurrency, NotificationChain msgs) {
-		Coding oldCurrency = currency;
-		currency = newCurrency;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__CURRENCY, oldCurrency, newCurrency);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrency(Coding newCurrency) {
-		if (newCurrency != currency) {
-			NotificationChain msgs = null;
-			if (currency != null)
-				msgs = ((InternalEObject)currency).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__CURRENCY, null, msgs);
-			if (newCurrency != null)
-				msgs = ((InternalEObject)newCurrency).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__CURRENCY, null, msgs);
-			msgs = basicSetCurrency(newCurrency, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__CURRENCY, newCurrency, newCurrency));
 	}
 
 	/**
@@ -492,97 +524,11 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * @generated
 	 */
 	@XmlElement
-	public List<Reference> getCoverage() {
+	public List<AccountCoverage> getCoverage() {
 		if (coverage == null) {
-			coverage = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ACCOUNT__COVERAGE);
+			coverage = new EObjectContainmentEList<AccountCoverage>(AccountCoverage.class, this, FhirPackage.ACCOUNT__COVERAGE);
 		}
 		return coverage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getCoveragePeriod() {
-		return coveragePeriod;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCoveragePeriod(Period newCoveragePeriod, NotificationChain msgs) {
-		Period oldCoveragePeriod = coveragePeriod;
-		coveragePeriod = newCoveragePeriod;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__COVERAGE_PERIOD, oldCoveragePeriod, newCoveragePeriod);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCoveragePeriod(Period newCoveragePeriod) {
-		if (newCoveragePeriod != coveragePeriod) {
-			NotificationChain msgs = null;
-			if (coveragePeriod != null)
-				msgs = ((InternalEObject)coveragePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__COVERAGE_PERIOD, null, msgs);
-			if (newCoveragePeriod != null)
-				msgs = ((InternalEObject)newCoveragePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__COVERAGE_PERIOD, null, msgs);
-			msgs = basicSetCoveragePeriod(newCoveragePeriod, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__COVERAGE_PERIOD, newCoveragePeriod, newCoveragePeriod));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getSubject() {
-		return subject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
-		Reference oldSubject = subject;
-		subject = newSubject;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__SUBJECT, oldSubject, newSubject);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSubject(Reference newSubject) {
-		if (newSubject != subject) {
-			NotificationChain msgs = null;
-			if (subject != null)
-				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__SUBJECT, null, msgs);
-			if (newSubject != null)
-				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__SUBJECT, null, msgs);
-			msgs = basicSetSubject(newSubject, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__SUBJECT, newSubject, newSubject));
 	}
 
 	/**
@@ -695,24 +641,22 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 		switch (featureID) {
 			case FhirPackage.ACCOUNT__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ACCOUNT__NAME:
-				return basicSetName(null, msgs);
-			case FhirPackage.ACCOUNT__TYPE:
-				return basicSetType(null, msgs);
 			case FhirPackage.ACCOUNT__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.ACCOUNT__TYPE:
+				return basicSetType(null, msgs);
+			case FhirPackage.ACCOUNT__NAME:
+				return basicSetName(null, msgs);
+			case FhirPackage.ACCOUNT__SUBJECT:
+				return basicSetSubject(null, msgs);
+			case FhirPackage.ACCOUNT__PERIOD:
+				return basicSetPeriod(null, msgs);
 			case FhirPackage.ACCOUNT__ACTIVE:
 				return basicSetActive(null, msgs);
-			case FhirPackage.ACCOUNT__CURRENCY:
-				return basicSetCurrency(null, msgs);
 			case FhirPackage.ACCOUNT__BALANCE:
 				return basicSetBalance(null, msgs);
 			case FhirPackage.ACCOUNT__COVERAGE:
 				return ((InternalEList<?>)getCoverage()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ACCOUNT__COVERAGE_PERIOD:
-				return basicSetCoveragePeriod(null, msgs);
-			case FhirPackage.ACCOUNT__SUBJECT:
-				return basicSetSubject(null, msgs);
 			case FhirPackage.ACCOUNT__OWNER:
 				return basicSetOwner(null, msgs);
 			case FhirPackage.ACCOUNT__DESCRIPTION:
@@ -733,24 +677,22 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 		switch (featureID) {
 			case FhirPackage.ACCOUNT__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.ACCOUNT__NAME:
-				return getName();
-			case FhirPackage.ACCOUNT__TYPE:
-				return getType();
 			case FhirPackage.ACCOUNT__STATUS:
 				return getStatus();
+			case FhirPackage.ACCOUNT__TYPE:
+				return getType();
+			case FhirPackage.ACCOUNT__NAME:
+				return getName();
+			case FhirPackage.ACCOUNT__SUBJECT:
+				return getSubject();
+			case FhirPackage.ACCOUNT__PERIOD:
+				return getPeriod();
 			case FhirPackage.ACCOUNT__ACTIVE:
 				return getActive();
-			case FhirPackage.ACCOUNT__CURRENCY:
-				return getCurrency();
 			case FhirPackage.ACCOUNT__BALANCE:
 				return getBalance();
 			case FhirPackage.ACCOUNT__COVERAGE:
 				return getCoverage();
-			case FhirPackage.ACCOUNT__COVERAGE_PERIOD:
-				return getCoveragePeriod();
-			case FhirPackage.ACCOUNT__SUBJECT:
-				return getSubject();
 			case FhirPackage.ACCOUNT__OWNER:
 				return getOwner();
 			case FhirPackage.ACCOUNT__DESCRIPTION:
@@ -774,33 +716,30 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.ACCOUNT__NAME:
-				setName((org.hl7.fhir.String)newValue);
+			case FhirPackage.ACCOUNT__STATUS:
+				setStatus((AccountStatus)newValue);
 				return;
 			case FhirPackage.ACCOUNT__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.ACCOUNT__STATUS:
-				setStatus((AccountStatus)newValue);
+			case FhirPackage.ACCOUNT__NAME:
+				setName((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.ACCOUNT__SUBJECT:
+				setSubject((Reference)newValue);
+				return;
+			case FhirPackage.ACCOUNT__PERIOD:
+				setPeriod((Period)newValue);
 				return;
 			case FhirPackage.ACCOUNT__ACTIVE:
 				setActive((Period)newValue);
-				return;
-			case FhirPackage.ACCOUNT__CURRENCY:
-				setCurrency((Coding)newValue);
 				return;
 			case FhirPackage.ACCOUNT__BALANCE:
 				setBalance((Money)newValue);
 				return;
 			case FhirPackage.ACCOUNT__COVERAGE:
 				getCoverage().clear();
-				getCoverage().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.ACCOUNT__COVERAGE_PERIOD:
-				setCoveragePeriod((Period)newValue);
-				return;
-			case FhirPackage.ACCOUNT__SUBJECT:
-				setSubject((Reference)newValue);
+				getCoverage().addAll((Collection<? extends AccountCoverage>)newValue);
 				return;
 			case FhirPackage.ACCOUNT__OWNER:
 				setOwner((Reference)newValue);
@@ -827,32 +766,29 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 			case FhirPackage.ACCOUNT__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.ACCOUNT__NAME:
-				setName((org.hl7.fhir.String)null);
+			case FhirPackage.ACCOUNT__STATUS:
+				setStatus((AccountStatus)null);
 				return;
 			case FhirPackage.ACCOUNT__TYPE:
 				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.ACCOUNT__STATUS:
-				setStatus((AccountStatus)null);
+			case FhirPackage.ACCOUNT__NAME:
+				setName((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.ACCOUNT__SUBJECT:
+				setSubject((Reference)null);
+				return;
+			case FhirPackage.ACCOUNT__PERIOD:
+				setPeriod((Period)null);
 				return;
 			case FhirPackage.ACCOUNT__ACTIVE:
 				setActive((Period)null);
-				return;
-			case FhirPackage.ACCOUNT__CURRENCY:
-				setCurrency((Coding)null);
 				return;
 			case FhirPackage.ACCOUNT__BALANCE:
 				setBalance((Money)null);
 				return;
 			case FhirPackage.ACCOUNT__COVERAGE:
 				getCoverage().clear();
-				return;
-			case FhirPackage.ACCOUNT__COVERAGE_PERIOD:
-				setCoveragePeriod((Period)null);
-				return;
-			case FhirPackage.ACCOUNT__SUBJECT:
-				setSubject((Reference)null);
 				return;
 			case FhirPackage.ACCOUNT__OWNER:
 				setOwner((Reference)null);
@@ -877,24 +813,22 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 		switch (featureID) {
 			case FhirPackage.ACCOUNT__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.ACCOUNT__NAME:
-				return name != null;
-			case FhirPackage.ACCOUNT__TYPE:
-				return type != null;
 			case FhirPackage.ACCOUNT__STATUS:
 				return status != null;
+			case FhirPackage.ACCOUNT__TYPE:
+				return type != null;
+			case FhirPackage.ACCOUNT__NAME:
+				return name != null;
+			case FhirPackage.ACCOUNT__SUBJECT:
+				return subject != null;
+			case FhirPackage.ACCOUNT__PERIOD:
+				return period != null;
 			case FhirPackage.ACCOUNT__ACTIVE:
 				return active != null;
-			case FhirPackage.ACCOUNT__CURRENCY:
-				return currency != null;
 			case FhirPackage.ACCOUNT__BALANCE:
 				return balance != null;
 			case FhirPackage.ACCOUNT__COVERAGE:
 				return coverage != null && !coverage.isEmpty();
-			case FhirPackage.ACCOUNT__COVERAGE_PERIOD:
-				return coveragePeriod != null;
-			case FhirPackage.ACCOUNT__SUBJECT:
-				return subject != null;
 			case FhirPackage.ACCOUNT__OWNER:
 				return owner != null;
 			case FhirPackage.ACCOUNT__DESCRIPTION:

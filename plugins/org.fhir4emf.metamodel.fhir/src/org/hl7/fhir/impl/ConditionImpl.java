@@ -25,9 +25,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Age;
 import org.hl7.fhir.Annotation;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Condition;
+import org.hl7.fhir.ConditionClinicalStatusCodes;
 import org.hl7.fhir.ConditionEvidence;
 import org.hl7.fhir.ConditionStage;
 import org.hl7.fhir.ConditionVerificationStatus;
@@ -38,7 +38,7 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.ConditionClinicalStatusCodesImplAdapter;
 import org.hl7.fhir.jaxb.ConditionVerificationStatusImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
@@ -101,7 +101,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code clinicalStatus;
+	protected ConditionClinicalStatusCodes clinicalStatus;
 
 	/**
 	 * The cached value of the '{@link #getVerificationStatus() <em>Verification Status</em>}' containment reference.
@@ -370,8 +370,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getClinicalStatus() {
+	@XmlJavaTypeAdapter(ConditionClinicalStatusCodesImplAdapter.class)
+	public ConditionClinicalStatusCodes getClinicalStatus() {
 		return clinicalStatus;
 	}
 
@@ -380,8 +380,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClinicalStatus(Code newClinicalStatus, NotificationChain msgs) {
-		Code oldClinicalStatus = clinicalStatus;
+	public NotificationChain basicSetClinicalStatus(ConditionClinicalStatusCodes newClinicalStatus, NotificationChain msgs) {
+		ConditionClinicalStatusCodes oldClinicalStatus = clinicalStatus;
 		clinicalStatus = newClinicalStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__CLINICAL_STATUS, oldClinicalStatus, newClinicalStatus);
@@ -395,7 +395,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClinicalStatus(Code newClinicalStatus) {
+	public void setClinicalStatus(ConditionClinicalStatusCodes newClinicalStatus) {
 		if (newClinicalStatus != clinicalStatus) {
 			NotificationChain msgs = null;
 			if (clinicalStatus != null)
@@ -1424,7 +1424,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.CONDITION__CLINICAL_STATUS:
-				setClinicalStatus((Code)newValue);
+				setClinicalStatus((ConditionClinicalStatusCodes)newValue);
 				return;
 			case FhirPackage.CONDITION__VERIFICATION_STATUS:
 				setVerificationStatus((ConditionVerificationStatus)newValue);
@@ -1515,7 +1515,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				getIdentifier().clear();
 				return;
 			case FhirPackage.CONDITION__CLINICAL_STATUS:
-				setClinicalStatus((Code)null);
+				setClinicalStatus((ConditionClinicalStatusCodes)null);
 				return;
 			case FhirPackage.CONDITION__VERIFICATION_STATUS:
 				setVerificationStatus((ConditionVerificationStatus)null);

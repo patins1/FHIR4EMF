@@ -41,7 +41,6 @@ import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.Time;
-import org.hl7.fhir.Timing;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 import org.hl7.fhir.jaxb.InstantImplAdapter;
@@ -66,7 +65,6 @@ import org.hl7.fhir.jaxb.TimeImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getEffectivePeriod <em>Effective Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getEffectiveTiming <em>Effective Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getValueQuantity <em>Value Quantity</em>}</li>
@@ -186,16 +184,6 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * @ordered
 	 */
 	protected Period effectivePeriod;
-
-	/**
-	 * The cached value of the '{@link #getEffectiveTiming() <em>Effective Timing</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEffectiveTiming()
-	 * @generated
-	 * @ordered
-	 */
-	protected Timing effectiveTiming;
 
 	/**
 	 * The cached value of the '{@link #getIssued() <em>Issued</em>}' containment reference.
@@ -745,49 +733,6 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__EFFECTIVE_PERIOD, newEffectivePeriod, newEffectivePeriod));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Timing getEffectiveTiming() {
-		return effectiveTiming;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEffectiveTiming(Timing newEffectiveTiming, NotificationChain msgs) {
-		Timing oldEffectiveTiming = effectiveTiming;
-		effectiveTiming = newEffectiveTiming;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__EFFECTIVE_TIMING, oldEffectiveTiming, newEffectiveTiming);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEffectiveTiming(Timing newEffectiveTiming) {
-		if (newEffectiveTiming != effectiveTiming) {
-			NotificationChain msgs = null;
-			if (effectiveTiming != null)
-				msgs = ((InternalEObject)effectiveTiming).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__EFFECTIVE_TIMING, null, msgs);
-			if (newEffectiveTiming != null)
-				msgs = ((InternalEObject)newEffectiveTiming).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__EFFECTIVE_TIMING, null, msgs);
-			msgs = basicSetEffectiveTiming(newEffectiveTiming, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__EFFECTIVE_TIMING, newEffectiveTiming, newEffectiveTiming));
 	}
 
 	/**
@@ -1691,8 +1636,6 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return basicSetEffectiveDateTime(null, msgs);
 			case FhirPackage.OBSERVATION__EFFECTIVE_PERIOD:
 				return basicSetEffectivePeriod(null, msgs);
-			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
-				return basicSetEffectiveTiming(null, msgs);
 			case FhirPackage.OBSERVATION__ISSUED:
 				return basicSetIssued(null, msgs);
 			case FhirPackage.OBSERVATION__PERFORMER:
@@ -1769,8 +1712,6 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return getEffectiveDateTime();
 			case FhirPackage.OBSERVATION__EFFECTIVE_PERIOD:
 				return getEffectivePeriod();
-			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
-				return getEffectiveTiming();
 			case FhirPackage.OBSERVATION__ISSUED:
 				return getIssued();
 			case FhirPackage.OBSERVATION__PERFORMER:
@@ -1859,9 +1800,6 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return;
 			case FhirPackage.OBSERVATION__EFFECTIVE_PERIOD:
 				setEffectivePeriod((Period)newValue);
-				return;
-			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
-				setEffectiveTiming((Timing)newValue);
 				return;
 			case FhirPackage.OBSERVATION__ISSUED:
 				setIssued((Instant)newValue);
@@ -1975,9 +1913,6 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 			case FhirPackage.OBSERVATION__EFFECTIVE_PERIOD:
 				setEffectivePeriod((Period)null);
 				return;
-			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
-				setEffectiveTiming((Timing)null);
-				return;
 			case FhirPackage.OBSERVATION__ISSUED:
 				setIssued((Instant)null);
 				return;
@@ -2077,8 +2012,6 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return effectiveDateTime != null;
 			case FhirPackage.OBSERVATION__EFFECTIVE_PERIOD:
 				return effectivePeriod != null;
-			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
-				return effectiveTiming != null;
 			case FhirPackage.OBSERVATION__ISSUED:
 				return issued != null;
 			case FhirPackage.OBSERVATION__PERFORMER:

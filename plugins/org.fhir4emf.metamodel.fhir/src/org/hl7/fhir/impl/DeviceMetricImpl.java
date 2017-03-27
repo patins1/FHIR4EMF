@@ -45,8 +45,8 @@ import org.hl7.fhir.jaxb.DeviceMetricOperationalStatusImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.DeviceMetricImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceMetricImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceMetricImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceMetricImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceMetricImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceMetricImpl#getParent <em>Parent</em>}</li>
@@ -63,16 +63,6 @@ import org.hl7.fhir.jaxb.DeviceMetricOperationalStatusImplAdapter;
 @XmlRootElement(name = "fhir.DeviceMetric")
 public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric {
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept type;
-
-	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,6 +71,16 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	 * @ordered
 	 */
 	protected Identifier identifier;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' containment reference.
@@ -187,50 +187,6 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	 * @generated
 	 */
 	@XmlElement(required = true)
-	public CodeableConcept getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_METRIC__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_METRIC__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_METRIC__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_METRIC__TYPE, newType, newType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement(required = true)
 	public Identifier getIdentifier() {
 		return identifier;
 	}
@@ -267,6 +223,50 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_METRIC__IDENTIFIER, newIdentifier, newIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement(required = true)
+	public CodeableConcept getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_METRIC__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(CodeableConcept newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_METRIC__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_METRIC__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_METRIC__TYPE, newType, newType));
 	}
 
 	/**
@@ -595,10 +595,10 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_METRIC__TYPE:
-				return basicSetType(null, msgs);
 			case FhirPackage.DEVICE_METRIC__IDENTIFIER:
 				return basicSetIdentifier(null, msgs);
+			case FhirPackage.DEVICE_METRIC__TYPE:
+				return basicSetType(null, msgs);
 			case FhirPackage.DEVICE_METRIC__UNIT:
 				return basicSetUnit(null, msgs);
 			case FhirPackage.DEVICE_METRIC__SOURCE:
@@ -627,10 +627,10 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_METRIC__TYPE:
-				return getType();
 			case FhirPackage.DEVICE_METRIC__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.DEVICE_METRIC__TYPE:
+				return getType();
 			case FhirPackage.DEVICE_METRIC__UNIT:
 				return getUnit();
 			case FhirPackage.DEVICE_METRIC__SOURCE:
@@ -660,11 +660,11 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_METRIC__TYPE:
-				setType((CodeableConcept)newValue);
-				return;
 			case FhirPackage.DEVICE_METRIC__IDENTIFIER:
 				setIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.DEVICE_METRIC__TYPE:
+				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.DEVICE_METRIC__UNIT:
 				setUnit((CodeableConcept)newValue);
@@ -703,11 +703,11 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_METRIC__TYPE:
-				setType((CodeableConcept)null);
-				return;
 			case FhirPackage.DEVICE_METRIC__IDENTIFIER:
 				setIdentifier((Identifier)null);
+				return;
+			case FhirPackage.DEVICE_METRIC__TYPE:
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.DEVICE_METRIC__UNIT:
 				setUnit((CodeableConcept)null);
@@ -745,10 +745,10 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_METRIC__TYPE:
-				return type != null;
 			case FhirPackage.DEVICE_METRIC__IDENTIFIER:
 				return identifier != null;
+			case FhirPackage.DEVICE_METRIC__TYPE:
+				return type != null;
 			case FhirPackage.DEVICE_METRIC__UNIT:
 				return unit != null;
 			case FhirPackage.DEVICE_METRIC__SOURCE:

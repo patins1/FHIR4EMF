@@ -61,8 +61,8 @@ import org.hl7.fhir.jaxb.MedicationAdministrationStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getNotGiven <em>Not Given</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonNotGiven <em>Reason Not Given</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonGivenReference <em>Reason Given Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonGivenCodeableConcept <em>Reason Given Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getPrescription <em>Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getNote <em>Note</em>}</li>
@@ -226,24 +226,24 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	protected EList<CodeableConcept> reasonNotGiven;
 
 	/**
-	 * The cached value of the '{@link #getReasonGivenReference() <em>Reason Given Reference</em>}' containment reference list.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReasonGivenReference()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> reasonGivenReference;
+	protected EList<CodeableConcept> reasonCode;
 
 	/**
-	 * The cached value of the '{@link #getReasonGivenCodeableConcept() <em>Reason Given Codeable Concept</em>}' containment reference list.
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReasonGivenCodeableConcept()
+	 * @see #getReasonReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> reasonGivenCodeableConcept;
+	protected EList<Reference> reasonReference;
 
 	/**
 	 * The cached value of the '{@link #getPrescription() <em>Prescription</em>}' containment reference.
@@ -790,11 +790,11 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * @generated
 	 */
 	@XmlElement
-	public List<Reference> getReasonGivenReference() {
-		if (reasonGivenReference == null) {
-			reasonGivenReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_REFERENCE);
+	public List<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE);
 		}
-		return reasonGivenReference;
+		return reasonCode;
 	}
 
 	/**
@@ -803,11 +803,11 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * @generated
 	 */
 	@XmlElement
-	public List<CodeableConcept> getReasonGivenCodeableConcept() {
-		if (reasonGivenCodeableConcept == null) {
-			reasonGivenCodeableConcept = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_CODEABLE_CONCEPT);
+	public List<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE);
 		}
-		return reasonGivenCodeableConcept;
+		return reasonReference;
 	}
 
 	/**
@@ -973,10 +973,10 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return basicSetNotGiven(null, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
 				return ((InternalEList<?>)getReasonNotGiven()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_REFERENCE:
-				return ((InternalEList<?>)getReasonGivenReference()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_CODEABLE_CONCEPT:
-				return ((InternalEList<?>)getReasonGivenCodeableConcept()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				return basicSetPrescription(null, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__DEVICE:
@@ -1029,10 +1029,10 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return getNotGiven();
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
 				return getReasonNotGiven();
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_REFERENCE:
-				return getReasonGivenReference();
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_CODEABLE_CONCEPT:
-				return getReasonGivenCodeableConcept();
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				return getReasonReference();
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				return getPrescription();
 			case FhirPackage.MEDICATION_ADMINISTRATION__DEVICE:
@@ -1107,13 +1107,13 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				getReasonNotGiven().clear();
 				getReasonNotGiven().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_REFERENCE:
-				getReasonGivenReference().clear();
-				getReasonGivenReference().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_CODEABLE_CONCEPT:
-				getReasonGivenCodeableConcept().clear();
-				getReasonGivenCodeableConcept().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				setPrescription((Reference)newValue);
@@ -1190,11 +1190,11 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
 				getReasonNotGiven().clear();
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_REFERENCE:
-				getReasonGivenReference().clear();
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
+				getReasonCode().clear();
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_CODEABLE_CONCEPT:
-				getReasonGivenCodeableConcept().clear();
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				getReasonReference().clear();
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				setPrescription((Reference)null);
@@ -1253,10 +1253,10 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return notGiven != null;
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
 				return reasonNotGiven != null && !reasonNotGiven.isEmpty();
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_REFERENCE:
-				return reasonGivenReference != null && !reasonGivenReference.isEmpty();
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_GIVEN_CODEABLE_CONCEPT:
-				return reasonGivenCodeableConcept != null && !reasonGivenCodeableConcept.isEmpty();
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
 				return prescription != null;
 			case FhirPackage.MEDICATION_ADMINISTRATION__DEVICE:

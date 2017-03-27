@@ -27,10 +27,11 @@ import org.hl7.fhir.jaxb.LibraryImplAdapter;
  *   <li>{@link org.hl7.fhir.Library#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getTitle <em>Title</em>}</li>
- *   <li>{@link org.hl7.fhir.Library#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.Library#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.Library#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getUsage <em>Usage</em>}</li>
@@ -41,7 +42,6 @@ import org.hl7.fhir.jaxb.LibraryImplAdapter;
  *   <li>{@link org.hl7.fhir.Library#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.Library#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.Library#getRelatedArtifact <em>Related Artifact</em>}</li>
@@ -61,7 +61,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -103,7 +103,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
+	 * The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -177,32 +177,6 @@ public interface Library extends DomainResource {
 	void setTitle(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getLibrary_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Library#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(CodeableConcept value);
-
-	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,7 +207,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -255,11 +229,37 @@ public interface Library extends DomainResource {
 	void setExperimental(org.hl7.fhir.Boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getLibrary_Type()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Library#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the library was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.
+	 * The date  (and optionally time) when the library was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -281,11 +281,37 @@ public interface Library extends DomainResource {
 	void setDate(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the individual or organization that published the library.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Publisher</em>' containment reference.
+	 * @see #setPublisher(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getLibrary_Publisher()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getPublisher();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Library#getPublisher <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Publisher</em>' containment reference.
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	void setPublisher(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the library from the consumer's perspective.
+	 * A free text natural language description of the library from a consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Markdown)
@@ -311,7 +337,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explains why this library is needed and why it has been designed as it has.
+	 * Explaination of why this library is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -363,7 +389,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+	 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Approval Date</em>' containment reference.
 	 * @see #setApprovalDate(Date)
@@ -389,7 +415,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
+	 * The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Last Review Date</em>' containment reference.
 	 * @see #setLastReviewDate(Date)
@@ -415,7 +441,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The period during which the library content was or is planned to be effective.
+	 * The period during which the library content was or is planned to be in active use.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Effective Period</em>' containment reference.
 	 * @see #setEffectivePeriod(Period)
@@ -442,7 +468,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate library instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getLibrary_UseContext()
@@ -458,7 +484,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A jurisdiction in which the library is intended to be used.
+	 * A legal or geographic region in which the library is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getLibrary_Jurisdiction()
@@ -474,7 +500,7 @@ public interface Library extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Clinical topics related to the content of the library.
+	 * Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Topic</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getLibrary_Topic()
@@ -499,32 +525,6 @@ public interface Library extends DomainResource {
 	 * @generated
 	 */
 	List<Contributor> getContributor();
-
-	/**
-	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the library.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Publisher</em>' containment reference.
-	 * @see #setPublisher(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getLibrary_Publisher()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getPublisher();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Library#getPublisher <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Publisher</em>' containment reference.
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	void setPublisher(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.

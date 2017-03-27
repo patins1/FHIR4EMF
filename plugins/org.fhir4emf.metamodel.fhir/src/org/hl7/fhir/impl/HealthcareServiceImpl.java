@@ -46,11 +46,11 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getProvidedBy <em>Provided By</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getServiceCategory <em>Service Category</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getServiceType <em>Service Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getSpecialty <em>Specialty</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getServiceName <em>Service Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getExtraDetails <em>Extra Details</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getPhoto <em>Photo</em>}</li>
@@ -62,7 +62,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getProgramName <em>Program Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getCharacteristic <em>Characteristic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getReferralMethod <em>Referral Method</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getPublicKey <em>Public Key</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getAppointmentRequired <em>Appointment Required</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getAvailableTime <em>Available Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.HealthcareServiceImpl#getNotAvailable <em>Not Available</em>}</li>
@@ -106,24 +105,24 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	protected Reference providedBy;
 
 	/**
-	 * The cached value of the '{@link #getServiceCategory() <em>Service Category</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getServiceCategory()
+	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept serviceCategory;
+	protected CodeableConcept category;
 
 	/**
-	 * The cached value of the '{@link #getServiceType() <em>Service Type</em>}' containment reference list.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getServiceType()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> serviceType;
+	protected EList<CodeableConcept> type;
 
 	/**
 	 * The cached value of the '{@link #getSpecialty() <em>Specialty</em>}' containment reference list.
@@ -146,14 +145,14 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	protected EList<Reference> location;
 
 	/**
-	 * The cached value of the '{@link #getServiceName() <em>Service Name</em>}' containment reference.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getServiceName()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String serviceName;
+	protected org.hl7.fhir.String name;
 
 	/**
 	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference.
@@ -264,16 +263,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> referralMethod;
-
-	/**
-	 * The cached value of the '{@link #getPublicKey() <em>Public Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublicKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String publicKey;
 
 	/**
 	 * The cached value of the '{@link #getAppointmentRequired() <em>Appointment Required</em>}' containment reference.
@@ -449,8 +438,8 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getServiceCategory() {
-		return serviceCategory;
+	public CodeableConcept getCategory() {
+		return category;
 	}
 
 	/**
@@ -458,11 +447,11 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetServiceCategory(CodeableConcept newServiceCategory, NotificationChain msgs) {
-		CodeableConcept oldServiceCategory = serviceCategory;
-		serviceCategory = newServiceCategory;
+	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
+		CodeableConcept oldCategory = category;
+		category = newCategory;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY, oldServiceCategory, newServiceCategory);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__CATEGORY, oldCategory, newCategory);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -473,18 +462,18 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServiceCategory(CodeableConcept newServiceCategory) {
-		if (newServiceCategory != serviceCategory) {
+	public void setCategory(CodeableConcept newCategory) {
+		if (newCategory != category) {
 			NotificationChain msgs = null;
-			if (serviceCategory != null)
-				msgs = ((InternalEObject)serviceCategory).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY, null, msgs);
-			if (newServiceCategory != null)
-				msgs = ((InternalEObject)newServiceCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY, null, msgs);
-			msgs = basicSetServiceCategory(newServiceCategory, msgs);
+			if (category != null)
+				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__CATEGORY, null, msgs);
+			if (newCategory != null)
+				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__CATEGORY, null, msgs);
+			msgs = basicSetCategory(newCategory, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY, newServiceCategory, newServiceCategory));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__CATEGORY, newCategory, newCategory));
 	}
 
 	/**
@@ -493,11 +482,11 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * @generated
 	 */
 	@XmlElement
-	public List<CodeableConcept> getServiceType() {
-		if (serviceType == null) {
-			serviceType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.HEALTHCARE_SERVICE__SERVICE_TYPE);
+	public List<CodeableConcept> getType() {
+		if (type == null) {
+			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.HEALTHCARE_SERVICE__TYPE);
 		}
-		return serviceType;
+		return type;
 	}
 
 	/**
@@ -532,8 +521,8 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * @generated
 	 */
 	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getServiceName() {
-		return serviceName;
+	public org.hl7.fhir.String getName() {
+		return name;
 	}
 
 	/**
@@ -541,11 +530,11 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetServiceName(org.hl7.fhir.String newServiceName, NotificationChain msgs) {
-		org.hl7.fhir.String oldServiceName = serviceName;
-		serviceName = newServiceName;
+	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
+		org.hl7.fhir.String oldName = name;
+		name = newName;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__SERVICE_NAME, oldServiceName, newServiceName);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__NAME, oldName, newName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -556,18 +545,18 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServiceName(org.hl7.fhir.String newServiceName) {
-		if (newServiceName != serviceName) {
+	public void setName(org.hl7.fhir.String newName) {
+		if (newName != name) {
 			NotificationChain msgs = null;
-			if (serviceName != null)
-				msgs = ((InternalEObject)serviceName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__SERVICE_NAME, null, msgs);
-			if (newServiceName != null)
-				msgs = ((InternalEObject)newServiceName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__SERVICE_NAME, null, msgs);
-			msgs = basicSetServiceName(newServiceName, msgs);
+			if (name != null)
+				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__NAME, null, msgs);
+			if (newName != null)
+				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__NAME, null, msgs);
+			msgs = basicSetName(newName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__SERVICE_NAME, newServiceName, newServiceName));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__NAME, newName, newName));
 	}
 
 	/**
@@ -872,50 +861,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getPublicKey() {
-		return publicKey;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPublicKey(org.hl7.fhir.String newPublicKey, NotificationChain msgs) {
-		org.hl7.fhir.String oldPublicKey = publicKey;
-		publicKey = newPublicKey;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__PUBLIC_KEY, oldPublicKey, newPublicKey);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPublicKey(org.hl7.fhir.String newPublicKey) {
-		if (newPublicKey != publicKey) {
-			NotificationChain msgs = null;
-			if (publicKey != null)
-				msgs = ((InternalEObject)publicKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__PUBLIC_KEY, null, msgs);
-			if (newPublicKey != null)
-				msgs = ((InternalEObject)newPublicKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.HEALTHCARE_SERVICE__PUBLIC_KEY, null, msgs);
-			msgs = basicSetPublicKey(newPublicKey, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.HEALTHCARE_SERVICE__PUBLIC_KEY, newPublicKey, newPublicKey));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAppointmentRequired() {
 		return appointmentRequired;
@@ -1052,16 +997,16 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				return basicSetActive(null, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				return basicSetProvidedBy(null, msgs);
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY:
-				return basicSetServiceCategory(null, msgs);
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_TYPE:
-				return ((InternalEList<?>)getServiceType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.HEALTHCARE_SERVICE__CATEGORY:
+				return basicSetCategory(null, msgs);
+			case FhirPackage.HEALTHCARE_SERVICE__TYPE:
+				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__SPECIALTY:
 				return ((InternalEList<?>)getSpecialty()).basicRemove(otherEnd, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__LOCATION:
 				return ((InternalEList<?>)getLocation()).basicRemove(otherEnd, msgs);
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_NAME:
-				return basicSetServiceName(null, msgs);
+			case FhirPackage.HEALTHCARE_SERVICE__NAME:
+				return basicSetName(null, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__COMMENT:
 				return basicSetComment(null, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__EXTRA_DETAILS:
@@ -1084,8 +1029,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				return ((InternalEList<?>)getCharacteristic()).basicRemove(otherEnd, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__REFERRAL_METHOD:
 				return ((InternalEList<?>)getReferralMethod()).basicRemove(otherEnd, msgs);
-			case FhirPackage.HEALTHCARE_SERVICE__PUBLIC_KEY:
-				return basicSetPublicKey(null, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__APPOINTMENT_REQUIRED:
 				return basicSetAppointmentRequired(null, msgs);
 			case FhirPackage.HEALTHCARE_SERVICE__AVAILABLE_TIME:
@@ -1114,16 +1057,16 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				return getActive();
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				return getProvidedBy();
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY:
-				return getServiceCategory();
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_TYPE:
-				return getServiceType();
+			case FhirPackage.HEALTHCARE_SERVICE__CATEGORY:
+				return getCategory();
+			case FhirPackage.HEALTHCARE_SERVICE__TYPE:
+				return getType();
 			case FhirPackage.HEALTHCARE_SERVICE__SPECIALTY:
 				return getSpecialty();
 			case FhirPackage.HEALTHCARE_SERVICE__LOCATION:
 				return getLocation();
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_NAME:
-				return getServiceName();
+			case FhirPackage.HEALTHCARE_SERVICE__NAME:
+				return getName();
 			case FhirPackage.HEALTHCARE_SERVICE__COMMENT:
 				return getComment();
 			case FhirPackage.HEALTHCARE_SERVICE__EXTRA_DETAILS:
@@ -1146,8 +1089,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				return getCharacteristic();
 			case FhirPackage.HEALTHCARE_SERVICE__REFERRAL_METHOD:
 				return getReferralMethod();
-			case FhirPackage.HEALTHCARE_SERVICE__PUBLIC_KEY:
-				return getPublicKey();
 			case FhirPackage.HEALTHCARE_SERVICE__APPOINTMENT_REQUIRED:
 				return getAppointmentRequired();
 			case FhirPackage.HEALTHCARE_SERVICE__AVAILABLE_TIME:
@@ -1181,12 +1122,12 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				setProvidedBy((Reference)newValue);
 				return;
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY:
-				setServiceCategory((CodeableConcept)newValue);
+			case FhirPackage.HEALTHCARE_SERVICE__CATEGORY:
+				setCategory((CodeableConcept)newValue);
 				return;
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_TYPE:
-				getServiceType().clear();
-				getServiceType().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.HEALTHCARE_SERVICE__TYPE:
+				getType().clear();
+				getType().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.HEALTHCARE_SERVICE__SPECIALTY:
 				getSpecialty().clear();
@@ -1196,8 +1137,8 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				getLocation().clear();
 				getLocation().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_NAME:
-				setServiceName((org.hl7.fhir.String)newValue);
+			case FhirPackage.HEALTHCARE_SERVICE__NAME:
+				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.HEALTHCARE_SERVICE__COMMENT:
 				setComment((org.hl7.fhir.String)newValue);
@@ -1238,9 +1179,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				getReferralMethod().clear();
 				getReferralMethod().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.HEALTHCARE_SERVICE__PUBLIC_KEY:
-				setPublicKey((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.HEALTHCARE_SERVICE__APPOINTMENT_REQUIRED:
 				setAppointmentRequired((org.hl7.fhir.Boolean)newValue);
 				return;
@@ -1280,11 +1218,11 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				setProvidedBy((Reference)null);
 				return;
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY:
-				setServiceCategory((CodeableConcept)null);
+			case FhirPackage.HEALTHCARE_SERVICE__CATEGORY:
+				setCategory((CodeableConcept)null);
 				return;
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_TYPE:
-				getServiceType().clear();
+			case FhirPackage.HEALTHCARE_SERVICE__TYPE:
+				getType().clear();
 				return;
 			case FhirPackage.HEALTHCARE_SERVICE__SPECIALTY:
 				getSpecialty().clear();
@@ -1292,8 +1230,8 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 			case FhirPackage.HEALTHCARE_SERVICE__LOCATION:
 				getLocation().clear();
 				return;
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_NAME:
-				setServiceName((org.hl7.fhir.String)null);
+			case FhirPackage.HEALTHCARE_SERVICE__NAME:
+				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.HEALTHCARE_SERVICE__COMMENT:
 				setComment((org.hl7.fhir.String)null);
@@ -1328,9 +1266,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 			case FhirPackage.HEALTHCARE_SERVICE__REFERRAL_METHOD:
 				getReferralMethod().clear();
 				return;
-			case FhirPackage.HEALTHCARE_SERVICE__PUBLIC_KEY:
-				setPublicKey((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.HEALTHCARE_SERVICE__APPOINTMENT_REQUIRED:
 				setAppointmentRequired((org.hl7.fhir.Boolean)null);
 				return;
@@ -1364,16 +1299,16 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				return active != null;
 			case FhirPackage.HEALTHCARE_SERVICE__PROVIDED_BY:
 				return providedBy != null;
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_CATEGORY:
-				return serviceCategory != null;
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_TYPE:
-				return serviceType != null && !serviceType.isEmpty();
+			case FhirPackage.HEALTHCARE_SERVICE__CATEGORY:
+				return category != null;
+			case FhirPackage.HEALTHCARE_SERVICE__TYPE:
+				return type != null && !type.isEmpty();
 			case FhirPackage.HEALTHCARE_SERVICE__SPECIALTY:
 				return specialty != null && !specialty.isEmpty();
 			case FhirPackage.HEALTHCARE_SERVICE__LOCATION:
 				return location != null && !location.isEmpty();
-			case FhirPackage.HEALTHCARE_SERVICE__SERVICE_NAME:
-				return serviceName != null;
+			case FhirPackage.HEALTHCARE_SERVICE__NAME:
+				return name != null;
 			case FhirPackage.HEALTHCARE_SERVICE__COMMENT:
 				return comment != null;
 			case FhirPackage.HEALTHCARE_SERVICE__EXTRA_DETAILS:
@@ -1396,8 +1331,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 				return characteristic != null && !characteristic.isEmpty();
 			case FhirPackage.HEALTHCARE_SERVICE__REFERRAL_METHOD:
 				return referralMethod != null && !referralMethod.isEmpty();
-			case FhirPackage.HEALTHCARE_SERVICE__PUBLIC_KEY:
-				return publicKey != null;
 			case FhirPackage.HEALTHCARE_SERVICE__APPOINTMENT_REQUIRED:
 				return appointmentRequired != null;
 			case FhirPackage.HEALTHCARE_SERVICE__AVAILABLE_TIME:

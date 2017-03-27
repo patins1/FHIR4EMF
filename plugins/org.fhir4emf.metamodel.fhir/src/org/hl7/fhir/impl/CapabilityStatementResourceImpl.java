@@ -26,20 +26,20 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CapabilityStatementInteraction;
 import org.hl7.fhir.CapabilityStatementResource;
 import org.hl7.fhir.CapabilityStatementSearchParam;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.ConditionalDeleteStatus;
 import org.hl7.fhir.ConditionalReadStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.ReferenceHandlingPolicy;
+import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.ResourceVersionPolicy;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.ConditionalDeleteStatusImplAdapter;
 import org.hl7.fhir.jaxb.ConditionalReadStatusImplAdapter;
 import org.hl7.fhir.jaxb.MarkdownImplAdapter;
 import org.hl7.fhir.jaxb.ReferenceHandlingPolicyImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
 import org.hl7.fhir.jaxb.ResourceVersionPolicyImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
@@ -81,7 +81,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Code type;
+	protected ResourceType type;
 
 	/**
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
@@ -247,9 +247,9 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getType() {
+	public ResourceType getType() {
 		return type;
 	}
 
@@ -258,8 +258,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Code newType, NotificationChain msgs) {
-		Code oldType = type;
+	public NotificationChain basicSetType(ResourceType newType, NotificationChain msgs) {
+		ResourceType oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__TYPE, oldType, newType);
@@ -273,7 +273,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Code newType) {
+	public void setType(ResourceType newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -844,7 +844,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__TYPE:
-				setType((Code)newValue);
+				setType((ResourceType)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE:
 				setProfile((Reference)newValue);
@@ -906,7 +906,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__TYPE:
-				setType((Code)null);
+				setType((ResourceType)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE:
 				setProfile((Reference)null);

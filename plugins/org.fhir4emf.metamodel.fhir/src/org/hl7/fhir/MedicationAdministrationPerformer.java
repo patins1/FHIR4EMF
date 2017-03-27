@@ -19,7 +19,6 @@ import org.hl7.fhir.jaxb.MedicationAdministrationPerformerImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MedicationAdministrationPerformer#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationPerformer#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationPerformer#getOnBehalfOf <em>On Behalf Of</em>}</li>
  * </ul>
@@ -30,32 +29,6 @@ import org.hl7.fhir.jaxb.MedicationAdministrationPerformerImplAdapter;
  */
 @XmlJavaTypeAdapter(MedicationAdministrationPerformerImplAdapter.class)
 public interface MedicationAdministrationPerformer extends BackboneElement {
-	/**
-	 * Returns the value of the '<em><b>Role</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Describes the type of performer of the administration (e.g. nurse, physician, etc).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Role</em>' containment reference.
-	 * @see #setRole(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationPerformer_Role()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='role' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getRole();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationPerformer#getRole <em>Role</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Role</em>' containment reference.
-	 * @see #getRole()
-	 * @generated
-	 */
-	void setRole(CodeableConcept value);
-
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

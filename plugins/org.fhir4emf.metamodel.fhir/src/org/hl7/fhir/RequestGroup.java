@@ -23,9 +23,16 @@ import org.hl7.fhir.jaxb.RequestGroupImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.RequestGroup#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getReplaces <em>Replaces</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getGroupIdentifier <em>Group Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getIntent <em>Intent</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getContext <em>Context</em>}</li>
- *   <li>{@link org.hl7.fhir.RequestGroup#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getReasonReference <em>Reason Reference</em>}</li>
@@ -40,30 +47,172 @@ import org.hl7.fhir.jaxb.RequestGroupImplAdapter;
 @XmlJavaTypeAdapter(RequestGroupImplAdapter.class)
 public interface RequestGroup extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Allows a service to provide a unique, business identifier for the response.
+	 * Allows a service to provide a unique, business identifier for the request.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Identifier()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
+	List<Identifier> getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getIdentifier <em>Identifier</em>}' containment reference.
+	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
+	 * <!-- begin-model-doc -->
+	 * A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Definition</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Definition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setIdentifier(Identifier value);
+	List<Reference> getDefinition();
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A plan, proposal or order that is fulfilled in whole or in part by this request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getBasedOn();
+
+	/**
+	 * Returns the value of the '<em><b>Replaces</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Completed or terminated request(s) whose function is taken by this new request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Replaces</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Replaces()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='replaces' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getReplaces();
+
+	/**
+	 * Returns the value of the '<em><b>Group Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Group Identifier</em>' containment reference.
+	 * @see #setGroupIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_GroupIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='groupIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getGroupIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getGroupIdentifier <em>Group Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Group Identifier</em>' containment reference.
+	 * @see #getGroupIdentifier()
+	 * @generated
+	 */
+	void setGroupIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The current state of the request. For request groups, the status reflects the status of all the requests in the group.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(RequestStatus)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Status()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RequestStatus getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(RequestStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Intent</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Intent</em>' containment reference.
+	 * @see #setIntent(RequestIntent)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Intent()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='intent' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RequestIntent getIntent();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getIntent <em>Intent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Intent</em>' containment reference.
+	 * @see #getIntent()
+	 * @generated
+	 */
+	void setIntent(RequestIntent value);
+
+	/**
+	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates how quickly the request should be addressed with respect to other requests.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Priority</em>' containment reference.
+	 * @see #setPriority(RequestPriority)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Priority()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RequestPriority getPriority();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getPriority <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Priority</em>' containment reference.
+	 * @see #getPriority()
+	 * @generated
+	 */
+	void setPriority(RequestPriority value);
 
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
@@ -118,30 +267,30 @@ public interface RequestGroup extends DomainResource {
 	void setContext(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Authored On</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Indicates when the request group was created.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Occurrence Date Time</em>' containment reference.
-	 * @see #setOccurrenceDateTime(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_OccurrenceDateTime()
+	 * @return the value of the '<em>Authored On</em>' containment reference.
+	 * @see #setAuthoredOn(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_AuthoredOn()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='occurrenceDateTime' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='authoredOn' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getOccurrenceDateTime();
+	DateTime getAuthoredOn();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getOccurrenceDateTime <em>Occurrence Date Time</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getAuthoredOn <em>Authored On</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Occurrence Date Time</em>' containment reference.
-	 * @see #getOccurrenceDateTime()
+	 * @param value the new value of the '<em>Authored On</em>' containment reference.
+	 * @see #getAuthoredOn()
 	 * @generated
 	 */
-	void setOccurrenceDateTime(DateTime value);
+	void setAuthoredOn(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Author</b></em>' containment reference.

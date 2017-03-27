@@ -16,15 +16,15 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CapabilityStatementEvent;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.EventCapabilityMode;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MessageSignificanceCategory;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.jaxb.EventCapabilityModeImplAdapter;
 import org.hl7.fhir.jaxb.MessageSignificanceCategoryImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
@@ -87,7 +87,7 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Code focus;
+	protected ResourceType focus;
 
 	/**
 	 * The cached value of the '{@link #getRequest() <em>Request</em>}' containment reference.
@@ -276,9 +276,9 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getFocus() {
+	public ResourceType getFocus() {
 		return focus;
 	}
 
@@ -287,8 +287,8 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFocus(Code newFocus, NotificationChain msgs) {
-		Code oldFocus = focus;
+	public NotificationChain basicSetFocus(ResourceType newFocus, NotificationChain msgs) {
+		ResourceType oldFocus = focus;
 		focus = newFocus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_EVENT__FOCUS, oldFocus, newFocus);
@@ -302,7 +302,7 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFocus(Code newFocus) {
+	public void setFocus(ResourceType newFocus) {
 		if (newFocus != focus) {
 			NotificationChain msgs = null;
 			if (focus != null)
@@ -518,7 +518,7 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 				setMode((EventCapabilityMode)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_EVENT__FOCUS:
-				setFocus((Code)newValue);
+				setFocus((ResourceType)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_EVENT__REQUEST:
 				setRequest((Reference)newValue);
@@ -551,7 +551,7 @@ public class CapabilityStatementEventImpl extends BackboneElementImpl implements
 				setMode((EventCapabilityMode)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_EVENT__FOCUS:
-				setFocus((Code)null);
+				setFocus((ResourceType)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_EVENT__REQUEST:
 				setRequest((Reference)null);

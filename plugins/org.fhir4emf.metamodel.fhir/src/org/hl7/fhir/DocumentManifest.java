@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.DocumentManifestImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A manifest that defines a set of documents.
+ * A collection of documents compiled for a purpose together with metadata that applies to the collection.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -24,13 +24,13 @@ import org.hl7.fhir.jaxb.DocumentManifestImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getMasterIdentifier <em>Master Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentManifest#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentManifest#getRecipient <em>Recipient</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentManifest#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentManifest#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentManifest#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentManifest#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentManifest#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentManifest#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentManifest#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentManifest#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentManifest#getRecipient <em>Recipient</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentManifest#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getContent <em>Content</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getRelated <em>Related</em>}</li>
@@ -85,46 +85,30 @@ public interface DocumentManifest extends DomainResource {
 	List<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).
+	 * The status of this document manifest.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject</em>' containment reference.
-	 * @see #setSubject(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Subject()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(DocumentReferenceStatus)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Status()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSubject();
+	DocumentReferenceStatus getStatus();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentManifest#getSubject <em>Subject</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentManifest#getStatus <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject</em>' containment reference.
-	 * @see #getSubject()
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
 	 * @generated
 	 */
-	void setSubject(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Recipient</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A patient, practitioner, or organization for which this set of documents is intended.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Recipient</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Recipient()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='recipient' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	List<Reference> getRecipient();
+	void setStatus(DocumentReferenceStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -153,20 +137,30 @@ public interface DocumentManifest extends DomainResource {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies who is responsible for creating the manifest, and adding  documents to it.
+	 * Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Author</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Author()
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Subject()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Reference> getAuthor();
+	Reference getSubject();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentManifest#getSubject <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
+	 * @generated
+	 */
+	void setSubject(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
@@ -195,6 +189,38 @@ public interface DocumentManifest extends DomainResource {
 	void setCreated(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies who is responsible for creating the manifest, and adding  documents to it.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Author</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Author()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getAuthor();
+
+	/**
+	 * Returns the value of the '<em><b>Recipient</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A patient, practitioner, or organization for which this set of documents is intended.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Recipient</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Recipient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='recipient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getRecipient();
+
+	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,32 +245,6 @@ public interface DocumentManifest extends DomainResource {
 	 * @generated
 	 */
 	void setSource(Uri value);
-
-	/**
-	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The status of this document manifest.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(DocumentReferenceStatus)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Status()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DocumentReferenceStatus getStatus();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentManifest#getStatus <em>Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status</em>' containment reference.
-	 * @see #getStatus()
-	 * @generated
-	 */
-	void setStatus(DocumentReferenceStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

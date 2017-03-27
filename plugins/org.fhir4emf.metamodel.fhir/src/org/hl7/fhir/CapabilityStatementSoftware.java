@@ -87,7 +87,7 @@ public interface CapabilityStatementSoftware extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date this version of the software released.
+	 * Date this version of the software was released.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Release Date</em>' containment reference.
 	 * @see #setReleaseDate(DateTime)

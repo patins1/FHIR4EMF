@@ -23,13 +23,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
+import org.hl7.fhir.ActionCardinalityBehavior;
+import org.hl7.fhir.ActionGroupingBehavior;
+import org.hl7.fhir.ActionPrecheckBehavior;
+import org.hl7.fhir.ActionRequiredBehavior;
+import org.hl7.fhir.ActionSelectionBehavior;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
@@ -38,7 +41,11 @@ import org.hl7.fhir.RequestGroupAction;
 import org.hl7.fhir.RequestGroupCondition;
 import org.hl7.fhir.RequestGroupRelatedAction;
 import org.hl7.fhir.Timing;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.ActionCardinalityBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionGroupingBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionPrecheckBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionRequiredBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionSelectionBehaviorImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
@@ -50,7 +57,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getActionIdentifier <em>Action Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getDescription <em>Description</em>}</li>
@@ -80,16 +86,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
 @XmlType(name = "RequestGroupAction", namespace = "http://hl7.org/fhir")
 @XmlRootElement(name = "fhir.RequestGroupAction")
 public class RequestGroupActionImpl extends BackboneElementImpl implements RequestGroupAction {
-	/**
-	 * The cached value of the '{@link #getActionIdentifier() <em>Action Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActionIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier actionIdentifier;
-
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -248,7 +244,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * @generated
 	 * @ordered
 	 */
-	protected Code groupingBehavior;
+	protected ActionGroupingBehavior groupingBehavior;
 
 	/**
 	 * The cached value of the '{@link #getSelectionBehavior() <em>Selection Behavior</em>}' containment reference.
@@ -258,7 +254,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * @generated
 	 * @ordered
 	 */
-	protected Code selectionBehavior;
+	protected ActionSelectionBehavior selectionBehavior;
 
 	/**
 	 * The cached value of the '{@link #getRequiredBehavior() <em>Required Behavior</em>}' containment reference.
@@ -268,7 +264,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * @generated
 	 * @ordered
 	 */
-	protected Code requiredBehavior;
+	protected ActionRequiredBehavior requiredBehavior;
 
 	/**
 	 * The cached value of the '{@link #getPrecheckBehavior() <em>Precheck Behavior</em>}' containment reference.
@@ -278,7 +274,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * @generated
 	 * @ordered
 	 */
-	protected Code precheckBehavior;
+	protected ActionPrecheckBehavior precheckBehavior;
 
 	/**
 	 * The cached value of the '{@link #getCardinalityBehavior() <em>Cardinality Behavior</em>}' containment reference.
@@ -288,7 +284,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * @generated
 	 * @ordered
 	 */
-	protected Code cardinalityBehavior;
+	protected ActionCardinalityBehavior cardinalityBehavior;
 
 	/**
 	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference.
@@ -327,49 +323,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getRequestGroupAction();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getActionIdentifier() {
-		return actionIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetActionIdentifier(Identifier newActionIdentifier, NotificationChain msgs) {
-		Identifier oldActionIdentifier = actionIdentifier;
-		actionIdentifier = newActionIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__ACTION_IDENTIFIER, oldActionIdentifier, newActionIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActionIdentifier(Identifier newActionIdentifier) {
-		if (newActionIdentifier != actionIdentifier) {
-			NotificationChain msgs = null;
-			if (actionIdentifier != null)
-				msgs = ((InternalEObject)actionIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__ACTION_IDENTIFIER, null, msgs);
-			if (newActionIdentifier != null)
-				msgs = ((InternalEObject)newActionIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__ACTION_IDENTIFIER, null, msgs);
-			msgs = basicSetActionIdentifier(newActionIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__ACTION_IDENTIFIER, newActionIdentifier, newActionIdentifier));
 	}
 
 	/**
@@ -877,8 +830,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getGroupingBehavior() {
+	@XmlJavaTypeAdapter(ActionGroupingBehaviorImplAdapter.class)
+	public ActionGroupingBehavior getGroupingBehavior() {
 		return groupingBehavior;
 	}
 
@@ -887,8 +840,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGroupingBehavior(Code newGroupingBehavior, NotificationChain msgs) {
-		Code oldGroupingBehavior = groupingBehavior;
+	public NotificationChain basicSetGroupingBehavior(ActionGroupingBehavior newGroupingBehavior, NotificationChain msgs) {
+		ActionGroupingBehavior oldGroupingBehavior = groupingBehavior;
 		groupingBehavior = newGroupingBehavior;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__GROUPING_BEHAVIOR, oldGroupingBehavior, newGroupingBehavior);
@@ -902,7 +855,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGroupingBehavior(Code newGroupingBehavior) {
+	public void setGroupingBehavior(ActionGroupingBehavior newGroupingBehavior) {
 		if (newGroupingBehavior != groupingBehavior) {
 			NotificationChain msgs = null;
 			if (groupingBehavior != null)
@@ -921,8 +874,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getSelectionBehavior() {
+	@XmlJavaTypeAdapter(ActionSelectionBehaviorImplAdapter.class)
+	public ActionSelectionBehavior getSelectionBehavior() {
 		return selectionBehavior;
 	}
 
@@ -931,8 +884,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSelectionBehavior(Code newSelectionBehavior, NotificationChain msgs) {
-		Code oldSelectionBehavior = selectionBehavior;
+	public NotificationChain basicSetSelectionBehavior(ActionSelectionBehavior newSelectionBehavior, NotificationChain msgs) {
+		ActionSelectionBehavior oldSelectionBehavior = selectionBehavior;
 		selectionBehavior = newSelectionBehavior;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__SELECTION_BEHAVIOR, oldSelectionBehavior, newSelectionBehavior);
@@ -946,7 +899,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelectionBehavior(Code newSelectionBehavior) {
+	public void setSelectionBehavior(ActionSelectionBehavior newSelectionBehavior) {
 		if (newSelectionBehavior != selectionBehavior) {
 			NotificationChain msgs = null;
 			if (selectionBehavior != null)
@@ -965,8 +918,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getRequiredBehavior() {
+	@XmlJavaTypeAdapter(ActionRequiredBehaviorImplAdapter.class)
+	public ActionRequiredBehavior getRequiredBehavior() {
 		return requiredBehavior;
 	}
 
@@ -975,8 +928,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequiredBehavior(Code newRequiredBehavior, NotificationChain msgs) {
-		Code oldRequiredBehavior = requiredBehavior;
+	public NotificationChain basicSetRequiredBehavior(ActionRequiredBehavior newRequiredBehavior, NotificationChain msgs) {
+		ActionRequiredBehavior oldRequiredBehavior = requiredBehavior;
 		requiredBehavior = newRequiredBehavior;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__REQUIRED_BEHAVIOR, oldRequiredBehavior, newRequiredBehavior);
@@ -990,7 +943,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequiredBehavior(Code newRequiredBehavior) {
+	public void setRequiredBehavior(ActionRequiredBehavior newRequiredBehavior) {
 		if (newRequiredBehavior != requiredBehavior) {
 			NotificationChain msgs = null;
 			if (requiredBehavior != null)
@@ -1009,8 +962,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getPrecheckBehavior() {
+	@XmlJavaTypeAdapter(ActionPrecheckBehaviorImplAdapter.class)
+	public ActionPrecheckBehavior getPrecheckBehavior() {
 		return precheckBehavior;
 	}
 
@@ -1019,8 +972,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPrecheckBehavior(Code newPrecheckBehavior, NotificationChain msgs) {
-		Code oldPrecheckBehavior = precheckBehavior;
+	public NotificationChain basicSetPrecheckBehavior(ActionPrecheckBehavior newPrecheckBehavior, NotificationChain msgs) {
+		ActionPrecheckBehavior oldPrecheckBehavior = precheckBehavior;
 		precheckBehavior = newPrecheckBehavior;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__PRECHECK_BEHAVIOR, oldPrecheckBehavior, newPrecheckBehavior);
@@ -1034,7 +987,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrecheckBehavior(Code newPrecheckBehavior) {
+	public void setPrecheckBehavior(ActionPrecheckBehavior newPrecheckBehavior) {
 		if (newPrecheckBehavior != precheckBehavior) {
 			NotificationChain msgs = null;
 			if (precheckBehavior != null)
@@ -1053,8 +1006,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getCardinalityBehavior() {
+	@XmlJavaTypeAdapter(ActionCardinalityBehaviorImplAdapter.class)
+	public ActionCardinalityBehavior getCardinalityBehavior() {
 		return cardinalityBehavior;
 	}
 
@@ -1063,8 +1016,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCardinalityBehavior(Code newCardinalityBehavior, NotificationChain msgs) {
-		Code oldCardinalityBehavior = cardinalityBehavior;
+	public NotificationChain basicSetCardinalityBehavior(ActionCardinalityBehavior newCardinalityBehavior, NotificationChain msgs) {
+		ActionCardinalityBehavior oldCardinalityBehavior = cardinalityBehavior;
 		cardinalityBehavior = newCardinalityBehavior;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__CARDINALITY_BEHAVIOR, oldCardinalityBehavior, newCardinalityBehavior);
@@ -1078,7 +1031,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCardinalityBehavior(Code newCardinalityBehavior) {
+	public void setCardinalityBehavior(ActionCardinalityBehavior newCardinalityBehavior) {
 		if (newCardinalityBehavior != cardinalityBehavior) {
 			NotificationChain msgs = null;
 			if (cardinalityBehavior != null)
@@ -1156,8 +1109,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__ACTION_IDENTIFIER:
-				return basicSetActionIdentifier(null, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
 				return basicSetLabel(null, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__TITLE:
@@ -1214,8 +1165,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__ACTION_IDENTIFIER:
-				return getActionIdentifier();
 			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
 				return getLabel();
 			case FhirPackage.REQUEST_GROUP_ACTION__TITLE:
@@ -1273,9 +1222,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__ACTION_IDENTIFIER:
-				setActionIdentifier((Identifier)newValue);
-				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
 				setLabel((org.hl7.fhir.String)newValue);
 				return;
@@ -1327,19 +1273,19 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				setType((Coding)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__GROUPING_BEHAVIOR:
-				setGroupingBehavior((Code)newValue);
+				setGroupingBehavior((ActionGroupingBehavior)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__SELECTION_BEHAVIOR:
-				setSelectionBehavior((Code)newValue);
+				setSelectionBehavior((ActionSelectionBehavior)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__REQUIRED_BEHAVIOR:
-				setRequiredBehavior((Code)newValue);
+				setRequiredBehavior((ActionRequiredBehavior)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__PRECHECK_BEHAVIOR:
-				setPrecheckBehavior((Code)newValue);
+				setPrecheckBehavior((ActionPrecheckBehavior)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__CARDINALITY_BEHAVIOR:
-				setCardinalityBehavior((Code)newValue);
+				setCardinalityBehavior((ActionCardinalityBehavior)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__RESOURCE:
 				setResource((Reference)newValue);
@@ -1360,9 +1306,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__ACTION_IDENTIFIER:
-				setActionIdentifier((Identifier)null);
-				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
 				setLabel((org.hl7.fhir.String)null);
 				return;
@@ -1409,19 +1352,19 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				setType((Coding)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__GROUPING_BEHAVIOR:
-				setGroupingBehavior((Code)null);
+				setGroupingBehavior((ActionGroupingBehavior)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__SELECTION_BEHAVIOR:
-				setSelectionBehavior((Code)null);
+				setSelectionBehavior((ActionSelectionBehavior)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__REQUIRED_BEHAVIOR:
-				setRequiredBehavior((Code)null);
+				setRequiredBehavior((ActionRequiredBehavior)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__PRECHECK_BEHAVIOR:
-				setPrecheckBehavior((Code)null);
+				setPrecheckBehavior((ActionPrecheckBehavior)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__CARDINALITY_BEHAVIOR:
-				setCardinalityBehavior((Code)null);
+				setCardinalityBehavior((ActionCardinalityBehavior)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__RESOURCE:
 				setResource((Reference)null);
@@ -1441,8 +1384,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__ACTION_IDENTIFIER:
-				return actionIdentifier != null;
 			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
 				return label != null;
 			case FhirPackage.REQUEST_GROUP_ACTION__TITLE:

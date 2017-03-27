@@ -61,6 +61,16 @@ public enum ObservationStatusList implements Enumerator {
 	AMENDED(3, "amended", "amended"),
 
 	/**
+	 * The '<em><b>Corrected</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CORRECTED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CORRECTED(4, "corrected", "corrected"),
+
+	/**
 	 * The '<em><b>Cancelled</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,7 +78,7 @@ public enum ObservationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANCELLED(4, "cancelled", "cancelled"),
+	CANCELLED(5, "cancelled", "cancelled"),
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
@@ -78,7 +88,7 @@ public enum ObservationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(5, "enteredInError", "entered-in-error"),
+	ENTERED_IN_ERROR(6, "enteredInError", "entered-in-error"),
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal object.
@@ -88,7 +98,7 @@ public enum ObservationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(6, "unknown", "unknown");
+	UNKNOWN(7, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Registered</b></em>' literal value.
@@ -147,6 +157,20 @@ public enum ObservationStatusList implements Enumerator {
 	public static final int AMENDED_VALUE = 3;
 
 	/**
+	 * The '<em><b>Corrected</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Corrected
+	 * <!-- end-model-doc -->
+	 * @see #CORRECTED
+	 * @model name="corrected"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CORRECTED_VALUE = 4;
+
+	/**
 	 * The '<em><b>Cancelled</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,7 +182,7 @@ public enum ObservationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CANCELLED_VALUE = 4;
+	public static final int CANCELLED_VALUE = 5;
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
@@ -172,21 +196,21 @@ public enum ObservationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 5;
+	public static final int ENTERED_IN_ERROR_VALUE = 6;
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Unknown Status
+	 * Unknown
 	 * <!-- end-model-doc -->
 	 * @see #UNKNOWN
 	 * @model name="unknown"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNKNOWN_VALUE = 6;
+	public static final int UNKNOWN_VALUE = 7;
 
 	/**
 	 * An array of all the '<em><b>Observation Status List</b></em>' enumerators.
@@ -200,6 +224,7 @@ public enum ObservationStatusList implements Enumerator {
 			PRELIMINARY,
 			FINAL,
 			AMENDED,
+			CORRECTED,
 			CANCELLED,
 			ENTERED_IN_ERROR,
 			UNKNOWN,
@@ -263,6 +288,7 @@ public enum ObservationStatusList implements Enumerator {
 			case PRELIMINARY_VALUE: return PRELIMINARY;
 			case FINAL_VALUE: return FINAL;
 			case AMENDED_VALUE: return AMENDED;
+			case CORRECTED_VALUE: return CORRECTED;
 			case CANCELLED_VALUE: return CANCELLED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 			case UNKNOWN_VALUE: return UNKNOWN;

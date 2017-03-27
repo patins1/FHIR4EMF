@@ -58,7 +58,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published. The URL SHOULD include the major version of the operation definition. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published. The URL SHOULD include the major version of the operation definition. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -84,7 +84,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
+	 * The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -188,7 +188,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -214,7 +214,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes.
+	 * The date  (and optionally time) when the operation definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -282,7 +282,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the operation definition from the consumer's perspective.
+	 * A free text natural language description of the operation definition from a consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Markdown)
@@ -309,7 +309,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate operation definition instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_UseContext()
@@ -325,7 +325,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A jurisdiction in which the operation definition is intended to be used.
+	 * A legal or geographic region in which the operation definition is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Jurisdiction()
@@ -340,7 +340,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explains why this operation definition is needed and why it has been designed as it has.
+	 * Explaination of why this operation definition is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -467,7 +467,7 @@ public interface OperationDefinition extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Code}.
+	 * The list contents are of type {@link org.hl7.fhir.ResourceType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -479,7 +479,7 @@ public interface OperationDefinition extends DomainResource {
 	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Code> getResource();
+	List<ResourceType> getResource();
 
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.
@@ -581,7 +581,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Defines an appropriate combination of parameters to use when invoking this operation.
+	 * Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Overload</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Overload()

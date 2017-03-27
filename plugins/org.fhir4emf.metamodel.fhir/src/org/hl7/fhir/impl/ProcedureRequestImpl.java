@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -33,10 +32,15 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.ProcedureRequest;
 import org.hl7.fhir.ProcedureRequestRequester;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.RequestIntent;
+import org.hl7.fhir.RequestPriority;
+import org.hl7.fhir.RequestStatus;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
+import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -140,7 +144,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected RequestStatus status;
 
 	/**
 	 * The cached value of the '{@link #getIntent() <em>Intent</em>}' containment reference.
@@ -150,7 +154,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * @generated
 	 * @ordered
 	 */
-	protected Code intent;
+	protected RequestIntent intent;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -160,7 +164,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * @generated
 	 * @ordered
 	 */
-	protected Code priority;
+	protected RequestPriority priority;
 
 	/**
 	 * The cached value of the '{@link #getDoNotPerform() <em>Do Not Perform</em>}' containment reference.
@@ -491,9 +495,9 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(RequestStatusImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getStatus() {
+	public RequestStatus getStatus() {
 		return status;
 	}
 
@@ -502,8 +506,8 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(RequestStatus newStatus, NotificationChain msgs) {
+		RequestStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE_REQUEST__STATUS, oldStatus, newStatus);
@@ -517,7 +521,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(RequestStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -536,9 +540,9 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(RequestIntentImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getIntent() {
+	public RequestIntent getIntent() {
 		return intent;
 	}
 
@@ -547,8 +551,8 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIntent(Code newIntent, NotificationChain msgs) {
-		Code oldIntent = intent;
+	public NotificationChain basicSetIntent(RequestIntent newIntent, NotificationChain msgs) {
+		RequestIntent oldIntent = intent;
 		intent = newIntent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE_REQUEST__INTENT, oldIntent, newIntent);
@@ -562,7 +566,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIntent(Code newIntent) {
+	public void setIntent(RequestIntent newIntent) {
 		if (newIntent != intent) {
 			NotificationChain msgs = null;
 			if (intent != null)
@@ -581,8 +585,8 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getPriority() {
+	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
+	public RequestPriority getPriority() {
 		return priority;
 	}
 
@@ -591,8 +595,8 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPriority(Code newPriority, NotificationChain msgs) {
-		Code oldPriority = priority;
+	public NotificationChain basicSetPriority(RequestPriority newPriority, NotificationChain msgs) {
+		RequestPriority oldPriority = priority;
 		priority = newPriority;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE_REQUEST__PRIORITY, oldPriority, newPriority);
@@ -606,7 +610,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPriority(Code newPriority) {
+	public void setPriority(RequestPriority newPriority) {
 		if (newPriority != priority) {
 			NotificationChain msgs = null;
 			if (priority != null)
@@ -1458,13 +1462,13 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 				setRequisition((Identifier)newValue);
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__STATUS:
-				setStatus((Code)newValue);
+				setStatus((RequestStatus)newValue);
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__INTENT:
-				setIntent((Code)newValue);
+				setIntent((RequestIntent)newValue);
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__PRIORITY:
-				setPriority((Code)newValue);
+				setPriority((RequestPriority)newValue);
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__DO_NOT_PERFORM:
 				setDoNotPerform((org.hl7.fhir.Boolean)newValue);
@@ -1565,13 +1569,13 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 				setRequisition((Identifier)null);
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__STATUS:
-				setStatus((Code)null);
+				setStatus((RequestStatus)null);
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__INTENT:
-				setIntent((Code)null);
+				setIntent((RequestIntent)null);
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__PRIORITY:
-				setPriority((Code)null);
+				setPriority((RequestPriority)null);
 				return;
 			case FhirPackage.PROCEDURE_REQUEST__DO_NOT_PERFORM:
 				setDoNotPerform((org.hl7.fhir.Boolean)null);

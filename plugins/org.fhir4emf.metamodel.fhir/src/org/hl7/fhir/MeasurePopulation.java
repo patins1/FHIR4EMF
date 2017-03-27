@@ -19,8 +19,8 @@ import org.hl7.fhir.jaxb.MeasurePopulationImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MeasurePopulation#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasurePopulation#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasurePopulation#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasurePopulation#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasurePopulation#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasurePopulation#getCriteria <em>Criteria</em>}</li>
@@ -33,32 +33,6 @@ import org.hl7.fhir.jaxb.MeasurePopulationImplAdapter;
 @XmlJavaTypeAdapter(MeasurePopulationImplAdapter.class)
 public interface MeasurePopulation extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The type of population criteria.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(MeasurePopulationType)
-	 * @see org.hl7.fhir.FhirPackage#getMeasurePopulation_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	MeasurePopulationType getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasurePopulation#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(MeasurePopulationType value);
-
-	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,7 +42,7 @@ public interface MeasurePopulation extends BackboneElement {
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
 	 * @see org.hl7.fhir.FhirPackage#getMeasurePopulation_Identifier()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -83,6 +57,32 @@ public interface MeasurePopulation extends BackboneElement {
 	 * @generated
 	 */
 	void setIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of population criteria.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMeasurePopulation_Code()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getCode();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MeasurePopulation#getCode <em>Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
+	 * @generated
+	 */
+	void setCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

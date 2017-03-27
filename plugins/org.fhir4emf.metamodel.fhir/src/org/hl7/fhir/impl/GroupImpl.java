@@ -45,9 +45,9 @@ import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GroupImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getActual <em>Actual</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GroupImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getQuantity <em>Quantity</em>}</li>
@@ -71,6 +71,16 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean active;
+
+	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,16 +99,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean actual;
-
-	/**
-	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.Boolean active;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -180,6 +180,50 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.GROUP__IDENTIFIER);
 		}
 		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
+	public org.hl7.fhir.Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetActive(org.hl7.fhir.Boolean newActive, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GROUP__ACTIVE, oldActive, newActive);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(org.hl7.fhir.Boolean newActive) {
+		if (newActive != active) {
+			NotificationChain msgs = null;
+			if (active != null)
+				msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GROUP__ACTIVE, null, msgs);
+			if (newActive != null)
+				msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GROUP__ACTIVE, null, msgs);
+			msgs = basicSetActive(newActive, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GROUP__ACTIVE, newActive, newActive));
 	}
 
 	/**
@@ -270,50 +314,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GROUP__ACTUAL, newActual, newActual));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	public org.hl7.fhir.Boolean getActive() {
-		return active;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetActive(org.hl7.fhir.Boolean newActive, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldActive = active;
-		active = newActive;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GROUP__ACTIVE, oldActive, newActive);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActive(org.hl7.fhir.Boolean newActive) {
-		if (newActive != active) {
-			NotificationChain msgs = null;
-			if (active != null)
-				msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GROUP__ACTIVE, null, msgs);
-			if (newActive != null)
-				msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GROUP__ACTIVE, null, msgs);
-			msgs = basicSetActive(newActive, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GROUP__ACTIVE, newActive, newActive));
 	}
 
 	/**
@@ -483,12 +483,12 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 		switch (featureID) {
 			case FhirPackage.GROUP__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.GROUP__ACTIVE:
+				return basicSetActive(null, msgs);
 			case FhirPackage.GROUP__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.GROUP__ACTUAL:
 				return basicSetActual(null, msgs);
-			case FhirPackage.GROUP__ACTIVE:
-				return basicSetActive(null, msgs);
 			case FhirPackage.GROUP__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.GROUP__NAME:
@@ -513,12 +513,12 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 		switch (featureID) {
 			case FhirPackage.GROUP__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.GROUP__ACTIVE:
+				return getActive();
 			case FhirPackage.GROUP__TYPE:
 				return getType();
 			case FhirPackage.GROUP__ACTUAL:
 				return getActual();
-			case FhirPackage.GROUP__ACTIVE:
-				return getActive();
 			case FhirPackage.GROUP__CODE:
 				return getCode();
 			case FhirPackage.GROUP__NAME:
@@ -546,14 +546,14 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.GROUP__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)newValue);
+				return;
 			case FhirPackage.GROUP__TYPE:
 				setType((GroupType)newValue);
 				return;
 			case FhirPackage.GROUP__ACTUAL:
 				setActual((org.hl7.fhir.Boolean)newValue);
-				return;
-			case FhirPackage.GROUP__ACTIVE:
-				setActive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.GROUP__CODE:
 				setCode((CodeableConcept)newValue);
@@ -587,14 +587,14 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 			case FhirPackage.GROUP__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.GROUP__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.GROUP__TYPE:
 				setType((GroupType)null);
 				return;
 			case FhirPackage.GROUP__ACTUAL:
 				setActual((org.hl7.fhir.Boolean)null);
-				return;
-			case FhirPackage.GROUP__ACTIVE:
-				setActive((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.GROUP__CODE:
 				setCode((CodeableConcept)null);
@@ -625,12 +625,12 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 		switch (featureID) {
 			case FhirPackage.GROUP__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.GROUP__ACTIVE:
+				return active != null;
 			case FhirPackage.GROUP__TYPE:
 				return type != null;
 			case FhirPackage.GROUP__ACTUAL:
 				return actual != null;
-			case FhirPackage.GROUP__ACTIVE:
-				return active != null;
 			case FhirPackage.GROUP__CODE:
 				return code != null;
 			case FhirPackage.GROUP__NAME:

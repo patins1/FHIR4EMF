@@ -30,14 +30,15 @@ import org.hl7.fhir.Consent;
 import org.hl7.fhir.ConsentActor;
 import org.hl7.fhir.ConsentData;
 import org.hl7.fhir.ConsentExcept;
-import org.hl7.fhir.ConsentStatus;
+import org.hl7.fhir.ConsentPolicy;
+import org.hl7.fhir.ConsentState;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.ConsentStatusImplAdapter;
+import org.hl7.fhir.jaxb.ConsentStateImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 import org.hl7.fhir.jaxb.UriImplAdapter;
 
@@ -55,7 +56,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getDateTime <em>Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getConsentor <em>Consentor</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getConsentingParty <em>Consenting Party</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentImpl#getOrganization <em>Organization</em>}</li>
@@ -94,7 +95,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * @generated
 	 * @ordered
 	 */
-	protected ConsentStatus status;
+	protected ConsentState status;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
@@ -137,14 +138,14 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	protected DateTime dateTime;
 
 	/**
-	 * The cached value of the '{@link #getConsentor() <em>Consentor</em>}' containment reference list.
+	 * The cached value of the '{@link #getConsentingParty() <em>Consenting Party</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConsentor()
+	 * @see #getConsentingParty()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> consentor;
+	protected EList<Reference> consentingParty;
 
 	/**
 	 * The cached value of the '{@link #getActor() <em>Actor</em>}' containment reference list.
@@ -167,14 +168,14 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	protected EList<CodeableConcept> action;
 
 	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference organization;
+	protected EList<Reference> organization;
 
 	/**
 	 * The cached value of the '{@link #getSourceAttachment() <em>Source Attachment</em>}' containment reference.
@@ -214,7 +215,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> policy;
+	protected EList<ConsentPolicy> policy;
 
 	/**
 	 * The cached value of the '{@link #getPolicyRule() <em>Policy Rule</em>}' containment reference.
@@ -343,9 +344,9 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ConsentStatusImplAdapter.class)
+	@XmlJavaTypeAdapter(ConsentStateImplAdapter.class)
 	@XmlElement(required = true)
-	public ConsentStatus getStatus() {
+	public ConsentState getStatus() {
 		return status;
 	}
 
@@ -354,8 +355,8 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ConsentStatus newStatus, NotificationChain msgs) {
-		ConsentStatus oldStatus = status;
+	public NotificationChain basicSetStatus(ConsentState newStatus, NotificationChain msgs) {
+		ConsentState oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__STATUS, oldStatus, newStatus);
@@ -369,7 +370,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ConsentStatus newStatus) {
+	public void setStatus(ConsentState newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -533,11 +534,11 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * @generated
 	 */
 	@XmlElement
-	public List<Reference> getConsentor() {
-		if (consentor == null) {
-			consentor = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__CONSENTOR);
+	public List<Reference> getConsentingParty() {
+		if (consentingParty == null) {
+			consentingParty = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__CONSENTING_PARTY);
 		}
-		return consentor;
+		return consentingParty;
 	}
 
 	/**
@@ -571,42 +572,12 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOrganization() {
+	@XmlElement
+	public List<Reference> getOrganization() {
+		if (organization == null) {
+			organization = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__ORGANIZATION);
+		}
 		return organization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
-		Reference oldOrganization = organization;
-		organization = newOrganization;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__ORGANIZATION, oldOrganization, newOrganization);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganization(Reference newOrganization) {
-		if (newOrganization != organization) {
-			NotificationChain msgs = null;
-			if (organization != null)
-				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__ORGANIZATION, null, msgs);
-			if (newOrganization != null)
-				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT__ORGANIZATION, null, msgs);
-			msgs = basicSetOrganization(newOrganization, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT__ORGANIZATION, newOrganization, newOrganization));
 	}
 
 	/**
@@ -743,11 +714,10 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	@XmlElement
-	public List<Uri> getPolicy() {
+	public List<ConsentPolicy> getPolicy() {
 		if (policy == null) {
-			policy = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CONSENT__POLICY);
+			policy = new EObjectContainmentEList<ConsentPolicy>(ConsentPolicy.class, this, FhirPackage.CONSENT__POLICY);
 		}
 		return policy;
 	}
@@ -911,14 +881,14 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.CONSENT__DATE_TIME:
 				return basicSetDateTime(null, msgs);
-			case FhirPackage.CONSENT__CONSENTOR:
-				return ((InternalEList<?>)getConsentor()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT__CONSENTING_PARTY:
+				return ((InternalEList<?>)getConsentingParty()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONSENT__ACTOR:
 				return ((InternalEList<?>)getActor()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONSENT__ACTION:
 				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONSENT__ORGANIZATION:
-				return basicSetOrganization(null, msgs);
+				return ((InternalEList<?>)getOrganization()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONSENT__SOURCE_ATTACHMENT:
 				return basicSetSourceAttachment(null, msgs);
 			case FhirPackage.CONSENT__SOURCE_IDENTIFIER:
@@ -963,8 +933,8 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				return getPeriod();
 			case FhirPackage.CONSENT__DATE_TIME:
 				return getDateTime();
-			case FhirPackage.CONSENT__CONSENTOR:
-				return getConsentor();
+			case FhirPackage.CONSENT__CONSENTING_PARTY:
+				return getConsentingParty();
 			case FhirPackage.CONSENT__ACTOR:
 				return getActor();
 			case FhirPackage.CONSENT__ACTION:
@@ -1008,7 +978,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				setIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.CONSENT__STATUS:
-				setStatus((ConsentStatus)newValue);
+				setStatus((ConsentState)newValue);
 				return;
 			case FhirPackage.CONSENT__CATEGORY:
 				getCategory().clear();
@@ -1023,9 +993,9 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 			case FhirPackage.CONSENT__DATE_TIME:
 				setDateTime((DateTime)newValue);
 				return;
-			case FhirPackage.CONSENT__CONSENTOR:
-				getConsentor().clear();
-				getConsentor().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.CONSENT__CONSENTING_PARTY:
+				getConsentingParty().clear();
+				getConsentingParty().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CONSENT__ACTOR:
 				getActor().clear();
@@ -1036,7 +1006,8 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				getAction().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.CONSENT__ORGANIZATION:
-				setOrganization((Reference)newValue);
+				getOrganization().clear();
+				getOrganization().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CONSENT__SOURCE_ATTACHMENT:
 				setSourceAttachment((Attachment)newValue);
@@ -1049,7 +1020,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				return;
 			case FhirPackage.CONSENT__POLICY:
 				getPolicy().clear();
-				getPolicy().addAll((Collection<? extends Uri>)newValue);
+				getPolicy().addAll((Collection<? extends ConsentPolicy>)newValue);
 				return;
 			case FhirPackage.CONSENT__POLICY_RULE:
 				setPolicyRule((Uri)newValue);
@@ -1089,7 +1060,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				setIdentifier((Identifier)null);
 				return;
 			case FhirPackage.CONSENT__STATUS:
-				setStatus((ConsentStatus)null);
+				setStatus((ConsentState)null);
 				return;
 			case FhirPackage.CONSENT__CATEGORY:
 				getCategory().clear();
@@ -1103,8 +1074,8 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 			case FhirPackage.CONSENT__DATE_TIME:
 				setDateTime((DateTime)null);
 				return;
-			case FhirPackage.CONSENT__CONSENTOR:
-				getConsentor().clear();
+			case FhirPackage.CONSENT__CONSENTING_PARTY:
+				getConsentingParty().clear();
 				return;
 			case FhirPackage.CONSENT__ACTOR:
 				getActor().clear();
@@ -1113,7 +1084,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				getAction().clear();
 				return;
 			case FhirPackage.CONSENT__ORGANIZATION:
-				setOrganization((Reference)null);
+				getOrganization().clear();
 				return;
 			case FhirPackage.CONSENT__SOURCE_ATTACHMENT:
 				setSourceAttachment((Attachment)null);
@@ -1169,14 +1140,14 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 				return period != null;
 			case FhirPackage.CONSENT__DATE_TIME:
 				return dateTime != null;
-			case FhirPackage.CONSENT__CONSENTOR:
-				return consentor != null && !consentor.isEmpty();
+			case FhirPackage.CONSENT__CONSENTING_PARTY:
+				return consentingParty != null && !consentingParty.isEmpty();
 			case FhirPackage.CONSENT__ACTOR:
 				return actor != null && !actor.isEmpty();
 			case FhirPackage.CONSENT__ACTION:
 				return action != null && !action.isEmpty();
 			case FhirPackage.CONSENT__ORGANIZATION:
-				return organization != null;
+				return organization != null && !organization.isEmpty();
 			case FhirPackage.CONSENT__SOURCE_ATTACHMENT:
 				return sourceAttachment != null;
 			case FhirPackage.CONSENT__SOURCE_IDENTIFIER:

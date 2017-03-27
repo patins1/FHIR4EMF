@@ -26,6 +26,7 @@ import org.hl7.fhir.jaxb.RiskAssessmentImplAdapter;
  *   <li>{@link org.hl7.fhir.RiskAssessment#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.RiskAssessment#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getContext <em>Context</em>}</li>
@@ -35,11 +36,10 @@ import org.hl7.fhir.jaxb.RiskAssessmentImplAdapter;
  *   <li>{@link org.hl7.fhir.RiskAssessment#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.RiskAssessment#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getBasis <em>Basis</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getPrediction <em>Prediction</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getMitigation <em>Mitigation</em>}</li>
- *   <li>{@link org.hl7.fhir.RiskAssessment#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.RiskAssessment#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getRiskAssessment()
@@ -134,13 +134,13 @@ public interface RiskAssessment extends DomainResource {
 	 * The status of the RiskAssessment, using the same statuses as an Observation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(ObservationStatus)
 	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	ObservationStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getStatus <em>Status</em>}' containment reference.
@@ -150,7 +150,33 @@ public interface RiskAssessment extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(ObservationStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Method</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The algorithm, process or mechanism used to evaluate the risk.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Method</em>' containment reference.
+	 * @see #setMethod(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Method()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='method' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getMethod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getMethod <em>Method</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Method</em>' containment reference.
+	 * @see #getMethod()
+	 * @generated
+	 */
+	void setMethod(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -387,32 +413,6 @@ public interface RiskAssessment extends DomainResource {
 	void setReasonReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Method</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The algorithm, process or mechanism used to evaluate the risk.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Method</em>' containment reference.
-	 * @see #setMethod(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Method()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='method' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getMethod();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getMethod <em>Method</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Method</em>' containment reference.
-	 * @see #getMethod()
-	 * @generated
-	 */
-	void setMethod(CodeableConcept value);
-
-	/**
 	 * Returns the value of the '<em><b>Basis</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
@@ -471,29 +471,29 @@ public interface RiskAssessment extends DomainResource {
 	void setMitigation(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Additional comments about the risk assessment.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference.
-	 * @see #setNote(Annotation)
-	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Note()
+	 * @return the value of the '<em>Comment</em>' containment reference.
+	 * @see #setComment(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Comment()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Annotation getNote();
+	org.hl7.fhir.String getComment();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getNote <em>Note</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getComment <em>Comment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Note</em>' containment reference.
-	 * @see #getNote()
+	 * @param value the new value of the '<em>Comment</em>' containment reference.
+	 * @see #getComment()
 	 * @generated
 	 */
-	void setNote(Annotation value);
+	void setComment(org.hl7.fhir.String value);
 
 } // RiskAssessment

@@ -43,7 +43,7 @@ public interface MeasureSupplementalData extends BackboneElement {
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
 	 * @see org.hl7.fhir.FhirPackage#getMeasureSupplementalData_Identifier()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -61,7 +61,7 @@ public interface MeasureSupplementalData extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Usage</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.MeasureDataUsage}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -73,7 +73,7 @@ public interface MeasureSupplementalData extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='usage' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<MeasureDataUsage> getUsage();
+	List<CodeableConcept> getUsage();
 
 	/**
 	 * Returns the value of the '<em><b>Criteria</b></em>' containment reference.

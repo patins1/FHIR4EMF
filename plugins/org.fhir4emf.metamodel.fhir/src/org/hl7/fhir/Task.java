@@ -270,13 +270,13 @@ public interface Task extends DomainResource {
 	 * Indicates the "level" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Intent</em>' containment reference.
-	 * @see #setIntent(Code)
+	 * @see #setIntent(RequestIntent)
 	 * @see org.hl7.fhir.FhirPackage#getTask_Intent()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='intent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getIntent();
+	RequestIntent getIntent();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Task#getIntent <em>Intent</em>}' containment reference.
@@ -286,7 +286,7 @@ public interface Task extends DomainResource {
 	 * @see #getIntent()
 	 * @generated
 	 */
-	void setIntent(Code value);
+	void setIntent(RequestIntent value);
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
@@ -296,13 +296,13 @@ public interface Task extends DomainResource {
 	 * Indicates how quickly the Task should be addressed with respect to other requests.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
-	 * @see #setPriority(Code)
+	 * @see #setPriority(RequestPriority)
 	 * @see org.hl7.fhir.FhirPackage#getTask_Priority()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getPriority();
+	RequestPriority getPriority();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Task#getPriority <em>Priority</em>}' containment reference.
@@ -312,7 +312,7 @@ public interface Task extends DomainResource {
 	 * @see #getPriority()
 	 * @generated
 	 */
-	void setPriority(Code value);
+	void setPriority(RequestPriority value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -569,7 +569,7 @@ public interface Task extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The owner of this task.  The participant who can execute this task.
+	 * Individual organization or Device currently responsible for task execution.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owner</em>' containment reference.
 	 * @see #setOwner(Reference)

@@ -65,13 +65,13 @@ public interface ElementDefinitionBase extends Element {
 	 * Minimum cardinality of the base element identified by the path.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Min</em>' containment reference.
-	 * @see #setMin(org.hl7.fhir.Integer)
+	 * @see #setMin(UnsignedInt)
 	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionBase_Min()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='min' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Integer getMin();
+	UnsignedInt getMin();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionBase#getMin <em>Min</em>}' containment reference.
@@ -81,7 +81,7 @@ public interface ElementDefinitionBase extends Element {
 	 * @see #getMin()
 	 * @generated
 	 */
-	void setMin(org.hl7.fhir.Integer value);
+	void setMin(UnsignedInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Max</b></em>' containment reference.

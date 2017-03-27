@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.ObservationStatusImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Codes providing the status of an observation.
+ * Indicates the status of the identified issue
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

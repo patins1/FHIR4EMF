@@ -122,7 +122,7 @@ public interface ImagingStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Availability of study (online, offline or nearline).
+	 * Availability of study (online, offline, or nearline).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Availability</em>' containment reference.
 	 * @see #setAvailability(InstanceAvailability)
@@ -190,7 +190,7 @@ public interface ImagingStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter at which the request is initiated.
+	 * The encounter or episode at which the request is initiated.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Context</em>' containment reference.
 	 * @see #setContext(Reference)
@@ -216,7 +216,7 @@ public interface ImagingStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date and Time the study started.
+	 * Date and time the study started.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Started</em>' containment reference.
 	 * @see #setStarted(DateTime)
@@ -342,7 +342,7 @@ public interface ImagingStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Number of SOP Instances in Study. This value given may be larger than the number of instance elements this Resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present.
+	 * Number of SOP Instances in Study. This value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number Of Instances</em>' containment reference.
 	 * @see #setNumberOfInstances(UnsignedInt)
@@ -400,7 +400,7 @@ public interface ImagingStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Description of clinical codition indicating why the ImagingStudy was requested.
+	 * Description of clinical condition indicating why the ImagingStudy was requested.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reason</em>' containment reference.
 	 * @see #setReason(CodeableConcept)

@@ -23,16 +23,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.VisionPrescription;
 import org.hl7.fhir.VisionPrescriptionDispense;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,7 +76,7 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -185,8 +185,8 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getStatus() {
+	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -195,8 +195,8 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION__STATUS, oldStatus, newStatus);
@@ -210,7 +210,7 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -570,7 +570,7 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION__PATIENT:
 				setPatient((Reference)newValue);
@@ -610,7 +610,7 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 				getIdentifier().clear();
 				return;
 			case FhirPackage.VISION_PRESCRIPTION__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
 				return;
 			case FhirPackage.VISION_PRESCRIPTION__PATIENT:
 				setPatient((Reference)null);

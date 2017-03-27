@@ -106,7 +106,7 @@ public interface AppointmentParticipant extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Participation status of the Patient.
+	 * Participation status of the actor.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(ParticipationStatus)

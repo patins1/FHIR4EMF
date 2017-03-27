@@ -30,6 +30,7 @@ import org.hl7.fhir.jaxb.MeasureImplAdapter;
  *   <li>{@link org.hl7.fhir.Measure#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.Measure#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getUsage <em>Usage</em>}</li>
@@ -40,7 +41,6 @@ import org.hl7.fhir.jaxb.MeasureImplAdapter;
  *   <li>{@link org.hl7.fhir.Measure#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.Measure#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getRelatedArtifact <em>Related Artifact</em>}</li>
@@ -72,7 +72,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this measure when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this measure is (or will be) published. The URL SHOULD include the major version of the measure. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this measure is (or will be) published. The URL SHOULD include the major version of the measure. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -114,7 +114,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
+	 * The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -218,7 +218,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this measure is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -244,7 +244,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the measure was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes.
+	 * The date  (and optionally time) when the measure was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -266,11 +266,37 @@ public interface Measure extends DomainResource {
 	void setDate(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the individual or organization that published the measure.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Publisher</em>' containment reference.
+	 * @see #setPublisher(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getMeasure_Publisher()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getPublisher();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Measure#getPublisher <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Publisher</em>' containment reference.
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	void setPublisher(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the measure from the consumer's perspective.
+	 * A free text natural language description of the measure from a consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Markdown)
@@ -296,7 +322,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explains why this measure is needed and why it has been designed as it has.
+	 * Explaination of why this measure is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -348,7 +374,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+	 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Approval Date</em>' containment reference.
 	 * @see #setApprovalDate(Date)
@@ -374,7 +400,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
+	 * The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Last Review Date</em>' containment reference.
 	 * @see #setLastReviewDate(Date)
@@ -400,7 +426,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The period during which the measure content was or is planned to be effective.
+	 * The period during which the measure content was or is planned to be in active use.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Effective Period</em>' containment reference.
 	 * @see #setEffectivePeriod(Period)
@@ -427,7 +453,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate measure instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMeasure_UseContext()
@@ -443,7 +469,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A jurisdiction in which the measure is intended to be used.
+	 * A legal or geographic region in which the measure is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMeasure_Jurisdiction()
@@ -459,7 +485,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Clinical topics related to the content of the measure.
+	 * Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Topic</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMeasure_Topic()
@@ -484,32 +510,6 @@ public interface Measure extends DomainResource {
 	 * @generated
 	 */
 	List<Contributor> getContributor();
-
-	/**
-	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the measure.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Publisher</em>' containment reference.
-	 * @see #setPublisher(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getMeasure_Publisher()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getPublisher();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Measure#getPublisher <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Publisher</em>' containment reference.
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	void setPublisher(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
@@ -590,7 +590,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A disclaimer for the use of the measure.
+	 * Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Disclaimer</em>' containment reference.
 	 * @see #setDisclaimer(Markdown)
@@ -616,16 +616,16 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The measure scoring type, e.g. proportion, CV.
+	 * Indicates how the calculation is performed for the measure, including proportion, ratio, continuous variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Scoring</em>' containment reference.
-	 * @see #setScoring(MeasureScoring)
+	 * @see #setScoring(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getMeasure_Scoring()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='scoring' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MeasureScoring getScoring();
+	CodeableConcept getScoring();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Measure#getScoring <em>Scoring</em>}' containment reference.
@@ -635,7 +635,7 @@ public interface Measure extends DomainResource {
 	 * @see #getScoring()
 	 * @generated
 	 */
-	void setScoring(MeasureScoring value);
+	void setScoring(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Composite Scoring</b></em>' containment reference.
@@ -645,13 +645,13 @@ public interface Measure extends DomainResource {
 	 * If this is a composite measure, the scoring method used to combine the component measures to determine the composite score.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Composite Scoring</em>' containment reference.
-	 * @see #setCompositeScoring(CompositeMeasureScoring)
+	 * @see #setCompositeScoring(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getMeasure_CompositeScoring()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='compositeScoring' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CompositeMeasureScoring getCompositeScoring();
+	CodeableConcept getCompositeScoring();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Measure#getCompositeScoring <em>Composite Scoring</em>}' containment reference.
@@ -661,15 +661,15 @@ public interface Measure extends DomainResource {
 	 * @see #getCompositeScoring()
 	 * @generated
 	 */
-	void setCompositeScoring(CompositeMeasureScoring value);
+	void setCompositeScoring(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.MeasureType}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The measure type, e.g. process, outcome.
+	 * Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMeasure_Type()
@@ -677,7 +677,7 @@ public interface Measure extends DomainResource {
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<MeasureType> getType();
+	List<CodeableConcept> getType();
 
 	/**
 	 * Returns the value of the '<em><b>Risk Adjustment</b></em>' containment reference.
@@ -710,7 +710,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of the rate aggregation for the measure.
+	 * Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rate Aggregation</em>' containment reference.
 	 * @see #setRateAggregation(org.hl7.fhir.String)
@@ -736,7 +736,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The rationale for the measure.
+	 * Provides a succint statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rationale</em>' containment reference.
 	 * @see #setRationale(Markdown)
@@ -762,7 +762,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The clinical recommendation statement for the measure.
+	 * Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Clinical Recommendation Statement</em>' containment reference.
 	 * @see #setClinicalRecommendationStatement(Markdown)
@@ -788,7 +788,7 @@ public interface Measure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Improvement notation for the measure, e.g. higher score indicates better quality.
+	 * Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is whthin a range).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Improvement Notation</em>' containment reference.
 	 * @see #setImprovementNotation(org.hl7.fhir.String)
@@ -810,30 +810,20 @@ public interface Measure extends DomainResource {
 	void setImprovementNotation(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Markdown}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A narrative description of the complete measure calculation.
+	 * Provides a description of an individual term used within the measure.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference.
-	 * @see #setDefinition(Markdown)
+	 * @return the value of the '<em>Definition</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMeasure_Definition()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Markdown getDefinition();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Measure#getDefinition <em>Definition</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Definition</em>' containment reference.
-	 * @see #getDefinition()
-	 * @generated
-	 */
-	void setDefinition(Markdown value);
+	List<Markdown> getDefinition();
 
 	/**
 	 * Returns the value of the '<em><b>Guidance</b></em>' containment reference.

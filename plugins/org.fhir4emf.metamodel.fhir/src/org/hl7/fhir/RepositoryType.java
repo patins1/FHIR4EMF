@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.RepositoryTypeImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Type for access of external uri
+ * Type for access of external URI
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

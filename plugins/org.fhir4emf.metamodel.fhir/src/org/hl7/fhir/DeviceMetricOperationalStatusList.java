@@ -48,7 +48,17 @@ public enum DeviceMetricOperationalStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STANDBY(2, "standby", "standby");
+	STANDBY(2, "standby", "standby"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(3, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>On</b></em>' literal value.
@@ -93,6 +103,20 @@ public enum DeviceMetricOperationalStatusList implements Enumerator {
 	public static final int STANDBY_VALUE = 2;
 
 	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered In Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Device Metric Operational Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +127,7 @@ public enum DeviceMetricOperationalStatusList implements Enumerator {
 			ON,
 			OFF,
 			STANDBY,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -162,6 +187,7 @@ public enum DeviceMetricOperationalStatusList implements Enumerator {
 			case ON_VALUE: return ON;
 			case OFF_VALUE: return OFF;
 			case STANDBY_VALUE: return STANDBY;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

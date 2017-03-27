@@ -17,8 +17,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.ElementDefinitionBase;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,7 +57,7 @@ public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDef
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Integer min;
+	protected UnsignedInt min;
 
 	/**
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' containment reference.
@@ -137,9 +138,9 @@ public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	@XmlElement(required = true)
-	public org.hl7.fhir.Integer getMin() {
+	public UnsignedInt getMin() {
 		return min;
 	}
 
@@ -148,8 +149,8 @@ public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMin(org.hl7.fhir.Integer newMin, NotificationChain msgs) {
-		org.hl7.fhir.Integer oldMin = min;
+	public NotificationChain basicSetMin(UnsignedInt newMin, NotificationChain msgs) {
+		UnsignedInt oldMin = min;
 		min = newMin;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_BASE__MIN, oldMin, newMin);
@@ -163,7 +164,7 @@ public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMin(org.hl7.fhir.Integer newMin) {
+	public void setMin(UnsignedInt newMin) {
 		if (newMin != min) {
 			NotificationChain msgs = null;
 			if (min != null)
@@ -270,7 +271,7 @@ public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDef
 				setPath((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_BASE__MIN:
-				setMin((org.hl7.fhir.Integer)newValue);
+				setMin((UnsignedInt)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_BASE__MAX:
 				setMax((org.hl7.fhir.String)newValue);
@@ -291,7 +292,7 @@ public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDef
 				setPath((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_BASE__MIN:
-				setMin((org.hl7.fhir.Integer)null);
+				setMin((UnsignedInt)null);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_BASE__MAX:
 				setMax((org.hl7.fhir.String)null);

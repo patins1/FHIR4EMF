@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.AdverseEventCategoryImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Overall categorisation of the event e.g. real or potential
+ * Overall categorization of the event, e.g. real or potential
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

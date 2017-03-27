@@ -27,9 +27,11 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GuidePageKind;
 import org.hl7.fhir.ImplementationGuidePage;
+import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.GuidePageKindImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 import org.hl7.fhir.jaxb.UriImplAdapter;
 
@@ -93,7 +95,7 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Code> type;
+	protected EList<ResourceType> type;
 
 	/**
 	 * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference list.
@@ -284,11 +286,11 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
 	@XmlElement
-	public List<Code> getType() {
+	public List<ResourceType> getType() {
 		if (type == null) {
-			type = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE);
+			type = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE);
 		}
 		return type;
 	}
@@ -436,7 +438,7 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE:
 				getType().clear();
-				getType().addAll((Collection<? extends Code>)newValue);
+				getType().addAll((Collection<? extends ResourceType>)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PACKAGE:
 				getPackage().clear();

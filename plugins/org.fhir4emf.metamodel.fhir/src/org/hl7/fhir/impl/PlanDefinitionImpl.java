@@ -33,7 +33,8 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PlanDefinition;
-import org.hl7.fhir.PlanDefinitionActionDefinition;
+import org.hl7.fhir.PlanDefinitionAction;
+import org.hl7.fhir.PlanDefinitionGoal;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedArtifact;
@@ -64,6 +65,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getUsage <em>Usage</em>}</li>
@@ -74,12 +76,12 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getRelatedArtifact <em>Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getLibrary <em>Library</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getActionDefinition <em>Action Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getGoal <em>Goal</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionImpl#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @generated
@@ -176,6 +178,16 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 	 * @ordered
 	 */
 	protected DateTime date;
+
+	/**
+	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPublisher()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String publisher;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -278,16 +290,6 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 	protected EList<Contributor> contributor;
 
 	/**
-	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublisher()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String publisher;
-
-	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -328,14 +330,24 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 	protected EList<Reference> library;
 
 	/**
-	 * The cached value of the '{@link #getActionDefinition() <em>Action Definition</em>}' containment reference list.
+	 * The cached value of the '{@link #getGoal() <em>Goal</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActionDefinition()
+	 * @see #getGoal()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PlanDefinitionActionDefinition> actionDefinition;
+	protected EList<PlanDefinitionGoal> goal;
+
+	/**
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PlanDefinitionAction> action;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -726,6 +738,50 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	public org.hl7.fhir.String getPublisher() {
+		return publisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
+		org.hl7.fhir.String oldPublisher = publisher;
+		publisher = newPublisher;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION__PUBLISHER, oldPublisher, newPublisher);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPublisher(org.hl7.fhir.String newPublisher) {
+		if (newPublisher != publisher) {
+			NotificationChain msgs = null;
+			if (publisher != null)
+				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION__PUBLISHER, null, msgs);
+			if (newPublisher != null)
+				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION__PUBLISHER, null, msgs);
+			msgs = basicSetPublisher(newPublisher, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION__PUBLISHER, newPublisher, newPublisher));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
@@ -1041,50 +1097,6 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getPublisher() {
-		return publisher;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
-		org.hl7.fhir.String oldPublisher = publisher;
-		publisher = newPublisher;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION__PUBLISHER, oldPublisher, newPublisher);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPublisher(org.hl7.fhir.String newPublisher) {
-		if (newPublisher != publisher) {
-			NotificationChain msgs = null;
-			if (publisher != null)
-				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION__PUBLISHER, null, msgs);
-			if (newPublisher != null)
-				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION__PUBLISHER, null, msgs);
-			msgs = basicSetPublisher(newPublisher, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION__PUBLISHER, newPublisher, newPublisher));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@XmlElement
 	public List<ContactDetail> getContact() {
 		if (contact == null) {
@@ -1169,11 +1181,24 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 	 * @generated
 	 */
 	@XmlElement
-	public List<PlanDefinitionActionDefinition> getActionDefinition() {
-		if (actionDefinition == null) {
-			actionDefinition = new EObjectContainmentEList<PlanDefinitionActionDefinition>(PlanDefinitionActionDefinition.class, this, FhirPackage.PLAN_DEFINITION__ACTION_DEFINITION);
+	public List<PlanDefinitionGoal> getGoal() {
+		if (goal == null) {
+			goal = new EObjectContainmentEList<PlanDefinitionGoal>(PlanDefinitionGoal.class, this, FhirPackage.PLAN_DEFINITION__GOAL);
 		}
-		return actionDefinition;
+		return goal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<PlanDefinitionAction> getAction() {
+		if (action == null) {
+			action = new EObjectContainmentEList<PlanDefinitionAction>(PlanDefinitionAction.class, this, FhirPackage.PLAN_DEFINITION__ACTION);
+		}
+		return action;
 	}
 
 	/**
@@ -1202,6 +1227,8 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				return basicSetExperimental(null, msgs);
 			case FhirPackage.PLAN_DEFINITION__DATE:
 				return basicSetDate(null, msgs);
+			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
+				return basicSetPublisher(null, msgs);
 			case FhirPackage.PLAN_DEFINITION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.PLAN_DEFINITION__PURPOSE:
@@ -1222,8 +1249,6 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PLAN_DEFINITION__CONTRIBUTOR:
 				return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
-				return basicSetPublisher(null, msgs);
 			case FhirPackage.PLAN_DEFINITION__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PLAN_DEFINITION__COPYRIGHT:
@@ -1232,8 +1257,10 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				return ((InternalEList<?>)getRelatedArtifact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PLAN_DEFINITION__LIBRARY:
 				return ((InternalEList<?>)getLibrary()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PLAN_DEFINITION__ACTION_DEFINITION:
-				return ((InternalEList<?>)getActionDefinition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PLAN_DEFINITION__GOAL:
+				return ((InternalEList<?>)getGoal()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PLAN_DEFINITION__ACTION:
+				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1264,6 +1291,8 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				return getExperimental();
 			case FhirPackage.PLAN_DEFINITION__DATE:
 				return getDate();
+			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
+				return getPublisher();
 			case FhirPackage.PLAN_DEFINITION__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.PLAN_DEFINITION__PURPOSE:
@@ -1284,8 +1313,6 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				return getTopic();
 			case FhirPackage.PLAN_DEFINITION__CONTRIBUTOR:
 				return getContributor();
-			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
-				return getPublisher();
 			case FhirPackage.PLAN_DEFINITION__CONTACT:
 				return getContact();
 			case FhirPackage.PLAN_DEFINITION__COPYRIGHT:
@@ -1294,8 +1321,10 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				return getRelatedArtifact();
 			case FhirPackage.PLAN_DEFINITION__LIBRARY:
 				return getLibrary();
-			case FhirPackage.PLAN_DEFINITION__ACTION_DEFINITION:
-				return getActionDefinition();
+			case FhirPackage.PLAN_DEFINITION__GOAL:
+				return getGoal();
+			case FhirPackage.PLAN_DEFINITION__ACTION:
+				return getAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1337,6 +1366,9 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 			case FhirPackage.PLAN_DEFINITION__DATE:
 				setDate((DateTime)newValue);
 				return;
+			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.PLAN_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)newValue);
 				return;
@@ -1371,9 +1403,6 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				getContributor().clear();
 				getContributor().addAll((Collection<? extends Contributor>)newValue);
 				return;
-			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.PLAN_DEFINITION__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
@@ -1389,9 +1418,13 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				getLibrary().clear();
 				getLibrary().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.PLAN_DEFINITION__ACTION_DEFINITION:
-				getActionDefinition().clear();
-				getActionDefinition().addAll((Collection<? extends PlanDefinitionActionDefinition>)newValue);
+			case FhirPackage.PLAN_DEFINITION__GOAL:
+				getGoal().clear();
+				getGoal().addAll((Collection<? extends PlanDefinitionGoal>)newValue);
+				return;
+			case FhirPackage.PLAN_DEFINITION__ACTION:
+				getAction().clear();
+				getAction().addAll((Collection<? extends PlanDefinitionAction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1432,6 +1465,9 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 			case FhirPackage.PLAN_DEFINITION__DATE:
 				setDate((DateTime)null);
 				return;
+			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.PLAN_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)null);
 				return;
@@ -1462,9 +1498,6 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 			case FhirPackage.PLAN_DEFINITION__CONTRIBUTOR:
 				getContributor().clear();
 				return;
-			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.PLAN_DEFINITION__CONTACT:
 				getContact().clear();
 				return;
@@ -1477,8 +1510,11 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 			case FhirPackage.PLAN_DEFINITION__LIBRARY:
 				getLibrary().clear();
 				return;
-			case FhirPackage.PLAN_DEFINITION__ACTION_DEFINITION:
-				getActionDefinition().clear();
+			case FhirPackage.PLAN_DEFINITION__GOAL:
+				getGoal().clear();
+				return;
+			case FhirPackage.PLAN_DEFINITION__ACTION:
+				getAction().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1510,6 +1546,8 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				return experimental != null;
 			case FhirPackage.PLAN_DEFINITION__DATE:
 				return date != null;
+			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
+				return publisher != null;
 			case FhirPackage.PLAN_DEFINITION__DESCRIPTION:
 				return description != null;
 			case FhirPackage.PLAN_DEFINITION__PURPOSE:
@@ -1530,8 +1568,6 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				return topic != null && !topic.isEmpty();
 			case FhirPackage.PLAN_DEFINITION__CONTRIBUTOR:
 				return contributor != null && !contributor.isEmpty();
-			case FhirPackage.PLAN_DEFINITION__PUBLISHER:
-				return publisher != null;
 			case FhirPackage.PLAN_DEFINITION__CONTACT:
 				return contact != null && !contact.isEmpty();
 			case FhirPackage.PLAN_DEFINITION__COPYRIGHT:
@@ -1540,8 +1576,10 @@ public class PlanDefinitionImpl extends DomainResourceImpl implements PlanDefini
 				return relatedArtifact != null && !relatedArtifact.isEmpty();
 			case FhirPackage.PLAN_DEFINITION__LIBRARY:
 				return library != null && !library.isEmpty();
-			case FhirPackage.PLAN_DEFINITION__ACTION_DEFINITION:
-				return actionDefinition != null && !actionDefinition.isEmpty();
+			case FhirPackage.PLAN_DEFINITION__GOAL:
+				return goal != null && !goal.isEmpty();
+			case FhirPackage.PLAN_DEFINITION__ACTION:
+				return action != null && !action.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

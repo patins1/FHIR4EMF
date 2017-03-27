@@ -89,7 +89,7 @@ public enum RepositoryTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The url is the RESTful or other kind of API that can get access to the result.
+	 * The URL is the RESTful or other kind of API that can access to the result.
 	 * <!-- end-model-doc -->
 	 * @see #OPENAPI
 	 * @model name="openapi"
@@ -117,7 +117,7 @@ public enum RepositoryTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Result need to be fetched with API and need LOGIN( or cookies is required when visit the link of resource)
+	 * Result need to be fetched with API and need LOGIN( or cookies are required when visiting the link of resource)
 	 * <!-- end-model-doc -->
 	 * @see #OAUTH
 	 * @model name="oauth"
@@ -131,7 +131,7 @@ public enum RepositoryTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Some other complicated or particular way to get resource from url.
+	 * Some other complicated or particular way to get resource from URL.
 	 * <!-- end-model-doc -->
 	 * @see #OTHER
 	 * @model name="other"

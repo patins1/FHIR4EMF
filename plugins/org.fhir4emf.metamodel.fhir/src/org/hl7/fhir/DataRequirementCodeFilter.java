@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.DataRequirementCodeFilterImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.
+ * Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.
  * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
@@ -120,7 +120,7 @@ public interface DataRequirementCodeFilter extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.
+	 * The codes for the code filter. Only one of valueSet, valueCode, valueCoding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDataRequirementCodeFilter_ValueCode()

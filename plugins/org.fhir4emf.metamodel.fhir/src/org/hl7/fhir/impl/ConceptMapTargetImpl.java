@@ -41,8 +41,9 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapTargetImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConceptMapTargetImpl#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapTargetImpl#getEquivalence <em>Equivalence</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConceptMapTargetImpl#getComments <em>Comments</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConceptMapTargetImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapTargetImpl#getDependsOn <em>Depends On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapTargetImpl#getProduct <em>Product</em>}</li>
  * </ul>
@@ -63,6 +64,16 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	protected Code code;
 
 	/**
+	 * The cached value of the '{@link #getDisplay() <em>Display</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisplay()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String display;
+
+	/**
 	 * The cached value of the '{@link #getEquivalence() <em>Equivalence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,14 +84,14 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	protected ConceptMapEquivalence equivalence;
 
 	/**
-	 * The cached value of the '{@link #getComments() <em>Comments</em>}' containment reference.
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComments()
+	 * @see #getComment()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String comments;
+	protected org.hl7.fhir.String comment;
 
 	/**
 	 * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' containment reference list.
@@ -170,6 +181,50 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	public org.hl7.fhir.String getDisplay() {
+		return display;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDisplay(org.hl7.fhir.String newDisplay, NotificationChain msgs) {
+		org.hl7.fhir.String oldDisplay = display;
+		display = newDisplay;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_TARGET__DISPLAY, oldDisplay, newDisplay);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDisplay(org.hl7.fhir.String newDisplay) {
+		if (newDisplay != display) {
+			NotificationChain msgs = null;
+			if (display != null)
+				msgs = ((InternalEObject)display).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_TARGET__DISPLAY, null, msgs);
+			if (newDisplay != null)
+				msgs = ((InternalEObject)newDisplay).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_TARGET__DISPLAY, null, msgs);
+			msgs = basicSetDisplay(newDisplay, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_TARGET__DISPLAY, newDisplay, newDisplay));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(ConceptMapEquivalenceImplAdapter.class)
 	public ConceptMapEquivalence getEquivalence() {
 		return equivalence;
@@ -215,8 +270,8 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * @generated
 	 */
 	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getComments() {
-		return comments;
+	public org.hl7.fhir.String getComment() {
+		return comment;
 	}
 
 	/**
@@ -224,11 +279,11 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetComments(org.hl7.fhir.String newComments, NotificationChain msgs) {
-		org.hl7.fhir.String oldComments = comments;
-		comments = newComments;
+	public NotificationChain basicSetComment(org.hl7.fhir.String newComment, NotificationChain msgs) {
+		org.hl7.fhir.String oldComment = comment;
+		comment = newComment;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_TARGET__COMMENTS, oldComments, newComments);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_TARGET__COMMENT, oldComment, newComment);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -239,18 +294,18 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setComments(org.hl7.fhir.String newComments) {
-		if (newComments != comments) {
+	public void setComment(org.hl7.fhir.String newComment) {
+		if (newComment != comment) {
 			NotificationChain msgs = null;
-			if (comments != null)
-				msgs = ((InternalEObject)comments).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_TARGET__COMMENTS, null, msgs);
-			if (newComments != null)
-				msgs = ((InternalEObject)newComments).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_TARGET__COMMENTS, null, msgs);
-			msgs = basicSetComments(newComments, msgs);
+			if (comment != null)
+				msgs = ((InternalEObject)comment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_TARGET__COMMENT, null, msgs);
+			if (newComment != null)
+				msgs = ((InternalEObject)newComment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_TARGET__COMMENT, null, msgs);
+			msgs = basicSetComment(newComment, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_TARGET__COMMENTS, newComments, newComments));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_TARGET__COMMENT, newComment, newComment));
 	}
 
 	/**
@@ -289,10 +344,12 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_TARGET__CODE:
 				return basicSetCode(null, msgs);
+			case FhirPackage.CONCEPT_MAP_TARGET__DISPLAY:
+				return basicSetDisplay(null, msgs);
 			case FhirPackage.CONCEPT_MAP_TARGET__EQUIVALENCE:
 				return basicSetEquivalence(null, msgs);
-			case FhirPackage.CONCEPT_MAP_TARGET__COMMENTS:
-				return basicSetComments(null, msgs);
+			case FhirPackage.CONCEPT_MAP_TARGET__COMMENT:
+				return basicSetComment(null, msgs);
 			case FhirPackage.CONCEPT_MAP_TARGET__DEPENDS_ON:
 				return ((InternalEList<?>)getDependsOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONCEPT_MAP_TARGET__PRODUCT:
@@ -311,10 +368,12 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_TARGET__CODE:
 				return getCode();
+			case FhirPackage.CONCEPT_MAP_TARGET__DISPLAY:
+				return getDisplay();
 			case FhirPackage.CONCEPT_MAP_TARGET__EQUIVALENCE:
 				return getEquivalence();
-			case FhirPackage.CONCEPT_MAP_TARGET__COMMENTS:
-				return getComments();
+			case FhirPackage.CONCEPT_MAP_TARGET__COMMENT:
+				return getComment();
 			case FhirPackage.CONCEPT_MAP_TARGET__DEPENDS_ON:
 				return getDependsOn();
 			case FhirPackage.CONCEPT_MAP_TARGET__PRODUCT:
@@ -335,11 +394,14 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 			case FhirPackage.CONCEPT_MAP_TARGET__CODE:
 				setCode((Code)newValue);
 				return;
+			case FhirPackage.CONCEPT_MAP_TARGET__DISPLAY:
+				setDisplay((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.CONCEPT_MAP_TARGET__EQUIVALENCE:
 				setEquivalence((ConceptMapEquivalence)newValue);
 				return;
-			case FhirPackage.CONCEPT_MAP_TARGET__COMMENTS:
-				setComments((org.hl7.fhir.String)newValue);
+			case FhirPackage.CONCEPT_MAP_TARGET__COMMENT:
+				setComment((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CONCEPT_MAP_TARGET__DEPENDS_ON:
 				getDependsOn().clear();
@@ -364,11 +426,14 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 			case FhirPackage.CONCEPT_MAP_TARGET__CODE:
 				setCode((Code)null);
 				return;
+			case FhirPackage.CONCEPT_MAP_TARGET__DISPLAY:
+				setDisplay((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.CONCEPT_MAP_TARGET__EQUIVALENCE:
 				setEquivalence((ConceptMapEquivalence)null);
 				return;
-			case FhirPackage.CONCEPT_MAP_TARGET__COMMENTS:
-				setComments((org.hl7.fhir.String)null);
+			case FhirPackage.CONCEPT_MAP_TARGET__COMMENT:
+				setComment((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CONCEPT_MAP_TARGET__DEPENDS_ON:
 				getDependsOn().clear();
@@ -390,10 +455,12 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 		switch (featureID) {
 			case FhirPackage.CONCEPT_MAP_TARGET__CODE:
 				return code != null;
+			case FhirPackage.CONCEPT_MAP_TARGET__DISPLAY:
+				return display != null;
 			case FhirPackage.CONCEPT_MAP_TARGET__EQUIVALENCE:
 				return equivalence != null;
-			case FhirPackage.CONCEPT_MAP_TARGET__COMMENTS:
-				return comments != null;
+			case FhirPackage.CONCEPT_MAP_TARGET__COMMENT:
+				return comment != null;
 			case FhirPackage.CONCEPT_MAP_TARGET__DEPENDS_ON:
 				return dependsOn != null && !dependsOn.isEmpty();
 			case FhirPackage.CONCEPT_MAP_TARGET__PRODUCT:

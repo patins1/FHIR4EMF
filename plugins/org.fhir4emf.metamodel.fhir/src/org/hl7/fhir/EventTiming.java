@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.EventTimingImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Real world event that the relating to the schedule.
+ * Real world event relating to the schedule.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

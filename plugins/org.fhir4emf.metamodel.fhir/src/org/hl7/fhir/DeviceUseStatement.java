@@ -23,16 +23,18 @@ import org.hl7.fhir.jaxb.DeviceUseStatementImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceUseStatement#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getWhenUsed <em>When Used</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getTimingTiming <em>Timing Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getTimingPeriod <em>Timing Period</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getTimingDateTime <em>Timing Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getRecordedOn <em>Recorded On</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceUseStatement#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getIndication <em>Indication</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getBodySite <em>Body Site</em>}</li>
- *   <li>{@link org.hl7.fhir.DeviceUseStatement#getNotes <em>Notes</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceUseStatement#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement()
@@ -56,6 +58,32 @@ public interface DeviceUseStatement extends DomainResource {
 	 * @generated
 	 */
 	List<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(DeviceUseStatementStatus)
+	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_Status()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DeviceUseStatementStatus getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DeviceUseStatement#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(DeviceUseStatementStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
@@ -214,6 +242,32 @@ public interface DeviceUseStatement extends DomainResource {
 	void setRecordedOn(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Who reported the device was being used by the patient.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Source</em>' containment reference.
+	 * @see #setSource(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_Source()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSource();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DeviceUseStatement#getSource <em>Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' containment reference.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Device</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -282,19 +336,19 @@ public interface DeviceUseStatement extends DomainResource {
 	void setBodySite(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Notes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Notes</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_Notes()
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_Note()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notes' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<org.hl7.fhir.String> getNotes();
+	List<Annotation> getNote();
 
 } // DeviceUseStatement

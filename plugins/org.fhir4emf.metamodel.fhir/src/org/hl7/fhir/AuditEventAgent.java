@@ -46,7 +46,7 @@ public interface AuditEventAgent extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.
+	 * The security role that the user was acting under, that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Role</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAuditEventAgent_Role()

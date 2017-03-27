@@ -51,7 +51,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * AdverseEvent.identifier.
+	 * The identifier(s) of this adverse event that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itsefl is not appropriate.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
@@ -77,7 +77,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of event is important to characterize what occurred and caused harm to the subject, or had the potential to cause harm to the subject.
+	 * The type of event which is important to characterize what occurred and caused harm to the subject, or had the potential to cause harm to the subject.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
 	 * @see #setCategory(AdverseEventCategory)
@@ -103,7 +103,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This element defines the specific type of event that occurred or that was prevented from occuring.
+	 * This element defines the specific type of event that occurred or that was prevented from occurring.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
@@ -129,7 +129,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This element defined the subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
+	 * This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)
@@ -155,7 +155,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * AdverseEvent.date.
+	 * The date (and perhaps time) when the adverse event occurred.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -182,7 +182,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Adverse Reaction Events linked to exposure to substance.
+	 * Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reaction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Reaction()
@@ -197,7 +197,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * AdverseEvent.location.
+	 * The information about where the adverse event occurred.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Location</em>' containment reference.
 	 * @see #setLocation(Reference)
@@ -223,7 +223,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Mild | Moderate | Severe.
+	 * Describes the seriousness or severity of the adverse event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Seriousness</em>' containment reference.
 	 * @see #setSeriousness(CodeableConcept)
@@ -249,7 +249,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * resolved | recovering | ongoing | resolvedWithSequelae | fatal | unknown.
+	 * Describes the type of outcome from the adverse event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
 	 * @see #setOutcome(CodeableConcept)
@@ -275,7 +275,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * AdverseEvent.recorder.
+	 * Information on who recorded the adverse event.  May be the patient or a practitioner.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Recorder</em>' containment reference.
 	 * @see #setRecorder(Reference)
@@ -327,7 +327,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * AdverseEvent.description.
+	 * Describes the adverse event in text.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)
@@ -354,7 +354,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * AdverseEvent.suspectEntity.
+	 * Describes the entity that is suspected to have caused the adverse event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Suspect Entity</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_SuspectEntity()

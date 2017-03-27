@@ -36,7 +36,7 @@ import org.hl7.fhir.jaxb.ElementDefinitionSlicingImplAdapter;
 public interface ElementDefinitionSlicing extends Element {
 	/**
 	 * Returns the value of the '<em><b>Discriminator</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * The list contents are of type {@link org.hl7.fhir.ElementDefinitionDiscriminator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -48,7 +48,7 @@ public interface ElementDefinitionSlicing extends Element {
 	 *        extendedMetaData="kind='element' name='discriminator' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<org.hl7.fhir.String> getDiscriminator();
+	List<ElementDefinitionDiscriminator> getDiscriminator();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

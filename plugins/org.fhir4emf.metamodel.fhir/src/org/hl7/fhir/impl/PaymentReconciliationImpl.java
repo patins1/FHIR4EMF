@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.PaymentReconciliation;
@@ -34,8 +34,8 @@ import org.hl7.fhir.PaymentReconciliationDetail;
 import org.hl7.fhir.PaymentReconciliationProcessNote;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
@@ -85,7 +85,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -244,8 +244,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getStatus() {
+	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -254,8 +254,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__STATUS, oldStatus, newStatus);
@@ -269,7 +269,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -835,7 +835,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__PERIOD:
 				setPeriod((Period)newValue);
@@ -891,7 +891,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				getIdentifier().clear();
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__PERIOD:
 				setPeriod((Period)null);

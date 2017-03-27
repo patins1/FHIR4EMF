@@ -43,6 +43,7 @@ import org.hl7.fhir.jaxb.ClaimItemImplAdapter;
  *   <li>{@link org.hl7.fhir.ClaimItem#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getSubSite <em>Sub Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimItem#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimItem#getDetail <em>Detail</em>}</li>
  * </ul>
  *
@@ -543,6 +544,22 @@ public interface ClaimItem extends BackboneElement {
 	 * @generated
 	 */
 	List<CodeableConcept> getSubSite();
+
+	/**
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A billed item may include goods or services provided in multiple encounters.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Encounter</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimItem_Encounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getEncounter();
 
 	/**
 	 * Returns the value of the '<em><b>Detail</b></em>' containment reference list.

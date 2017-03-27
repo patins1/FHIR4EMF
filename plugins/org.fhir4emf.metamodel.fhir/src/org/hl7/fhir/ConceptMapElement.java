@@ -22,6 +22,7 @@ import org.hl7.fhir.jaxb.ConceptMapElementImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ConceptMapElement#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapElement#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapElement#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -56,6 +57,32 @@ public interface ConceptMapElement extends BackboneElement {
 	 * @generated
 	 */
 	void setCode(Code value);
+
+	/**
+	 * Returns the value of the '<em><b>Display</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The display for the code. The display is only provided to help editors when editing the concept map.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Display</em>' containment reference.
+	 * @see #setDisplay(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapElement_Display()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='display' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDisplay();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapElement#getDisplay <em>Display</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Display</em>' containment reference.
+	 * @see #getDisplay()
+	 * @generated
+	 */
+	void setDisplay(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' containment reference list.

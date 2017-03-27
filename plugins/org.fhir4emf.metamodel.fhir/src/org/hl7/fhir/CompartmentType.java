@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.CompartmentTypeImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Which compartment a compartmnet definition describes
+ * Which compartment a compartment definition describes
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

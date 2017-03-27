@@ -23,14 +23,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EnrollmentRequest;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +73,7 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -172,8 +172,8 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getStatus() {
+	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -182,8 +182,8 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_REQUEST__STATUS, oldStatus, newStatus);
@@ -197,7 +197,7 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -540,7 +540,7 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.ENROLLMENT_REQUEST__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.ENROLLMENT_REQUEST__CREATED:
 				setCreated((DateTime)newValue);
@@ -576,7 +576,7 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 				getIdentifier().clear();
 				return;
 			case FhirPackage.ENROLLMENT_REQUEST__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
 				return;
 			case FhirPackage.ENROLLMENT_REQUEST__CREATED:
 				setCreated((DateTime)null);

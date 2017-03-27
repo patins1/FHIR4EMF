@@ -25,12 +25,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.ImagingManifest;
 import org.hl7.fhir.ImagingManifestStudy;
-import org.hl7.fhir.Oid;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.OidImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
@@ -41,7 +40,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ImagingManifestImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingManifestImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingManifestImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingManifestImpl#getAuthoringTime <em>Authoring Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingManifestImpl#getAuthor <em>Author</em>}</li>
@@ -55,14 +54,14 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
 @XmlRootElement(name = "fhir.ImagingManifest")
 public class ImagingManifestImpl extends DomainResourceImpl implements ImagingManifest {
 	/**
-	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUid()
+	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Oid uid;
+	protected Identifier identifier;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -138,9 +137,8 @@ public class ImagingManifestImpl extends DomainResourceImpl implements ImagingMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(OidImplAdapter.class)
-	public Oid getUid() {
-		return uid;
+	public Identifier getIdentifier() {
+		return identifier;
 	}
 
 	/**
@@ -148,11 +146,11 @@ public class ImagingManifestImpl extends DomainResourceImpl implements ImagingMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUid(Oid newUid, NotificationChain msgs) {
-		Oid oldUid = uid;
-		uid = newUid;
+	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
+		Identifier oldIdentifier = identifier;
+		identifier = newIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_MANIFEST__UID, oldUid, newUid);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_MANIFEST__IDENTIFIER, oldIdentifier, newIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -163,18 +161,18 @@ public class ImagingManifestImpl extends DomainResourceImpl implements ImagingMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUid(Oid newUid) {
-		if (newUid != uid) {
+	public void setIdentifier(Identifier newIdentifier) {
+		if (newIdentifier != identifier) {
 			NotificationChain msgs = null;
-			if (uid != null)
-				msgs = ((InternalEObject)uid).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_MANIFEST__UID, null, msgs);
-			if (newUid != null)
-				msgs = ((InternalEObject)newUid).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_MANIFEST__UID, null, msgs);
-			msgs = basicSetUid(newUid, msgs);
+			if (identifier != null)
+				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_MANIFEST__IDENTIFIER, null, msgs);
+			if (newIdentifier != null)
+				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_MANIFEST__IDENTIFIER, null, msgs);
+			msgs = basicSetIdentifier(newIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_MANIFEST__UID, newUid, newUid));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_MANIFEST__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -373,8 +371,8 @@ public class ImagingManifestImpl extends DomainResourceImpl implements ImagingMa
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_MANIFEST__UID:
-				return basicSetUid(null, msgs);
+			case FhirPackage.IMAGING_MANIFEST__IDENTIFIER:
+				return basicSetIdentifier(null, msgs);
 			case FhirPackage.IMAGING_MANIFEST__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.IMAGING_MANIFEST__AUTHORING_TIME:
@@ -397,8 +395,8 @@ public class ImagingManifestImpl extends DomainResourceImpl implements ImagingMa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_MANIFEST__UID:
-				return getUid();
+			case FhirPackage.IMAGING_MANIFEST__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.IMAGING_MANIFEST__PATIENT:
 				return getPatient();
 			case FhirPackage.IMAGING_MANIFEST__AUTHORING_TIME:
@@ -422,8 +420,8 @@ public class ImagingManifestImpl extends DomainResourceImpl implements ImagingMa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_MANIFEST__UID:
-				setUid((Oid)newValue);
+			case FhirPackage.IMAGING_MANIFEST__IDENTIFIER:
+				setIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.IMAGING_MANIFEST__PATIENT:
 				setPatient((Reference)newValue);
@@ -453,8 +451,8 @@ public class ImagingManifestImpl extends DomainResourceImpl implements ImagingMa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_MANIFEST__UID:
-				setUid((Oid)null);
+			case FhirPackage.IMAGING_MANIFEST__IDENTIFIER:
+				setIdentifier((Identifier)null);
 				return;
 			case FhirPackage.IMAGING_MANIFEST__PATIENT:
 				setPatient((Reference)null);
@@ -483,8 +481,8 @@ public class ImagingManifestImpl extends DomainResourceImpl implements ImagingMa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_MANIFEST__UID:
-				return uid != null;
+			case FhirPackage.IMAGING_MANIFEST__IDENTIFIER:
+				return identifier != null;
 			case FhirPackage.IMAGING_MANIFEST__PATIENT:
 				return patient != null;
 			case FhirPackage.IMAGING_MANIFEST__AUTHORING_TIME:

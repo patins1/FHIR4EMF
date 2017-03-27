@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.QuestionnaireEnableWhenImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -72,7 +72,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, indicates that this item should be enabled only if the specified question is answered or not answered.
+	 * An indication that this item should be enabled only if the specified question is answered (hasAnswer=true) or not answered (hasAnswer=false).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Has Answer</em>' containment reference.
 	 * @see #setHasAnswer(org.hl7.fhir.Boolean)
@@ -98,7 +98,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Boolean</em>' containment reference.
 	 * @see #setAnswerBoolean(org.hl7.fhir.Boolean)
@@ -124,7 +124,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Decimal</em>' containment reference.
 	 * @see #setAnswerDecimal(Decimal)
@@ -150,7 +150,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Integer</em>' containment reference.
 	 * @see #setAnswerInteger(org.hl7.fhir.Integer)
@@ -176,7 +176,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Date</em>' containment reference.
 	 * @see #setAnswerDate(Date)
@@ -202,7 +202,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Date Time</em>' containment reference.
 	 * @see #setAnswerDateTime(DateTime)
@@ -228,7 +228,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Time</em>' containment reference.
 	 * @see #setAnswerTime(Time)
@@ -254,7 +254,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer String</em>' containment reference.
 	 * @see #setAnswerString(org.hl7.fhir.String)
@@ -280,7 +280,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Uri</em>' containment reference.
 	 * @see #setAnswerUri(Uri)
@@ -306,7 +306,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Attachment</em>' containment reference.
 	 * @see #setAnswerAttachment(Attachment)
@@ -332,7 +332,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Coding</em>' containment reference.
 	 * @see #setAnswerCoding(Coding)
@@ -358,7 +358,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Quantity</em>' containment reference.
 	 * @see #setAnswerQuantity(Quantity)
@@ -384,7 +384,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer. (choose any one of answer*, but only one)
+	 * An answer that the referenced question must match in order for the item to be enabled. (choose any one of answer*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Answer Reference</em>' containment reference.
 	 * @see #setAnswerReference(Reference)

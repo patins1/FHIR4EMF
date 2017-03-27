@@ -23,18 +23,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.Attachment;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DigitalMediaType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Media;
+import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 import org.hl7.fhir.jaxb.DigitalMediaTypeImplAdapter;
 import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
@@ -46,17 +49,24 @@ import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getSubtype <em>Subtype</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getView <em>View</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MediaImpl#getDeviceName <em>Device Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getFrames <em>Frames</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,6 +83,16 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> basedOn;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -115,6 +135,36 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	protected Reference subject;
 
 	/**
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference context;
+
+	/**
+	 * The cached value of the '{@link #getOccurrenceDateTime() <em>Occurrence Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOccurrenceDateTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime occurrenceDateTime;
+
+	/**
+	 * The cached value of the '{@link #getOccurrencePeriod() <em>Occurrence Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOccurrencePeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period occurrencePeriod;
+
+	/**
 	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,14 +175,34 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	protected Reference operator;
 
 	/**
-	 * The cached value of the '{@link #getDeviceName() <em>Device Name</em>}' containment reference.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeviceName()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String deviceName;
+	protected EList<CodeableConcept> reasonCode;
+
+	/**
+	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBodySite()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept bodySite;
+
+	/**
+	 * The cached value of the '{@link #getDevice() <em>Device</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDevice()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference device;
 
 	/**
 	 * The cached value of the '{@link #getHeight() <em>Height</em>}' containment reference.
@@ -185,6 +255,16 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	protected Attachment content;
 
 	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> note;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -214,6 +294,19 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDIA__IDENTIFIER);
 		}
 		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDIA__BASED_ON);
+		}
+		return basedOn;
 	}
 
 	/**
@@ -395,6 +488,136 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getContext() {
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
+		Reference oldContext = context;
+		context = newContext;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__CONTEXT, oldContext, newContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContext(Reference newContext) {
+		if (newContext != context) {
+			NotificationChain msgs = null;
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__CONTEXT, newContext, newContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public DateTime getOccurrenceDateTime() {
+		return occurrenceDateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOccurrenceDateTime(DateTime newOccurrenceDateTime, NotificationChain msgs) {
+		DateTime oldOccurrenceDateTime = occurrenceDateTime;
+		occurrenceDateTime = newOccurrenceDateTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__OCCURRENCE_DATE_TIME, oldOccurrenceDateTime, newOccurrenceDateTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOccurrenceDateTime(DateTime newOccurrenceDateTime) {
+		if (newOccurrenceDateTime != occurrenceDateTime) {
+			NotificationChain msgs = null;
+			if (occurrenceDateTime != null)
+				msgs = ((InternalEObject)occurrenceDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__OCCURRENCE_DATE_TIME, null, msgs);
+			if (newOccurrenceDateTime != null)
+				msgs = ((InternalEObject)newOccurrenceDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__OCCURRENCE_DATE_TIME, null, msgs);
+			msgs = basicSetOccurrenceDateTime(newOccurrenceDateTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__OCCURRENCE_DATE_TIME, newOccurrenceDateTime, newOccurrenceDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getOccurrencePeriod() {
+		return occurrencePeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOccurrencePeriod(Period newOccurrencePeriod, NotificationChain msgs) {
+		Period oldOccurrencePeriod = occurrencePeriod;
+		occurrencePeriod = newOccurrencePeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__OCCURRENCE_PERIOD, oldOccurrencePeriod, newOccurrencePeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOccurrencePeriod(Period newOccurrencePeriod) {
+		if (newOccurrencePeriod != occurrencePeriod) {
+			NotificationChain msgs = null;
+			if (occurrencePeriod != null)
+				msgs = ((InternalEObject)occurrencePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__OCCURRENCE_PERIOD, null, msgs);
+			if (newOccurrencePeriod != null)
+				msgs = ((InternalEObject)newOccurrencePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__OCCURRENCE_PERIOD, null, msgs);
+			msgs = basicSetOccurrencePeriod(newOccurrencePeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__OCCURRENCE_PERIOD, newOccurrencePeriod, newOccurrencePeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getOperator() {
 		return operator;
 	}
@@ -438,9 +661,12 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getDeviceName() {
-		return deviceName;
+	@XmlElement
+	public List<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDIA__REASON_CODE);
+		}
+		return reasonCode;
 	}
 
 	/**
@@ -448,11 +674,20 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDeviceName(org.hl7.fhir.String newDeviceName, NotificationChain msgs) {
-		org.hl7.fhir.String oldDeviceName = deviceName;
-		deviceName = newDeviceName;
+	public CodeableConcept getBodySite() {
+		return bodySite;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBodySite(CodeableConcept newBodySite, NotificationChain msgs) {
+		CodeableConcept oldBodySite = bodySite;
+		bodySite = newBodySite;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__DEVICE_NAME, oldDeviceName, newDeviceName);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__BODY_SITE, oldBodySite, newBodySite);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -463,18 +698,61 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDeviceName(org.hl7.fhir.String newDeviceName) {
-		if (newDeviceName != deviceName) {
+	public void setBodySite(CodeableConcept newBodySite) {
+		if (newBodySite != bodySite) {
 			NotificationChain msgs = null;
-			if (deviceName != null)
-				msgs = ((InternalEObject)deviceName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__DEVICE_NAME, null, msgs);
-			if (newDeviceName != null)
-				msgs = ((InternalEObject)newDeviceName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__DEVICE_NAME, null, msgs);
-			msgs = basicSetDeviceName(newDeviceName, msgs);
+			if (bodySite != null)
+				msgs = ((InternalEObject)bodySite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__BODY_SITE, null, msgs);
+			if (newBodySite != null)
+				msgs = ((InternalEObject)newBodySite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__BODY_SITE, null, msgs);
+			msgs = basicSetBodySite(newBodySite, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__DEVICE_NAME, newDeviceName, newDeviceName));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__BODY_SITE, newBodySite, newBodySite));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getDevice() {
+		return device;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDevice(Reference newDevice, NotificationChain msgs) {
+		Reference oldDevice = device;
+		device = newDevice;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__DEVICE, oldDevice, newDevice);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDevice(Reference newDevice) {
+		if (newDevice != device) {
+			NotificationChain msgs = null;
+			if (device != null)
+				msgs = ((InternalEObject)device).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__DEVICE, null, msgs);
+			if (newDevice != null)
+				msgs = ((InternalEObject)newDevice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__DEVICE, null, msgs);
+			msgs = basicSetDevice(newDevice, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__DEVICE, newDevice, newDevice));
 	}
 
 	/**
@@ -702,11 +980,26 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
+	public List<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDIA__NOTE);
+		}
+		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.MEDIA__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDIA__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDIA__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.MEDIA__SUBTYPE:
@@ -715,10 +1008,20 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				return basicSetView(null, msgs);
 			case FhirPackage.MEDIA__SUBJECT:
 				return basicSetSubject(null, msgs);
+			case FhirPackage.MEDIA__CONTEXT:
+				return basicSetContext(null, msgs);
+			case FhirPackage.MEDIA__OCCURRENCE_DATE_TIME:
+				return basicSetOccurrenceDateTime(null, msgs);
+			case FhirPackage.MEDIA__OCCURRENCE_PERIOD:
+				return basicSetOccurrencePeriod(null, msgs);
 			case FhirPackage.MEDIA__OPERATOR:
 				return basicSetOperator(null, msgs);
-			case FhirPackage.MEDIA__DEVICE_NAME:
-				return basicSetDeviceName(null, msgs);
+			case FhirPackage.MEDIA__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDIA__BODY_SITE:
+				return basicSetBodySite(null, msgs);
+			case FhirPackage.MEDIA__DEVICE:
+				return basicSetDevice(null, msgs);
 			case FhirPackage.MEDIA__HEIGHT:
 				return basicSetHeight(null, msgs);
 			case FhirPackage.MEDIA__WIDTH:
@@ -729,6 +1032,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				return basicSetDuration(null, msgs);
 			case FhirPackage.MEDIA__CONTENT:
 				return basicSetContent(null, msgs);
+			case FhirPackage.MEDIA__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -743,6 +1048,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 		switch (featureID) {
 			case FhirPackage.MEDIA__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.MEDIA__BASED_ON:
+				return getBasedOn();
 			case FhirPackage.MEDIA__TYPE:
 				return getType();
 			case FhirPackage.MEDIA__SUBTYPE:
@@ -751,10 +1058,20 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				return getView();
 			case FhirPackage.MEDIA__SUBJECT:
 				return getSubject();
+			case FhirPackage.MEDIA__CONTEXT:
+				return getContext();
+			case FhirPackage.MEDIA__OCCURRENCE_DATE_TIME:
+				return getOccurrenceDateTime();
+			case FhirPackage.MEDIA__OCCURRENCE_PERIOD:
+				return getOccurrencePeriod();
 			case FhirPackage.MEDIA__OPERATOR:
 				return getOperator();
-			case FhirPackage.MEDIA__DEVICE_NAME:
-				return getDeviceName();
+			case FhirPackage.MEDIA__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.MEDIA__BODY_SITE:
+				return getBodySite();
+			case FhirPackage.MEDIA__DEVICE:
+				return getDevice();
 			case FhirPackage.MEDIA__HEIGHT:
 				return getHeight();
 			case FhirPackage.MEDIA__WIDTH:
@@ -765,6 +1082,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				return getDuration();
 			case FhirPackage.MEDIA__CONTENT:
 				return getContent();
+			case FhirPackage.MEDIA__NOTE:
+				return getNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -782,6 +1101,10 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.MEDIA__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.MEDIA__TYPE:
 				setType((DigitalMediaType)newValue);
 				return;
@@ -794,11 +1117,27 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 			case FhirPackage.MEDIA__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
+			case FhirPackage.MEDIA__CONTEXT:
+				setContext((Reference)newValue);
+				return;
+			case FhirPackage.MEDIA__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.MEDIA__OCCURRENCE_PERIOD:
+				setOccurrencePeriod((Period)newValue);
+				return;
 			case FhirPackage.MEDIA__OPERATOR:
 				setOperator((Reference)newValue);
 				return;
-			case FhirPackage.MEDIA__DEVICE_NAME:
-				setDeviceName((org.hl7.fhir.String)newValue);
+			case FhirPackage.MEDIA__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.MEDIA__BODY_SITE:
+				setBodySite((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEDIA__DEVICE:
+				setDevice((Reference)newValue);
 				return;
 			case FhirPackage.MEDIA__HEIGHT:
 				setHeight((PositiveInt)newValue);
@@ -815,6 +1154,10 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 			case FhirPackage.MEDIA__CONTENT:
 				setContent((Attachment)newValue);
 				return;
+			case FhirPackage.MEDIA__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -830,6 +1173,9 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 			case FhirPackage.MEDIA__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.MEDIA__BASED_ON:
+				getBasedOn().clear();
+				return;
 			case FhirPackage.MEDIA__TYPE:
 				setType((DigitalMediaType)null);
 				return;
@@ -842,11 +1188,26 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 			case FhirPackage.MEDIA__SUBJECT:
 				setSubject((Reference)null);
 				return;
+			case FhirPackage.MEDIA__CONTEXT:
+				setContext((Reference)null);
+				return;
+			case FhirPackage.MEDIA__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)null);
+				return;
+			case FhirPackage.MEDIA__OCCURRENCE_PERIOD:
+				setOccurrencePeriod((Period)null);
+				return;
 			case FhirPackage.MEDIA__OPERATOR:
 				setOperator((Reference)null);
 				return;
-			case FhirPackage.MEDIA__DEVICE_NAME:
-				setDeviceName((org.hl7.fhir.String)null);
+			case FhirPackage.MEDIA__REASON_CODE:
+				getReasonCode().clear();
+				return;
+			case FhirPackage.MEDIA__BODY_SITE:
+				setBodySite((CodeableConcept)null);
+				return;
+			case FhirPackage.MEDIA__DEVICE:
+				setDevice((Reference)null);
 				return;
 			case FhirPackage.MEDIA__HEIGHT:
 				setHeight((PositiveInt)null);
@@ -863,6 +1224,9 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 			case FhirPackage.MEDIA__CONTENT:
 				setContent((Attachment)null);
 				return;
+			case FhirPackage.MEDIA__NOTE:
+				getNote().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -877,6 +1241,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 		switch (featureID) {
 			case FhirPackage.MEDIA__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.MEDIA__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.MEDIA__TYPE:
 				return type != null;
 			case FhirPackage.MEDIA__SUBTYPE:
@@ -885,10 +1251,20 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				return view != null;
 			case FhirPackage.MEDIA__SUBJECT:
 				return subject != null;
+			case FhirPackage.MEDIA__CONTEXT:
+				return context != null;
+			case FhirPackage.MEDIA__OCCURRENCE_DATE_TIME:
+				return occurrenceDateTime != null;
+			case FhirPackage.MEDIA__OCCURRENCE_PERIOD:
+				return occurrencePeriod != null;
 			case FhirPackage.MEDIA__OPERATOR:
 				return operator != null;
-			case FhirPackage.MEDIA__DEVICE_NAME:
-				return deviceName != null;
+			case FhirPackage.MEDIA__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.MEDIA__BODY_SITE:
+				return bodySite != null;
+			case FhirPackage.MEDIA__DEVICE:
+				return device != null;
 			case FhirPackage.MEDIA__HEIGHT:
 				return height != null;
 			case FhirPackage.MEDIA__WIDTH:
@@ -899,6 +1275,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				return duration != null;
 			case FhirPackage.MEDIA__CONTENT:
 				return content != null;
+			case FhirPackage.MEDIA__NOTE:
+				return note != null && !note.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

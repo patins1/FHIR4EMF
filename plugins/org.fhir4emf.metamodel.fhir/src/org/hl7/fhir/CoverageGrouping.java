@@ -252,7 +252,7 @@ public interface CoverageGrouping extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group.
+	 * Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage such as a level of deductables or co-payment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Class</em>' containment reference.
 	 * @see #setClass(org.hl7.fhir.String)
@@ -304,7 +304,7 @@ public interface CoverageGrouping extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group.
+	 * Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage such as a sub-level of deductables or co-payment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Class</em>' containment reference.
 	 * @see #setSubClass(org.hl7.fhir.String)

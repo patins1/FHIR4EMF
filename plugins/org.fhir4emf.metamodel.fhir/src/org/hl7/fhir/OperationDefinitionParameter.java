@@ -177,13 +177,13 @@ public interface OperationDefinitionParameter extends BackboneElement {
 	 * The type for this parameter.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Code)
+	 * @see #setType(FHIRAllTypes)
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinitionParameter_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getType();
+	FHIRAllTypes getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinitionParameter#getType <em>Type</em>}' containment reference.
@@ -193,7 +193,7 @@ public interface OperationDefinitionParameter extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Code value);
+	void setType(FHIRAllTypes value);
 
 	/**
 	 * Returns the value of the '<em><b>Search Type</b></em>' containment reference.

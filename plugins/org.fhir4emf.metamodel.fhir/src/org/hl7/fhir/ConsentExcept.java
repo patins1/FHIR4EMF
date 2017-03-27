@@ -177,7 +177,7 @@ public interface ConsentExcept extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element.
+	 * If this code is found in an instance, then the exception applies.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getConsentExcept_Code()

@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.DeviceComponentProductionSpecificationImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.
+ * The characteristics, operational status and capabilities of a medical-related component of a medical device.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -35,7 +35,7 @@ public interface DeviceComponentProductionSpecification extends BackboneElement 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the specification type, such as, serial number, part number, hardware revision, software revision, etc.
+	 * The specification type, such as, serial number, part number, hardware revision, software revision, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Spec Type</em>' containment reference.
 	 * @see #setSpecType(CodeableConcept)
@@ -61,7 +61,7 @@ public interface DeviceComponentProductionSpecification extends BackboneElement 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.
+	 * The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacturer can make use of.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Component Id</em>' containment reference.
 	 * @see #setComponentId(Identifier)
@@ -87,7 +87,7 @@ public interface DeviceComponentProductionSpecification extends BackboneElement 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the printable string defining the component.
+	 * The printable string defining the component.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Production Spec</em>' containment reference.
 	 * @see #setProductionSpec(org.hl7.fhir.String)

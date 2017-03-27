@@ -59,9 +59,9 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExpansionProfileImpl#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -144,6 +144,16 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
+
+	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,16 +172,6 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * @ordered
 	 */
 	protected EList<ContactDetail> contact;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -601,6 +601,50 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
@@ -651,50 +695,6 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.EXPANSION_PROFILE__CONTACT);
 		}
 		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPANSION_PROFILE__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPANSION_PROFILE__DATE, newDate, newDate));
 	}
 
 	/**
@@ -1238,12 +1238,12 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				return basicSetStatus(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.EXPANSION_PROFILE__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPANSION_PROFILE__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.EXPANSION_PROFILE__USE_CONTEXT:
@@ -1296,12 +1296,12 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				return getStatus();
 			case FhirPackage.EXPANSION_PROFILE__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.EXPANSION_PROFILE__DATE:
+				return getDate();
 			case FhirPackage.EXPANSION_PROFILE__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.EXPANSION_PROFILE__CONTACT:
 				return getContact();
-			case FhirPackage.EXPANSION_PROFILE__DATE:
-				return getDate();
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.EXPANSION_PROFILE__USE_CONTEXT:
@@ -1361,15 +1361,15 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 			case FhirPackage.EXPANSION_PROFILE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.EXPANSION_PROFILE__DATE:
+				setDate((DateTime)newValue);
+				return;
 			case FhirPackage.EXPANSION_PROFILE__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
-				return;
-			case FhirPackage.EXPANSION_PROFILE__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -1446,14 +1446,14 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 			case FhirPackage.EXPANSION_PROFILE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.EXPANSION_PROFILE__DATE:
+				setDate((DateTime)null);
+				return;
 			case FhirPackage.EXPANSION_PROFILE__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__CONTACT:
 				getContact().clear();
-				return;
-			case FhirPackage.EXPANSION_PROFILE__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1521,12 +1521,12 @@ public class ExpansionProfileImpl extends DomainResourceImpl implements Expansio
 				return status != null;
 			case FhirPackage.EXPANSION_PROFILE__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.EXPANSION_PROFILE__DATE:
+				return date != null;
 			case FhirPackage.EXPANSION_PROFILE__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.EXPANSION_PROFILE__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.EXPANSION_PROFILE__DATE:
-				return date != null;
 			case FhirPackage.EXPANSION_PROFILE__DESCRIPTION:
 				return description != null;
 			case FhirPackage.EXPANSION_PROFILE__USE_CONTEXT:

@@ -21,7 +21,6 @@ import org.hl7.fhir.jaxb.RequestGroupActionImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.RequestGroupAction#getActionIdentifier <em>Action Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getLabel <em>Label</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getDescription <em>Description</em>}</li>
@@ -52,32 +51,6 @@ import org.hl7.fhir.jaxb.RequestGroupActionImplAdapter;
  */
 @XmlJavaTypeAdapter(RequestGroupActionImplAdapter.class)
 public interface RequestGroupAction extends BackboneElement {
-	/**
-	 * Returns the value of the '<em><b>Action Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action Identifier</em>' containment reference.
-	 * @see #setActionIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_ActionIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='actionIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getActionIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getActionIdentifier <em>Action Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Action Identifier</em>' containment reference.
-	 * @see #getActionIdentifier()
-	 * @generated
-	 */
-	void setActionIdentifier(Identifier value);
-
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -382,7 +355,7 @@ public interface RequestGroupAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The participant in the action.
+	 * The participant that should perform or be responsible for this action.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_Participant()
@@ -426,13 +399,13 @@ public interface RequestGroupAction extends BackboneElement {
 	 * Defines the grouping behavior for the action and its children.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Grouping Behavior</em>' containment reference.
-	 * @see #setGroupingBehavior(Code)
+	 * @see #setGroupingBehavior(ActionGroupingBehavior)
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_GroupingBehavior()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='groupingBehavior' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getGroupingBehavior();
+	ActionGroupingBehavior getGroupingBehavior();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getGroupingBehavior <em>Grouping Behavior</em>}' containment reference.
@@ -442,7 +415,7 @@ public interface RequestGroupAction extends BackboneElement {
 	 * @see #getGroupingBehavior()
 	 * @generated
 	 */
-	void setGroupingBehavior(Code value);
+	void setGroupingBehavior(ActionGroupingBehavior value);
 
 	/**
 	 * Returns the value of the '<em><b>Selection Behavior</b></em>' containment reference.
@@ -452,13 +425,13 @@ public interface RequestGroupAction extends BackboneElement {
 	 * Defines the selection behavior for the action and its children.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Selection Behavior</em>' containment reference.
-	 * @see #setSelectionBehavior(Code)
+	 * @see #setSelectionBehavior(ActionSelectionBehavior)
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_SelectionBehavior()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='selectionBehavior' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getSelectionBehavior();
+	ActionSelectionBehavior getSelectionBehavior();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getSelectionBehavior <em>Selection Behavior</em>}' containment reference.
@@ -468,7 +441,7 @@ public interface RequestGroupAction extends BackboneElement {
 	 * @see #getSelectionBehavior()
 	 * @generated
 	 */
-	void setSelectionBehavior(Code value);
+	void setSelectionBehavior(ActionSelectionBehavior value);
 
 	/**
 	 * Returns the value of the '<em><b>Required Behavior</b></em>' containment reference.
@@ -478,13 +451,13 @@ public interface RequestGroupAction extends BackboneElement {
 	 * Defines the requiredness behavior for the action.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Required Behavior</em>' containment reference.
-	 * @see #setRequiredBehavior(Code)
+	 * @see #setRequiredBehavior(ActionRequiredBehavior)
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_RequiredBehavior()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='requiredBehavior' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getRequiredBehavior();
+	ActionRequiredBehavior getRequiredBehavior();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getRequiredBehavior <em>Required Behavior</em>}' containment reference.
@@ -494,7 +467,7 @@ public interface RequestGroupAction extends BackboneElement {
 	 * @see #getRequiredBehavior()
 	 * @generated
 	 */
-	void setRequiredBehavior(Code value);
+	void setRequiredBehavior(ActionRequiredBehavior value);
 
 	/**
 	 * Returns the value of the '<em><b>Precheck Behavior</b></em>' containment reference.
@@ -504,13 +477,13 @@ public interface RequestGroupAction extends BackboneElement {
 	 * Defines whether the action should usually be preselected.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Precheck Behavior</em>' containment reference.
-	 * @see #setPrecheckBehavior(Code)
+	 * @see #setPrecheckBehavior(ActionPrecheckBehavior)
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_PrecheckBehavior()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='precheckBehavior' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getPrecheckBehavior();
+	ActionPrecheckBehavior getPrecheckBehavior();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getPrecheckBehavior <em>Precheck Behavior</em>}' containment reference.
@@ -520,7 +493,7 @@ public interface RequestGroupAction extends BackboneElement {
 	 * @see #getPrecheckBehavior()
 	 * @generated
 	 */
-	void setPrecheckBehavior(Code value);
+	void setPrecheckBehavior(ActionPrecheckBehavior value);
 
 	/**
 	 * Returns the value of the '<em><b>Cardinality Behavior</b></em>' containment reference.
@@ -530,13 +503,13 @@ public interface RequestGroupAction extends BackboneElement {
 	 * Defines whether the action can be selected multiple times.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cardinality Behavior</em>' containment reference.
-	 * @see #setCardinalityBehavior(Code)
+	 * @see #setCardinalityBehavior(ActionCardinalityBehavior)
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_CardinalityBehavior()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='cardinalityBehavior' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getCardinalityBehavior();
+	ActionCardinalityBehavior getCardinalityBehavior();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getCardinalityBehavior <em>Cardinality Behavior</em>}' containment reference.
@@ -546,7 +519,7 @@ public interface RequestGroupAction extends BackboneElement {
 	 * @see #getCardinalityBehavior()
 	 * @generated
 	 */
-	void setCardinalityBehavior(Code value);
+	void setCardinalityBehavior(ActionCardinalityBehavior value);
 
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.

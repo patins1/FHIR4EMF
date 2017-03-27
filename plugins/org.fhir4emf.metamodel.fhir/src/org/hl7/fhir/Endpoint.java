@@ -240,7 +240,7 @@ public interface Endpoint extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The uri that describes the actual end-point to send messages to.
+	 * The uri that describes the actual end-point to connect to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' containment reference.
 	 * @see #setAddress(Uri)

@@ -144,7 +144,7 @@ public interface Schedule extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.
+	 * The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, PractitionerRole, Device, Patient or RelatedPerson.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actor</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSchedule_Actor()

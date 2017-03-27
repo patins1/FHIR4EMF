@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.TestScriptFixtureImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -61,7 +61,7 @@ public interface TestScriptFixture extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether or not to implicitly delete the fixture during teardown If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.
+	 * Whether or not to implicitly delete the fixture during teardown. If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Autodelete</em>' containment reference.
 	 * @see #setAutodelete(org.hl7.fhir.Boolean)

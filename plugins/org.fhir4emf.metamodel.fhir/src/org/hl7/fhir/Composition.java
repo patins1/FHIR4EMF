@@ -34,6 +34,7 @@ import org.hl7.fhir.jaxb.CompositionImplAdapter;
  *   <li>{@link org.hl7.fhir.Composition#getConfidentiality <em>Confidentiality</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getAttester <em>Attester</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getCustodian <em>Custodian</em>}</li>
+ *   <li>{@link org.hl7.fhir.Composition#getRelatesTo <em>Relates To</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getSection <em>Section</em>}</li>
  * </ul>
@@ -276,13 +277,13 @@ public interface Composition extends DomainResource {
 	 * The code specifying the level of confidentiality of the Composition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Confidentiality</em>' containment reference.
-	 * @see #setConfidentiality(Code)
+	 * @see #setConfidentiality(ConfidentialityClassification)
 	 * @see org.hl7.fhir.FhirPackage#getComposition_Confidentiality()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='confidentiality' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getConfidentiality();
+	ConfidentialityClassification getConfidentiality();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Composition#getConfidentiality <em>Confidentiality</em>}' containment reference.
@@ -292,7 +293,7 @@ public interface Composition extends DomainResource {
 	 * @see #getConfidentiality()
 	 * @generated
 	 */
-	void setConfidentiality(Code value);
+	void setConfidentiality(ConfidentialityClassification value);
 
 	/**
 	 * Returns the value of the '<em><b>Attester</b></em>' containment reference list.
@@ -335,6 +336,22 @@ public interface Composition extends DomainResource {
 	 * @generated
 	 */
 	void setCustodian(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Relates To</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CompositionRelatesTo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Relationships that this composition has with other compositions or documents that already exist.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Relates To</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getComposition_RelatesTo()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='relatesTo' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<CompositionRelatesTo> getRelatesTo();
 
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.

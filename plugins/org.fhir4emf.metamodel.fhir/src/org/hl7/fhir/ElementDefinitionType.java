@@ -66,7 +66,7 @@ public interface ElementDefinitionType extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+	 * Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
 	 * @see #setProfile(Uri)
@@ -92,7 +92,7 @@ public interface ElementDefinitionType extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+	 * Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target Profile</em>' containment reference.
 	 * @see #setTargetProfile(Uri)
@@ -134,7 +134,7 @@ public interface ElementDefinitionType extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether this reference needs to be version specific or version independent, or whetehr either can be used.
+	 * Whether this reference needs to be version specific or version independent, or whether either can be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Versioning</em>' containment reference.
 	 * @see #setVersioning(ReferenceVersionRules)

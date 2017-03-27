@@ -123,7 +123,7 @@ public interface ClinicalImpression extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/status prompted it.
+	 * A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)

@@ -88,7 +88,7 @@ public interface CodeSystemProperty extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of the property- why it is defined, and how it's value might be used.
+	 * A description of the property- why it is defined, and how its value might be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)

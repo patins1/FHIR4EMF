@@ -23,6 +23,7 @@ import org.hl7.fhir.jaxb.ElementDefinitionMappingImplAdapter;
  *   <li>{@link org.hl7.fhir.ElementDefinitionMapping#getIdentity <em>Identity</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionMapping#getLanguage <em>Language</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionMapping#getMap <em>Map</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionMapping#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getElementDefinitionMapping()
@@ -108,5 +109,31 @@ public interface ElementDefinitionMapping extends Element {
 	 * @generated
 	 */
 	void setMap(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Comments that provide information about the mapping or its use.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Comment</em>' containment reference.
+	 * @see #setComment(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionMapping_Comment()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getComment();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionMapping#getComment <em>Comment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comment</em>' containment reference.
+	 * @see #getComment()
+	 * @generated
+	 */
+	void setComment(org.hl7.fhir.String value);
 
 } // ElementDefinitionMapping

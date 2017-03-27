@@ -94,7 +94,7 @@ public interface ValueSetContains extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data.
+	 * If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Inactive</em>' containment reference.
 	 * @see #setInactive(org.hl7.fhir.Boolean)

@@ -40,13 +40,13 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.BodySiteImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BodySiteImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.BodySiteImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BodySiteImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BodySiteImpl#getQualifier <em>Qualifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BodySiteImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BodySiteImpl#getImage <em>Image</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.BodySiteImpl#getActive <em>Active</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.BodySiteImpl#getPatient <em>Patient</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,16 +54,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
 @XmlType(name = "BodySite", namespace = "http://hl7.org/fhir")
 @XmlRootElement(name = "fhir.BodySite")
 public class BodySiteImpl extends DomainResourceImpl implements BodySite {
-	/**
-	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPatient()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference patient;
-
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -73,6 +63,16 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean active;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -115,14 +115,14 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	protected EList<Attachment> image;
 
 	/**
-	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
+	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActive()
+	 * @see #getPatient()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean active;
+	protected Reference patient;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,9 +148,12 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
-	public Reference getPatient() {
-		return patient;
+	@XmlElement
+	public List<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.BODY_SITE__IDENTIFIER);
+		}
+		return identifier;
 	}
 
 	/**
@@ -158,11 +161,21 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
-		Reference oldPatient = patient;
-		patient = newPatient;
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
+	public org.hl7.fhir.Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetActive(org.hl7.fhir.Boolean newActive, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldActive = active;
+		active = newActive;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BODY_SITE__PATIENT, oldPatient, newPatient);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BODY_SITE__ACTIVE, oldActive, newActive);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -173,31 +186,18 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPatient(Reference newPatient) {
-		if (newPatient != patient) {
+	public void setActive(org.hl7.fhir.Boolean newActive) {
+		if (newActive != active) {
 			NotificationChain msgs = null;
-			if (patient != null)
-				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BODY_SITE__PATIENT, null, msgs);
-			if (newPatient != null)
-				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BODY_SITE__PATIENT, null, msgs);
-			msgs = basicSetPatient(newPatient, msgs);
+			if (active != null)
+				msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BODY_SITE__ACTIVE, null, msgs);
+			if (newActive != null)
+				msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BODY_SITE__ACTIVE, null, msgs);
+			msgs = basicSetActive(newActive, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BODY_SITE__PATIENT, newPatient, newPatient));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public List<Identifier> getIdentifier() {
-		if (identifier == null) {
-			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.BODY_SITE__IDENTIFIER);
-		}
-		return identifier;
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BODY_SITE__ACTIVE, newActive, newActive));
 	}
 
 	/**
@@ -318,9 +318,9 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	public org.hl7.fhir.Boolean getActive() {
-		return active;
+	@XmlElement(required = true)
+	public Reference getPatient() {
+		return patient;
 	}
 
 	/**
@@ -328,11 +328,11 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetActive(org.hl7.fhir.Boolean newActive, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldActive = active;
-		active = newActive;
+	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
+		Reference oldPatient = patient;
+		patient = newPatient;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BODY_SITE__ACTIVE, oldActive, newActive);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BODY_SITE__PATIENT, oldPatient, newPatient);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -343,18 +343,18 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setActive(org.hl7.fhir.Boolean newActive) {
-		if (newActive != active) {
+	public void setPatient(Reference newPatient) {
+		if (newPatient != patient) {
 			NotificationChain msgs = null;
-			if (active != null)
-				msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BODY_SITE__ACTIVE, null, msgs);
-			if (newActive != null)
-				msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BODY_SITE__ACTIVE, null, msgs);
-			msgs = basicSetActive(newActive, msgs);
+			if (patient != null)
+				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BODY_SITE__PATIENT, null, msgs);
+			if (newPatient != null)
+				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BODY_SITE__PATIENT, null, msgs);
+			msgs = basicSetPatient(newPatient, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BODY_SITE__ACTIVE, newActive, newActive));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BODY_SITE__PATIENT, newPatient, newPatient));
 	}
 
 	/**
@@ -365,10 +365,10 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.BODY_SITE__PATIENT:
-				return basicSetPatient(null, msgs);
 			case FhirPackage.BODY_SITE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.BODY_SITE__ACTIVE:
+				return basicSetActive(null, msgs);
 			case FhirPackage.BODY_SITE__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.BODY_SITE__QUALIFIER:
@@ -377,8 +377,8 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 				return basicSetDescription(null, msgs);
 			case FhirPackage.BODY_SITE__IMAGE:
 				return ((InternalEList<?>)getImage()).basicRemove(otherEnd, msgs);
-			case FhirPackage.BODY_SITE__ACTIVE:
-				return basicSetActive(null, msgs);
+			case FhirPackage.BODY_SITE__PATIENT:
+				return basicSetPatient(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -391,10 +391,10 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.BODY_SITE__PATIENT:
-				return getPatient();
 			case FhirPackage.BODY_SITE__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.BODY_SITE__ACTIVE:
+				return getActive();
 			case FhirPackage.BODY_SITE__CODE:
 				return getCode();
 			case FhirPackage.BODY_SITE__QUALIFIER:
@@ -403,8 +403,8 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 				return getDescription();
 			case FhirPackage.BODY_SITE__IMAGE:
 				return getImage();
-			case FhirPackage.BODY_SITE__ACTIVE:
-				return getActive();
+			case FhirPackage.BODY_SITE__PATIENT:
+				return getPatient();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -418,12 +418,12 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.BODY_SITE__PATIENT:
-				setPatient((Reference)newValue);
-				return;
 			case FhirPackage.BODY_SITE__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
+			case FhirPackage.BODY_SITE__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.BODY_SITE__CODE:
 				setCode((CodeableConcept)newValue);
@@ -439,8 +439,8 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 				getImage().clear();
 				getImage().addAll((Collection<? extends Attachment>)newValue);
 				return;
-			case FhirPackage.BODY_SITE__ACTIVE:
-				setActive((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.BODY_SITE__PATIENT:
+				setPatient((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -454,11 +454,11 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.BODY_SITE__PATIENT:
-				setPatient((Reference)null);
-				return;
 			case FhirPackage.BODY_SITE__IDENTIFIER:
 				getIdentifier().clear();
+				return;
+			case FhirPackage.BODY_SITE__ACTIVE:
+				setActive((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.BODY_SITE__CODE:
 				setCode((CodeableConcept)null);
@@ -472,8 +472,8 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 			case FhirPackage.BODY_SITE__IMAGE:
 				getImage().clear();
 				return;
-			case FhirPackage.BODY_SITE__ACTIVE:
-				setActive((org.hl7.fhir.Boolean)null);
+			case FhirPackage.BODY_SITE__PATIENT:
+				setPatient((Reference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -487,10 +487,10 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.BODY_SITE__PATIENT:
-				return patient != null;
 			case FhirPackage.BODY_SITE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.BODY_SITE__ACTIVE:
+				return active != null;
 			case FhirPackage.BODY_SITE__CODE:
 				return code != null;
 			case FhirPackage.BODY_SITE__QUALIFIER:
@@ -499,8 +499,8 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 				return description != null;
 			case FhirPackage.BODY_SITE__IMAGE:
 				return image != null && !image.isEmpty();
-			case FhirPackage.BODY_SITE__ACTIVE:
-				return active != null;
+			case FhirPackage.BODY_SITE__PATIENT:
+				return patient != null;
 		}
 		return super.eIsSet(featureID);
 	}

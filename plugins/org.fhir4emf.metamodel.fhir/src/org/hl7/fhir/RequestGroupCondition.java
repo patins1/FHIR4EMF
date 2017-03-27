@@ -39,13 +39,13 @@ public interface RequestGroupCondition extends BackboneElement {
 	 * The kind of condition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kind</em>' containment reference.
-	 * @see #setKind(Code)
+	 * @see #setKind(ActionConditionKind)
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroupCondition_Kind()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='kind' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getKind();
+	ActionConditionKind getKind();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupCondition#getKind <em>Kind</em>}' containment reference.
@@ -55,7 +55,7 @@ public interface RequestGroupCondition extends BackboneElement {
 	 * @see #getKind()
 	 * @generated
 	 */
-	void setKind(Code value);
+	void setKind(ActionConditionKind value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

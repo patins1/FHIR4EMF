@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.ImplementationGuideGlobalImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.
+ * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -37,13 +37,13 @@ public interface ImplementationGuideGlobal extends BackboneElement {
 	 * The type of resource that all instances must conform to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Code)
+	 * @see #setType(ResourceType)
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideGlobal_Type()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getType();
+	ResourceType getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideGlobal#getType <em>Type</em>}' containment reference.
@@ -53,7 +53,7 @@ public interface ImplementationGuideGlobal extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Code value);
+	void setType(ResourceType value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.

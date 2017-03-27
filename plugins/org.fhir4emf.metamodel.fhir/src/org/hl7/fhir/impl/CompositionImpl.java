@@ -23,19 +23,20 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Composition;
 import org.hl7.fhir.CompositionAttester;
 import org.hl7.fhir.CompositionEvent;
+import org.hl7.fhir.CompositionRelatesTo;
 import org.hl7.fhir.CompositionSection;
 import org.hl7.fhir.CompositionStatus;
+import org.hl7.fhir.ConfidentialityClassification;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.CompositionStatusImplAdapter;
+import org.hl7.fhir.jaxb.ConfidentialityClassificationImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
@@ -59,6 +60,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getConfidentiality <em>Confidentiality</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getAttester <em>Attester</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getCustodian <em>Custodian</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getRelatesTo <em>Relates To</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getSection <em>Section</em>}</li>
  * </ul>
@@ -166,7 +168,7 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code confidentiality;
+	protected ConfidentialityClassification confidentiality;
 
 	/**
 	 * The cached value of the '{@link #getAttester() <em>Attester</em>}' containment reference list.
@@ -187,6 +189,16 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * @ordered
 	 */
 	protected Reference custodian;
+
+	/**
+	 * The cached value of the '{@link #getRelatesTo() <em>Relates To</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelatesTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CompositionRelatesTo> relatesTo;
 
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
@@ -597,8 +609,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getConfidentiality() {
+	@XmlJavaTypeAdapter(ConfidentialityClassificationImplAdapter.class)
+	public ConfidentialityClassification getConfidentiality() {
 		return confidentiality;
 	}
 
@@ -607,8 +619,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetConfidentiality(Code newConfidentiality, NotificationChain msgs) {
-		Code oldConfidentiality = confidentiality;
+	public NotificationChain basicSetConfidentiality(ConfidentialityClassification newConfidentiality, NotificationChain msgs) {
+		ConfidentialityClassification oldConfidentiality = confidentiality;
 		confidentiality = newConfidentiality;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION__CONFIDENTIALITY, oldConfidentiality, newConfidentiality);
@@ -622,7 +634,7 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setConfidentiality(Code newConfidentiality) {
+	public void setConfidentiality(ConfidentialityClassification newConfidentiality) {
 		if (newConfidentiality != confidentiality) {
 			NotificationChain msgs = null;
 			if (confidentiality != null)
@@ -698,6 +710,19 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * @generated
 	 */
 	@XmlElement
+	public List<CompositionRelatesTo> getRelatesTo() {
+		if (relatesTo == null) {
+			relatesTo = new EObjectContainmentEList<CompositionRelatesTo>(CompositionRelatesTo.class, this, FhirPackage.COMPOSITION__RELATES_TO);
+		}
+		return relatesTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
 	public List<CompositionEvent> getEvent() {
 		if (event == null) {
 			event = new EObjectContainmentEList<CompositionEvent>(CompositionEvent.class, this, FhirPackage.COMPOSITION__EVENT);
@@ -750,6 +775,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				return ((InternalEList<?>)getAttester()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMPOSITION__CUSTODIAN:
 				return basicSetCustodian(null, msgs);
+			case FhirPackage.COMPOSITION__RELATES_TO:
+				return ((InternalEList<?>)getRelatesTo()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMPOSITION__EVENT:
 				return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMPOSITION__SECTION:
@@ -790,6 +817,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				return getAttester();
 			case FhirPackage.COMPOSITION__CUSTODIAN:
 				return getCustodian();
+			case FhirPackage.COMPOSITION__RELATES_TO:
+				return getRelatesTo();
 			case FhirPackage.COMPOSITION__EVENT:
 				return getEvent();
 			case FhirPackage.COMPOSITION__SECTION:
@@ -836,7 +865,7 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				setTitle((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.COMPOSITION__CONFIDENTIALITY:
-				setConfidentiality((Code)newValue);
+				setConfidentiality((ConfidentialityClassification)newValue);
 				return;
 			case FhirPackage.COMPOSITION__ATTESTER:
 				getAttester().clear();
@@ -844,6 +873,10 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				return;
 			case FhirPackage.COMPOSITION__CUSTODIAN:
 				setCustodian((Reference)newValue);
+				return;
+			case FhirPackage.COMPOSITION__RELATES_TO:
+				getRelatesTo().clear();
+				getRelatesTo().addAll((Collection<? extends CompositionRelatesTo>)newValue);
 				return;
 			case FhirPackage.COMPOSITION__EVENT:
 				getEvent().clear();
@@ -893,13 +926,16 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				setTitle((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.COMPOSITION__CONFIDENTIALITY:
-				setConfidentiality((Code)null);
+				setConfidentiality((ConfidentialityClassification)null);
 				return;
 			case FhirPackage.COMPOSITION__ATTESTER:
 				getAttester().clear();
 				return;
 			case FhirPackage.COMPOSITION__CUSTODIAN:
 				setCustodian((Reference)null);
+				return;
+			case FhirPackage.COMPOSITION__RELATES_TO:
+				getRelatesTo().clear();
 				return;
 			case FhirPackage.COMPOSITION__EVENT:
 				getEvent().clear();
@@ -943,6 +979,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				return attester != null && !attester.isEmpty();
 			case FhirPackage.COMPOSITION__CUSTODIAN:
 				return custodian != null;
+			case FhirPackage.COMPOSITION__RELATES_TO:
+				return relatesTo != null && !relatesTo.isEmpty();
 			case FhirPackage.COMPOSITION__EVENT:
 				return event != null && !event.isEmpty();
 			case FhirPackage.COMPOSITION__SECTION:

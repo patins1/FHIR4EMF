@@ -40,7 +40,7 @@ public interface ParameterDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the parameter.
+	 * The name of the parameter used to allow access to the value of the parameter in evaluation contexts.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(Code)

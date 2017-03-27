@@ -28,6 +28,7 @@ import org.hl7.fhir.Coding;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.Encounter;
 import org.hl7.fhir.EncounterClassHistory;
+import org.hl7.fhir.EncounterDiagnosis;
 import org.hl7.fhir.EncounterHospitalization;
 import org.hl7.fhir.EncounterLocation;
 import org.hl7.fhir.EncounterParticipant;
@@ -62,7 +63,7 @@ import org.hl7.fhir.jaxb.EncounterStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getLength <em>Length</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getReason <em>Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getIndication <em>Indication</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getAccount <em>Account</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getLocation <em>Location</em>}</li>
@@ -226,14 +227,14 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	protected EList<CodeableConcept> reason;
 
 	/**
-	 * The cached value of the '{@link #getIndication() <em>Indication</em>}' containment reference list.
+	 * The cached value of the '{@link #getDiagnosis() <em>Diagnosis</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIndication()
+	 * @see #getDiagnosis()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> indication;
+	protected EList<EncounterDiagnosis> diagnosis;
 
 	/**
 	 * The cached value of the '{@link #getAccount() <em>Account</em>}' containment reference list.
@@ -717,11 +718,11 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * @generated
 	 */
 	@XmlElement
-	public List<Reference> getIndication() {
-		if (indication == null) {
-			indication = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__INDICATION);
+	public List<EncounterDiagnosis> getDiagnosis() {
+		if (diagnosis == null) {
+			diagnosis = new EObjectContainmentEList<EncounterDiagnosis>(EncounterDiagnosis.class, this, FhirPackage.ENCOUNTER__DIAGNOSIS);
 		}
-		return indication;
+		return diagnosis;
 	}
 
 	/**
@@ -917,8 +918,8 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return basicSetLength(null, msgs);
 			case FhirPackage.ENCOUNTER__REASON:
 				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ENCOUNTER__INDICATION:
-				return ((InternalEList<?>)getIndication()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ENCOUNTER__DIAGNOSIS:
+				return ((InternalEList<?>)getDiagnosis()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENCOUNTER__ACCOUNT:
 				return ((InternalEList<?>)getAccount()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENCOUNTER__HOSPITALIZATION:
@@ -971,8 +972,8 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return getLength();
 			case FhirPackage.ENCOUNTER__REASON:
 				return getReason();
-			case FhirPackage.ENCOUNTER__INDICATION:
-				return getIndication();
+			case FhirPackage.ENCOUNTER__DIAGNOSIS:
+				return getDiagnosis();
 			case FhirPackage.ENCOUNTER__ACCOUNT:
 				return getAccount();
 			case FhirPackage.ENCOUNTER__HOSPITALIZATION:
@@ -1049,9 +1050,9 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				getReason().clear();
 				getReason().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.ENCOUNTER__INDICATION:
-				getIndication().clear();
-				getIndication().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.ENCOUNTER__DIAGNOSIS:
+				getDiagnosis().clear();
+				getDiagnosis().addAll((Collection<? extends EncounterDiagnosis>)newValue);
 				return;
 			case FhirPackage.ENCOUNTER__ACCOUNT:
 				getAccount().clear();
@@ -1127,8 +1128,8 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 			case FhirPackage.ENCOUNTER__REASON:
 				getReason().clear();
 				return;
-			case FhirPackage.ENCOUNTER__INDICATION:
-				getIndication().clear();
+			case FhirPackage.ENCOUNTER__DIAGNOSIS:
+				getDiagnosis().clear();
 				return;
 			case FhirPackage.ENCOUNTER__ACCOUNT:
 				getAccount().clear();
@@ -1187,8 +1188,8 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return length != null;
 			case FhirPackage.ENCOUNTER__REASON:
 				return reason != null && !reason.isEmpty();
-			case FhirPackage.ENCOUNTER__INDICATION:
-				return indication != null && !indication.isEmpty();
+			case FhirPackage.ENCOUNTER__DIAGNOSIS:
+				return diagnosis != null && !diagnosis.isEmpty();
 			case FhirPackage.ENCOUNTER__ACCOUNT:
 				return account != null && !account.isEmpty();
 			case FhirPackage.ENCOUNTER__HOSPITALIZATION:

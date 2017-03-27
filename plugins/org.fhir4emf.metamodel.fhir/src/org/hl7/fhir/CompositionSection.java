@@ -123,13 +123,13 @@ public interface CompositionSection extends BackboneElement {
 	 * How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Mode</em>' containment reference.
-	 * @see #setMode(Code)
+	 * @see #setMode(ListMode)
 	 * @see org.hl7.fhir.FhirPackage#getCompositionSection_Mode()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='mode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getMode();
+	ListMode getMode();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CompositionSection#getMode <em>Mode</em>}' containment reference.
@@ -139,7 +139,7 @@ public interface CompositionSection extends BackboneElement {
 	 * @see #getMode()
 	 * @generated
 	 */
-	void setMode(Code value);
+	void setMode(ListMode value);
 
 	/**
 	 * Returns the value of the '<em><b>Ordered By</b></em>' containment reference.

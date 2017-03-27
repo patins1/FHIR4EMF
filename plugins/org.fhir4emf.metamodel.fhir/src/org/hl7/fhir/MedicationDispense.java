@@ -266,7 +266,7 @@ public interface MedicationDispense extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates who or what performed the event.
+	 * Indicates who or what performed the event.  It should be assumed that the performer is the dispenser of the medication.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_Performer()
@@ -482,11 +482,11 @@ public interface MedicationDispense extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Dosage Instruction</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DosageInstruction}.
+	 * The list contents are of type {@link org.hl7.fhir.Dosage}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.
+	 * Indicates how the medication is to be used by the patient.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dosage Instruction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_DosageInstruction()
@@ -494,7 +494,7 @@ public interface MedicationDispense extends DomainResource {
 	 *        extendedMetaData="kind='element' name='dosageInstruction' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<DosageInstruction> getDosageInstruction();
+	List<Dosage> getDosageInstruction();
 
 	/**
 	 * Returns the value of the '<em><b>Substitution</b></em>' containment reference.
@@ -543,7 +543,7 @@ public interface MedicationDispense extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * True if the dispense was not peformed for some reason.
+	 * True if the dispense was not performed for some reason.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Not Done</em>' containment reference.
 	 * @see #setNotDone(org.hl7.fhir.Boolean)

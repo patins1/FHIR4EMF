@@ -29,14 +29,17 @@ import org.hl7.fhir.jaxb.AppointmentImplAdapter;
  *   <li>{@link org.hl7.fhir.Appointment#getSpecialty <em>Specialty</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getAppointmentType <em>Appointment Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.Appointment#getIndication <em>Indication</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.Appointment#getSupportingInformation <em>Supporting Information</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getStart <em>Start</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getEnd <em>End</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getMinutesDuration <em>Minutes Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getSlot <em>Slot</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getComment <em>Comment</em>}</li>
+ *   <li>{@link org.hl7.fhir.Appointment#getIncomingReferral <em>Incoming Referral</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getRequestedPeriod <em>Requested Period</em>}</li>
  * </ul>
@@ -174,30 +177,36 @@ public interface Appointment extends DomainResource {
 	void setAppointmentType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The reason that this appointment is being scheduled. This is more clinical than administrative.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason</em>' containment reference.
-	 * @see #setReason(CodeableConcept)
+	 * @return the value of the '<em>Reason</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAppointment_Reason()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getReason();
+	List<CodeableConcept> getReason();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Appointment#getReason <em>Reason</em>}' containment reference.
+	 * Returns the value of the '<em><b>Indication</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason</em>' containment reference.
-	 * @see #getReason()
+	 * <!-- begin-model-doc -->
+	 * Reason the appointment has been scheduled to take place, as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Indication</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getAppointment_Indication()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='indication' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setReason(CodeableConcept value);
+	List<Reference> getIndication();
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
@@ -250,6 +259,22 @@ public interface Appointment extends DomainResource {
 	 * @generated
 	 */
 	void setDescription(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Supporting Information</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Additional information to support the appointment provided when making the appointment.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Supporting Information</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getAppointment_SupportingInformation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='supportingInformation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getSupportingInformation();
 
 	/**
 	 * Returns the value of the '<em><b>Start</b></em>' containment reference.
@@ -398,6 +423,22 @@ public interface Appointment extends DomainResource {
 	void setComment(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Incoming Referral</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The referral request this appointment is allocated to assess (incoming referral).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Incoming Referral</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getAppointment_IncomingReferral()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='incomingReferral' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getIncomingReferral();
+
+	/**
 	 * Returns the value of the '<em><b>Participant</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.AppointmentParticipant}.
 	 * <!-- begin-user-doc -->
@@ -419,7 +460,7 @@ public interface Appointment extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A set of date ranges (potentially including times) that the appointment is preferred to be scheduled. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.
+	 * A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Requested Period</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAppointment_RequestedPeriod()

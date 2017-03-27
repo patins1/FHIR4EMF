@@ -23,11 +23,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
-import org.hl7.fhir.MeasureDataUsage;
 import org.hl7.fhir.MeasureSupplementalData;
-import org.hl7.fhir.jaxb.MeasureDataUsageImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
@@ -67,7 +66,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MeasureDataUsage> usage;
+	protected EList<CodeableConcept> usage;
 
 	/**
 	 * The cached value of the '{@link #getCriteria() <em>Criteria</em>}' containment reference.
@@ -113,7 +112,6 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Identifier getIdentifier() {
 		return identifier;
 	}
@@ -157,11 +155,10 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MeasureDataUsageImplAdapter.class)
 	@XmlElement
-	public List<MeasureDataUsage> getUsage() {
+	public List<CodeableConcept> getUsage() {
 		if (usage == null) {
-			usage = new EObjectContainmentEList<MeasureDataUsage>(MeasureDataUsage.class, this, FhirPackage.MEASURE_SUPPLEMENTAL_DATA__USAGE);
+			usage = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEASURE_SUPPLEMENTAL_DATA__USAGE);
 		}
 		return usage;
 	}
@@ -308,7 +305,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 				return;
 			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__USAGE:
 				getUsage().clear();
-				getUsage().addAll((Collection<? extends MeasureDataUsage>)newValue);
+				getUsage().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__CRITERIA:
 				setCriteria((org.hl7.fhir.String)newValue);

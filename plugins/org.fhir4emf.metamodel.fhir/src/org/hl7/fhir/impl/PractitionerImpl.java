@@ -34,7 +34,6 @@ import org.hl7.fhir.HumanName;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Practitioner;
 import org.hl7.fhir.PractitionerQualification;
-import org.hl7.fhir.PractitionerRole1;
 import org.hl7.fhir.jaxb.AdministrativeGenderImplAdapter;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
 import org.hl7.fhir.jaxb.DateImplAdapter;
@@ -55,7 +54,6 @@ import org.hl7.fhir.jaxb.DateImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getGender <em>Gender</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getBirthDate <em>Birth Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getPhoto <em>Photo</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getQualification <em>Qualification</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PractitionerImpl#getCommunication <em>Communication</em>}</li>
  * </ul>
@@ -144,16 +142,6 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * @ordered
 	 */
 	protected EList<Attachment> photo;
-
-	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PractitionerRole1> role;
 
 	/**
 	 * The cached value of the '{@link #getQualification() <em>Qualification</em>}' containment reference list.
@@ -397,19 +385,6 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * @generated
 	 */
 	@XmlElement
-	public List<PractitionerRole1> getRole() {
-		if (role == null) {
-			role = new EObjectContainmentEList<PractitionerRole1>(PractitionerRole1.class, this, FhirPackage.PRACTITIONER__ROLE);
-		}
-		return role;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
 	public List<PractitionerQualification> getQualification() {
 		if (qualification == null) {
 			qualification = new EObjectContainmentEList<PractitionerQualification>(PractitionerQualification.class, this, FhirPackage.PRACTITIONER__QUALIFICATION);
@@ -454,8 +429,6 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				return basicSetBirthDate(null, msgs);
 			case FhirPackage.PRACTITIONER__PHOTO:
 				return ((InternalEList<?>)getPhoto()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PRACTITIONER__ROLE:
-				return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				return ((InternalEList<?>)getQualification()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PRACTITIONER__COMMUNICATION:
@@ -488,8 +461,6 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				return getBirthDate();
 			case FhirPackage.PRACTITIONER__PHOTO:
 				return getPhoto();
-			case FhirPackage.PRACTITIONER__ROLE:
-				return getRole();
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				return getQualification();
 			case FhirPackage.PRACTITIONER__COMMUNICATION:
@@ -536,10 +507,6 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				getPhoto().clear();
 				getPhoto().addAll((Collection<? extends Attachment>)newValue);
 				return;
-			case FhirPackage.PRACTITIONER__ROLE:
-				getRole().clear();
-				getRole().addAll((Collection<? extends PractitionerRole1>)newValue);
-				return;
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				getQualification().clear();
 				getQualification().addAll((Collection<? extends PractitionerQualification>)newValue);
@@ -584,9 +551,6 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 			case FhirPackage.PRACTITIONER__PHOTO:
 				getPhoto().clear();
 				return;
-			case FhirPackage.PRACTITIONER__ROLE:
-				getRole().clear();
-				return;
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				getQualification().clear();
 				return;
@@ -621,8 +585,6 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 				return birthDate != null;
 			case FhirPackage.PRACTITIONER__PHOTO:
 				return photo != null && !photo.isEmpty();
-			case FhirPackage.PRACTITIONER__ROLE:
-				return role != null && !role.isEmpty();
 			case FhirPackage.PRACTITIONER__QUALIFICATION:
 				return qualification != null && !qualification.isEmpty();
 			case FhirPackage.PRACTITIONER__COMMUNICATION:

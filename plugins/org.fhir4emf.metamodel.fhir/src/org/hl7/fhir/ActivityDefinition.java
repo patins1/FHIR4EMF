@@ -30,6 +30,7 @@ import org.hl7.fhir.jaxb.ActivityDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getUsage <em>Usage</em>}</li>
@@ -40,21 +41,22 @@ import org.hl7.fhir.jaxb.ActivityDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.ActivityDefinition#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getRelatedArtifact <em>Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getLibrary <em>Library</em>}</li>
- *   <li>{@link org.hl7.fhir.ActivityDefinition#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getKind <em>Kind</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getCode <em>Code</em>}</li>
- *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingCodeableConcept <em>Timing Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingTiming <em>Timing Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingPeriod <em>Timing Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingRange <em>Timing Range</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getLocation <em>Location</em>}</li>
- *   <li>{@link org.hl7.fhir.ActivityDefinition#getParticipantType <em>Participant Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getProductReference <em>Product Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getProductCodeableConcept <em>Product Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getQuantity <em>Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.ActivityDefinition#getDosageInstruction <em>Dosage Instruction</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getDosage <em>Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getTransform <em>Transform</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getDynamicValue <em>Dynamic Value</em>}</li>
@@ -71,7 +73,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this activity definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this activity definition is (or will be) published. The URL SHOULD include the major version of the activity definition. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this activity definition is (or will be) published. The URL SHOULD include the major version of the activity definition. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -113,7 +115,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets.
+	 * The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -217,7 +219,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -243,7 +245,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the activity definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.
+	 * The date  (and optionally time) when the activity definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -265,11 +267,37 @@ public interface ActivityDefinition extends DomainResource {
 	void setDate(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the individual or organization that published the activity definition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Publisher</em>' containment reference.
+	 * @see #setPublisher(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Publisher()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getPublisher();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getPublisher <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Publisher</em>' containment reference.
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	void setPublisher(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the activity definition from the consumer's perspective.
+	 * A free text natural language description of the activity definition from a consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Markdown)
@@ -295,7 +323,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explains why this activity definition is needed and why it has been designed as it has.
+	 * Explaination of why this activity definition is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -347,7 +375,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+	 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Approval Date</em>' containment reference.
 	 * @see #setApprovalDate(Date)
@@ -373,7 +401,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
+	 * The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Last Review Date</em>' containment reference.
 	 * @see #setLastReviewDate(Date)
@@ -399,7 +427,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The period during which the activity definition content was or is planned to be effective.
+	 * The period during which the activity definition content was or is planned to be in active use.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Effective Period</em>' containment reference.
 	 * @see #setEffectivePeriod(Period)
@@ -426,7 +454,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate activity definition instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_UseContext()
@@ -442,7 +470,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A jurisdiction in which the activity definition is intended to be used.
+	 * A legal or geographic region in which the activity definition is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Jurisdiction()
@@ -458,7 +486,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Clinical topics related to the content of the asset.
+	 * Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Topic</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Topic()
@@ -483,32 +511,6 @@ public interface ActivityDefinition extends DomainResource {
 	 * @generated
 	 */
 	List<Contributor> getContributor();
-
-	/**
-	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the activity definition.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Publisher</em>' containment reference.
-	 * @see #setPublisher(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Publisher()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getPublisher();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getPublisher <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Publisher</em>' containment reference.
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	void setPublisher(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
@@ -585,30 +587,30 @@ public interface ActivityDefinition extends DomainResource {
 	List<Reference> getLibrary();
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Kind</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * High-level categorization of the type of activity.
+	 * A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(ActivityDefinitionCategory)
-	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Category()
+	 * @return the value of the '<em>Kind</em>' containment reference.
+	 * @see #setKind(ResourceType)
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Kind()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='kind' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ActivityDefinitionCategory getCategory();
+	ResourceType getKind();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getCategory <em>Category</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getKind <em>Kind</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
+	 * @param value the new value of the '<em>Kind</em>' containment reference.
+	 * @see #getKind()
 	 * @generated
 	 */
-	void setCategory(ActivityDefinitionCategory value);
+	void setKind(ResourceType value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -637,32 +639,6 @@ public interface ActivityDefinition extends DomainResource {
 	void setCode(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Timing Codeable Concept</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The period, timing or frequency upon which the described activity is to occur. (choose any one of timing*, but only one)
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Timing Codeable Concept</em>' containment reference.
-	 * @see #setTimingCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_TimingCodeableConcept()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='timingCodeableConcept' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getTimingCodeableConcept();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getTimingCodeableConcept <em>Timing Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Timing Codeable Concept</em>' containment reference.
-	 * @see #getTimingCodeableConcept()
-	 * @generated
-	 */
-	void setTimingCodeableConcept(CodeableConcept value);
-
-	/**
 	 * Returns the value of the '<em><b>Timing Timing</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -687,6 +663,84 @@ public interface ActivityDefinition extends DomainResource {
 	 * @generated
 	 */
 	void setTimingTiming(Timing value);
+
+	/**
+	 * Returns the value of the '<em><b>Timing Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The period, timing or frequency upon which the described activity is to occur. (choose any one of timing*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Timing Date Time</em>' containment reference.
+	 * @see #setTimingDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_TimingDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timingDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getTimingDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getTimingDateTime <em>Timing Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timing Date Time</em>' containment reference.
+	 * @see #getTimingDateTime()
+	 * @generated
+	 */
+	void setTimingDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Timing Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The period, timing or frequency upon which the described activity is to occur. (choose any one of timing*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Timing Period</em>' containment reference.
+	 * @see #setTimingPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_TimingPeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timingPeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getTimingPeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getTimingPeriod <em>Timing Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timing Period</em>' containment reference.
+	 * @see #getTimingPeriod()
+	 * @generated
+	 */
+	void setTimingPeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Timing Range</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The period, timing or frequency upon which the described activity is to occur. (choose any one of timing*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Timing Range</em>' containment reference.
+	 * @see #setTimingRange(Range)
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_TimingRange()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timingRange' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Range getTimingRange();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getTimingRange <em>Timing Range</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timing Range</em>' containment reference.
+	 * @see #getTimingRange()
+	 * @generated
+	 */
+	void setTimingRange(Range value);
 
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
@@ -715,20 +769,20 @@ public interface ActivityDefinition extends DomainResource {
 	void setLocation(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Participant Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Code}.
+	 * Returns the value of the '<em><b>Participant</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ActivityDefinitionParticipant}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of participant in the action.
+	 * Indicates who should participate in performing the action described.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Participant Type</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_ParticipantType()
+	 * @return the value of the '<em>Participant</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Participant()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='participantType' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='participant' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Code> getParticipantType();
+	List<ActivityDefinitionParticipant> getParticipant();
 
 	/**
 	 * Returns the value of the '<em><b>Product Reference</b></em>' containment reference.
@@ -809,20 +863,20 @@ public interface ActivityDefinition extends DomainResource {
 	void setQuantity(Quantity value);
 
 	/**
-	 * Returns the value of the '<em><b>Dosage Instruction</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DosageInstruction}.
+	 * Returns the value of the '<em><b>Dosage</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Dosage}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Dosage Instruction</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_DosageInstruction()
+	 * @return the value of the '<em>Dosage</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Dosage()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dosageInstruction' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='dosage' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<DosageInstruction> getDosageInstruction();
+	List<Dosage> getDosage();
 
 	/**
 	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference list.

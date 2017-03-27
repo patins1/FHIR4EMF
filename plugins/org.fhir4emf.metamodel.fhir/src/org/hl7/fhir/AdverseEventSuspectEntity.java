@@ -39,7 +39,7 @@ public interface AdverseEventSuspectEntity extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * AdverseEvent.suspectEntity.instance.
+	 * Identifies the actual instance of what caused the adverse event.  May be a substance, medication, medication administration, medication statement or a device.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Instance</em>' containment reference.
 	 * @see #setInstance(Reference)

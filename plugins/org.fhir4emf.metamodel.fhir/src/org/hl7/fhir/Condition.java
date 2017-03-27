@@ -79,13 +79,13 @@ public interface Condition extends DomainResource {
 	 * The clinical status of the condition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Clinical Status</em>' containment reference.
-	 * @see #setClinicalStatus(Code)
+	 * @see #setClinicalStatus(ConditionClinicalStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getCondition_ClinicalStatus()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='clinicalStatus' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getClinicalStatus();
+	ConditionClinicalStatusCodes getClinicalStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Condition#getClinicalStatus <em>Clinical Status</em>}' containment reference.
@@ -95,7 +95,7 @@ public interface Condition extends DomainResource {
 	 * @see #getClinicalStatus()
 	 * @generated
 	 */
-	void setClinicalStatus(Code value);
+	void setClinicalStatus(ConditionClinicalStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Verification Status</b></em>' containment reference.

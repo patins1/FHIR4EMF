@@ -37,7 +37,7 @@ import org.hl7.fhir.jaxb.EncounterImplAdapter;
  *   <li>{@link org.hl7.fhir.Encounter#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getLength <em>Length</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getReason <em>Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.Encounter#getIndication <em>Indication</em>}</li>
+ *   <li>{@link org.hl7.fhir.Encounter#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getAccount <em>Account</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getLocation <em>Location</em>}</li>
@@ -364,20 +364,20 @@ public interface Encounter extends DomainResource {
 	List<CodeableConcept> getReason();
 
 	/**
-	 * Returns the value of the '<em><b>Indication</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Diagnosis</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.EncounterDiagnosis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.
+	 * The list of diagnosis relevant to this encounter.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Indication</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getEncounter_Indication()
+	 * @return the value of the '<em>Diagnosis</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEncounter_Diagnosis()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='indication' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='diagnosis' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Reference> getIndication();
+	List<EncounterDiagnosis> getDiagnosis();
 
 	/**
 	 * Returns the value of the '<em><b>Account</b></em>' containment reference list.

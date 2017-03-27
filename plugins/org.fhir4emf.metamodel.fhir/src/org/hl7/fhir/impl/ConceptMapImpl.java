@@ -57,9 +57,9 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -148,6 +148,16 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
+
+	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,16 +176,6 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	 * @ordered
 	 */
 	protected EList<ContactDetail> contact;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -609,6 +609,50 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
@@ -659,50 +703,6 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.CONCEPT_MAP__CONTACT);
 		}
 		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__DATE, newDate, newDate));
 	}
 
 	/**
@@ -1072,12 +1072,12 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 				return basicSetStatus(null, msgs);
 			case FhirPackage.CONCEPT_MAP__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.CONCEPT_MAP__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.CONCEPT_MAP__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.CONCEPT_MAP__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONCEPT_MAP__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.CONCEPT_MAP__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.CONCEPT_MAP__USE_CONTEXT:
@@ -1124,12 +1124,12 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 				return getStatus();
 			case FhirPackage.CONCEPT_MAP__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.CONCEPT_MAP__DATE:
+				return getDate();
 			case FhirPackage.CONCEPT_MAP__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.CONCEPT_MAP__CONTACT:
 				return getContact();
-			case FhirPackage.CONCEPT_MAP__DATE:
-				return getDate();
 			case FhirPackage.CONCEPT_MAP__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.CONCEPT_MAP__USE_CONTEXT:
@@ -1184,15 +1184,15 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 			case FhirPackage.CONCEPT_MAP__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.CONCEPT_MAP__DATE:
+				setDate((DateTime)newValue);
+				return;
 			case FhirPackage.CONCEPT_MAP__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CONCEPT_MAP__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
-				return;
-			case FhirPackage.CONCEPT_MAP__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.CONCEPT_MAP__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -1260,14 +1260,14 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 			case FhirPackage.CONCEPT_MAP__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.CONCEPT_MAP__DATE:
+				setDate((DateTime)null);
+				return;
 			case FhirPackage.CONCEPT_MAP__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CONCEPT_MAP__CONTACT:
 				getContact().clear();
-				return;
-			case FhirPackage.CONCEPT_MAP__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.CONCEPT_MAP__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1325,12 +1325,12 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 				return status != null;
 			case FhirPackage.CONCEPT_MAP__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.CONCEPT_MAP__DATE:
+				return date != null;
 			case FhirPackage.CONCEPT_MAP__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.CONCEPT_MAP__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.CONCEPT_MAP__DATE:
-				return date != null;
 			case FhirPackage.CONCEPT_MAP__DESCRIPTION:
 				return description != null;
 			case FhirPackage.CONCEPT_MAP__USE_CONTEXT:

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MedicationDispensePerformer;
 import org.hl7.fhir.Reference;
@@ -27,7 +26,6 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MedicationDispensePerformerImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispensePerformerImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispensePerformerImpl#getOnBehalfOf <em>On Behalf Of</em>}</li>
  * </ul>
@@ -37,16 +35,6 @@ import org.hl7.fhir.Reference;
 @XmlType(name = "MedicationDispensePerformer", namespace = "http://hl7.org/fhir")
 @XmlRootElement(name = "fhir.MedicationDispensePerformer")
 public class MedicationDispensePerformerImpl extends BackboneElementImpl implements MedicationDispensePerformer {
-	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept role;
-
 	/**
 	 * The cached value of the '{@link #getActor() <em>Actor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -84,49 +72,6 @@ public class MedicationDispensePerformerImpl extends BackboneElementImpl impleme
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getMedicationDispensePerformer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getRole() {
-		return role;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRole(CodeableConcept newRole, NotificationChain msgs) {
-		CodeableConcept oldRole = role;
-		role = newRole;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE_PERFORMER__ROLE, oldRole, newRole);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRole(CodeableConcept newRole) {
-		if (newRole != role) {
-			NotificationChain msgs = null;
-			if (role != null)
-				msgs = ((InternalEObject)role).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE_PERFORMER__ROLE, null, msgs);
-			if (newRole != null)
-				msgs = ((InternalEObject)newRole).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE_PERFORMER__ROLE, null, msgs);
-			msgs = basicSetRole(newRole, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE_PERFORMER__ROLE, newRole, newRole));
 	}
 
 	/**
@@ -224,8 +169,6 @@ public class MedicationDispensePerformerImpl extends BackboneElementImpl impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ROLE:
-				return basicSetRole(null, msgs);
 			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ACTOR:
 				return basicSetActor(null, msgs);
 			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ON_BEHALF_OF:
@@ -242,8 +185,6 @@ public class MedicationDispensePerformerImpl extends BackboneElementImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ROLE:
-				return getRole();
 			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ACTOR:
 				return getActor();
 			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ON_BEHALF_OF:
@@ -260,9 +201,6 @@ public class MedicationDispensePerformerImpl extends BackboneElementImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ROLE:
-				setRole((CodeableConcept)newValue);
-				return;
 			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ACTOR:
 				setActor((Reference)newValue);
 				return;
@@ -281,9 +219,6 @@ public class MedicationDispensePerformerImpl extends BackboneElementImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ROLE:
-				setRole((CodeableConcept)null);
-				return;
 			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ACTOR:
 				setActor((Reference)null);
 				return;
@@ -302,8 +237,6 @@ public class MedicationDispensePerformerImpl extends BackboneElementImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ROLE:
-				return role != null;
 			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ACTOR:
 				return actor != null;
 			case FhirPackage.MEDICATION_DISPENSE_PERFORMER__ON_BEHALF_OF:

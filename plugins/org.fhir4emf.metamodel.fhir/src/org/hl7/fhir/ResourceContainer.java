@@ -8,129 +8,131 @@ import org.eclipse.emf.ecore.EObject;
 import org.hl7.fhir.jaxb.ResourceContainerImplAdapter;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Resource Container</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Resource Container</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.hl7.fhir.ResourceContainer#getAccount <em>Account</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getActivityDefinition <em>Activity Definition</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getAdverseEvent <em>Adverse Event</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getAllergyIntolerance <em>Allergy Intolerance</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getAppointment <em>Appointment</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getAppointmentResponse <em>Appointment Response</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getAuditEvent <em>Audit Event</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getBasic <em>Basic</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getBinary <em>Binary</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getBodySite <em>Body Site</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getBundle <em>Bundle</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCapabilityStatement <em>Capability Statement</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCarePlan <em>Care Plan</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCareTeam <em>Care Team</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCatalog <em>Catalog</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getChargeItem <em>Charge Item</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getClaim <em>Claim</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getClaimResponse <em>Claim Response</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getClinicalImpression <em>Clinical Impression</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCodeSystem <em>Code System</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCommunication <em>Communication</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCommunicationRequest <em>Communication Request</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCompartmentDefinition <em>Compartment Definition</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getComposition <em>Composition</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getConceptMap <em>Concept Map</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCondition <em>Condition</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getConsent <em>Consent</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getContract <em>Contract</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getCoverage <em>Coverage</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDataElement <em>Data Element</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDetectedIssue <em>Detected Issue</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDevice <em>Device</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDeviceComponent <em>Device Component</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDeviceMetric <em>Device Metric</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDeviceRequest <em>Device Request</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDeviceUseStatement <em>Device Use Statement</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDiagnosticReport <em>Diagnostic Report</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDocumentManifest <em>Document Manifest</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getDocumentReference <em>Document Reference</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getEligibilityRequest <em>Eligibility Request</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getEligibilityResponse <em>Eligibility Response</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getEncounter <em>Encounter</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getEndpoint <em>Endpoint</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getEnrollmentRequest <em>Enrollment Request</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getEnrollmentResponse <em>Enrollment Response</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getEpisodeOfCare <em>Episode Of Care</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getExpansionProfile <em>Expansion Profile</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getExplanationOfBenefit <em>Explanation Of Benefit</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getFamilyMemberHistory <em>Family Member History</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getFlag <em>Flag</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getGoal <em>Goal</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getGroup <em>Group</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getGuidanceResponse <em>Guidance Response</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getHealthcareService <em>Healthcare Service</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getImagingManifest <em>Imaging Manifest</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getImagingStudy <em>Imaging Study</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getImmunization <em>Immunization</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getImmunizationRecommendation <em>Immunization Recommendation</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getImplementationGuide <em>Implementation Guide</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getLibrary <em>Library</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getLinkage <em>Linkage</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getList <em>List</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getLocation <em>Location</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMeasure <em>Measure</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMeasureReport <em>Measure Report</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMedia <em>Media</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMedication <em>Medication</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMedicationAdministration <em>Medication Administration</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMedicationDispense <em>Medication Dispense</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMedicationRequest <em>Medication Request</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMedicationStatement <em>Medication Statement</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMessageDefinition <em>Message Definition</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getMessageHeader <em>Message Header</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getNamingSystem <em>Naming System</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getNutritionOrder <em>Nutrition Order</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getObservation <em>Observation</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getOperationDefinition <em>Operation Definition</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getOperationOutcome <em>Operation Outcome</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getOrganization <em>Organization</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getPatient <em>Patient</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getPaymentNotice <em>Payment Notice</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getPaymentReconciliation <em>Payment Reconciliation</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getPerson <em>Person</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getPlanDefinition <em>Plan Definition</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getPractitioner <em>Practitioner</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getPractitionerRole <em>Practitioner Role</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getProcedure <em>Procedure</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getProcedureRequest <em>Procedure Request</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getProcessRequest <em>Process Request</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getProcessResponse <em>Process Response</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getProvenance <em>Provenance</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getQuestionnaire <em>Questionnaire</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getQuestionnaireResponse <em>Questionnaire Response</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getReferralRequest <em>Referral Request</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getRelatedPerson <em>Related Person</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getRequestGroup <em>Request Group</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getResearchStudy <em>Research Study</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getResearchSubject <em>Research Subject</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getRiskAssessment <em>Risk Assessment</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getSchedule <em>Schedule</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getSearchParameter <em>Search Parameter</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getSequence <em>Sequence</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getServiceDefinition <em>Service Definition</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getSlot <em>Slot</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getSpecimen <em>Specimen</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getStructureDefinition <em>Structure Definition</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getStructureMap <em>Structure Map</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getSubscription <em>Subscription</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getSubstance <em>Substance</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getSupplyDelivery <em>Supply Delivery</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getSupplyRequest <em>Supply Request</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getTask <em>Task</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getTestReport <em>Test Report</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getTestScript <em>Test Script</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getValueSet <em>Value Set</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getVisionPrescription <em>Vision Prescription</em>}</li>
- * <li>{@link org.hl7.fhir.ResourceContainer#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getAccount <em>Account</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getActivityDefinition <em>Activity Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getAdverseEvent <em>Adverse Event</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getAllergyIntolerance <em>Allergy Intolerance</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getAppointment <em>Appointment</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getAppointmentResponse <em>Appointment Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getAuditEvent <em>Audit Event</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getBasic <em>Basic</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getBinary <em>Binary</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getBundle <em>Bundle</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCapabilityStatement <em>Capability Statement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCarePlan <em>Care Plan</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCareTeam <em>Care Team</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getChargeItem <em>Charge Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getClaim <em>Claim</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getClaimResponse <em>Claim Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getClinicalImpression <em>Clinical Impression</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCodeSystem <em>Code System</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCommunication <em>Communication</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCommunicationRequest <em>Communication Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCompartmentDefinition <em>Compartment Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getComposition <em>Composition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getConceptMap <em>Concept Map</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getConsent <em>Consent</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getContract <em>Contract</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getCoverage <em>Coverage</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDataElement <em>Data Element</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDetectedIssue <em>Detected Issue</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDevice <em>Device</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDeviceComponent <em>Device Component</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDeviceMetric <em>Device Metric</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDeviceRequest <em>Device Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDeviceUseStatement <em>Device Use Statement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDiagnosticReport <em>Diagnostic Report</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDocumentManifest <em>Document Manifest</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getDocumentReference <em>Document Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getEligibilityRequest <em>Eligibility Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getEligibilityResponse <em>Eligibility Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getEndpoint <em>Endpoint</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getEnrollmentRequest <em>Enrollment Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getEnrollmentResponse <em>Enrollment Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getEpisodeOfCare <em>Episode Of Care</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getExpansionProfile <em>Expansion Profile</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getExplanationOfBenefit <em>Explanation Of Benefit</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getFamilyMemberHistory <em>Family Member History</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getFlag <em>Flag</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getGoal <em>Goal</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getGraphDefinition <em>Graph Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getGuidanceResponse <em>Guidance Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getHealthcareService <em>Healthcare Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getImagingManifest <em>Imaging Manifest</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getImagingStudy <em>Imaging Study</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getImmunization <em>Immunization</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getImmunizationRecommendation <em>Immunization Recommendation</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getImplementationGuide <em>Implementation Guide</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getLibrary <em>Library</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getLinkage <em>Linkage</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getList <em>List</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMeasure <em>Measure</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMeasureReport <em>Measure Report</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMedia <em>Media</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMedication <em>Medication</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMedicationAdministration <em>Medication Administration</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMedicationDispense <em>Medication Dispense</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMedicationRequest <em>Medication Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMedicationStatement <em>Medication Statement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMessageDefinition <em>Message Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getMessageHeader <em>Message Header</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getNamingSystem <em>Naming System</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getNutritionOrder <em>Nutrition Order</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getObservation <em>Observation</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getOperationDefinition <em>Operation Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getOperationOutcome <em>Operation Outcome</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getPaymentNotice <em>Payment Notice</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getPaymentReconciliation <em>Payment Reconciliation</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getPerson <em>Person</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getPlanDefinition <em>Plan Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getPractitioner <em>Practitioner</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getPractitionerRole <em>Practitioner Role</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getProcedure <em>Procedure</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getProcedureRequest <em>Procedure Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getProcessRequest <em>Process Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getProcessResponse <em>Process Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getProvenance <em>Provenance</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getQuestionnaire <em>Questionnaire</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getQuestionnaireResponse <em>Questionnaire Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getReferralRequest <em>Referral Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getRelatedPerson <em>Related Person</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getRequestGroup <em>Request Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getResearchStudy <em>Research Study</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getResearchSubject <em>Research Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getRiskAssessment <em>Risk Assessment</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getSchedule <em>Schedule</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getSearchParameter <em>Search Parameter</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getSequence <em>Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getServiceDefinition <em>Service Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getSlot <em>Slot</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getSpecimen <em>Specimen</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getStructureDefinition <em>Structure Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getStructureMap <em>Structure Map</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getSubscription <em>Subscription</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getSubstance <em>Substance</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getSupplyDelivery <em>Supply Delivery</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getSupplyRequest <em>Supply Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getTask <em>Task</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getTestReport <em>Test Report</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getTestScript <em>Test Script</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getValueSet <em>Value Set</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getVisionPrescription <em>Vision Prescription</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResourceContainer#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getResourceContainer()
@@ -140,2925 +142,3159 @@ import org.hl7.fhir.jaxb.ResourceContainerImplAdapter;
 @XmlJavaTypeAdapter(ResourceContainerImplAdapter.class)
 public interface ResourceContainer extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Account</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Account</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Account</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Account</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Account</em>' containment reference.
 	 * @see #setAccount(Account)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Account()
-	 * @model containment="true" extendedMetaData="kind='element' name='Account' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Account' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Account getAccount();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAccount <em>Account</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Account</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAccount <em>Account</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Account</em>' containment reference.
 	 * @see #getAccount()
 	 * @generated
 	 */
 	void setAccount(Account value);
 
 	/**
-	 * Returns the value of the '<em><b>Activity Definition</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Activity Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Activity Definition</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Activity Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Activity Definition</em>' containment reference.
 	 * @see #setActivityDefinition(ActivityDefinition)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ActivityDefinition()
-	 * @model containment="true" extendedMetaData="kind='element' name='ActivityDefinition' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ActivityDefinition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ActivityDefinition getActivityDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getActivityDefinition <em>Activity Definition</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Activity Definition</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getActivityDefinition <em>Activity Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Activity Definition</em>' containment reference.
 	 * @see #getActivityDefinition()
 	 * @generated
 	 */
 	void setActivityDefinition(ActivityDefinition value);
 
 	/**
-	 * Returns the value of the '<em><b>Adverse Event</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Adverse Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Adverse Event</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Adverse Event</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Adverse Event</em>' containment reference.
 	 * @see #setAdverseEvent(AdverseEvent)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_AdverseEvent()
-	 * @model containment="true" extendedMetaData="kind='element' name='AdverseEvent' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='AdverseEvent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	AdverseEvent getAdverseEvent();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAdverseEvent <em>Adverse Event</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Adverse Event</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAdverseEvent <em>Adverse Event</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Adverse Event</em>' containment reference.
 	 * @see #getAdverseEvent()
 	 * @generated
 	 */
 	void setAdverseEvent(AdverseEvent value);
 
 	/**
-	 * Returns the value of the '<em><b>Allergy Intolerance</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Allergy Intolerance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Allergy Intolerance</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Allergy Intolerance</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Allergy Intolerance</em>' containment reference.
 	 * @see #setAllergyIntolerance(AllergyIntolerance)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_AllergyIntolerance()
-	 * @model containment="true" extendedMetaData="kind='element' name='AllergyIntolerance' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='AllergyIntolerance' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	AllergyIntolerance getAllergyIntolerance();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAllergyIntolerance <em>Allergy Intolerance</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Allergy Intolerance</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAllergyIntolerance <em>Allergy Intolerance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Allergy Intolerance</em>' containment reference.
 	 * @see #getAllergyIntolerance()
 	 * @generated
 	 */
 	void setAllergyIntolerance(AllergyIntolerance value);
 
 	/**
-	 * Returns the value of the '<em><b>Appointment</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Appointment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Appointment</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Appointment</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Appointment</em>' containment reference.
 	 * @see #setAppointment(Appointment)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Appointment()
-	 * @model containment="true" extendedMetaData="kind='element' name='Appointment' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Appointment' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Appointment getAppointment();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAppointment <em>Appointment</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Appointment</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAppointment <em>Appointment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Appointment</em>' containment reference.
 	 * @see #getAppointment()
 	 * @generated
 	 */
 	void setAppointment(Appointment value);
 
 	/**
-	 * Returns the value of the '<em><b>Appointment Response</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Appointment Response</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Appointment Response</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Appointment Response</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Appointment Response</em>' containment reference.
 	 * @see #setAppointmentResponse(AppointmentResponse)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_AppointmentResponse()
-	 * @model containment="true" extendedMetaData="kind='element' name='AppointmentResponse' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='AppointmentResponse' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	AppointmentResponse getAppointmentResponse();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAppointmentResponse <em>Appointment Response</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Appointment Response</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAppointmentResponse <em>Appointment Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Appointment Response</em>' containment reference.
 	 * @see #getAppointmentResponse()
 	 * @generated
 	 */
 	void setAppointmentResponse(AppointmentResponse value);
 
 	/**
-	 * Returns the value of the '<em><b>Audit Event</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Audit Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Audit Event</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Audit Event</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Audit Event</em>' containment reference.
 	 * @see #setAuditEvent(AuditEvent)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_AuditEvent()
-	 * @model containment="true" extendedMetaData="kind='element' name='AuditEvent' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='AuditEvent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	AuditEvent getAuditEvent();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAuditEvent <em>Audit Event</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Audit Event</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getAuditEvent <em>Audit Event</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Audit Event</em>' containment reference.
 	 * @see #getAuditEvent()
 	 * @generated
 	 */
 	void setAuditEvent(AuditEvent value);
 
 	/**
-	 * Returns the value of the '<em><b>Basic</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Basic</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Basic</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Basic</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Basic</em>' containment reference.
 	 * @see #setBasic(Basic)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Basic()
-	 * @model containment="true" extendedMetaData="kind='element' name='Basic' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Basic' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Basic getBasic();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getBasic <em>Basic</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Basic</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getBasic <em>Basic</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Basic</em>' containment reference.
 	 * @see #getBasic()
 	 * @generated
 	 */
 	void setBasic(Basic value);
 
 	/**
-	 * Returns the value of the '<em><b>Binary</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Binary</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Binary</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Binary</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Binary</em>' containment reference.
 	 * @see #setBinary(Binary)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Binary()
-	 * @model containment="true" extendedMetaData="kind='element' name='Binary' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Binary' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Binary getBinary();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getBinary <em>Binary</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Binary</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getBinary <em>Binary</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Binary</em>' containment reference.
 	 * @see #getBinary()
 	 * @generated
 	 */
 	void setBinary(Binary value);
 
 	/**
-	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Body Site</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Body Site</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Body Site</em>' containment reference.
 	 * @see #setBodySite(BodySite)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_BodySite()
-	 * @model containment="true" extendedMetaData="kind='element' name='BodySite' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='BodySite' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	BodySite getBodySite();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getBodySite <em>Body Site</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Body Site</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getBodySite <em>Body Site</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Body Site</em>' containment reference.
 	 * @see #getBodySite()
 	 * @generated
 	 */
 	void setBodySite(BodySite value);
 
 	/**
-	 * Returns the value of the '<em><b>Bundle</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Bundle</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bundle</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Bundle</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Bundle</em>' containment reference.
 	 * @see #setBundle(Bundle)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Bundle()
-	 * @model containment="true" extendedMetaData="kind='element' name='Bundle' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Bundle' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Bundle getBundle();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getBundle <em>Bundle</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Bundle</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getBundle <em>Bundle</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bundle</em>' containment reference.
 	 * @see #getBundle()
 	 * @generated
 	 */
 	void setBundle(Bundle value);
 
 	/**
-	 * Returns the value of the '<em><b>Capability Statement</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Capability Statement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Capability Statement</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Capability Statement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Capability Statement</em>' containment reference.
 	 * @see #setCapabilityStatement(CapabilityStatement)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_CapabilityStatement()
-	 * @model containment="true" extendedMetaData="kind='element' name='CapabilityStatement' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='CapabilityStatement' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	CapabilityStatement getCapabilityStatement();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCapabilityStatement <em>Capability Statement</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Capability Statement</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCapabilityStatement <em>Capability Statement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Capability Statement</em>' containment reference.
 	 * @see #getCapabilityStatement()
 	 * @generated
 	 */
 	void setCapabilityStatement(CapabilityStatement value);
 
 	/**
-	 * Returns the value of the '<em><b>Care Plan</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Care Plan</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Care Plan</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Care Plan</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Care Plan</em>' containment reference.
 	 * @see #setCarePlan(CarePlan)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_CarePlan()
-	 * @model containment="true" extendedMetaData="kind='element' name='CarePlan' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='CarePlan' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	CarePlan getCarePlan();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCarePlan <em>Care Plan</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Care Plan</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCarePlan <em>Care Plan</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Care Plan</em>' containment reference.
 	 * @see #getCarePlan()
 	 * @generated
 	 */
 	void setCarePlan(CarePlan value);
 
 	/**
-	 * Returns the value of the '<em><b>Care Team</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Care Team</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Care Team</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Care Team</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Care Team</em>' containment reference.
 	 * @see #setCareTeam(CareTeam)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_CareTeam()
-	 * @model containment="true" extendedMetaData="kind='element' name='CareTeam' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='CareTeam' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	CareTeam getCareTeam();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCareTeam <em>Care Team</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Care Team</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCareTeam <em>Care Team</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Care Team</em>' containment reference.
 	 * @see #getCareTeam()
 	 * @generated
 	 */
 	void setCareTeam(CareTeam value);
 
 	/**
-	 * Returns the value of the '<em><b>Catalog</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Charge Item</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Catalog</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Charge Item</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Catalog</em>' containment reference.
-	 * @see #setCatalog(Catalog)
-	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Catalog()
-	 * @model containment="true" extendedMetaData="kind='element' name='Catalog' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Catalog getCatalog();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCatalog <em>Catalog</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Catalog</em>' containment reference.
-	 * @see #getCatalog()
-	 * @generated
-	 */
-	void setCatalog(Catalog value);
-
-	/**
-	 * Returns the value of the '<em><b>Charge Item</b></em>' containment reference. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Charge Item</em>' containment reference isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Charge Item</em>' containment reference.
 	 * @see #setChargeItem(ChargeItem)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ChargeItem()
-	 * @model containment="true" extendedMetaData="kind='element' name='ChargeItem' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ChargeItem' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ChargeItem getChargeItem();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getChargeItem <em>Charge Item</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Charge Item</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getChargeItem <em>Charge Item</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Charge Item</em>' containment reference.
 	 * @see #getChargeItem()
 	 * @generated
 	 */
 	void setChargeItem(ChargeItem value);
 
 	/**
-	 * Returns the value of the '<em><b>Claim</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Claim</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Claim</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Claim</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Claim</em>' containment reference.
 	 * @see #setClaim(Claim)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Claim()
-	 * @model containment="true" extendedMetaData="kind='element' name='Claim' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Claim' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Claim getClaim();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getClaim <em>Claim</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Claim</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getClaim <em>Claim</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Claim</em>' containment reference.
 	 * @see #getClaim()
 	 * @generated
 	 */
 	void setClaim(Claim value);
 
 	/**
-	 * Returns the value of the '<em><b>Claim Response</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Claim Response</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Claim Response</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Claim Response</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Claim Response</em>' containment reference.
 	 * @see #setClaimResponse(ClaimResponse)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ClaimResponse()
-	 * @model containment="true" extendedMetaData="kind='element' name='ClaimResponse' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ClaimResponse' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ClaimResponse getClaimResponse();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getClaimResponse <em>Claim Response</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Claim Response</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getClaimResponse <em>Claim Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Claim Response</em>' containment reference.
 	 * @see #getClaimResponse()
 	 * @generated
 	 */
 	void setClaimResponse(ClaimResponse value);
 
 	/**
-	 * Returns the value of the '<em><b>Clinical Impression</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Clinical Impression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Clinical Impression</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Clinical Impression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Clinical Impression</em>' containment reference.
 	 * @see #setClinicalImpression(ClinicalImpression)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ClinicalImpression()
-	 * @model containment="true" extendedMetaData="kind='element' name='ClinicalImpression' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ClinicalImpression' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ClinicalImpression getClinicalImpression();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getClinicalImpression <em>Clinical Impression</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Clinical Impression</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getClinicalImpression <em>Clinical Impression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Clinical Impression</em>' containment reference.
 	 * @see #getClinicalImpression()
 	 * @generated
 	 */
 	void setClinicalImpression(ClinicalImpression value);
 
 	/**
-	 * Returns the value of the '<em><b>Code System</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Code System</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Code System</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Code System</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Code System</em>' containment reference.
 	 * @see #setCodeSystem(CodeSystem)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_CodeSystem()
-	 * @model containment="true" extendedMetaData="kind='element' name='CodeSystem' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='CodeSystem' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	CodeSystem getCodeSystem();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCodeSystem <em>Code System</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Code System</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCodeSystem <em>Code System</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Code System</em>' containment reference.
 	 * @see #getCodeSystem()
 	 * @generated
 	 */
 	void setCodeSystem(CodeSystem value);
 
 	/**
-	 * Returns the value of the '<em><b>Communication</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Communication</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Communication</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Communication</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Communication</em>' containment reference.
 	 * @see #setCommunication(Communication)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Communication()
-	 * @model containment="true" extendedMetaData="kind='element' name='Communication' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Communication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Communication getCommunication();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCommunication <em>Communication</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Communication</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCommunication <em>Communication</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Communication</em>' containment reference.
 	 * @see #getCommunication()
 	 * @generated
 	 */
 	void setCommunication(Communication value);
 
 	/**
-	 * Returns the value of the '<em><b>Communication Request</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Communication Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Communication Request</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Communication Request</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Communication Request</em>' containment reference.
 	 * @see #setCommunicationRequest(CommunicationRequest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_CommunicationRequest()
-	 * @model containment="true" extendedMetaData="kind='element' name='CommunicationRequest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='CommunicationRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	CommunicationRequest getCommunicationRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCommunicationRequest <em>Communication Request</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Communication Request</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCommunicationRequest <em>Communication Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Communication Request</em>' containment reference.
 	 * @see #getCommunicationRequest()
 	 * @generated
 	 */
 	void setCommunicationRequest(CommunicationRequest value);
 
 	/**
-	 * Returns the value of the '<em><b>Compartment Definition</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Compartment Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Compartment Definition</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Compartment Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Compartment Definition</em>' containment reference.
 	 * @see #setCompartmentDefinition(CompartmentDefinition)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_CompartmentDefinition()
-	 * @model containment="true" extendedMetaData="kind='element' name='CompartmentDefinition' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='CompartmentDefinition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	CompartmentDefinition getCompartmentDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCompartmentDefinition <em>Compartment Definition</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Compartment Definition</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCompartmentDefinition <em>Compartment Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Compartment Definition</em>' containment reference.
 	 * @see #getCompartmentDefinition()
 	 * @generated
 	 */
 	void setCompartmentDefinition(CompartmentDefinition value);
 
 	/**
-	 * Returns the value of the '<em><b>Composition</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Composition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Composition</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Composition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Composition</em>' containment reference.
 	 * @see #setComposition(Composition)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Composition()
-	 * @model containment="true" extendedMetaData="kind='element' name='Composition' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Composition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Composition getComposition();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getComposition <em>Composition</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Composition</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getComposition <em>Composition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Composition</em>' containment reference.
 	 * @see #getComposition()
 	 * @generated
 	 */
 	void setComposition(Composition value);
 
 	/**
-	 * Returns the value of the '<em><b>Concept Map</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Concept Map</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Concept Map</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Concept Map</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Concept Map</em>' containment reference.
 	 * @see #setConceptMap(ConceptMap)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ConceptMap()
-	 * @model containment="true" extendedMetaData="kind='element' name='ConceptMap' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ConceptMap' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ConceptMap getConceptMap();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getConceptMap <em>Concept Map</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Concept Map</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getConceptMap <em>Concept Map</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Concept Map</em>' containment reference.
 	 * @see #getConceptMap()
 	 * @generated
 	 */
 	void setConceptMap(ConceptMap value);
 
 	/**
-	 * Returns the value of the '<em><b>Condition</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Condition</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Condition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Condition</em>' containment reference.
 	 * @see #setCondition(Condition)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Condition()
-	 * @model containment="true" extendedMetaData="kind='element' name='Condition' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Condition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Condition getCondition();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCondition <em>Condition</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Condition</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCondition <em>Condition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Condition</em>' containment reference.
 	 * @see #getCondition()
 	 * @generated
 	 */
 	void setCondition(Condition value);
 
 	/**
-	 * Returns the value of the '<em><b>Consent</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Consent</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Consent</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Consent</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Consent</em>' containment reference.
 	 * @see #setConsent(Consent)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Consent()
-	 * @model containment="true" extendedMetaData="kind='element' name='Consent' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Consent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Consent getConsent();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getConsent <em>Consent</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Consent</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getConsent <em>Consent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Consent</em>' containment reference.
 	 * @see #getConsent()
 	 * @generated
 	 */
 	void setConsent(Consent value);
 
 	/**
-	 * Returns the value of the '<em><b>Contract</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Contract</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Contract</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Contract</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Contract</em>' containment reference.
 	 * @see #setContract(Contract)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Contract()
-	 * @model containment="true" extendedMetaData="kind='element' name='Contract' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Contract' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Contract getContract();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getContract <em>Contract</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Contract</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getContract <em>Contract</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contract</em>' containment reference.
 	 * @see #getContract()
 	 * @generated
 	 */
 	void setContract(Contract value);
 
 	/**
-	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Coverage</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Coverage</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Coverage</em>' containment reference.
 	 * @see #setCoverage(Coverage)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Coverage()
-	 * @model containment="true" extendedMetaData="kind='element' name='Coverage' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Coverage' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Coverage getCoverage();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCoverage <em>Coverage</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Coverage</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getCoverage <em>Coverage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Coverage</em>' containment reference.
 	 * @see #getCoverage()
 	 * @generated
 	 */
 	void setCoverage(Coverage value);
 
 	/**
-	 * Returns the value of the '<em><b>Data Element</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Data Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Data Element</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Data Element</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Data Element</em>' containment reference.
 	 * @see #setDataElement(DataElement)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DataElement()
-	 * @model containment="true" extendedMetaData="kind='element' name='DataElement' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DataElement' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DataElement getDataElement();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDataElement <em>Data Element</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Data Element</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDataElement <em>Data Element</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Data Element</em>' containment reference.
 	 * @see #getDataElement()
 	 * @generated
 	 */
 	void setDataElement(DataElement value);
 
 	/**
-	 * Returns the value of the '<em><b>Detected Issue</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Detected Issue</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Detected Issue</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Detected Issue</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Detected Issue</em>' containment reference.
 	 * @see #setDetectedIssue(DetectedIssue)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DetectedIssue()
-	 * @model containment="true" extendedMetaData="kind='element' name='DetectedIssue' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DetectedIssue' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DetectedIssue getDetectedIssue();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDetectedIssue <em>Detected Issue</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Detected Issue</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDetectedIssue <em>Detected Issue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Detected Issue</em>' containment reference.
 	 * @see #getDetectedIssue()
 	 * @generated
 	 */
 	void setDetectedIssue(DetectedIssue value);
 
 	/**
-	 * Returns the value of the '<em><b>Device</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Device</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Device</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Device</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Device</em>' containment reference.
 	 * @see #setDevice(Device)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Device()
-	 * @model containment="true" extendedMetaData="kind='element' name='Device' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Device' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Device getDevice();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDevice <em>Device</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Device</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDevice <em>Device</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Device</em>' containment reference.
 	 * @see #getDevice()
 	 * @generated
 	 */
 	void setDevice(Device value);
 
 	/**
-	 * Returns the value of the '<em><b>Device Component</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Device Component</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Device Component</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Device Component</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Device Component</em>' containment reference.
 	 * @see #setDeviceComponent(DeviceComponent)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DeviceComponent()
-	 * @model containment="true" extendedMetaData="kind='element' name='DeviceComponent' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DeviceComponent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DeviceComponent getDeviceComponent();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDeviceComponent <em>Device Component</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Device Component</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDeviceComponent <em>Device Component</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Device Component</em>' containment reference.
 	 * @see #getDeviceComponent()
 	 * @generated
 	 */
 	void setDeviceComponent(DeviceComponent value);
 
 	/**
-	 * Returns the value of the '<em><b>Device Metric</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Device Metric</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Device Metric</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Device Metric</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Device Metric</em>' containment reference.
 	 * @see #setDeviceMetric(DeviceMetric)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DeviceMetric()
-	 * @model containment="true" extendedMetaData="kind='element' name='DeviceMetric' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DeviceMetric' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DeviceMetric getDeviceMetric();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDeviceMetric <em>Device Metric</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Device Metric</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDeviceMetric <em>Device Metric</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Device Metric</em>' containment reference.
 	 * @see #getDeviceMetric()
 	 * @generated
 	 */
 	void setDeviceMetric(DeviceMetric value);
 
 	/**
-	 * Returns the value of the '<em><b>Device Request</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Device Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Device Request</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Device Request</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Device Request</em>' containment reference.
 	 * @see #setDeviceRequest(DeviceRequest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DeviceRequest()
-	 * @model containment="true" extendedMetaData="kind='element' name='DeviceRequest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DeviceRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DeviceRequest getDeviceRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDeviceRequest <em>Device Request</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Device Request</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDeviceRequest <em>Device Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Device Request</em>' containment reference.
 	 * @see #getDeviceRequest()
 	 * @generated
 	 */
 	void setDeviceRequest(DeviceRequest value);
 
 	/**
-	 * Returns the value of the '<em><b>Device Use Statement</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Device Use Statement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Device Use Statement</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Device Use Statement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Device Use Statement</em>' containment reference.
 	 * @see #setDeviceUseStatement(DeviceUseStatement)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DeviceUseStatement()
-	 * @model containment="true" extendedMetaData="kind='element' name='DeviceUseStatement' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DeviceUseStatement' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DeviceUseStatement getDeviceUseStatement();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDeviceUseStatement <em>Device Use Statement</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Device Use Statement</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDeviceUseStatement <em>Device Use Statement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Device Use Statement</em>' containment reference.
 	 * @see #getDeviceUseStatement()
 	 * @generated
 	 */
 	void setDeviceUseStatement(DeviceUseStatement value);
 
 	/**
-	 * Returns the value of the '<em><b>Diagnostic Report</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Diagnostic Report</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Diagnostic Report</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Diagnostic Report</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Diagnostic Report</em>' containment reference.
 	 * @see #setDiagnosticReport(DiagnosticReport)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DiagnosticReport()
-	 * @model containment="true" extendedMetaData="kind='element' name='DiagnosticReport' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DiagnosticReport' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DiagnosticReport getDiagnosticReport();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDiagnosticReport <em>Diagnostic Report</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Diagnostic Report</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDiagnosticReport <em>Diagnostic Report</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Diagnostic Report</em>' containment reference.
 	 * @see #getDiagnosticReport()
 	 * @generated
 	 */
 	void setDiagnosticReport(DiagnosticReport value);
 
 	/**
-	 * Returns the value of the '<em><b>Document Manifest</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Document Manifest</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Document Manifest</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Document Manifest</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Document Manifest</em>' containment reference.
 	 * @see #setDocumentManifest(DocumentManifest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DocumentManifest()
-	 * @model containment="true" extendedMetaData="kind='element' name='DocumentManifest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DocumentManifest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DocumentManifest getDocumentManifest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDocumentManifest <em>Document Manifest</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Document Manifest</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDocumentManifest <em>Document Manifest</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Document Manifest</em>' containment reference.
 	 * @see #getDocumentManifest()
 	 * @generated
 	 */
 	void setDocumentManifest(DocumentManifest value);
 
 	/**
-	 * Returns the value of the '<em><b>Document Reference</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Document Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Document Reference</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Document Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Document Reference</em>' containment reference.
 	 * @see #setDocumentReference(DocumentReference)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_DocumentReference()
-	 * @model containment="true" extendedMetaData="kind='element' name='DocumentReference' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='DocumentReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DocumentReference getDocumentReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDocumentReference <em>Document Reference</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Document Reference</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getDocumentReference <em>Document Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Document Reference</em>' containment reference.
 	 * @see #getDocumentReference()
 	 * @generated
 	 */
 	void setDocumentReference(DocumentReference value);
 
 	/**
-	 * Returns the value of the '<em><b>Eligibility Request</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Eligibility Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Eligibility Request</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Eligibility Request</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Eligibility Request</em>' containment reference.
 	 * @see #setEligibilityRequest(EligibilityRequest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_EligibilityRequest()
-	 * @model containment="true" extendedMetaData="kind='element' name='EligibilityRequest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='EligibilityRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EligibilityRequest getEligibilityRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEligibilityRequest <em>Eligibility Request</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Eligibility Request</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEligibilityRequest <em>Eligibility Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Eligibility Request</em>' containment reference.
 	 * @see #getEligibilityRequest()
 	 * @generated
 	 */
 	void setEligibilityRequest(EligibilityRequest value);
 
 	/**
-	 * Returns the value of the '<em><b>Eligibility Response</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Eligibility Response</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Eligibility Response</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Eligibility Response</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Eligibility Response</em>' containment reference.
 	 * @see #setEligibilityResponse(EligibilityResponse)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_EligibilityResponse()
-	 * @model containment="true" extendedMetaData="kind='element' name='EligibilityResponse' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='EligibilityResponse' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EligibilityResponse getEligibilityResponse();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEligibilityResponse <em>Eligibility Response</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Eligibility Response</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEligibilityResponse <em>Eligibility Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Eligibility Response</em>' containment reference.
 	 * @see #getEligibilityResponse()
 	 * @generated
 	 */
 	void setEligibilityResponse(EligibilityResponse value);
 
 	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Encounter</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Encounter</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Encounter</em>' containment reference.
 	 * @see #setEncounter(Encounter)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Encounter()
-	 * @model containment="true" extendedMetaData="kind='element' name='Encounter' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Encounter getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEncounter <em>Encounter</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Encounter</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEncounter <em>Encounter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
 	 * @see #getEncounter()
 	 * @generated
 	 */
 	void setEncounter(Encounter value);
 
 	/**
-	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Endpoint</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Endpoint</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Endpoint</em>' containment reference.
 	 * @see #setEndpoint(Endpoint)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Endpoint()
-	 * @model containment="true" extendedMetaData="kind='element' name='Endpoint' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Endpoint' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Endpoint getEndpoint();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEndpoint <em>Endpoint</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Endpoint</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEndpoint <em>Endpoint</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Endpoint</em>' containment reference.
 	 * @see #getEndpoint()
 	 * @generated
 	 */
 	void setEndpoint(Endpoint value);
 
 	/**
-	 * Returns the value of the '<em><b>Enrollment Request</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Enrollment Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Enrollment Request</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Enrollment Request</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Enrollment Request</em>' containment reference.
 	 * @see #setEnrollmentRequest(EnrollmentRequest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_EnrollmentRequest()
-	 * @model containment="true" extendedMetaData="kind='element' name='EnrollmentRequest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='EnrollmentRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EnrollmentRequest getEnrollmentRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEnrollmentRequest <em>Enrollment Request</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Enrollment Request</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEnrollmentRequest <em>Enrollment Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enrollment Request</em>' containment reference.
 	 * @see #getEnrollmentRequest()
 	 * @generated
 	 */
 	void setEnrollmentRequest(EnrollmentRequest value);
 
 	/**
-	 * Returns the value of the '<em><b>Enrollment Response</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Enrollment Response</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Enrollment Response</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Enrollment Response</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Enrollment Response</em>' containment reference.
 	 * @see #setEnrollmentResponse(EnrollmentResponse)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_EnrollmentResponse()
-	 * @model containment="true" extendedMetaData="kind='element' name='EnrollmentResponse' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='EnrollmentResponse' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EnrollmentResponse getEnrollmentResponse();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEnrollmentResponse <em>Enrollment Response</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Enrollment Response</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEnrollmentResponse <em>Enrollment Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enrollment Response</em>' containment reference.
 	 * @see #getEnrollmentResponse()
 	 * @generated
 	 */
 	void setEnrollmentResponse(EnrollmentResponse value);
 
 	/**
-	 * Returns the value of the '<em><b>Episode Of Care</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Episode Of Care</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Episode Of Care</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Episode Of Care</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Episode Of Care</em>' containment reference.
 	 * @see #setEpisodeOfCare(EpisodeOfCare)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_EpisodeOfCare()
-	 * @model containment="true" extendedMetaData="kind='element' name='EpisodeOfCare' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='EpisodeOfCare' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EpisodeOfCare getEpisodeOfCare();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEpisodeOfCare <em>Episode Of Care</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Episode Of Care</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getEpisodeOfCare <em>Episode Of Care</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Episode Of Care</em>' containment reference.
 	 * @see #getEpisodeOfCare()
 	 * @generated
 	 */
 	void setEpisodeOfCare(EpisodeOfCare value);
 
 	/**
-	 * Returns the value of the '<em><b>Expansion Profile</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Expansion Profile</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Expansion Profile</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Expansion Profile</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Expansion Profile</em>' containment reference.
 	 * @see #setExpansionProfile(ExpansionProfile)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ExpansionProfile()
-	 * @model containment="true" extendedMetaData="kind='element' name='ExpansionProfile' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ExpansionProfile' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ExpansionProfile getExpansionProfile();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getExpansionProfile <em>Expansion Profile</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Expansion Profile</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getExpansionProfile <em>Expansion Profile</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expansion Profile</em>' containment reference.
 	 * @see #getExpansionProfile()
 	 * @generated
 	 */
 	void setExpansionProfile(ExpansionProfile value);
 
 	/**
-	 * Returns the value of the '<em><b>Explanation Of Benefit</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Explanation Of Benefit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Explanation Of Benefit</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Explanation Of Benefit</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Explanation Of Benefit</em>' containment reference.
 	 * @see #setExplanationOfBenefit(ExplanationOfBenefit)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ExplanationOfBenefit()
-	 * @model containment="true" extendedMetaData="kind='element' name='ExplanationOfBenefit' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ExplanationOfBenefit' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ExplanationOfBenefit getExplanationOfBenefit();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getExplanationOfBenefit <em>Explanation Of Benefit</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Explanation Of Benefit</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getExplanationOfBenefit <em>Explanation Of Benefit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Explanation Of Benefit</em>' containment reference.
 	 * @see #getExplanationOfBenefit()
 	 * @generated
 	 */
 	void setExplanationOfBenefit(ExplanationOfBenefit value);
 
 	/**
-	 * Returns the value of the '<em><b>Family Member History</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Family Member History</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Family Member History</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Family Member History</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Family Member History</em>' containment reference.
 	 * @see #setFamilyMemberHistory(FamilyMemberHistory)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_FamilyMemberHistory()
-	 * @model containment="true" extendedMetaData="kind='element' name='FamilyMemberHistory' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='FamilyMemberHistory' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	FamilyMemberHistory getFamilyMemberHistory();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getFamilyMemberHistory <em>Family Member History</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Family Member History</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getFamilyMemberHistory <em>Family Member History</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Family Member History</em>' containment reference.
 	 * @see #getFamilyMemberHistory()
 	 * @generated
 	 */
 	void setFamilyMemberHistory(FamilyMemberHistory value);
 
 	/**
-	 * Returns the value of the '<em><b>Flag</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Flag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Flag</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Flag</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Flag</em>' containment reference.
 	 * @see #setFlag(Flag)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Flag()
-	 * @model containment="true" extendedMetaData="kind='element' name='Flag' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Flag' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Flag getFlag();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getFlag <em>Flag</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Flag</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getFlag <em>Flag</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Flag</em>' containment reference.
 	 * @see #getFlag()
 	 * @generated
 	 */
 	void setFlag(Flag value);
 
 	/**
-	 * Returns the value of the '<em><b>Goal</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Goal</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Goal</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Goal</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Goal</em>' containment reference.
 	 * @see #setGoal(Goal)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Goal()
-	 * @model containment="true" extendedMetaData="kind='element' name='Goal' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Goal' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Goal getGoal();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getGoal <em>Goal</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Goal</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getGoal <em>Goal</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Goal</em>' containment reference.
 	 * @see #getGoal()
 	 * @generated
 	 */
 	void setGoal(Goal value);
 
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Graph Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Group</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Graph Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 * @return the value of the '<em>Graph Definition</em>' containment reference.
+	 * @see #setGraphDefinition(GraphDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_GraphDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='GraphDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	GraphDefinition getGraphDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getGraphDefinition <em>Graph Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Graph Definition</em>' containment reference.
+	 * @see #getGraphDefinition()
+	 * @generated
+	 */
+	void setGraphDefinition(GraphDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Group</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Group</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Group</em>' containment reference.
 	 * @see #setGroup(Group)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Group()
-	 * @model containment="true" extendedMetaData="kind='element' name='Group' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Group' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Group getGroup();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getGroup <em>Group</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Group</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getGroup <em>Group</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Group</em>' containment reference.
 	 * @see #getGroup()
 	 * @generated
 	 */
 	void setGroup(Group value);
 
 	/**
-	 * Returns the value of the '<em><b>Guidance Response</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Guidance Response</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Guidance Response</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Guidance Response</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Guidance Response</em>' containment reference.
 	 * @see #setGuidanceResponse(GuidanceResponse)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_GuidanceResponse()
-	 * @model containment="true" extendedMetaData="kind='element' name='GuidanceResponse' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='GuidanceResponse' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	GuidanceResponse getGuidanceResponse();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getGuidanceResponse <em>Guidance Response</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Guidance Response</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getGuidanceResponse <em>Guidance Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Guidance Response</em>' containment reference.
 	 * @see #getGuidanceResponse()
 	 * @generated
 	 */
 	void setGuidanceResponse(GuidanceResponse value);
 
 	/**
-	 * Returns the value of the '<em><b>Healthcare Service</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Healthcare Service</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Healthcare Service</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Healthcare Service</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Healthcare Service</em>' containment reference.
 	 * @see #setHealthcareService(HealthcareService)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_HealthcareService()
-	 * @model containment="true" extendedMetaData="kind='element' name='HealthcareService' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='HealthcareService' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	HealthcareService getHealthcareService();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getHealthcareService <em>Healthcare Service</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Healthcare Service</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getHealthcareService <em>Healthcare Service</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Healthcare Service</em>' containment reference.
 	 * @see #getHealthcareService()
 	 * @generated
 	 */
 	void setHealthcareService(HealthcareService value);
 
 	/**
-	 * Returns the value of the '<em><b>Imaging Manifest</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Imaging Manifest</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Imaging Manifest</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Imaging Manifest</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Imaging Manifest</em>' containment reference.
 	 * @see #setImagingManifest(ImagingManifest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ImagingManifest()
-	 * @model containment="true" extendedMetaData="kind='element' name='ImagingManifest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ImagingManifest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ImagingManifest getImagingManifest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImagingManifest <em>Imaging Manifest</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Imaging Manifest</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImagingManifest <em>Imaging Manifest</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Imaging Manifest</em>' containment reference.
 	 * @see #getImagingManifest()
 	 * @generated
 	 */
 	void setImagingManifest(ImagingManifest value);
 
 	/**
-	 * Returns the value of the '<em><b>Imaging Study</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Imaging Study</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Imaging Study</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Imaging Study</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Imaging Study</em>' containment reference.
 	 * @see #setImagingStudy(ImagingStudy)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ImagingStudy()
-	 * @model containment="true" extendedMetaData="kind='element' name='ImagingStudy' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ImagingStudy' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ImagingStudy getImagingStudy();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImagingStudy <em>Imaging Study</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Imaging Study</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImagingStudy <em>Imaging Study</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Imaging Study</em>' containment reference.
 	 * @see #getImagingStudy()
 	 * @generated
 	 */
 	void setImagingStudy(ImagingStudy value);
 
 	/**
-	 * Returns the value of the '<em><b>Immunization</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Immunization</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Immunization</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Immunization</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Immunization</em>' containment reference.
 	 * @see #setImmunization(Immunization)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Immunization()
-	 * @model containment="true" extendedMetaData="kind='element' name='Immunization' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Immunization' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Immunization getImmunization();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImmunization <em>Immunization</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Immunization</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImmunization <em>Immunization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Immunization</em>' containment reference.
 	 * @see #getImmunization()
 	 * @generated
 	 */
 	void setImmunization(Immunization value);
 
 	/**
-	 * Returns the value of the '<em><b>Immunization Recommendation</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Immunization Recommendation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Immunization Recommendation</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Immunization Recommendation</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Immunization Recommendation</em>' containment reference.
 	 * @see #setImmunizationRecommendation(ImmunizationRecommendation)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ImmunizationRecommendation()
-	 * @model containment="true" extendedMetaData="kind='element' name='ImmunizationRecommendation' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ImmunizationRecommendation' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ImmunizationRecommendation getImmunizationRecommendation();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImmunizationRecommendation <em>Immunization Recommendation</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Immunization Recommendation</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImmunizationRecommendation <em>Immunization Recommendation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Immunization Recommendation</em>' containment reference.
 	 * @see #getImmunizationRecommendation()
 	 * @generated
 	 */
 	void setImmunizationRecommendation(ImmunizationRecommendation value);
 
 	/**
-	 * Returns the value of the '<em><b>Implementation Guide</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Implementation Guide</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Implementation Guide</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Implementation Guide</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Implementation Guide</em>' containment reference.
 	 * @see #setImplementationGuide(ImplementationGuide)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ImplementationGuide()
-	 * @model containment="true" extendedMetaData="kind='element' name='ImplementationGuide' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ImplementationGuide' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ImplementationGuide getImplementationGuide();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImplementationGuide <em>Implementation Guide</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Implementation Guide</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getImplementationGuide <em>Implementation Guide</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Implementation Guide</em>' containment reference.
 	 * @see #getImplementationGuide()
 	 * @generated
 	 */
 	void setImplementationGuide(ImplementationGuide value);
 
 	/**
-	 * Returns the value of the '<em><b>Library</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Library</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Library</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Library</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Library</em>' containment reference.
 	 * @see #setLibrary(Library)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Library()
-	 * @model containment="true" extendedMetaData="kind='element' name='Library' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Library' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Library getLibrary();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getLibrary <em>Library</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Library</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getLibrary <em>Library</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Library</em>' containment reference.
 	 * @see #getLibrary()
 	 * @generated
 	 */
 	void setLibrary(Library value);
 
 	/**
-	 * Returns the value of the '<em><b>Linkage</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Linkage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Linkage</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Linkage</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Linkage</em>' containment reference.
 	 * @see #setLinkage(Linkage)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Linkage()
-	 * @model containment="true" extendedMetaData="kind='element' name='Linkage' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Linkage' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Linkage getLinkage();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getLinkage <em>Linkage</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Linkage</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getLinkage <em>Linkage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Linkage</em>' containment reference.
 	 * @see #getLinkage()
 	 * @generated
 	 */
 	void setLinkage(Linkage value);
 
 	/**
-	 * Returns the value of the '<em><b>List</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>List</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>List</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>List</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>List</em>' containment reference.
 	 * @see #setList(List)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_List()
-	 * @model containment="true" extendedMetaData="kind='element' name='List' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='List' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	List getList();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getList <em>List</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>List</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getList <em>List</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>List</em>' containment reference.
 	 * @see #getList()
 	 * @generated
 	 */
 	void setList(List value);
 
 	/**
-	 * Returns the value of the '<em><b>Location</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Location</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Location</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Location</em>' containment reference.
 	 * @see #setLocation(Location)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Location()
-	 * @model containment="true" extendedMetaData="kind='element' name='Location' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Location' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Location getLocation();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getLocation <em>Location</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Location</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getLocation <em>Location</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location</em>' containment reference.
 	 * @see #getLocation()
 	 * @generated
 	 */
 	void setLocation(Location value);
 
 	/**
-	 * Returns the value of the '<em><b>Measure</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Measure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Measure</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Measure</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Measure</em>' containment reference.
 	 * @see #setMeasure(Measure)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Measure()
-	 * @model containment="true" extendedMetaData="kind='element' name='Measure' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Measure' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Measure getMeasure();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMeasure <em>Measure</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Measure</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMeasure <em>Measure</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Measure</em>' containment reference.
 	 * @see #getMeasure()
 	 * @generated
 	 */
 	void setMeasure(Measure value);
 
 	/**
-	 * Returns the value of the '<em><b>Measure Report</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Measure Report</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Measure Report</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Measure Report</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Measure Report</em>' containment reference.
 	 * @see #setMeasureReport(MeasureReport)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MeasureReport()
-	 * @model containment="true" extendedMetaData="kind='element' name='MeasureReport' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='MeasureReport' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	MeasureReport getMeasureReport();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMeasureReport <em>Measure Report</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Measure Report</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMeasureReport <em>Measure Report</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Measure Report</em>' containment reference.
 	 * @see #getMeasureReport()
 	 * @generated
 	 */
 	void setMeasureReport(MeasureReport value);
 
 	/**
-	 * Returns the value of the '<em><b>Media</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Media</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Media</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Media</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Media</em>' containment reference.
 	 * @see #setMedia(Media)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Media()
-	 * @model containment="true" extendedMetaData="kind='element' name='Media' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Media' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Media getMedia();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedia <em>Media</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Media</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedia <em>Media</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Media</em>' containment reference.
 	 * @see #getMedia()
 	 * @generated
 	 */
 	void setMedia(Media value);
 
 	/**
-	 * Returns the value of the '<em><b>Medication</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Medication</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Medication</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Medication</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Medication</em>' containment reference.
 	 * @see #setMedication(Medication)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Medication()
-	 * @model containment="true" extendedMetaData="kind='element' name='Medication' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Medication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Medication getMedication();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedication <em>Medication</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Medication</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedication <em>Medication</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Medication</em>' containment reference.
 	 * @see #getMedication()
 	 * @generated
 	 */
 	void setMedication(Medication value);
 
 	/**
-	 * Returns the value of the '<em><b>Medication Administration</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Medication Administration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Medication Administration</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Medication Administration</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Medication Administration</em>' containment reference.
 	 * @see #setMedicationAdministration(MedicationAdministration)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MedicationAdministration()
-	 * @model containment="true" extendedMetaData="kind='element' name='MedicationAdministration' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='MedicationAdministration' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	MedicationAdministration getMedicationAdministration();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationAdministration <em>Medication Administration</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Medication Administration</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationAdministration <em>Medication Administration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Medication Administration</em>' containment reference.
 	 * @see #getMedicationAdministration()
 	 * @generated
 	 */
 	void setMedicationAdministration(MedicationAdministration value);
 
 	/**
-	 * Returns the value of the '<em><b>Medication Dispense</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Medication Dispense</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Medication Dispense</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Medication Dispense</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Medication Dispense</em>' containment reference.
 	 * @see #setMedicationDispense(MedicationDispense)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MedicationDispense()
-	 * @model containment="true" extendedMetaData="kind='element' name='MedicationDispense' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='MedicationDispense' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	MedicationDispense getMedicationDispense();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationDispense <em>Medication Dispense</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Medication Dispense</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationDispense <em>Medication Dispense</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Medication Dispense</em>' containment reference.
 	 * @see #getMedicationDispense()
 	 * @generated
 	 */
 	void setMedicationDispense(MedicationDispense value);
 
 	/**
-	 * Returns the value of the '<em><b>Medication Request</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Medication Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Medication Request</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Medication Request</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Medication Request</em>' containment reference.
 	 * @see #setMedicationRequest(MedicationRequest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MedicationRequest()
-	 * @model containment="true" extendedMetaData="kind='element' name='MedicationRequest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='MedicationRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	MedicationRequest getMedicationRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationRequest <em>Medication Request</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Medication Request</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationRequest <em>Medication Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Medication Request</em>' containment reference.
 	 * @see #getMedicationRequest()
 	 * @generated
 	 */
 	void setMedicationRequest(MedicationRequest value);
 
 	/**
-	 * Returns the value of the '<em><b>Medication Statement</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Medication Statement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Medication Statement</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Medication Statement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Medication Statement</em>' containment reference.
 	 * @see #setMedicationStatement(MedicationStatement)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MedicationStatement()
-	 * @model containment="true" extendedMetaData="kind='element' name='MedicationStatement' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='MedicationStatement' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	MedicationStatement getMedicationStatement();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationStatement <em>Medication Statement</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Medication Statement</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMedicationStatement <em>Medication Statement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Medication Statement</em>' containment reference.
 	 * @see #getMedicationStatement()
 	 * @generated
 	 */
 	void setMedicationStatement(MedicationStatement value);
 
 	/**
-	 * Returns the value of the '<em><b>Message Definition</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Message Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Message Definition</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Message Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Message Definition</em>' containment reference.
 	 * @see #setMessageDefinition(MessageDefinition)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MessageDefinition()
-	 * @model containment="true" extendedMetaData="kind='element' name='MessageDefinition' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='MessageDefinition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	MessageDefinition getMessageDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMessageDefinition <em>Message Definition</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Message Definition</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMessageDefinition <em>Message Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Message Definition</em>' containment reference.
 	 * @see #getMessageDefinition()
 	 * @generated
 	 */
 	void setMessageDefinition(MessageDefinition value);
 
 	/**
-	 * Returns the value of the '<em><b>Message Header</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Message Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Message Header</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Message Header</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Message Header</em>' containment reference.
 	 * @see #setMessageHeader(MessageHeader)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_MessageHeader()
-	 * @model containment="true" extendedMetaData="kind='element' name='MessageHeader' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='MessageHeader' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	MessageHeader getMessageHeader();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMessageHeader <em>Message Header</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Message Header</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getMessageHeader <em>Message Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Message Header</em>' containment reference.
 	 * @see #getMessageHeader()
 	 * @generated
 	 */
 	void setMessageHeader(MessageHeader value);
 
 	/**
-	 * Returns the value of the '<em><b>Naming System</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Naming System</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Naming System</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Naming System</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Naming System</em>' containment reference.
 	 * @see #setNamingSystem(NamingSystem)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_NamingSystem()
-	 * @model containment="true" extendedMetaData="kind='element' name='NamingSystem' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='NamingSystem' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	NamingSystem getNamingSystem();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getNamingSystem <em>Naming System</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Naming System</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getNamingSystem <em>Naming System</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Naming System</em>' containment reference.
 	 * @see #getNamingSystem()
 	 * @generated
 	 */
 	void setNamingSystem(NamingSystem value);
 
 	/**
-	 * Returns the value of the '<em><b>Nutrition Order</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Nutrition Order</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Nutrition Order</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Nutrition Order</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Nutrition Order</em>' containment reference.
 	 * @see #setNutritionOrder(NutritionOrder)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_NutritionOrder()
-	 * @model containment="true" extendedMetaData="kind='element' name='NutritionOrder' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='NutritionOrder' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	NutritionOrder getNutritionOrder();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getNutritionOrder <em>Nutrition Order</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Nutrition Order</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getNutritionOrder <em>Nutrition Order</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Nutrition Order</em>' containment reference.
 	 * @see #getNutritionOrder()
 	 * @generated
 	 */
 	void setNutritionOrder(NutritionOrder value);
 
 	/**
-	 * Returns the value of the '<em><b>Observation</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Observation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Observation</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Observation</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Observation</em>' containment reference.
 	 * @see #setObservation(Observation)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Observation()
-	 * @model containment="true" extendedMetaData="kind='element' name='Observation' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Observation' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Observation getObservation();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getObservation <em>Observation</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Observation</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getObservation <em>Observation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Observation</em>' containment reference.
 	 * @see #getObservation()
 	 * @generated
 	 */
 	void setObservation(Observation value);
 
 	/**
-	 * Returns the value of the '<em><b>Operation Definition</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Operation Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operation Definition</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Operation Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Operation Definition</em>' containment reference.
 	 * @see #setOperationDefinition(OperationDefinition)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_OperationDefinition()
-	 * @model containment="true" extendedMetaData="kind='element' name='OperationDefinition' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='OperationDefinition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OperationDefinition getOperationDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getOperationDefinition <em>Operation Definition</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Operation Definition</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getOperationDefinition <em>Operation Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Operation Definition</em>' containment reference.
 	 * @see #getOperationDefinition()
 	 * @generated
 	 */
 	void setOperationDefinition(OperationDefinition value);
 
 	/**
-	 * Returns the value of the '<em><b>Operation Outcome</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Operation Outcome</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operation Outcome</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Operation Outcome</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Operation Outcome</em>' containment reference.
 	 * @see #setOperationOutcome(OperationOutcome)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_OperationOutcome()
-	 * @model containment="true" extendedMetaData="kind='element' name='OperationOutcome' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='OperationOutcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OperationOutcome getOperationOutcome();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getOperationOutcome <em>Operation Outcome</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Operation Outcome</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getOperationOutcome <em>Operation Outcome</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Operation Outcome</em>' containment reference.
 	 * @see #getOperationOutcome()
 	 * @generated
 	 */
 	void setOperationOutcome(OperationOutcome value);
 
 	/**
-	 * Returns the value of the '<em><b>Organization</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Organization</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Organization</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Organization</em>' containment reference.
 	 * @see #setOrganization(Organization)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Organization()
-	 * @model containment="true" extendedMetaData="kind='element' name='Organization' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Organization' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Organization getOrganization();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getOrganization <em>Organization</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Organization</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getOrganization <em>Organization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Organization</em>' containment reference.
 	 * @see #getOrganization()
 	 * @generated
 	 */
 	void setOrganization(Organization value);
 
 	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Patient</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Patient</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Patient</em>' containment reference.
 	 * @see #setPatient(Patient)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Patient()
-	 * @model containment="true" extendedMetaData="kind='element' name='Patient' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Patient' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Patient getPatient();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPatient <em>Patient</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Patient</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPatient <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
 	 * @see #getPatient()
 	 * @generated
 	 */
 	void setPatient(Patient value);
 
 	/**
-	 * Returns the value of the '<em><b>Payment Notice</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Payment Notice</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Payment Notice</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Payment Notice</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Payment Notice</em>' containment reference.
 	 * @see #setPaymentNotice(PaymentNotice)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_PaymentNotice()
-	 * @model containment="true" extendedMetaData="kind='element' name='PaymentNotice' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='PaymentNotice' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	PaymentNotice getPaymentNotice();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPaymentNotice <em>Payment Notice</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Payment Notice</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPaymentNotice <em>Payment Notice</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payment Notice</em>' containment reference.
 	 * @see #getPaymentNotice()
 	 * @generated
 	 */
 	void setPaymentNotice(PaymentNotice value);
 
 	/**
-	 * Returns the value of the '<em><b>Payment Reconciliation</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Payment Reconciliation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Payment Reconciliation</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Payment Reconciliation</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Payment Reconciliation</em>' containment reference.
 	 * @see #setPaymentReconciliation(PaymentReconciliation)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_PaymentReconciliation()
-	 * @model containment="true" extendedMetaData="kind='element' name='PaymentReconciliation' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='PaymentReconciliation' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	PaymentReconciliation getPaymentReconciliation();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPaymentReconciliation <em>Payment Reconciliation</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Payment Reconciliation</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPaymentReconciliation <em>Payment Reconciliation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payment Reconciliation</em>' containment reference.
 	 * @see #getPaymentReconciliation()
 	 * @generated
 	 */
 	void setPaymentReconciliation(PaymentReconciliation value);
 
 	/**
-	 * Returns the value of the '<em><b>Person</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Person</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Person</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Person</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Person</em>' containment reference.
 	 * @see #setPerson(Person)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Person()
-	 * @model containment="true" extendedMetaData="kind='element' name='Person' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Person' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Person getPerson();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPerson <em>Person</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Person</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPerson <em>Person</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Person</em>' containment reference.
 	 * @see #getPerson()
 	 * @generated
 	 */
 	void setPerson(Person value);
 
 	/**
-	 * Returns the value of the '<em><b>Plan Definition</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Plan Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Plan Definition</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Plan Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Plan Definition</em>' containment reference.
 	 * @see #setPlanDefinition(PlanDefinition)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_PlanDefinition()
-	 * @model containment="true" extendedMetaData="kind='element' name='PlanDefinition' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='PlanDefinition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	PlanDefinition getPlanDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPlanDefinition <em>Plan Definition</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Plan Definition</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPlanDefinition <em>Plan Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Plan Definition</em>' containment reference.
 	 * @see #getPlanDefinition()
 	 * @generated
 	 */
 	void setPlanDefinition(PlanDefinition value);
 
 	/**
-	 * Returns the value of the '<em><b>Practitioner</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Practitioner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Practitioner</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Practitioner</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Practitioner</em>' containment reference.
 	 * @see #setPractitioner(Practitioner)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Practitioner()
-	 * @model containment="true" extendedMetaData="kind='element' name='Practitioner' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Practitioner' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Practitioner getPractitioner();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPractitioner <em>Practitioner</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Practitioner</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPractitioner <em>Practitioner</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Practitioner</em>' containment reference.
 	 * @see #getPractitioner()
 	 * @generated
 	 */
 	void setPractitioner(Practitioner value);
 
 	/**
-	 * Returns the value of the '<em><b>Practitioner Role</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Practitioner Role</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Practitioner Role</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Practitioner Role</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Practitioner Role</em>' containment reference.
 	 * @see #setPractitionerRole(PractitionerRole)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_PractitionerRole()
-	 * @model containment="true" extendedMetaData="kind='element' name='PractitionerRole' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='PractitionerRole' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	PractitionerRole getPractitionerRole();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPractitionerRole <em>Practitioner Role</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Practitioner Role</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getPractitionerRole <em>Practitioner Role</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Practitioner Role</em>' containment reference.
 	 * @see #getPractitionerRole()
 	 * @generated
 	 */
 	void setPractitionerRole(PractitionerRole value);
 
 	/**
-	 * Returns the value of the '<em><b>Procedure</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Procedure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Procedure</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Procedure</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Procedure</em>' containment reference.
 	 * @see #setProcedure(Procedure)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Procedure()
-	 * @model containment="true" extendedMetaData="kind='element' name='Procedure' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Procedure' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Procedure getProcedure();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProcedure <em>Procedure</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Procedure</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProcedure <em>Procedure</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Procedure</em>' containment reference.
 	 * @see #getProcedure()
 	 * @generated
 	 */
 	void setProcedure(Procedure value);
 
 	/**
-	 * Returns the value of the '<em><b>Procedure Request</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Procedure Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Procedure Request</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Procedure Request</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Procedure Request</em>' containment reference.
 	 * @see #setProcedureRequest(ProcedureRequest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ProcedureRequest()
-	 * @model containment="true" extendedMetaData="kind='element' name='ProcedureRequest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ProcedureRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ProcedureRequest getProcedureRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProcedureRequest <em>Procedure Request</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Procedure Request</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProcedureRequest <em>Procedure Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Procedure Request</em>' containment reference.
 	 * @see #getProcedureRequest()
 	 * @generated
 	 */
 	void setProcedureRequest(ProcedureRequest value);
 
 	/**
-	 * Returns the value of the '<em><b>Process Request</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Process Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Process Request</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Process Request</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Process Request</em>' containment reference.
 	 * @see #setProcessRequest(ProcessRequest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ProcessRequest()
-	 * @model containment="true" extendedMetaData="kind='element' name='ProcessRequest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ProcessRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ProcessRequest getProcessRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProcessRequest <em>Process Request</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Process Request</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProcessRequest <em>Process Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Process Request</em>' containment reference.
 	 * @see #getProcessRequest()
 	 * @generated
 	 */
 	void setProcessRequest(ProcessRequest value);
 
 	/**
-	 * Returns the value of the '<em><b>Process Response</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Process Response</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Process Response</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Process Response</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Process Response</em>' containment reference.
 	 * @see #setProcessResponse(ProcessResponse)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ProcessResponse()
-	 * @model containment="true" extendedMetaData="kind='element' name='ProcessResponse' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ProcessResponse' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ProcessResponse getProcessResponse();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProcessResponse <em>Process Response</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Process Response</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProcessResponse <em>Process Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Process Response</em>' containment reference.
 	 * @see #getProcessResponse()
 	 * @generated
 	 */
 	void setProcessResponse(ProcessResponse value);
 
 	/**
-	 * Returns the value of the '<em><b>Provenance</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Provenance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provenance</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Provenance</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Provenance</em>' containment reference.
 	 * @see #setProvenance(Provenance)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Provenance()
-	 * @model containment="true" extendedMetaData="kind='element' name='Provenance' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Provenance' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Provenance getProvenance();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProvenance <em>Provenance</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Provenance</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getProvenance <em>Provenance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Provenance</em>' containment reference.
 	 * @see #getProvenance()
 	 * @generated
 	 */
 	void setProvenance(Provenance value);
 
 	/**
-	 * Returns the value of the '<em><b>Questionnaire</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Questionnaire</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Questionnaire</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Questionnaire</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Questionnaire</em>' containment reference.
 	 * @see #setQuestionnaire(Questionnaire)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Questionnaire()
-	 * @model containment="true" extendedMetaData="kind='element' name='Questionnaire' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Questionnaire' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Questionnaire getQuestionnaire();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getQuestionnaire <em>Questionnaire</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Questionnaire</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getQuestionnaire <em>Questionnaire</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Questionnaire</em>' containment reference.
 	 * @see #getQuestionnaire()
 	 * @generated
 	 */
 	void setQuestionnaire(Questionnaire value);
 
 	/**
-	 * Returns the value of the '<em><b>Questionnaire Response</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Questionnaire Response</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Questionnaire Response</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Questionnaire Response</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Questionnaire Response</em>' containment reference.
 	 * @see #setQuestionnaireResponse(QuestionnaireResponse)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_QuestionnaireResponse()
-	 * @model containment="true" extendedMetaData="kind='element' name='QuestionnaireResponse' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='QuestionnaireResponse' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	QuestionnaireResponse getQuestionnaireResponse();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getQuestionnaireResponse <em>Questionnaire Response</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Questionnaire Response</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getQuestionnaireResponse <em>Questionnaire Response</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Questionnaire Response</em>' containment reference.
 	 * @see #getQuestionnaireResponse()
 	 * @generated
 	 */
 	void setQuestionnaireResponse(QuestionnaireResponse value);
 
 	/**
-	 * Returns the value of the '<em><b>Referral Request</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Referral Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Referral Request</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Referral Request</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Referral Request</em>' containment reference.
 	 * @see #setReferralRequest(ReferralRequest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ReferralRequest()
-	 * @model containment="true" extendedMetaData="kind='element' name='ReferralRequest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ReferralRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ReferralRequest getReferralRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getReferralRequest <em>Referral Request</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Referral Request</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getReferralRequest <em>Referral Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Referral Request</em>' containment reference.
 	 * @see #getReferralRequest()
 	 * @generated
 	 */
 	void setReferralRequest(ReferralRequest value);
 
 	/**
-	 * Returns the value of the '<em><b>Related Person</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Related Person</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Related Person</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Related Person</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Related Person</em>' containment reference.
 	 * @see #setRelatedPerson(RelatedPerson)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_RelatedPerson()
-	 * @model containment="true" extendedMetaData="kind='element' name='RelatedPerson' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RelatedPerson' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	RelatedPerson getRelatedPerson();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getRelatedPerson <em>Related Person</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Related Person</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getRelatedPerson <em>Related Person</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Related Person</em>' containment reference.
 	 * @see #getRelatedPerson()
 	 * @generated
 	 */
 	void setRelatedPerson(RelatedPerson value);
 
 	/**
-	 * Returns the value of the '<em><b>Request Group</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Request Group</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Request Group</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Request Group</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Request Group</em>' containment reference.
 	 * @see #setRequestGroup(RequestGroup)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_RequestGroup()
-	 * @model containment="true" extendedMetaData="kind='element' name='RequestGroup' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RequestGroup' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	RequestGroup getRequestGroup();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getRequestGroup <em>Request Group</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Request Group</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getRequestGroup <em>Request Group</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Group</em>' containment reference.
 	 * @see #getRequestGroup()
 	 * @generated
 	 */
 	void setRequestGroup(RequestGroup value);
 
 	/**
-	 * Returns the value of the '<em><b>Research Study</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Research Study</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Research Study</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Research Study</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Research Study</em>' containment reference.
 	 * @see #setResearchStudy(ResearchStudy)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ResearchStudy()
-	 * @model containment="true" extendedMetaData="kind='element' name='ResearchStudy' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ResearchStudy' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ResearchStudy getResearchStudy();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getResearchStudy <em>Research Study</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Research Study</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getResearchStudy <em>Research Study</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Research Study</em>' containment reference.
 	 * @see #getResearchStudy()
 	 * @generated
 	 */
 	void setResearchStudy(ResearchStudy value);
 
 	/**
-	 * Returns the value of the '<em><b>Research Subject</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Research Subject</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Research Subject</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Research Subject</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Research Subject</em>' containment reference.
 	 * @see #setResearchSubject(ResearchSubject)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ResearchSubject()
-	 * @model containment="true" extendedMetaData="kind='element' name='ResearchSubject' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ResearchSubject' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ResearchSubject getResearchSubject();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getResearchSubject <em>Research Subject</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Research Subject</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getResearchSubject <em>Research Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Research Subject</em>' containment reference.
 	 * @see #getResearchSubject()
 	 * @generated
 	 */
 	void setResearchSubject(ResearchSubject value);
 
 	/**
-	 * Returns the value of the '<em><b>Risk Assessment</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Risk Assessment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Risk Assessment</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Risk Assessment</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Risk Assessment</em>' containment reference.
 	 * @see #setRiskAssessment(RiskAssessment)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_RiskAssessment()
-	 * @model containment="true" extendedMetaData="kind='element' name='RiskAssessment' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RiskAssessment' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	RiskAssessment getRiskAssessment();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getRiskAssessment <em>Risk Assessment</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Risk Assessment</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getRiskAssessment <em>Risk Assessment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Risk Assessment</em>' containment reference.
 	 * @see #getRiskAssessment()
 	 * @generated
 	 */
 	void setRiskAssessment(RiskAssessment value);
 
 	/**
-	 * Returns the value of the '<em><b>Schedule</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Schedule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Schedule</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Schedule</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Schedule</em>' containment reference.
 	 * @see #setSchedule(Schedule)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Schedule()
-	 * @model containment="true" extendedMetaData="kind='element' name='Schedule' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Schedule' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Schedule getSchedule();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSchedule <em>Schedule</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Schedule</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSchedule <em>Schedule</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Schedule</em>' containment reference.
 	 * @see #getSchedule()
 	 * @generated
 	 */
 	void setSchedule(Schedule value);
 
 	/**
-	 * Returns the value of the '<em><b>Search Parameter</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Search Parameter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Search Parameter</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Search Parameter</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Search Parameter</em>' containment reference.
 	 * @see #setSearchParameter(SearchParameter)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_SearchParameter()
-	 * @model containment="true" extendedMetaData="kind='element' name='SearchParameter' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='SearchParameter' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	SearchParameter getSearchParameter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSearchParameter <em>Search Parameter</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Search Parameter</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSearchParameter <em>Search Parameter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Search Parameter</em>' containment reference.
 	 * @see #getSearchParameter()
 	 * @generated
 	 */
 	void setSearchParameter(SearchParameter value);
 
 	/**
-	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sequence</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Sequence</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(Sequence)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Sequence()
-	 * @model containment="true" extendedMetaData="kind='element' name='Sequence' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Sequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Sequence getSequence();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSequence <em>Sequence</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Sequence</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSequence <em>Sequence</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence</em>' containment reference.
 	 * @see #getSequence()
 	 * @generated
 	 */
 	void setSequence(Sequence value);
 
 	/**
-	 * Returns the value of the '<em><b>Service Definition</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Service Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Service Definition</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Service Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Service Definition</em>' containment reference.
 	 * @see #setServiceDefinition(ServiceDefinition)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ServiceDefinition()
-	 * @model containment="true" extendedMetaData="kind='element' name='ServiceDefinition' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ServiceDefinition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ServiceDefinition getServiceDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getServiceDefinition <em>Service Definition</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Service Definition</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getServiceDefinition <em>Service Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Service Definition</em>' containment reference.
 	 * @see #getServiceDefinition()
 	 * @generated
 	 */
 	void setServiceDefinition(ServiceDefinition value);
 
 	/**
-	 * Returns the value of the '<em><b>Slot</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Slot</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Slot</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Slot</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Slot</em>' containment reference.
 	 * @see #setSlot(Slot)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Slot()
-	 * @model containment="true" extendedMetaData="kind='element' name='Slot' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Slot' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Slot getSlot();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSlot <em>Slot</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Slot</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSlot <em>Slot</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Slot</em>' containment reference.
 	 * @see #getSlot()
 	 * @generated
 	 */
 	void setSlot(Slot value);
 
 	/**
-	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Specimen</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Specimen</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Specimen</em>' containment reference.
 	 * @see #setSpecimen(Specimen)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Specimen()
-	 * @model containment="true" extendedMetaData="kind='element' name='Specimen' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Specimen' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Specimen getSpecimen();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSpecimen <em>Specimen</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Specimen</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSpecimen <em>Specimen</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Specimen</em>' containment reference.
 	 * @see #getSpecimen()
 	 * @generated
 	 */
 	void setSpecimen(Specimen value);
 
 	/**
-	 * Returns the value of the '<em><b>Structure Definition</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Structure Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Structure Definition</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Structure Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Structure Definition</em>' containment reference.
 	 * @see #setStructureDefinition(StructureDefinition)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_StructureDefinition()
-	 * @model containment="true" extendedMetaData="kind='element' name='StructureDefinition' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='StructureDefinition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	StructureDefinition getStructureDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getStructureDefinition <em>Structure Definition</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Structure Definition</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getStructureDefinition <em>Structure Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Structure Definition</em>' containment reference.
 	 * @see #getStructureDefinition()
 	 * @generated
 	 */
 	void setStructureDefinition(StructureDefinition value);
 
 	/**
-	 * Returns the value of the '<em><b>Structure Map</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Structure Map</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Structure Map</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Structure Map</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Structure Map</em>' containment reference.
 	 * @see #setStructureMap(StructureMap)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_StructureMap()
-	 * @model containment="true" extendedMetaData="kind='element' name='StructureMap' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='StructureMap' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	StructureMap getStructureMap();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getStructureMap <em>Structure Map</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Structure Map</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getStructureMap <em>Structure Map</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Structure Map</em>' containment reference.
 	 * @see #getStructureMap()
 	 * @generated
 	 */
 	void setStructureMap(StructureMap value);
 
 	/**
-	 * Returns the value of the '<em><b>Subscription</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Subscription</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Subscription</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Subscription</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Subscription</em>' containment reference.
 	 * @see #setSubscription(Subscription)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Subscription()
-	 * @model containment="true" extendedMetaData="kind='element' name='Subscription' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Subscription' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Subscription getSubscription();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSubscription <em>Subscription</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Subscription</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSubscription <em>Subscription</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subscription</em>' containment reference.
 	 * @see #getSubscription()
 	 * @generated
 	 */
 	void setSubscription(Subscription value);
 
 	/**
-	 * Returns the value of the '<em><b>Substance</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Substance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Substance</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Substance</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Substance</em>' containment reference.
 	 * @see #setSubstance(Substance)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Substance()
-	 * @model containment="true" extendedMetaData="kind='element' name='Substance' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Substance' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Substance getSubstance();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSubstance <em>Substance</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Substance</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSubstance <em>Substance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Substance</em>' containment reference.
 	 * @see #getSubstance()
 	 * @generated
 	 */
 	void setSubstance(Substance value);
 
 	/**
-	 * Returns the value of the '<em><b>Supply Delivery</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Supply Delivery</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Supply Delivery</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Supply Delivery</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Supply Delivery</em>' containment reference.
 	 * @see #setSupplyDelivery(SupplyDelivery)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_SupplyDelivery()
-	 * @model containment="true" extendedMetaData="kind='element' name='SupplyDelivery' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='SupplyDelivery' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	SupplyDelivery getSupplyDelivery();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSupplyDelivery <em>Supply Delivery</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Supply Delivery</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSupplyDelivery <em>Supply Delivery</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Supply Delivery</em>' containment reference.
 	 * @see #getSupplyDelivery()
 	 * @generated
 	 */
 	void setSupplyDelivery(SupplyDelivery value);
 
 	/**
-	 * Returns the value of the '<em><b>Supply Request</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Supply Request</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Supply Request</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Supply Request</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Supply Request</em>' containment reference.
 	 * @see #setSupplyRequest(SupplyRequest)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_SupplyRequest()
-	 * @model containment="true" extendedMetaData="kind='element' name='SupplyRequest' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='SupplyRequest' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	SupplyRequest getSupplyRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSupplyRequest <em>Supply Request</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Supply Request</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getSupplyRequest <em>Supply Request</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Supply Request</em>' containment reference.
 	 * @see #getSupplyRequest()
 	 * @generated
 	 */
 	void setSupplyRequest(SupplyRequest value);
 
 	/**
-	 * Returns the value of the '<em><b>Task</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Task</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Task</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Task</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Task</em>' containment reference.
 	 * @see #setTask(Task)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Task()
-	 * @model containment="true" extendedMetaData="kind='element' name='Task' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Task' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Task getTask();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getTask <em>Task</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Task</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getTask <em>Task</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Task</em>' containment reference.
 	 * @see #getTask()
 	 * @generated
 	 */
 	void setTask(Task value);
 
 	/**
-	 * Returns the value of the '<em><b>Test Report</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Test Report</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Test Report</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Test Report</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Test Report</em>' containment reference.
 	 * @see #setTestReport(TestReport)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_TestReport()
-	 * @model containment="true" extendedMetaData="kind='element' name='TestReport' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='TestReport' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	TestReport getTestReport();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getTestReport <em>Test Report</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Test Report</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getTestReport <em>Test Report</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Test Report</em>' containment reference.
 	 * @see #getTestReport()
 	 * @generated
 	 */
 	void setTestReport(TestReport value);
 
 	/**
-	 * Returns the value of the '<em><b>Test Script</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Test Script</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Test Script</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Test Script</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Test Script</em>' containment reference.
 	 * @see #setTestScript(TestScript)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_TestScript()
-	 * @model containment="true" extendedMetaData="kind='element' name='TestScript' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='TestScript' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	TestScript getTestScript();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getTestScript <em>Test Script</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Test Script</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getTestScript <em>Test Script</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Test Script</em>' containment reference.
 	 * @see #getTestScript()
 	 * @generated
 	 */
 	void setTestScript(TestScript value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Set</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Value Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value Set</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Value Set</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Value Set</em>' containment reference.
 	 * @see #setValueSet(ValueSet)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_ValueSet()
-	 * @model containment="true" extendedMetaData="kind='element' name='ValueSet' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ValueSet' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ValueSet getValueSet();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getValueSet <em>Value Set</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Value Set</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getValueSet <em>Value Set</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Set</em>' containment reference.
 	 * @see #getValueSet()
 	 * @generated
 	 */
 	void setValueSet(ValueSet value);
 
 	/**
-	 * Returns the value of the '<em><b>Vision Prescription</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Vision Prescription</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Vision Prescription</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Vision Prescription</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Vision Prescription</em>' containment reference.
 	 * @see #setVisionPrescription(VisionPrescription)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_VisionPrescription()
-	 * @model containment="true" extendedMetaData="kind='element' name='VisionPrescription' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='VisionPrescription' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	VisionPrescription getVisionPrescription();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getVisionPrescription <em>Vision Prescription</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Vision Prescription</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getVisionPrescription <em>Vision Prescription</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Vision Prescription</em>' containment reference.
 	 * @see #getVisionPrescription()
 	 * @generated
 	 */
 	void setVisionPrescription(VisionPrescription value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Parameters</em>' containment reference.
 	 * @see #setParameters(Parameters)
 	 * @see org.hl7.fhir.FhirPackage#getResourceContainer_Parameters()
-	 * @model containment="true" extendedMetaData="kind='element' name='Parameters' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Parameters' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Parameters getParameters();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getParameters <em>Parameters</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Parameters</em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResourceContainer#getParameters <em>Parameters</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parameters</em>' containment reference.
 	 * @see #getParameters()
 	 * @generated
 	 */

@@ -70,6 +70,7 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getSubSite <em>Sub Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getAdjudication <em>Adjudication</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getDetail <em>Detail</em>}</li>
@@ -299,6 +300,16 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> subSite;
+
+	/**
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEncounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> encounter;
 
 	/**
 	 * The cached value of the '{@link #getNoteNumber() <em>Note Number</em>}' containment reference list.
@@ -1068,6 +1079,19 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
+	public List<Reference> getEncounter() {
+		if (encounter == null) {
+			encounter = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER);
+		}
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	@XmlElement
 	public List<PositiveInt> getNoteNumber() {
@@ -1155,6 +1179,8 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return basicSetBodySite(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				return ((InternalEList<?>)getSubSite()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				return ((InternalEList<?>)getEncounter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				return ((InternalEList<?>)getNoteNumber()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ADJUDICATION:
@@ -1217,6 +1243,8 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return getBodySite();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				return getSubSite();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				return getNoteNumber();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ADJUDICATION:
@@ -1310,6 +1338,10 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				getSubSite().clear();
 				getSubSite().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				getEncounter().clear();
+				getEncounter().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				getNoteNumber().clear();
 				getNoteNumber().addAll((Collection<? extends PositiveInt>)newValue);
@@ -1400,6 +1432,9 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				getSubSite().clear();
 				return;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				getEncounter().clear();
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				getNoteNumber().clear();
 				return;
@@ -1465,6 +1500,8 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 				return bodySite != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE:
 				return subSite != null && !subSite.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER:
+				return encounter != null && !encounter.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER:
 				return noteNumber != null && !noteNumber.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ADJUDICATION:

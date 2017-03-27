@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.ListModeImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The processing mode that applies to this list
+ * The processing mode that applies to this section.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

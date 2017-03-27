@@ -23,16 +23,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.ContentType;
+import org.hl7.fhir.FHIRDefinedType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.TestScriptOperation;
 import org.hl7.fhir.TestScriptRequestHeader;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.ContentTypeImplAdapter;
+import org.hl7.fhir.jaxb.FHIRDefinedTypeImplAdapter;
 import org.hl7.fhir.jaxb.IdImplAdapter;
 import org.hl7.fhir.jaxb.IntegerImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
@@ -86,7 +86,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * @generated
 	 * @ordered
 	 */
-	protected Code resource;
+	protected FHIRDefinedType resource;
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
@@ -295,8 +295,8 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getResource() {
+	@XmlJavaTypeAdapter(FHIRDefinedTypeImplAdapter.class)
+	public FHIRDefinedType getResource() {
 		return resource;
 	}
 
@@ -305,8 +305,8 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetResource(Code newResource, NotificationChain msgs) {
-		Code oldResource = resource;
+	public NotificationChain basicSetResource(FHIRDefinedType newResource, NotificationChain msgs) {
+		FHIRDefinedType oldResource = resource;
 		resource = newResource;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_OPERATION__RESOURCE, oldResource, newResource);
@@ -320,7 +320,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResource(Code newResource) {
+	public void setResource(FHIRDefinedType newResource) {
 		if (newResource != resource) {
 			NotificationChain msgs = null;
 			if (resource != null)
@@ -1020,7 +1020,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				setType((Coding)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__RESOURCE:
-				setResource((Code)newValue);
+				setResource((FHIRDefinedType)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__LABEL:
 				setLabel((org.hl7.fhir.String)newValue);
@@ -1081,7 +1081,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				setType((Coding)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__RESOURCE:
-				setResource((Code)null);
+				setResource((FHIRDefinedType)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__LABEL:
 				setLabel((org.hl7.fhir.String)null);

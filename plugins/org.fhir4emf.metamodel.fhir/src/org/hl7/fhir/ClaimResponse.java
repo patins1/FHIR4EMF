@@ -24,6 +24,7 @@ import org.hl7.fhir.jaxb.ClaimResponseImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponse#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponse#getRequestProvider <em>Request Provider</em>}</li>
@@ -76,13 +77,13 @@ public interface ClaimResponse extends DomainResource {
 	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	FinancialResourceStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getStatus <em>Status</em>}' containment reference.
@@ -92,7 +93,33 @@ public interface ClaimResponse extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(FinancialResourceStatusCodes value);
+
+	/**
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Patient Resource.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponse_Patient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPatient();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponse#getPatient <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
+	 * @generated
+	 */
+	void setPatient(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Created</b></em>' containment reference.

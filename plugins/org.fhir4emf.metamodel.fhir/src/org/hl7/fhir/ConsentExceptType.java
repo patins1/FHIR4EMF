@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.ConsentExceptTypeImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * How an exception is statement is applied, as adding additional consent, or removing consent
+ * How an exception statement is applied, such as adding additional consent or removing consent
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

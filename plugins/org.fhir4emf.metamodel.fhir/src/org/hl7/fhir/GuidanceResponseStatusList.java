@@ -68,7 +68,17 @@ public enum GuidanceResponseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FAILURE(4, "failure", "failure");
+	FAILURE(4, "failure", "failure"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(5, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>Success</b></em>' literal value.
@@ -141,6 +151,20 @@ public enum GuidanceResponseStatusList implements Enumerator {
 	public static final int FAILURE_VALUE = 4;
 
 	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered In Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Guidance Response Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,6 +177,7 @@ public enum GuidanceResponseStatusList implements Enumerator {
 			DATA_REQUIRED,
 			IN_PROGRESS,
 			FAILURE,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -214,6 +239,7 @@ public enum GuidanceResponseStatusList implements Enumerator {
 			case DATA_REQUIRED_VALUE: return DATA_REQUIRED;
 			case IN_PROGRESS_VALUE: return IN_PROGRESS;
 			case FAILURE_VALUE: return FAILURE;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

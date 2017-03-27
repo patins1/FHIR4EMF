@@ -67,7 +67,7 @@ public interface Bundle extends Resource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the purpose of this bundle- how it was intended to be used.
+	 * Indicates the purpose of this bundle - how it was intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(BundleType)
@@ -151,7 +151,7 @@ public interface Bundle extends Resource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Digital Signature - base64 encoded. XML DigSIg or a JWT.
+	 * Digital Signature - base64 encoded. XML-DSIg or a JWT.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Signature</em>' containment reference.
 	 * @see #setSignature(Signature)

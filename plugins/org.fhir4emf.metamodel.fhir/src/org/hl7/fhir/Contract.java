@@ -34,6 +34,9 @@ import org.hl7.fhir.jaxb.ContractImplAdapter;
  *   <li>{@link org.hl7.fhir.Contract#getSubType <em>Sub Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getAction <em>Action</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getActionReason <em>Action Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getDecisionType <em>Decision Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getContentDerivative <em>Content Derivative</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getSecurityLabel <em>Security Label</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getSigner <em>Signer</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getValuedItem <em>Valued Item</em>}</li>
@@ -85,13 +88,13 @@ public interface Contract extends DomainResource {
 	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(ContractResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getContract_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	ContractResourceStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Contract#getStatus <em>Status</em>}' containment reference.
@@ -101,7 +104,7 @@ public interface Contract extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(ContractResourceStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Issued</b></em>' containment reference.
@@ -292,6 +295,74 @@ public interface Contract extends DomainResource {
 	 * @generated
 	 */
 	List<CodeableConcept> getActionReason();
+
+	/**
+	 * Returns the value of the '<em><b>Decision Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of decision made by a grantor with respect to an offer made by a grantee.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Decision Type</em>' containment reference.
+	 * @see #setDecisionType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getContract_DecisionType()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='decisionType' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getDecisionType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Contract#getDecisionType <em>Decision Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Decision Type</em>' containment reference.
+	 * @see #getDecisionType()
+	 * @generated
+	 */
+	void setDecisionType(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Content Derivative</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The minimal content derived from the basal information source at a specific stage in its lifecycle.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Content Derivative</em>' containment reference.
+	 * @see #setContentDerivative(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getContract_ContentDerivative()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='contentDerivative' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getContentDerivative();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Contract#getContentDerivative <em>Content Derivative</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Content Derivative</em>' containment reference.
+	 * @see #getContentDerivative()
+	 * @generated
+	 */
+	void setContentDerivative(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Security Label</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Security Label</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContract_SecurityLabel()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='securityLabel' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Coding> getSecurityLabel();
 
 	/**
 	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.

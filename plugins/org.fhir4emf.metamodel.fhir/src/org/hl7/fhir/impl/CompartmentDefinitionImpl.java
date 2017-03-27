@@ -55,9 +55,9 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompartmentDefinitionImpl#getUseContext <em>Use Context</em>}</li>
@@ -123,6 +123,16 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
+
+	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,16 +151,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * @ordered
 	 */
 	protected EList<ContactDetail> contact;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -469,6 +469,50 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
@@ -519,50 +563,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.COMPARTMENT_DEFINITION__CONTACT);
 		}
 		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPARTMENT_DEFINITION__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION__DATE, newDate, newDate));
 	}
 
 	/**
@@ -800,12 +800,12 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return basicSetStatus(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.COMPARTMENT_DEFINITION__PURPOSE:
@@ -842,12 +842,12 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return getStatus();
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
+				return getDate();
 			case FhirPackage.COMPARTMENT_DEFINITION__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.COMPARTMENT_DEFINITION__CONTACT:
 				return getContact();
-			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
-				return getDate();
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.COMPARTMENT_DEFINITION__PURPOSE:
@@ -890,15 +890,15 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
+				setDate((DateTime)newValue);
+				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
-				return;
-			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -951,14 +951,14 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
+				setDate((DateTime)null);
+				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__CONTACT:
 				getContact().clear();
-				return;
-			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1003,12 +1003,12 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 				return status != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
+				return date != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.COMPARTMENT_DEFINITION__DATE:
-				return date != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__DESCRIPTION:
 				return description != null;
 			case FhirPackage.COMPARTMENT_DEFINITION__PURPOSE:

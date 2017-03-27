@@ -29,7 +29,6 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasureReportGroup;
 import org.hl7.fhir.MeasureReportPopulation;
 import org.hl7.fhir.MeasureReportStratifier;
-import org.hl7.fhir.MeasureReportSupplementalData;
 import org.hl7.fhir.jaxb.DecimalImplAdapter;
 
 /**
@@ -44,7 +43,6 @@ import org.hl7.fhir.jaxb.DecimalImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MeasureReportGroupImpl#getPopulation <em>Population</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportGroupImpl#getMeasureScore <em>Measure Score</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportGroupImpl#getStratifier <em>Stratifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasureReportGroupImpl#getSupplementalData <em>Supplemental Data</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,16 +89,6 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 	 * @ordered
 	 */
 	protected EList<MeasureReportStratifier> stratifier;
-
-	/**
-	 * The cached value of the '{@link #getSupplementalData() <em>Supplemental Data</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSupplementalData()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<MeasureReportSupplementalData> supplementalData;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -240,19 +228,6 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public List<MeasureReportSupplementalData> getSupplementalData() {
-		if (supplementalData == null) {
-			supplementalData = new EObjectContainmentEList<MeasureReportSupplementalData>(MeasureReportSupplementalData.class, this, FhirPackage.MEASURE_REPORT_GROUP__SUPPLEMENTAL_DATA);
-		}
-		return supplementalData;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -264,8 +239,6 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 				return basicSetMeasureScore(null, msgs);
 			case FhirPackage.MEASURE_REPORT_GROUP__STRATIFIER:
 				return ((InternalEList<?>)getStratifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEASURE_REPORT_GROUP__SUPPLEMENTAL_DATA:
-				return ((InternalEList<?>)getSupplementalData()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -286,8 +259,6 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 				return getMeasureScore();
 			case FhirPackage.MEASURE_REPORT_GROUP__STRATIFIER:
 				return getStratifier();
-			case FhirPackage.MEASURE_REPORT_GROUP__SUPPLEMENTAL_DATA:
-				return getSupplementalData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -315,10 +286,6 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 				getStratifier().clear();
 				getStratifier().addAll((Collection<? extends MeasureReportStratifier>)newValue);
 				return;
-			case FhirPackage.MEASURE_REPORT_GROUP__SUPPLEMENTAL_DATA:
-				getSupplementalData().clear();
-				getSupplementalData().addAll((Collection<? extends MeasureReportSupplementalData>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -343,9 +310,6 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 			case FhirPackage.MEASURE_REPORT_GROUP__STRATIFIER:
 				getStratifier().clear();
 				return;
-			case FhirPackage.MEASURE_REPORT_GROUP__SUPPLEMENTAL_DATA:
-				getSupplementalData().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -366,8 +330,6 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 				return measureScore != null;
 			case FhirPackage.MEASURE_REPORT_GROUP__STRATIFIER:
 				return stratifier != null && !stratifier.isEmpty();
-			case FhirPackage.MEASURE_REPORT_GROUP__SUPPLEMENTAL_DATA:
-				return supplementalData != null && !supplementalData.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

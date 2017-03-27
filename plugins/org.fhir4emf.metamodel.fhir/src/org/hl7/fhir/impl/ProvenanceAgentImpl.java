@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -10,13 +13,17 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ProvenanceAgent;
 import org.hl7.fhir.Reference;
@@ -45,14 +52,14 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
 @XmlRootElement(name = "fhir.ProvenanceAgent")
 public class ProvenanceAgentImpl extends BackboneElementImpl implements ProvenanceAgent {
 	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRole()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding role;
+	protected EList<CodeableConcept> role;
 
 	/**
 	 * The cached value of the '{@link #getWhoUri() <em>Who Uri</em>}' containment reference.
@@ -128,43 +135,12 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
-	public Coding getRole() {
+	@XmlElement
+	public List<CodeableConcept> getRole() {
+		if (role == null) {
+			role = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PROVENANCE_AGENT__ROLE);
+		}
 		return role;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRole(Coding newRole, NotificationChain msgs) {
-		Coding oldRole = role;
-		role = newRole;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__ROLE, oldRole, newRole);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRole(Coding newRole) {
-		if (newRole != role) {
-			NotificationChain msgs = null;
-			if (role != null)
-				msgs = ((InternalEObject)role).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__ROLE, null, msgs);
-			if (newRole != null)
-				msgs = ((InternalEObject)newRole).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__ROLE, null, msgs);
-			msgs = basicSetRole(newRole, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__ROLE, newRole, newRole));
 	}
 
 	/**
@@ -393,7 +369,7 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.PROVENANCE_AGENT__ROLE:
-				return basicSetRole(null, msgs);
+				return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROVENANCE_AGENT__WHO_URI:
 				return basicSetWhoUri(null, msgs);
 			case FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE:
@@ -437,11 +413,13 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.PROVENANCE_AGENT__ROLE:
-				setRole((Coding)newValue);
+				getRole().clear();
+				getRole().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.PROVENANCE_AGENT__WHO_URI:
 				setWhoUri((Uri)newValue);
@@ -471,7 +449,7 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.PROVENANCE_AGENT__ROLE:
-				setRole((Coding)null);
+				getRole().clear();
 				return;
 			case FhirPackage.PROVENANCE_AGENT__WHO_URI:
 				setWhoUri((Uri)null);
@@ -501,7 +479,7 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.PROVENANCE_AGENT__ROLE:
-				return role != null;
+				return role != null && !role.isEmpty();
 			case FhirPackage.PROVENANCE_AGENT__WHO_URI:
 				return whoUri != null;
 			case FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE:

@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.TestScriptOperationImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -79,13 +79,13 @@ public interface TestScriptOperation extends BackboneElement {
 	 * The type of the resource.  See http://build.fhir.org/resourcelist.html.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference.
-	 * @see #setResource(Code)
+	 * @see #setResource(FHIRDefinedType)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptOperation_Resource()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getResource();
+	FHIRDefinedType getResource();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptOperation#getResource <em>Resource</em>}' containment reference.
@@ -95,7 +95,7 @@ public interface TestScriptOperation extends BackboneElement {
 	 * @see #getResource()
 	 * @generated
 	 */
-	void setResource(Code value);
+	void setResource(FHIRDefinedType value);
 
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' containment reference.

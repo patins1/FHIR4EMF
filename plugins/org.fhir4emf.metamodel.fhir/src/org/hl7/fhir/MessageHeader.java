@@ -25,6 +25,7 @@ import org.hl7.fhir.jaxb.MessageHeaderImplAdapter;
  *   <li>{@link org.hl7.fhir.MessageHeader#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageHeader#getSender <em>Sender</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getEnterer <em>Enterer</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getAuthor <em>Author</em>}</li>
@@ -32,7 +33,7 @@ import org.hl7.fhir.jaxb.MessageHeaderImplAdapter;
  *   <li>{@link org.hl7.fhir.MessageHeader#getResponsible <em>Responsible</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getResponse <em>Response</em>}</li>
- *   <li>{@link org.hl7.fhir.MessageHeader#getData <em>Data</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageHeader#getFocus <em>Focus</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMessageHeader()
@@ -110,6 +111,32 @@ public interface MessageHeader extends DomainResource {
 	void setReceiver(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Sender</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies the sending system to allow the use of a trust relationship.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sender</em>' containment reference.
+	 * @see #setSender(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_Sender()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='sender' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSender();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MessageHeader#getSender <em>Sender</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sender</em>' containment reference.
+	 * @see #getSender()
+	 * @generated
+	 */
+	void setSender(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Timestamp</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,7 +167,7 @@ public interface MessageHeader extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.
+	 * The person or device that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Enterer</em>' containment reference.
 	 * @see #setEnterer(Reference)
@@ -166,7 +193,7 @@ public interface MessageHeader extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.
+	 * The logical author of the message - the person or device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Author</em>' containment reference.
 	 * @see #setAuthor(Reference)
@@ -292,19 +319,19 @@ public interface MessageHeader extends DomainResource {
 	void setResponse(MessageHeaderResponse value);
 
 	/**
-	 * Returns the value of the '<em><b>Data</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Focus</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The actual data of the message - a reference to the root/focus class of the event.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Data</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_Data()
+	 * @return the value of the '<em>Focus</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_Focus()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='data' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='focus' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Reference> getData();
+	List<Reference> getFocus();
 
 } // MessageHeader

@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.QuestionnaireOptionImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -37,7 +37,7 @@ public interface QuestionnaireOption extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a specific answer that's allowed as the answer to a question. (choose any one of value*, but only one)
+	 * A potential answer that's allowed as the answer to this question. (choose any one of value*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value Integer</em>' containment reference.
 	 * @see #setValueInteger(org.hl7.fhir.Integer)
@@ -63,7 +63,7 @@ public interface QuestionnaireOption extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a specific answer that's allowed as the answer to a question. (choose any one of value*, but only one)
+	 * A potential answer that's allowed as the answer to this question. (choose any one of value*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value Date</em>' containment reference.
 	 * @see #setValueDate(Date)
@@ -89,7 +89,7 @@ public interface QuestionnaireOption extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a specific answer that's allowed as the answer to a question. (choose any one of value*, but only one)
+	 * A potential answer that's allowed as the answer to this question. (choose any one of value*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value Time</em>' containment reference.
 	 * @see #setValueTime(Time)
@@ -115,7 +115,7 @@ public interface QuestionnaireOption extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a specific answer that's allowed as the answer to a question. (choose any one of value*, but only one)
+	 * A potential answer that's allowed as the answer to this question. (choose any one of value*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value String</em>' containment reference.
 	 * @see #setValueString(org.hl7.fhir.String)
@@ -141,7 +141,7 @@ public interface QuestionnaireOption extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a specific answer that's allowed as the answer to a question. (choose any one of value*, but only one)
+	 * A potential answer that's allowed as the answer to this question. (choose any one of value*, but only one)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value Coding</em>' containment reference.
 	 * @see #setValueCoding(Coding)

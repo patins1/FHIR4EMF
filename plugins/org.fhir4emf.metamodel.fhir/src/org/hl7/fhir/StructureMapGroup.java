@@ -40,7 +40,7 @@ public interface StructureMapGroup extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Descriptive name for a user.
+	 * A unique name for the group for the convenience of human readers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(Id)
@@ -118,7 +118,7 @@ public interface StructureMapGroup extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Documentation for this group.
+	 * Additional supporting documentation that explains the purpose of the group and the types of mappings within it.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
 	 * @see #setDocumentation(org.hl7.fhir.String)

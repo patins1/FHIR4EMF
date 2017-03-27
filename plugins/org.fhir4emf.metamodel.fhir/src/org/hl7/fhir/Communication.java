@@ -38,7 +38,8 @@ import org.hl7.fhir.jaxb.CommunicationImplAdapter;
  *   <li>{@link org.hl7.fhir.Communication#getSent <em>Sent</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getReceived <em>Received</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getSender <em>Sender</em>}</li>
- *   <li>{@link org.hl7.fhir.Communication#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getPayload <em>Payload</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getNote <em>Note</em>}</li>
  * </ul>
@@ -121,13 +122,13 @@ public interface Communication extends DomainResource {
 	 * The status of the transmission.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(EventStatus)
 	 * @see org.hl7.fhir.FhirPackage#getCommunication_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	EventStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Communication#getStatus <em>Status</em>}' containment reference.
@@ -137,7 +138,7 @@ public interface Communication extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(EventStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Not Done</b></em>' containment reference.
@@ -386,20 +387,36 @@ public interface Communication extends DomainResource {
 	void setSender(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The reason or justification for the communication.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCommunication_Reason()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<CodeableConcept> getReason();
+	List<CodeableConcept> getReasonCode();
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates another resource whose existence justifies this communication.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Payload</b></em>' containment reference list.

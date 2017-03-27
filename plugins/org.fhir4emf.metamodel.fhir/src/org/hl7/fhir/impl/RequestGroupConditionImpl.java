@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Code;
+import org.hl7.fhir.ActionConditionKind;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.RequestGroupCondition;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.ActionConditionKindImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
@@ -48,7 +48,7 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	 * @generated
 	 * @ordered
 	 */
-	protected Code kind;
+	protected ActionConditionKind kind;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -104,9 +104,9 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(ActionConditionKindImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getKind() {
+	public ActionConditionKind getKind() {
 		return kind;
 	}
 
@@ -115,8 +115,8 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetKind(Code newKind, NotificationChain msgs) {
-		Code oldKind = kind;
+	public NotificationChain basicSetKind(ActionConditionKind newKind, NotificationChain msgs) {
+		ActionConditionKind oldKind = kind;
 		kind = newKind;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_CONDITION__KIND, oldKind, newKind);
@@ -130,7 +130,7 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setKind(Code newKind) {
+	public void setKind(ActionConditionKind newKind) {
 		if (newKind != kind) {
 			NotificationChain msgs = null;
 			if (kind != null)
@@ -325,7 +325,7 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.REQUEST_GROUP_CONDITION__KIND:
-				setKind((Code)newValue);
+				setKind((ActionConditionKind)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_CONDITION__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -349,7 +349,7 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.REQUEST_GROUP_CONDITION__KIND:
-				setKind((Code)null);
+				setKind((ActionConditionKind)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_CONDITION__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);

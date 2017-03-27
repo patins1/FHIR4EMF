@@ -64,6 +64,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getUsage <em>Usage</em>}</li>
@@ -74,7 +75,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceDefinitionImpl#getRelatedArtifact <em>Related Artifact</em>}</li>
@@ -167,6 +167,16 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * @ordered
 	 */
 	protected DateTime date;
+
+	/**
+	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPublisher()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String publisher;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -267,16 +277,6 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * @ordered
 	 */
 	protected EList<Contributor> contributor;
-
-	/**
-	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublisher()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String publisher;
 
 	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
@@ -684,6 +684,50 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	public org.hl7.fhir.String getPublisher() {
+		return publisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
+		org.hl7.fhir.String oldPublisher = publisher;
+		publisher = newPublisher;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_DEFINITION__PUBLISHER, oldPublisher, newPublisher);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPublisher(org.hl7.fhir.String newPublisher) {
+		if (newPublisher != publisher) {
+			NotificationChain msgs = null;
+			if (publisher != null)
+				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_DEFINITION__PUBLISHER, null, msgs);
+			if (newPublisher != null)
+				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_DEFINITION__PUBLISHER, null, msgs);
+			msgs = basicSetPublisher(newPublisher, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_DEFINITION__PUBLISHER, newPublisher, newPublisher));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
@@ -999,50 +1043,6 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getPublisher() {
-		return publisher;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
-		org.hl7.fhir.String oldPublisher = publisher;
-		publisher = newPublisher;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_DEFINITION__PUBLISHER, oldPublisher, newPublisher);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPublisher(org.hl7.fhir.String newPublisher) {
-		if (newPublisher != publisher) {
-			NotificationChain msgs = null;
-			if (publisher != null)
-				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_DEFINITION__PUBLISHER, null, msgs);
-			if (newPublisher != null)
-				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_DEFINITION__PUBLISHER, null, msgs);
-			msgs = basicSetPublisher(newPublisher, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_DEFINITION__PUBLISHER, newPublisher, newPublisher));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@XmlElement
 	public List<ContactDetail> getContact() {
 		if (contact == null) {
@@ -1201,6 +1201,8 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 				return basicSetExperimental(null, msgs);
 			case FhirPackage.SERVICE_DEFINITION__DATE:
 				return basicSetDate(null, msgs);
+			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
+				return basicSetPublisher(null, msgs);
 			case FhirPackage.SERVICE_DEFINITION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.SERVICE_DEFINITION__PURPOSE:
@@ -1221,8 +1223,6 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SERVICE_DEFINITION__CONTRIBUTOR:
 				return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
-				return basicSetPublisher(null, msgs);
 			case FhirPackage.SERVICE_DEFINITION__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SERVICE_DEFINITION__COPYRIGHT:
@@ -1263,6 +1263,8 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 				return getExperimental();
 			case FhirPackage.SERVICE_DEFINITION__DATE:
 				return getDate();
+			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
+				return getPublisher();
 			case FhirPackage.SERVICE_DEFINITION__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.SERVICE_DEFINITION__PURPOSE:
@@ -1283,8 +1285,6 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 				return getTopic();
 			case FhirPackage.SERVICE_DEFINITION__CONTRIBUTOR:
 				return getContributor();
-			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
-				return getPublisher();
 			case FhirPackage.SERVICE_DEFINITION__CONTACT:
 				return getContact();
 			case FhirPackage.SERVICE_DEFINITION__COPYRIGHT:
@@ -1335,6 +1335,9 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 			case FhirPackage.SERVICE_DEFINITION__DATE:
 				setDate((DateTime)newValue);
 				return;
+			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.SERVICE_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)newValue);
 				return;
@@ -1368,9 +1371,6 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 			case FhirPackage.SERVICE_DEFINITION__CONTRIBUTOR:
 				getContributor().clear();
 				getContributor().addAll((Collection<? extends Contributor>)newValue);
-				return;
-			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.SERVICE_DEFINITION__CONTACT:
 				getContact().clear();
@@ -1430,6 +1430,9 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 			case FhirPackage.SERVICE_DEFINITION__DATE:
 				setDate((DateTime)null);
 				return;
+			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.SERVICE_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)null);
 				return;
@@ -1459,9 +1462,6 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 				return;
 			case FhirPackage.SERVICE_DEFINITION__CONTRIBUTOR:
 				getContributor().clear();
-				return;
-			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.SERVICE_DEFINITION__CONTACT:
 				getContact().clear();
@@ -1509,6 +1509,8 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 				return experimental != null;
 			case FhirPackage.SERVICE_DEFINITION__DATE:
 				return date != null;
+			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
+				return publisher != null;
 			case FhirPackage.SERVICE_DEFINITION__DESCRIPTION:
 				return description != null;
 			case FhirPackage.SERVICE_DEFINITION__PURPOSE:
@@ -1529,8 +1531,6 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 				return topic != null && !topic.isEmpty();
 			case FhirPackage.SERVICE_DEFINITION__CONTRIBUTOR:
 				return contributor != null && !contributor.isEmpty();
-			case FhirPackage.SERVICE_DEFINITION__PUBLISHER:
-				return publisher != null;
 			case FhirPackage.SERVICE_DEFINITION__CONTACT:
 				return contact != null && !contact.isEmpty();
 			case FhirPackage.SERVICE_DEFINITION__COPYRIGHT:

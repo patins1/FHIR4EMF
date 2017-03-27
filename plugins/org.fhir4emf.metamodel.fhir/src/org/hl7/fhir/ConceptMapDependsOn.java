@@ -22,6 +22,7 @@ import org.hl7.fhir.jaxb.ConceptMapDependsOnImplAdapter;
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getProperty <em>Property</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getSystem <em>System</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getDisplay <em>Display</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn()
@@ -35,7 +36,7 @@ public interface ConceptMapDependsOn extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property.
+	 * A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labeled to correspond with a code system property.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Property</em>' containment reference.
 	 * @see #setProperty(Uri)
@@ -107,5 +108,31 @@ public interface ConceptMapDependsOn extends BackboneElement {
 	 * @generated
 	 */
 	void setCode(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Display</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The display for the code. The display is only provided to help editors when editing the concept map.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Display</em>' containment reference.
+	 * @see #setDisplay(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn_Display()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='display' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDisplay();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapDependsOn#getDisplay <em>Display</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Display</em>' containment reference.
+	 * @see #getDisplay()
+	 * @generated
+	 */
+	void setDisplay(org.hl7.fhir.String value);
 
 } // ConceptMapDependsOn

@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.ContactDetail;
@@ -34,14 +33,15 @@ import org.hl7.fhir.Markdown;
 import org.hl7.fhir.MessageDefinition;
 import org.hl7.fhir.MessageDefinitionAllowedResponse;
 import org.hl7.fhir.MessageDefinitionFocus;
+import org.hl7.fhir.MessageSignificanceCategory;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.MessageSignificanceCategoryImplAdapter;
 import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 import org.hl7.fhir.jaxb.UriImplAdapter;
@@ -282,7 +282,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * @generated
 	 * @ordered
 	 */
-	protected Code category;
+	protected MessageSignificanceCategory category;
 
 	/**
 	 * The cached value of the '{@link #getFocus() <em>Focus</em>}' containment reference list.
@@ -1019,8 +1019,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getCategory() {
+	@XmlJavaTypeAdapter(MessageSignificanceCategoryImplAdapter.class)
+	public MessageSignificanceCategory getCategory() {
 		return category;
 	}
 
@@ -1029,8 +1029,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCategory(Code newCategory, NotificationChain msgs) {
-		Code oldCategory = category;
+	public NotificationChain basicSetCategory(MessageSignificanceCategory newCategory, NotificationChain msgs) {
+		MessageSignificanceCategory oldCategory = category;
 		category = newCategory;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__CATEGORY, oldCategory, newCategory);
@@ -1044,7 +1044,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCategory(Code newCategory) {
+	public void setCategory(MessageSignificanceCategory newCategory) {
 		if (newCategory != category) {
 			NotificationChain msgs = null;
 			if (category != null)
@@ -1316,7 +1316,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				setEvent((Coding)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__CATEGORY:
-				setCategory((Code)newValue);
+				setCategory((MessageSignificanceCategory)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__FOCUS:
 				getFocus().clear();
@@ -1399,7 +1399,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				setEvent((Coding)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__CATEGORY:
-				setCategory((Code)null);
+				setCategory((MessageSignificanceCategory)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__FOCUS:
 				getFocus().clear();

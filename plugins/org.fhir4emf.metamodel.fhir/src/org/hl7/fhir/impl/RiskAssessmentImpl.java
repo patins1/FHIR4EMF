@@ -23,18 +23,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Annotation;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.ObservationStatus;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RiskAssessment;
 import org.hl7.fhir.RiskAssessmentPrediction;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.ObservationStatusImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
@@ -49,6 +48,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getContext <em>Context</em>}</li>
@@ -58,11 +58,10 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getBasis <em>Basis</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getPrediction <em>Prediction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getMitigation <em>Mitigation</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RiskAssessmentImpl#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @generated
@@ -108,7 +107,17 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected ObservationStatus status;
+
+	/**
+	 * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept method;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -201,16 +210,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	protected Reference reasonReference;
 
 	/**
-	 * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMethod()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept method;
-
-	/**
 	 * The cached value of the '{@link #getBasis() <em>Basis</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,14 +240,14 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	protected org.hl7.fhir.String mitigation;
 
 	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNote()
+	 * @see #getComment()
 	 * @generated
 	 * @ordered
 	 */
-	protected Annotation note;
+	protected org.hl7.fhir.String comment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -403,9 +402,9 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(ObservationStatusImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getStatus() {
+	public ObservationStatus getStatus() {
 		return status;
 	}
 
@@ -414,8 +413,8 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(ObservationStatus newStatus, NotificationChain msgs) {
+		ObservationStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__STATUS, oldStatus, newStatus);
@@ -429,7 +428,7 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(ObservationStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -441,6 +440,49 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getMethod() {
+		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMethod(CodeableConcept newMethod, NotificationChain msgs) {
+		CodeableConcept oldMethod = method;
+		method = newMethod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__METHOD, oldMethod, newMethod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMethod(CodeableConcept newMethod) {
+		if (newMethod != method) {
+			NotificationChain msgs = null;
+			if (method != null)
+				msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT__METHOD, null, msgs);
+			if (newMethod != null)
+				msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT__METHOD, null, msgs);
+			msgs = basicSetMethod(newMethod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__METHOD, newMethod, newMethod));
 	}
 
 	/**
@@ -836,49 +878,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getMethod() {
-		return method;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMethod(CodeableConcept newMethod, NotificationChain msgs) {
-		CodeableConcept oldMethod = method;
-		method = newMethod;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__METHOD, oldMethod, newMethod);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMethod(CodeableConcept newMethod) {
-		if (newMethod != method) {
-			NotificationChain msgs = null;
-			if (method != null)
-				msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT__METHOD, null, msgs);
-			if (newMethod != null)
-				msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT__METHOD, null, msgs);
-			msgs = basicSetMethod(newMethod, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__METHOD, newMethod, newMethod));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@XmlElement
 	public List<Reference> getBasis() {
 		if (basis == null) {
@@ -949,8 +948,9 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Annotation getNote() {
-		return note;
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	public org.hl7.fhir.String getComment() {
+		return comment;
 	}
 
 	/**
@@ -958,11 +958,11 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNote(Annotation newNote, NotificationChain msgs) {
-		Annotation oldNote = note;
-		note = newNote;
+	public NotificationChain basicSetComment(org.hl7.fhir.String newComment, NotificationChain msgs) {
+		org.hl7.fhir.String oldComment = comment;
+		comment = newComment;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__NOTE, oldNote, newNote);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__COMMENT, oldComment, newComment);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -973,18 +973,18 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNote(Annotation newNote) {
-		if (newNote != note) {
+	public void setComment(org.hl7.fhir.String newComment) {
+		if (newComment != comment) {
 			NotificationChain msgs = null;
-			if (note != null)
-				msgs = ((InternalEObject)note).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT__NOTE, null, msgs);
-			if (newNote != null)
-				msgs = ((InternalEObject)newNote).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT__NOTE, null, msgs);
-			msgs = basicSetNote(newNote, msgs);
+			if (comment != null)
+				msgs = ((InternalEObject)comment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT__COMMENT, null, msgs);
+			if (newComment != null)
+				msgs = ((InternalEObject)newComment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT__COMMENT, null, msgs);
+			msgs = basicSetComment(newComment, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__NOTE, newNote, newNote));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT__COMMENT, newComment, newComment));
 	}
 
 	/**
@@ -1003,6 +1003,8 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 				return basicSetParent(null, msgs);
 			case FhirPackage.RISK_ASSESSMENT__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.RISK_ASSESSMENT__METHOD:
+				return basicSetMethod(null, msgs);
 			case FhirPackage.RISK_ASSESSMENT__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.RISK_ASSESSMENT__SUBJECT:
@@ -1021,16 +1023,14 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 				return basicSetReasonCodeableConcept(null, msgs);
 			case FhirPackage.RISK_ASSESSMENT__REASON_REFERENCE:
 				return basicSetReasonReference(null, msgs);
-			case FhirPackage.RISK_ASSESSMENT__METHOD:
-				return basicSetMethod(null, msgs);
 			case FhirPackage.RISK_ASSESSMENT__BASIS:
 				return ((InternalEList<?>)getBasis()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RISK_ASSESSMENT__PREDICTION:
 				return ((InternalEList<?>)getPrediction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RISK_ASSESSMENT__MITIGATION:
 				return basicSetMitigation(null, msgs);
-			case FhirPackage.RISK_ASSESSMENT__NOTE:
-				return basicSetNote(null, msgs);
+			case FhirPackage.RISK_ASSESSMENT__COMMENT:
+				return basicSetComment(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1051,6 +1051,8 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 				return getParent();
 			case FhirPackage.RISK_ASSESSMENT__STATUS:
 				return getStatus();
+			case FhirPackage.RISK_ASSESSMENT__METHOD:
+				return getMethod();
 			case FhirPackage.RISK_ASSESSMENT__CODE:
 				return getCode();
 			case FhirPackage.RISK_ASSESSMENT__SUBJECT:
@@ -1069,16 +1071,14 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 				return getReasonCodeableConcept();
 			case FhirPackage.RISK_ASSESSMENT__REASON_REFERENCE:
 				return getReasonReference();
-			case FhirPackage.RISK_ASSESSMENT__METHOD:
-				return getMethod();
 			case FhirPackage.RISK_ASSESSMENT__BASIS:
 				return getBasis();
 			case FhirPackage.RISK_ASSESSMENT__PREDICTION:
 				return getPrediction();
 			case FhirPackage.RISK_ASSESSMENT__MITIGATION:
 				return getMitigation();
-			case FhirPackage.RISK_ASSESSMENT__NOTE:
-				return getNote();
+			case FhirPackage.RISK_ASSESSMENT__COMMENT:
+				return getComment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1102,7 +1102,10 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 				setParent((Reference)newValue);
 				return;
 			case FhirPackage.RISK_ASSESSMENT__STATUS:
-				setStatus((Code)newValue);
+				setStatus((ObservationStatus)newValue);
+				return;
+			case FhirPackage.RISK_ASSESSMENT__METHOD:
+				setMethod((CodeableConcept)newValue);
 				return;
 			case FhirPackage.RISK_ASSESSMENT__CODE:
 				setCode((CodeableConcept)newValue);
@@ -1131,9 +1134,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 			case FhirPackage.RISK_ASSESSMENT__REASON_REFERENCE:
 				setReasonReference((Reference)newValue);
 				return;
-			case FhirPackage.RISK_ASSESSMENT__METHOD:
-				setMethod((CodeableConcept)newValue);
-				return;
 			case FhirPackage.RISK_ASSESSMENT__BASIS:
 				getBasis().clear();
 				getBasis().addAll((Collection<? extends Reference>)newValue);
@@ -1145,8 +1145,8 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 			case FhirPackage.RISK_ASSESSMENT__MITIGATION:
 				setMitigation((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.RISK_ASSESSMENT__NOTE:
-				setNote((Annotation)newValue);
+			case FhirPackage.RISK_ASSESSMENT__COMMENT:
+				setComment((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1170,7 +1170,10 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 				setParent((Reference)null);
 				return;
 			case FhirPackage.RISK_ASSESSMENT__STATUS:
-				setStatus((Code)null);
+				setStatus((ObservationStatus)null);
+				return;
+			case FhirPackage.RISK_ASSESSMENT__METHOD:
+				setMethod((CodeableConcept)null);
 				return;
 			case FhirPackage.RISK_ASSESSMENT__CODE:
 				setCode((CodeableConcept)null);
@@ -1199,9 +1202,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 			case FhirPackage.RISK_ASSESSMENT__REASON_REFERENCE:
 				setReasonReference((Reference)null);
 				return;
-			case FhirPackage.RISK_ASSESSMENT__METHOD:
-				setMethod((CodeableConcept)null);
-				return;
 			case FhirPackage.RISK_ASSESSMENT__BASIS:
 				getBasis().clear();
 				return;
@@ -1211,8 +1211,8 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 			case FhirPackage.RISK_ASSESSMENT__MITIGATION:
 				setMitigation((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.RISK_ASSESSMENT__NOTE:
-				setNote((Annotation)null);
+			case FhirPackage.RISK_ASSESSMENT__COMMENT:
+				setComment((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1234,6 +1234,8 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 				return parent != null;
 			case FhirPackage.RISK_ASSESSMENT__STATUS:
 				return status != null;
+			case FhirPackage.RISK_ASSESSMENT__METHOD:
+				return method != null;
 			case FhirPackage.RISK_ASSESSMENT__CODE:
 				return code != null;
 			case FhirPackage.RISK_ASSESSMENT__SUBJECT:
@@ -1252,16 +1254,14 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 				return reasonCodeableConcept != null;
 			case FhirPackage.RISK_ASSESSMENT__REASON_REFERENCE:
 				return reasonReference != null;
-			case FhirPackage.RISK_ASSESSMENT__METHOD:
-				return method != null;
 			case FhirPackage.RISK_ASSESSMENT__BASIS:
 				return basis != null && !basis.isEmpty();
 			case FhirPackage.RISK_ASSESSMENT__PREDICTION:
 				return prediction != null && !prediction.isEmpty();
 			case FhirPackage.RISK_ASSESSMENT__MITIGATION:
 				return mitigation != null;
-			case FhirPackage.RISK_ASSESSMENT__NOTE:
-				return note != null;
+			case FhirPackage.RISK_ASSESSMENT__COMMENT:
+				return comment != null;
 		}
 		return super.eIsSet(featureID);
 	}

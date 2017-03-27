@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.TestScriptParamImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -60,7 +60,7 @@ public interface TestScriptParam extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The explict or dynamic value for the parameter that will be passed on to the external rule template.
+	 * The explicit or dynamic value for the parameter that will be passed on to the external rule template.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(org.hl7.fhir.String)

@@ -35,7 +35,7 @@ import org.hl7.fhir.jaxb.PractitionerRoleAvailableTimeImplAdapter;
 public interface PractitionerRoleAvailableTime extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Days Of Week</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Code}.
+	 * The list contents are of type {@link org.hl7.fhir.DaysOfWeek}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -47,7 +47,7 @@ public interface PractitionerRoleAvailableTime extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='daysOfWeek' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Code> getDaysOfWeek();
+	List<DaysOfWeek> getDaysOfWeek();
 
 	/**
 	 * Returns the value of the '<em><b>All Day</b></em>' containment reference.

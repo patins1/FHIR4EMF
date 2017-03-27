@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Quantity;
@@ -31,10 +32,9 @@ import org.hl7.fhir.Sequence;
 import org.hl7.fhir.SequenceQuality;
 import org.hl7.fhir.SequenceReferenceSeq;
 import org.hl7.fhir.SequenceRepository;
-import org.hl7.fhir.SequenceType;
 import org.hl7.fhir.SequenceVariant;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.SequenceTypeImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
@@ -85,7 +85,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * @generated
 	 * @ordered
 	 */
-	protected SequenceType type;
+	protected Code type;
 
 	/**
 	 * The cached value of the '{@link #getCoordinateSystem() <em>Coordinate System</em>}' containment reference.
@@ -254,8 +254,8 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SequenceTypeImplAdapter.class)
-	public SequenceType getType() {
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	public Code getType() {
 		return type;
 	}
 
@@ -264,8 +264,8 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(SequenceType newType, NotificationChain msgs) {
-		SequenceType oldType = type;
+	public NotificationChain basicSetType(Code newType, NotificationChain msgs) {
+		Code oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__TYPE, oldType, newType);
@@ -279,7 +279,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(SequenceType newType) {
+	public void setType(Code newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -834,7 +834,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.SEQUENCE__TYPE:
-				setType((SequenceType)newValue);
+				setType((Code)newValue);
 				return;
 			case FhirPackage.SEQUENCE__COORDINATE_SYSTEM:
 				setCoordinateSystem((org.hl7.fhir.Integer)newValue);
@@ -895,7 +895,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				getIdentifier().clear();
 				return;
 			case FhirPackage.SEQUENCE__TYPE:
-				setType((SequenceType)null);
+				setType((Code)null);
 				return;
 			case FhirPackage.SEQUENCE__COORDINATE_SYSTEM:
 				setCoordinateSystem((org.hl7.fhir.Integer)null);

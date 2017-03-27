@@ -24,17 +24,17 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Communication;
 import org.hl7.fhir.CommunicationPayload;
 import org.hl7.fhir.DateTime;
+import org.hl7.fhir.EventStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.EventStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,8 @@ import org.hl7.fhir.jaxb.DateTimeImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getSent <em>Sent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getReceived <em>Received</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getSender <em>Sender</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getPayload <em>Payload</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getNote <em>Note</em>}</li>
  * </ul>
@@ -118,7 +119,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected EventStatus status;
 
 	/**
 	 * The cached value of the '{@link #getNotDone() <em>Not Done</em>}' containment reference.
@@ -231,14 +232,24 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	protected Reference sender;
 
 	/**
-	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference list.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReason()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> reason;
+	protected EList<CodeableConcept> reasonCode;
+
+	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> reasonReference;
 
 	/**
 	 * The cached value of the '{@link #getPayload() <em>Payload</em>}' containment reference list.
@@ -336,9 +347,9 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(EventStatusImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getStatus() {
+	public EventStatus getStatus() {
 		return status;
 	}
 
@@ -347,8 +358,8 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(EventStatus newStatus, NotificationChain msgs) {
+		EventStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION__STATUS, oldStatus, newStatus);
@@ -362,7 +373,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(EventStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -738,11 +749,24 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * @generated
 	 */
 	@XmlElement
-	public List<CodeableConcept> getReason() {
-		if (reason == null) {
-			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION__REASON);
+	public List<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION__REASON_CODE);
 		}
-		return reason;
+		return reasonCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION__REASON_REFERENCE);
+		}
+		return reasonReference;
 	}
 
 	/**
@@ -811,8 +835,10 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				return basicSetReceived(null, msgs);
 			case FhirPackage.COMMUNICATION__SENDER:
 				return basicSetSender(null, msgs);
-			case FhirPackage.COMMUNICATION__REASON:
-				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMMUNICATION__PAYLOAD:
 				return ((InternalEList<?>)getPayload()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMMUNICATION__NOTE:
@@ -861,8 +887,10 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				return getReceived();
 			case FhirPackage.COMMUNICATION__SENDER:
 				return getSender();
-			case FhirPackage.COMMUNICATION__REASON:
-				return getReason();
+			case FhirPackage.COMMUNICATION__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.COMMUNICATION__REASON_REFERENCE:
+				return getReasonReference();
 			case FhirPackage.COMMUNICATION__PAYLOAD:
 				return getPayload();
 			case FhirPackage.COMMUNICATION__NOTE:
@@ -897,7 +925,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				getPartOf().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.COMMUNICATION__STATUS:
-				setStatus((Code)newValue);
+				setStatus((EventStatus)newValue);
 				return;
 			case FhirPackage.COMMUNICATION__NOT_DONE:
 				setNotDone((org.hl7.fhir.Boolean)newValue);
@@ -936,9 +964,13 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 			case FhirPackage.COMMUNICATION__SENDER:
 				setSender((Reference)newValue);
 				return;
-			case FhirPackage.COMMUNICATION__REASON:
-				getReason().clear();
-				getReason().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.COMMUNICATION__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.COMMUNICATION__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.COMMUNICATION__PAYLOAD:
 				getPayload().clear();
@@ -973,7 +1005,7 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				getPartOf().clear();
 				return;
 			case FhirPackage.COMMUNICATION__STATUS:
-				setStatus((Code)null);
+				setStatus((EventStatus)null);
 				return;
 			case FhirPackage.COMMUNICATION__NOT_DONE:
 				setNotDone((org.hl7.fhir.Boolean)null);
@@ -1008,8 +1040,11 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 			case FhirPackage.COMMUNICATION__SENDER:
 				setSender((Reference)null);
 				return;
-			case FhirPackage.COMMUNICATION__REASON:
-				getReason().clear();
+			case FhirPackage.COMMUNICATION__REASON_CODE:
+				getReasonCode().clear();
+				return;
+			case FhirPackage.COMMUNICATION__REASON_REFERENCE:
+				getReasonReference().clear();
 				return;
 			case FhirPackage.COMMUNICATION__PAYLOAD:
 				getPayload().clear();
@@ -1061,8 +1096,10 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				return received != null;
 			case FhirPackage.COMMUNICATION__SENDER:
 				return sender != null;
-			case FhirPackage.COMMUNICATION__REASON:
-				return reason != null && !reason.isEmpty();
+			case FhirPackage.COMMUNICATION__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.COMMUNICATION__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.COMMUNICATION__PAYLOAD:
 				return payload != null && !payload.isEmpty();
 			case FhirPackage.COMMUNICATION__NOTE:

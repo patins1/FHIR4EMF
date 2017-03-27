@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.ProcedureRequestRequesterImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A record of a request for a diagnostic investigation service to be performed.
+ * A record of a request for diagnostic investigations, treatments, or operations to be performed.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -34,7 +34,7 @@ public interface ProcedureRequestRequester extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The device, practitioner or organization. who initiated the request.
+	 * The device, practitioner or organization who initiated the request.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Agent</em>' containment reference.
 	 * @see #setAgent(Reference)

@@ -31,7 +31,6 @@ import org.hl7.fhir.jaxb.ObservationImplAdapter;
  *   <li>{@link org.hl7.fhir.Observation#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getEffectivePeriod <em>Effective Period</em>}</li>
- *   <li>{@link org.hl7.fhir.Observation#getEffectiveTiming <em>Effective Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueQuantity <em>Value Quantity</em>}</li>
@@ -266,32 +265,6 @@ public interface Observation extends DomainResource {
 	 * @generated
 	 */
 	void setEffectivePeriod(Period value);
-
-	/**
-	 * Returns the value of the '<em><b>Effective Timing</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself. (choose any one of effective*, but only one)
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Effective Timing</em>' containment reference.
-	 * @see #setEffectiveTiming(Timing)
-	 * @see org.hl7.fhir.FhirPackage#getObservation_EffectiveTiming()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='effectiveTiming' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Timing getEffectiveTiming();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Observation#getEffectiveTiming <em>Effective Timing</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Effective Timing</em>' containment reference.
-	 * @see #getEffectiveTiming()
-	 * @generated
-	 */
-	void setEffectiveTiming(Timing value);
 
 	/**
 	 * Returns the value of the '<em><b>Issued</b></em>' containment reference.

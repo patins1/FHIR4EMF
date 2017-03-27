@@ -1,7 +1,0 @@
-package org.hl7.fhir.jaxb;
-
-import org.eclipse.emf.ecore.jaxb.EObjectRefAdapter;
-import org.hl7.fhir.MeasureDataUsage;
-
-public class MeasureDataUsageRefAdapter extends EObjectRefAdapter<MeasureDataUsageRef,MeasureDataUsage> {
-}

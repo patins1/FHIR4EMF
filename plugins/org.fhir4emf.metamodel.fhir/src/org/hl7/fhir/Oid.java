@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.OidImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An oid represented as a URI
+ * An OID represented as a URI
  * RFC 3001. See also ISO/IEC 8824:1990 €
  * If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->

@@ -175,7 +175,7 @@ public interface AuditEventEntity extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Denotes security labels for the identified entity.
+	 * Security labels for the identified entity.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Security Label</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAuditEventEntity_SecurityLabel()
@@ -269,7 +269,7 @@ public interface AuditEventEntity extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional Information about the entity.
+	 * Tagged value pairs for conveying additional information about the entity.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Detail</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAuditEventEntity_Detail()

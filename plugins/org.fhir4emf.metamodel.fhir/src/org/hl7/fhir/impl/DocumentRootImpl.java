@@ -41,7 +41,6 @@ import org.hl7.fhir.Bundle;
 import org.hl7.fhir.CapabilityStatement;
 import org.hl7.fhir.CarePlan;
 import org.hl7.fhir.CareTeam;
-import org.hl7.fhir.Catalog;
 import org.hl7.fhir.ChargeItem;
 import org.hl7.fhir.Claim;
 import org.hl7.fhir.ClaimResponse;
@@ -80,6 +79,7 @@ import org.hl7.fhir.FamilyMemberHistory;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Flag;
 import org.hl7.fhir.Goal;
+import org.hl7.fhir.GraphDefinition;
 import org.hl7.fhir.Group;
 import org.hl7.fhir.GuidanceResponse;
 import org.hl7.fhir.HealthcareService;
@@ -172,7 +172,6 @@ import org.hl7.fhir.VisionPrescription;
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCapabilityStatement <em>Capability Statement</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCarePlan <em>Care Plan</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCareTeam <em>Care Team</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getCatalog <em>Catalog</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getChargeItem <em>Charge Item</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getClaim <em>Claim</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getClaimResponse <em>Claim Response</em>}</li>
@@ -209,6 +208,7 @@ import org.hl7.fhir.VisionPrescription;
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getFamilyMemberHistory <em>Family Member History</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getFlag <em>Flag</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getGoal <em>Goal</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getGraphDefinition <em>Graph Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getGuidanceResponse <em>Guidance Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentRootImpl#getHealthcareService <em>Healthcare Service</em>}</li>
@@ -745,33 +745,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public void setCareTeam(CareTeam newCareTeam) {
 		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_CareTeam(), newCareTeam);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Catalog getCatalog() {
-		return (Catalog)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_Catalog(), true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCatalog(Catalog newCatalog, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_Catalog(), newCatalog, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCatalog(Catalog newCatalog) {
-		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_Catalog(), newCatalog);
 	}
 
 	/**
@@ -1744,6 +1717,33 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public void setGoal(Goal newGoal) {
 		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_Goal(), newGoal);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GraphDefinition getGraphDefinition() {
+		return (GraphDefinition)getMixed().get(FhirPackage.eINSTANCE.getDocumentRoot_GraphDefinition(), true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGraphDefinition(GraphDefinition newGraphDefinition, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(FhirPackage.eINSTANCE.getDocumentRoot_GraphDefinition(), newGraphDefinition, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGraphDefinition(GraphDefinition newGraphDefinition) {
+		((FeatureMap.Internal)getMixed()).set(FhirPackage.eINSTANCE.getDocumentRoot_GraphDefinition(), newGraphDefinition);
 	}
 
 	/**
@@ -3570,8 +3570,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetCarePlan(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
 				return basicSetCareTeam(null, msgs);
-			case FhirPackage.DOCUMENT_ROOT__CATALOG:
-				return basicSetCatalog(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__CHARGE_ITEM:
 				return basicSetChargeItem(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__CLAIM:
@@ -3644,6 +3642,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return basicSetFlag(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__GOAL:
 				return basicSetGoal(null, msgs);
+			case FhirPackage.DOCUMENT_ROOT__GRAPH_DEFINITION:
+				return basicSetGraphDefinition(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__GROUP:
 				return basicSetGroup(null, msgs);
 			case FhirPackage.DOCUMENT_ROOT__GUIDANCE_RESPONSE:
@@ -3825,8 +3825,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getCarePlan();
 			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
 				return getCareTeam();
-			case FhirPackage.DOCUMENT_ROOT__CATALOG:
-				return getCatalog();
 			case FhirPackage.DOCUMENT_ROOT__CHARGE_ITEM:
 				return getChargeItem();
 			case FhirPackage.DOCUMENT_ROOT__CLAIM:
@@ -3899,6 +3897,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getFlag();
 			case FhirPackage.DOCUMENT_ROOT__GOAL:
 				return getGoal();
+			case FhirPackage.DOCUMENT_ROOT__GRAPH_DEFINITION:
+				return getGraphDefinition();
 			case FhirPackage.DOCUMENT_ROOT__GROUP:
 				return getGroup();
 			case FhirPackage.DOCUMENT_ROOT__GUIDANCE_RESPONSE:
@@ -4094,9 +4094,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
 				setCareTeam((CareTeam)newValue);
 				return;
-			case FhirPackage.DOCUMENT_ROOT__CATALOG:
-				setCatalog((Catalog)newValue);
-				return;
 			case FhirPackage.DOCUMENT_ROOT__CHARGE_ITEM:
 				setChargeItem((ChargeItem)newValue);
 				return;
@@ -4204,6 +4201,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return;
 			case FhirPackage.DOCUMENT_ROOT__GOAL:
 				setGoal((Goal)newValue);
+				return;
+			case FhirPackage.DOCUMENT_ROOT__GRAPH_DEFINITION:
+				setGraphDefinition((GraphDefinition)newValue);
 				return;
 			case FhirPackage.DOCUMENT_ROOT__GROUP:
 				setGroup((Group)newValue);
@@ -4466,9 +4466,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
 				setCareTeam((CareTeam)null);
 				return;
-			case FhirPackage.DOCUMENT_ROOT__CATALOG:
-				setCatalog((Catalog)null);
-				return;
 			case FhirPackage.DOCUMENT_ROOT__CHARGE_ITEM:
 				setChargeItem((ChargeItem)null);
 				return;
@@ -4576,6 +4573,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return;
 			case FhirPackage.DOCUMENT_ROOT__GOAL:
 				setGoal((Goal)null);
+				return;
+			case FhirPackage.DOCUMENT_ROOT__GRAPH_DEFINITION:
+				setGraphDefinition((GraphDefinition)null);
 				return;
 			case FhirPackage.DOCUMENT_ROOT__GROUP:
 				setGroup((Group)null);
@@ -4821,8 +4821,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getCarePlan() != null;
 			case FhirPackage.DOCUMENT_ROOT__CARE_TEAM:
 				return getCareTeam() != null;
-			case FhirPackage.DOCUMENT_ROOT__CATALOG:
-				return getCatalog() != null;
 			case FhirPackage.DOCUMENT_ROOT__CHARGE_ITEM:
 				return getChargeItem() != null;
 			case FhirPackage.DOCUMENT_ROOT__CLAIM:
@@ -4895,6 +4893,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				return getFlag() != null;
 			case FhirPackage.DOCUMENT_ROOT__GOAL:
 				return getGoal() != null;
+			case FhirPackage.DOCUMENT_ROOT__GRAPH_DEFINITION:
+				return getGraphDefinition() != null;
 			case FhirPackage.DOCUMENT_ROOT__GROUP:
 				return getGroup() != null;
 			case FhirPackage.DOCUMENT_ROOT__GUIDANCE_RESPONSE:

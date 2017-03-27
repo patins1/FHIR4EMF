@@ -57,9 +57,9 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapImpl#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -146,6 +146,16 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
+
+	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,16 +174,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * @ordered
 	 */
 	protected EList<ContactDetail> contact;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -559,6 +559,50 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
@@ -609,50 +653,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.STRUCTURE_MAP__CONTACT);
 		}
 		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP__DATE, newDate, newDate));
 	}
 
 	/**
@@ -875,12 +875,12 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return basicSetStatus(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.STRUCTURE_MAP__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.STRUCTURE_MAP__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.STRUCTURE_MAP__USE_CONTEXT:
@@ -923,12 +923,12 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return getStatus();
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.STRUCTURE_MAP__DATE:
+				return getDate();
 			case FhirPackage.STRUCTURE_MAP__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.STRUCTURE_MAP__CONTACT:
 				return getContact();
-			case FhirPackage.STRUCTURE_MAP__DATE:
-				return getDate();
 			case FhirPackage.STRUCTURE_MAP__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.STRUCTURE_MAP__USE_CONTEXT:
@@ -980,15 +980,15 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.STRUCTURE_MAP__DATE:
+				setDate((DateTime)newValue);
+				return;
 			case FhirPackage.STRUCTURE_MAP__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
-				return;
-			case FhirPackage.STRUCTURE_MAP__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -1052,14 +1052,14 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.STRUCTURE_MAP__DATE:
+				setDate((DateTime)null);
+				return;
 			case FhirPackage.STRUCTURE_MAP__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.STRUCTURE_MAP__CONTACT:
 				getContact().clear();
-				return;
-			case FhirPackage.STRUCTURE_MAP__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.STRUCTURE_MAP__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1111,12 +1111,12 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return status != null;
 			case FhirPackage.STRUCTURE_MAP__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.STRUCTURE_MAP__DATE:
+				return date != null;
 			case FhirPackage.STRUCTURE_MAP__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.STRUCTURE_MAP__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.STRUCTURE_MAP__DATE:
-				return date != null;
 			case FhirPackage.STRUCTURE_MAP__DESCRIPTION:
 				return description != null;
 			case FhirPackage.STRUCTURE_MAP__USE_CONTEXT:

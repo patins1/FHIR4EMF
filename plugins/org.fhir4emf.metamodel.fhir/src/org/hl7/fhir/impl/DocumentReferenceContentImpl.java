@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import java.util.Collection;
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -12,15 +9,10 @@ import javax.xml.bind.annotation.XmlType;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Attachment;
 import org.hl7.fhir.Coding;
@@ -55,14 +47,14 @@ public class DocumentReferenceContentImpl extends BackboneElementImpl implements
 	protected Attachment attachment;
 
 	/**
-	 * The cached value of the '{@link #getFormat() <em>Format</em>}' containment reference list.
+	 * The cached value of the '{@link #getFormat() <em>Format</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFormat()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> format;
+	protected Coding format;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,12 +124,42 @@ public class DocumentReferenceContentImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public List<Coding> getFormat() {
-		if (format == null) {
-			format = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.DOCUMENT_REFERENCE_CONTENT__FORMAT);
-		}
+	public Coding getFormat() {
 		return format;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFormat(Coding newFormat, NotificationChain msgs) {
+		Coding oldFormat = format;
+		format = newFormat;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE_CONTENT__FORMAT, oldFormat, newFormat);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFormat(Coding newFormat) {
+		if (newFormat != format) {
+			NotificationChain msgs = null;
+			if (format != null)
+				msgs = ((InternalEObject)format).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE_CONTENT__FORMAT, null, msgs);
+			if (newFormat != null)
+				msgs = ((InternalEObject)newFormat).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE_CONTENT__FORMAT, null, msgs);
+			msgs = basicSetFormat(newFormat, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE_CONTENT__FORMAT, newFormat, newFormat));
 	}
 
 	/**
@@ -151,7 +173,7 @@ public class DocumentReferenceContentImpl extends BackboneElementImpl implements
 			case FhirPackage.DOCUMENT_REFERENCE_CONTENT__ATTACHMENT:
 				return basicSetAttachment(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE_CONTENT__FORMAT:
-				return ((InternalEList<?>)getFormat()).basicRemove(otherEnd, msgs);
+				return basicSetFormat(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -177,7 +199,6 @@ public class DocumentReferenceContentImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -185,8 +206,7 @@ public class DocumentReferenceContentImpl extends BackboneElementImpl implements
 				setAttachment((Attachment)newValue);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE_CONTENT__FORMAT:
-				getFormat().clear();
-				getFormat().addAll((Collection<? extends Coding>)newValue);
+				setFormat((Coding)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,7 +224,7 @@ public class DocumentReferenceContentImpl extends BackboneElementImpl implements
 				setAttachment((Attachment)null);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE_CONTENT__FORMAT:
-				getFormat().clear();
+				setFormat((Coding)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -221,7 +241,7 @@ public class DocumentReferenceContentImpl extends BackboneElementImpl implements
 			case FhirPackage.DOCUMENT_REFERENCE_CONTENT__ATTACHMENT:
 				return attachment != null;
 			case FhirPackage.DOCUMENT_REFERENCE_CONTENT__FORMAT:
-				return format != null && !format.isEmpty();
+				return format != null;
 		}
 		return super.eIsSet(featureID);
 	}

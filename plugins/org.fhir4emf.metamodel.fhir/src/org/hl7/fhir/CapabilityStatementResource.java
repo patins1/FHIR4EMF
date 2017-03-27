@@ -52,13 +52,13 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * A type of resource exposed via the restful interface.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Code)
+	 * @see #setType(ResourceType)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementResource_Type()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getType();
+	ResourceType getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementResource#getType <em>Type</em>}' containment reference.
@@ -68,14 +68,14 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Code value);
+	void setType(ResourceType value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A specification of the profile that describes the solution's overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles]{profiling.html#profile-uses}.
+	 * A specification of the profile that describes the solution's overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles](profiling.html#profile-uses).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
 	 * @see #setProfile(Reference)
@@ -101,7 +101,7 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional information about the resource type is used by the system.
+	 * Additional information about the resource type used by the system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
 	 * @see #setDocumentation(Markdown)

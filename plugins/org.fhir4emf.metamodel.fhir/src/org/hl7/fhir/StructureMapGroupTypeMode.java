@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.StructureMapGroupTypeModeImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * If this is the default rule set to apply for thie source type, or this combination of types
+ * If this is the default rule set to apply for the source type, or this combination of types
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

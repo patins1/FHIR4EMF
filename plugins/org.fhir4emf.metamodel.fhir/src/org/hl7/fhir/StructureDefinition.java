@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.StructureDefinitionImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
+ * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -29,9 +29,9 @@ import org.hl7.fhir.jaxb.StructureDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.StructureDefinition#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureDefinition#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.StructureDefinition#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureDefinition#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -63,7 +63,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published. The URL SHOULD include the major version of the structure definition. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published. The URL SHOULD include the major version of the structure definition. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -105,7 +105,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
+	 * The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -209,7 +209,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A boolean value to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -229,6 +229,32 @@ public interface StructureDefinition extends DomainResource {
 	 * @generated
 	 */
 	void setExperimental(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date  (and optionally time) when the structure definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Date</em>' containment reference.
+	 * @see #setDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_Date()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureDefinition#getDate <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date</em>' containment reference.
+	 * @see #getDate()
+	 * @generated
+	 */
+	void setDate(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
@@ -273,37 +299,11 @@ public interface StructureDefinition extends DomainResource {
 	List<ContactDetail> getContact();
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_Date()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getDate();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.StructureDefinition#getDate <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
-	 * @generated
-	 */
-	void setDate(DateTime value);
-
-	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the structure definition from the consumer's perspective.
+	 * A free text natural language description of the structure definition from a consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Markdown)
@@ -330,7 +330,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate structure definition instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_UseContext()
@@ -346,7 +346,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A jurisdiction in which the structure definition is intended to be used.
+	 * A legal or geographic region in which the structure definition is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_Jurisdiction()
@@ -361,7 +361,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explains why this structure definition is needed and why it has been designed as it has.
+	 * Explaination of why this structure definition is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -429,7 +429,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.9.0 for this version.
+	 * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.0.0 for this version.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Fhir Version</em>' containment reference.
 	 * @see #setFhirVersion(Id)
@@ -566,7 +566,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurance variants for the extension).
+	 * A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Context Invariant</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getStructureDefinition_ContextInvariant()
@@ -581,7 +581,7 @@ public interface StructureDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).
+	 * The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(Code)

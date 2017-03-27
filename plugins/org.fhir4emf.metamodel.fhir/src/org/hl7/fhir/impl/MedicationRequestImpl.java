@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
-import org.hl7.fhir.DosageInstruction;
+import org.hl7.fhir.Dosage;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicationRequest;
@@ -56,8 +56,8 @@ import org.hl7.fhir.jaxb.MedicationRequestStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getIntent <em>Intent</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getMedicationReference <em>Medication Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getSubject <em>Subject</em>}</li>
@@ -143,16 +143,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	protected MedicationRequestIntent intent;
 
 	/**
-	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPriority()
-	 * @generated
-	 * @ordered
-	 */
-	protected MedicationRequestPriority priority;
-
-	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,6 +151,16 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * @ordered
 	 */
 	protected CodeableConcept category;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected MedicationRequestPriority priority;
 
 	/**
 	 * The cached value of the '{@link #getMedicationCodeableConcept() <em>Medication Codeable Concept</em>}' containment reference.
@@ -280,7 +280,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DosageInstruction> dosageInstruction;
+	protected EList<Dosage> dosageInstruction;
 
 	/**
 	 * The cached value of the '{@link #getDispenseRequest() <em>Dispense Request</em>}' containment reference.
@@ -527,6 +527,49 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getCategory() {
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
+		CodeableConcept oldCategory = category;
+		category = newCategory;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__CATEGORY, oldCategory, newCategory);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCategory(CodeableConcept newCategory) {
+		if (newCategory != category) {
+			NotificationChain msgs = null;
+			if (category != null)
+				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__CATEGORY, null, msgs);
+			if (newCategory != null)
+				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__CATEGORY, null, msgs);
+			msgs = basicSetCategory(newCategory, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__CATEGORY, newCategory, newCategory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(MedicationRequestPriorityImplAdapter.class)
 	public MedicationRequestPriority getPriority() {
 		return priority;
@@ -564,49 +607,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__PRIORITY, newPriority, newPriority));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getCategory() {
-		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
-		CodeableConcept oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__CATEGORY, oldCategory, newCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategory(CodeableConcept newCategory) {
-		if (newCategory != category) {
-			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__CATEGORY, newCategory, newCategory));
 	}
 
 	/**
@@ -970,9 +970,9 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * @generated
 	 */
 	@XmlElement
-	public List<DosageInstruction> getDosageInstruction() {
+	public List<Dosage> getDosageInstruction() {
 		if (dosageInstruction == null) {
-			dosageInstruction = new EObjectContainmentEList<DosageInstruction>(DosageInstruction.class, this, FhirPackage.MEDICATION_REQUEST__DOSAGE_INSTRUCTION);
+			dosageInstruction = new EObjectContainmentEList<Dosage>(Dosage.class, this, FhirPackage.MEDICATION_REQUEST__DOSAGE_INSTRUCTION);
 		}
 		return dosageInstruction;
 	}
@@ -1152,10 +1152,10 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				return basicSetStatus(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__INTENT:
 				return basicSetIntent(null, msgs);
-			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
-				return basicSetPriority(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__CATEGORY:
 				return basicSetCategory(null, msgs);
+			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
+				return basicSetPriority(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_CODEABLE_CONCEPT:
 				return basicSetMedicationCodeableConcept(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_REFERENCE:
@@ -1214,10 +1214,10 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				return getStatus();
 			case FhirPackage.MEDICATION_REQUEST__INTENT:
 				return getIntent();
-			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
-				return getPriority();
 			case FhirPackage.MEDICATION_REQUEST__CATEGORY:
 				return getCategory();
+			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
+				return getPriority();
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_CODEABLE_CONCEPT:
 				return getMedicationCodeableConcept();
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_REFERENCE:
@@ -1286,11 +1286,11 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 			case FhirPackage.MEDICATION_REQUEST__INTENT:
 				setIntent((MedicationRequestIntent)newValue);
 				return;
-			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
-				setPriority((MedicationRequestPriority)newValue);
-				return;
 			case FhirPackage.MEDICATION_REQUEST__CATEGORY:
 				setCategory((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
+				setPriority((MedicationRequestPriority)newValue);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_CODEABLE_CONCEPT:
 				setMedicationCodeableConcept((CodeableConcept)newValue);
@@ -1331,7 +1331,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				return;
 			case FhirPackage.MEDICATION_REQUEST__DOSAGE_INSTRUCTION:
 				getDosageInstruction().clear();
-				getDosageInstruction().addAll((Collection<? extends DosageInstruction>)newValue);
+				getDosageInstruction().addAll((Collection<? extends Dosage>)newValue);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__DISPENSE_REQUEST:
 				setDispenseRequest((MedicationRequestDispenseRequest)newValue);
@@ -1380,11 +1380,11 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 			case FhirPackage.MEDICATION_REQUEST__INTENT:
 				setIntent((MedicationRequestIntent)null);
 				return;
-			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
-				setPriority((MedicationRequestPriority)null);
-				return;
 			case FhirPackage.MEDICATION_REQUEST__CATEGORY:
 				setCategory((CodeableConcept)null);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
+				setPriority((MedicationRequestPriority)null);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_CODEABLE_CONCEPT:
 				setMedicationCodeableConcept((CodeableConcept)null);
@@ -1461,10 +1461,10 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				return status != null;
 			case FhirPackage.MEDICATION_REQUEST__INTENT:
 				return intent != null;
-			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
-				return priority != null;
 			case FhirPackage.MEDICATION_REQUEST__CATEGORY:
 				return category != null;
+			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
+				return priority != null;
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_CODEABLE_CONCEPT:
 				return medicationCodeableConcept != null;
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_REFERENCE:

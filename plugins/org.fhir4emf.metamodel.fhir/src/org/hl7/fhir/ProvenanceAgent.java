@@ -2,6 +2,8 @@
  */
 package org.hl7.fhir;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.hl7.fhir.jaxb.ProvenanceAgentImplAdapter;
@@ -34,30 +36,20 @@ import org.hl7.fhir.jaxb.ProvenanceAgentImplAdapter;
 @XmlJavaTypeAdapter(ProvenanceAgentImplAdapter.class)
 public interface ProvenanceAgent extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Role</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Role</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The function of the agent with respect to the activity.
+	 * The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Role</em>' containment reference.
-	 * @see #setRole(Coding)
+	 * @return the value of the '<em>Role</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_Role()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='role' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getRole();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getRole <em>Role</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Role</em>' containment reference.
-	 * @see #getRole()
-	 * @generated
-	 */
-	void setRole(Coding value);
+	List<CodeableConcept> getRole();
 
 	/**
 	 * Returns the value of the '<em><b>Who Uri</b></em>' containment reference.

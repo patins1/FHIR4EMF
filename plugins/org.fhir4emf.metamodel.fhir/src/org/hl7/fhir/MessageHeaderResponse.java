@@ -35,7 +35,7 @@ public interface MessageHeaderResponse extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The id of the message that this message is a response to.
+	 * The MessageHeader.id of the message to which this message is a response.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Id)

@@ -26,18 +26,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
+import org.hl7.fhir.EventStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Procedure;
 import org.hl7.fhir.ProcedureFocalDevice;
 import org.hl7.fhir.ProcedurePerformer;
-import org.hl7.fhir.ProcedureStatus;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.Timing;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.ProcedureStatusImplAdapter;
+import org.hl7.fhir.jaxb.EventStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,19 +51,18 @@ import org.hl7.fhir.jaxb.ProcedureStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getNotDone <em>Not Done</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getNotDoneReason <em>Not Done Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformedDateTime <em>Performed Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformedPeriod <em>Performed Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformedTiming <em>Performed Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getNotDone <em>Not Done</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getNotDoneReason <em>Not Done Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getReport <em>Report</em>}</li>
@@ -130,7 +128,27 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * @generated
 	 * @ordered
 	 */
-	protected ProcedureStatus status;
+	protected EventStatus status;
+
+	/**
+	 * The cached value of the '{@link #getNotDone() <em>Not Done</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotDone()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean notDone;
+
+	/**
+	 * The cached value of the '{@link #getNotDoneReason() <em>Not Done Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotDoneReason()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept notDoneReason;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
@@ -193,16 +211,6 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	protected Period performedPeriod;
 
 	/**
-	 * The cached value of the '{@link #getPerformedTiming() <em>Performed Timing</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPerformedTiming()
-	 * @generated
-	 * @ordered
-	 */
-	protected Timing performedTiming;
-
-	/**
 	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,14 +231,14 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	protected Reference location;
 
 	/**
-	 * The cached value of the '{@link #getReasonCodeableConcept() <em>Reason Codeable Concept</em>}' containment reference list.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReasonCodeableConcept()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> reasonCodeableConcept;
+	protected EList<CodeableConcept> reasonCode;
 
 	/**
 	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
@@ -241,26 +249,6 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * @ordered
 	 */
 	protected EList<Reference> reasonReference;
-
-	/**
-	 * The cached value of the '{@link #getNotDone() <em>Not Done</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNotDone()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.Boolean notDone;
-
-	/**
-	 * The cached value of the '{@link #getNotDoneReason() <em>Not Done Reason</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNotDoneReason()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept notDoneReason;
 
 	/**
 	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference list.
@@ -438,9 +426,9 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ProcedureStatusImplAdapter.class)
+	@XmlJavaTypeAdapter(EventStatusImplAdapter.class)
 	@XmlElement(required = true)
-	public ProcedureStatus getStatus() {
+	public EventStatus getStatus() {
 		return status;
 	}
 
@@ -449,8 +437,8 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ProcedureStatus newStatus, NotificationChain msgs) {
-		ProcedureStatus oldStatus = status;
+	public NotificationChain basicSetStatus(EventStatus newStatus, NotificationChain msgs) {
+		EventStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__STATUS, oldStatus, newStatus);
@@ -464,7 +452,7 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ProcedureStatus newStatus) {
+	public void setStatus(EventStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -476,6 +464,93 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
+	public org.hl7.fhir.Boolean getNotDone() {
+		return notDone;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNotDone(org.hl7.fhir.Boolean newNotDone, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldNotDone = notDone;
+		notDone = newNotDone;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__NOT_DONE, oldNotDone, newNotDone);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNotDone(org.hl7.fhir.Boolean newNotDone) {
+		if (newNotDone != notDone) {
+			NotificationChain msgs = null;
+			if (notDone != null)
+				msgs = ((InternalEObject)notDone).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__NOT_DONE, null, msgs);
+			if (newNotDone != null)
+				msgs = ((InternalEObject)newNotDone).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__NOT_DONE, null, msgs);
+			msgs = basicSetNotDone(newNotDone, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__NOT_DONE, newNotDone, newNotDone));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getNotDoneReason() {
+		return notDoneReason;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNotDoneReason(CodeableConcept newNotDoneReason, NotificationChain msgs) {
+		CodeableConcept oldNotDoneReason = notDoneReason;
+		notDoneReason = newNotDoneReason;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__NOT_DONE_REASON, oldNotDoneReason, newNotDoneReason);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNotDoneReason(CodeableConcept newNotDoneReason) {
+		if (newNotDoneReason != notDoneReason) {
+			NotificationChain msgs = null;
+			if (notDoneReason != null)
+				msgs = ((InternalEObject)notDoneReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__NOT_DONE_REASON, null, msgs);
+			if (newNotDoneReason != null)
+				msgs = ((InternalEObject)newNotDoneReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__NOT_DONE_REASON, null, msgs);
+			msgs = basicSetNotDoneReason(newNotDoneReason, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__NOT_DONE_REASON, newNotDoneReason, newNotDoneReason));
 	}
 
 	/**
@@ -743,49 +818,6 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Timing getPerformedTiming() {
-		return performedTiming;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPerformedTiming(Timing newPerformedTiming, NotificationChain msgs) {
-		Timing oldPerformedTiming = performedTiming;
-		performedTiming = newPerformedTiming;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__PERFORMED_TIMING, oldPerformedTiming, newPerformedTiming);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPerformedTiming(Timing newPerformedTiming) {
-		if (newPerformedTiming != performedTiming) {
-			NotificationChain msgs = null;
-			if (performedTiming != null)
-				msgs = ((InternalEObject)performedTiming).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__PERFORMED_TIMING, null, msgs);
-			if (newPerformedTiming != null)
-				msgs = ((InternalEObject)newPerformedTiming).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__PERFORMED_TIMING, null, msgs);
-			msgs = basicSetPerformedTiming(newPerformedTiming, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__PERFORMED_TIMING, newPerformedTiming, newPerformedTiming));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@XmlElement
 	public List<ProcedurePerformer> getPerformer() {
 		if (performer == null) {
@@ -843,11 +875,11 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * @generated
 	 */
 	@XmlElement
-	public List<CodeableConcept> getReasonCodeableConcept() {
-		if (reasonCodeableConcept == null) {
-			reasonCodeableConcept = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PROCEDURE__REASON_CODEABLE_CONCEPT);
+	public List<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PROCEDURE__REASON_CODE);
 		}
-		return reasonCodeableConcept;
+		return reasonCode;
 	}
 
 	/**
@@ -861,93 +893,6 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCEDURE__REASON_REFERENCE);
 		}
 		return reasonReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	public org.hl7.fhir.Boolean getNotDone() {
-		return notDone;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNotDone(org.hl7.fhir.Boolean newNotDone, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldNotDone = notDone;
-		notDone = newNotDone;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__NOT_DONE, oldNotDone, newNotDone);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNotDone(org.hl7.fhir.Boolean newNotDone) {
-		if (newNotDone != notDone) {
-			NotificationChain msgs = null;
-			if (notDone != null)
-				msgs = ((InternalEObject)notDone).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__NOT_DONE, null, msgs);
-			if (newNotDone != null)
-				msgs = ((InternalEObject)newNotDone).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__NOT_DONE, null, msgs);
-			msgs = basicSetNotDone(newNotDone, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__NOT_DONE, newNotDone, newNotDone));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getNotDoneReason() {
-		return notDoneReason;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNotDoneReason(CodeableConcept newNotDoneReason, NotificationChain msgs) {
-		CodeableConcept oldNotDoneReason = notDoneReason;
-		notDoneReason = newNotDoneReason;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__NOT_DONE_REASON, oldNotDoneReason, newNotDoneReason);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNotDoneReason(CodeableConcept newNotDoneReason) {
-		if (newNotDoneReason != notDoneReason) {
-			NotificationChain msgs = null;
-			if (notDoneReason != null)
-				msgs = ((InternalEObject)notDoneReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__NOT_DONE_REASON, null, msgs);
-			if (newNotDoneReason != null)
-				msgs = ((InternalEObject)newNotDoneReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__NOT_DONE_REASON, null, msgs);
-			msgs = basicSetNotDoneReason(newNotDoneReason, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__NOT_DONE_REASON, newNotDoneReason, newNotDoneReason));
 	}
 
 	/**
@@ -1128,6 +1073,10 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return ((InternalEList<?>)getPartOf()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCEDURE__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.PROCEDURE__NOT_DONE:
+				return basicSetNotDone(null, msgs);
+			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
+				return basicSetNotDoneReason(null, msgs);
 			case FhirPackage.PROCEDURE__CATEGORY:
 				return basicSetCategory(null, msgs);
 			case FhirPackage.PROCEDURE__CODE:
@@ -1140,20 +1089,14 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return basicSetPerformedDateTime(null, msgs);
 			case FhirPackage.PROCEDURE__PERFORMED_PERIOD:
 				return basicSetPerformedPeriod(null, msgs);
-			case FhirPackage.PROCEDURE__PERFORMED_TIMING:
-				return basicSetPerformedTiming(null, msgs);
 			case FhirPackage.PROCEDURE__PERFORMER:
 				return ((InternalEList<?>)getPerformer()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCEDURE__LOCATION:
 				return basicSetLocation(null, msgs);
-			case FhirPackage.PROCEDURE__REASON_CODEABLE_CONCEPT:
-				return ((InternalEList<?>)getReasonCodeableConcept()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PROCEDURE__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCEDURE__REASON_REFERENCE:
 				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PROCEDURE__NOT_DONE:
-				return basicSetNotDone(null, msgs);
-			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
-				return basicSetNotDoneReason(null, msgs);
 			case FhirPackage.PROCEDURE__BODY_SITE:
 				return ((InternalEList<?>)getBodySite()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCEDURE__OUTCOME:
@@ -1196,6 +1139,10 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return getPartOf();
 			case FhirPackage.PROCEDURE__STATUS:
 				return getStatus();
+			case FhirPackage.PROCEDURE__NOT_DONE:
+				return getNotDone();
+			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
+				return getNotDoneReason();
 			case FhirPackage.PROCEDURE__CATEGORY:
 				return getCategory();
 			case FhirPackage.PROCEDURE__CODE:
@@ -1208,20 +1155,14 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return getPerformedDateTime();
 			case FhirPackage.PROCEDURE__PERFORMED_PERIOD:
 				return getPerformedPeriod();
-			case FhirPackage.PROCEDURE__PERFORMED_TIMING:
-				return getPerformedTiming();
 			case FhirPackage.PROCEDURE__PERFORMER:
 				return getPerformer();
 			case FhirPackage.PROCEDURE__LOCATION:
 				return getLocation();
-			case FhirPackage.PROCEDURE__REASON_CODEABLE_CONCEPT:
-				return getReasonCodeableConcept();
+			case FhirPackage.PROCEDURE__REASON_CODE:
+				return getReasonCode();
 			case FhirPackage.PROCEDURE__REASON_REFERENCE:
 				return getReasonReference();
-			case FhirPackage.PROCEDURE__NOT_DONE:
-				return getNotDone();
-			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
-				return getNotDoneReason();
 			case FhirPackage.PROCEDURE__BODY_SITE:
 				return getBodySite();
 			case FhirPackage.PROCEDURE__OUTCOME:
@@ -1272,7 +1213,13 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				getPartOf().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.PROCEDURE__STATUS:
-				setStatus((ProcedureStatus)newValue);
+				setStatus((EventStatus)newValue);
+				return;
+			case FhirPackage.PROCEDURE__NOT_DONE:
+				setNotDone((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
+				setNotDoneReason((CodeableConcept)newValue);
 				return;
 			case FhirPackage.PROCEDURE__CATEGORY:
 				setCategory((CodeableConcept)newValue);
@@ -1292,9 +1239,6 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 			case FhirPackage.PROCEDURE__PERFORMED_PERIOD:
 				setPerformedPeriod((Period)newValue);
 				return;
-			case FhirPackage.PROCEDURE__PERFORMED_TIMING:
-				setPerformedTiming((Timing)newValue);
-				return;
 			case FhirPackage.PROCEDURE__PERFORMER:
 				getPerformer().clear();
 				getPerformer().addAll((Collection<? extends ProcedurePerformer>)newValue);
@@ -1302,19 +1246,13 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 			case FhirPackage.PROCEDURE__LOCATION:
 				setLocation((Reference)newValue);
 				return;
-			case FhirPackage.PROCEDURE__REASON_CODEABLE_CONCEPT:
-				getReasonCodeableConcept().clear();
-				getReasonCodeableConcept().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.PROCEDURE__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.PROCEDURE__REASON_REFERENCE:
 				getReasonReference().clear();
 				getReasonReference().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.PROCEDURE__NOT_DONE:
-				setNotDone((org.hl7.fhir.Boolean)newValue);
-				return;
-			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
-				setNotDoneReason((CodeableConcept)newValue);
 				return;
 			case FhirPackage.PROCEDURE__BODY_SITE:
 				getBodySite().clear();
@@ -1380,7 +1318,13 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				getPartOf().clear();
 				return;
 			case FhirPackage.PROCEDURE__STATUS:
-				setStatus((ProcedureStatus)null);
+				setStatus((EventStatus)null);
+				return;
+			case FhirPackage.PROCEDURE__NOT_DONE:
+				setNotDone((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
+				setNotDoneReason((CodeableConcept)null);
 				return;
 			case FhirPackage.PROCEDURE__CATEGORY:
 				setCategory((CodeableConcept)null);
@@ -1400,26 +1344,17 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 			case FhirPackage.PROCEDURE__PERFORMED_PERIOD:
 				setPerformedPeriod((Period)null);
 				return;
-			case FhirPackage.PROCEDURE__PERFORMED_TIMING:
-				setPerformedTiming((Timing)null);
-				return;
 			case FhirPackage.PROCEDURE__PERFORMER:
 				getPerformer().clear();
 				return;
 			case FhirPackage.PROCEDURE__LOCATION:
 				setLocation((Reference)null);
 				return;
-			case FhirPackage.PROCEDURE__REASON_CODEABLE_CONCEPT:
-				getReasonCodeableConcept().clear();
+			case FhirPackage.PROCEDURE__REASON_CODE:
+				getReasonCode().clear();
 				return;
 			case FhirPackage.PROCEDURE__REASON_REFERENCE:
 				getReasonReference().clear();
-				return;
-			case FhirPackage.PROCEDURE__NOT_DONE:
-				setNotDone((org.hl7.fhir.Boolean)null);
-				return;
-			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
-				setNotDoneReason((CodeableConcept)null);
 				return;
 			case FhirPackage.PROCEDURE__BODY_SITE:
 				getBodySite().clear();
@@ -1473,6 +1408,10 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return partOf != null && !partOf.isEmpty();
 			case FhirPackage.PROCEDURE__STATUS:
 				return status != null;
+			case FhirPackage.PROCEDURE__NOT_DONE:
+				return notDone != null;
+			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
+				return notDoneReason != null;
 			case FhirPackage.PROCEDURE__CATEGORY:
 				return category != null;
 			case FhirPackage.PROCEDURE__CODE:
@@ -1485,20 +1424,14 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return performedDateTime != null;
 			case FhirPackage.PROCEDURE__PERFORMED_PERIOD:
 				return performedPeriod != null;
-			case FhirPackage.PROCEDURE__PERFORMED_TIMING:
-				return performedTiming != null;
 			case FhirPackage.PROCEDURE__PERFORMER:
 				return performer != null && !performer.isEmpty();
 			case FhirPackage.PROCEDURE__LOCATION:
 				return location != null;
-			case FhirPackage.PROCEDURE__REASON_CODEABLE_CONCEPT:
-				return reasonCodeableConcept != null && !reasonCodeableConcept.isEmpty();
+			case FhirPackage.PROCEDURE__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
 			case FhirPackage.PROCEDURE__REASON_REFERENCE:
 				return reasonReference != null && !reasonReference.isEmpty();
-			case FhirPackage.PROCEDURE__NOT_DONE:
-				return notDone != null;
-			case FhirPackage.PROCEDURE__NOT_DONE_REASON:
-				return notDoneReason != null;
 			case FhirPackage.PROCEDURE__BODY_SITE:
 				return bodySite != null && !bodySite.isEmpty();
 			case FhirPackage.PROCEDURE__OUTCOME:

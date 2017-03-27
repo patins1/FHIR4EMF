@@ -23,6 +23,7 @@ import org.hl7.fhir.jaxb.MedicationPackageImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicationPackage#getContainer <em>Container</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationPackage#getContent <em>Content</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationPackage#getBatch <em>Batch</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicationPackage()
@@ -72,5 +73,21 @@ public interface MedicationPackage extends BackboneElement {
 	 * @generated
 	 */
 	List<MedicationContent> getContent();
+
+	/**
+	 * Returns the value of the '<em><b>Batch</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.MedicationBatch}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Information about a group of medication produced or packaged from one production run.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Batch</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationPackage_Batch()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='batch' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<MedicationBatch> getBatch();
 
 } // MedicationPackage

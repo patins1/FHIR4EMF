@@ -54,7 +54,7 @@ public interface ImmunizationRecommendation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The patient for whom the recommendations are for.
+	 * The patient the recommendations are for.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Patient</em>' containment reference.
 	 * @see #setPatient(Reference)

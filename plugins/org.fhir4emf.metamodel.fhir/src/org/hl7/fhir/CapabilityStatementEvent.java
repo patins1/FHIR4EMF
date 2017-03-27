@@ -91,7 +91,7 @@ public interface CapabilityStatementEvent extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The mode of this event declaration - whether application is sender or receiver.
+	 * The mode of this event declaration - whether an application is a sender or receiver.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Mode</em>' containment reference.
 	 * @see #setMode(EventCapabilityMode)
@@ -120,13 +120,13 @@ public interface CapabilityStatementEvent extends BackboneElement {
 	 * A resource associated with the event.  This is the resource that defines the event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Focus</em>' containment reference.
-	 * @see #setFocus(Code)
+	 * @see #setFocus(ResourceType)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementEvent_Focus()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='focus' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getFocus();
+	ResourceType getFocus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementEvent#getFocus <em>Focus</em>}' containment reference.
@@ -136,7 +136,7 @@ public interface CapabilityStatementEvent extends BackboneElement {
 	 * @see #getFocus()
 	 * @generated
 	 */
-	void setFocus(Code value);
+	void setFocus(ResourceType value);
 
 	/**
 	 * Returns the value of the '<em><b>Request</b></em>' containment reference.

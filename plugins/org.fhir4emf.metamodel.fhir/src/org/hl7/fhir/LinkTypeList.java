@@ -21,14 +21,24 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum LinkTypeList implements Enumerator {
 	/**
-	 * The '<em><b>Replace</b></em>' literal object.
+	 * The '<em><b>Replaced By</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #REPLACE_VALUE
+	 * @see #REPLACED_BY_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	REPLACE(0, "replace", "replace"),
+	REPLACED_BY(0, "replacedBy", "replaced-by"),
+
+	/**
+	 * The '<em><b>Replaces</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REPLACES_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REPLACES(1, "replaces", "replaces"),
 
 	/**
 	 * The '<em><b>Refer</b></em>' literal object.
@@ -38,7 +48,7 @@ public enum LinkTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REFER(1, "refer", "refer"),
+	REFER(2, "refer", "refer"),
 
 	/**
 	 * The '<em><b>Seealso</b></em>' literal object.
@@ -48,22 +58,36 @@ public enum LinkTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEEALSO(2, "seealso", "seealso");
+	SEEALSO(3, "seealso", "seealso");
 
 	/**
-	 * The '<em><b>Replace</b></em>' literal value.
+	 * The '<em><b>Replaced By</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Replace
+	 * Replaced-by
 	 * vervangen
 	 * <!-- end-model-doc -->
-	 * @see #REPLACE
-	 * @model name="replace"
+	 * @see #REPLACED_BY
+	 * @model name="replacedBy" literal="replaced-by"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REPLACE_VALUE = 0;
+	public static final int REPLACED_BY_VALUE = 0;
+
+	/**
+	 * The '<em><b>Replaces</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Replaces
+	 * <!-- end-model-doc -->
+	 * @see #REPLACES
+	 * @model name="replaces"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REPLACES_VALUE = 1;
 
 	/**
 	 * The '<em><b>Refer</b></em>' literal value.
@@ -78,7 +102,7 @@ public enum LinkTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REFER_VALUE = 1;
+	public static final int REFER_VALUE = 2;
 
 	/**
 	 * The '<em><b>Seealso</b></em>' literal value.
@@ -93,7 +117,7 @@ public enum LinkTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SEEALSO_VALUE = 2;
+	public static final int SEEALSO_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Link Type List</b></em>' enumerators.
@@ -103,7 +127,8 @@ public enum LinkTypeList implements Enumerator {
 	 */
 	private static final LinkTypeList[] VALUES_ARRAY =
 		new LinkTypeList[] {
-			REPLACE,
+			REPLACED_BY,
+			REPLACES,
 			REFER,
 			SEEALSO,
 		};
@@ -162,7 +187,8 @@ public enum LinkTypeList implements Enumerator {
 	 */
 	public static LinkTypeList get(int value) {
 		switch (value) {
-			case REPLACE_VALUE: return REPLACE;
+			case REPLACED_BY_VALUE: return REPLACED_BY;
+			case REPLACES_VALUE: return REPLACES;
 			case REFER_VALUE: return REFER;
 			case SEEALSO_VALUE: return SEEALSO;
 		}

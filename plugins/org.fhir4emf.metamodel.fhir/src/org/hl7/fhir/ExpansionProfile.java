@@ -28,9 +28,9 @@ import org.hl7.fhir.jaxb.ExpansionProfileImplAdapter;
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExpansionProfile#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.ExpansionProfile#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.ExpansionProfile#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -58,7 +58,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published. The URL SHOULD include the major version of the expansion profile. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published. The URL SHOULD include the major version of the expansion profile. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -110,7 +110,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the expansion profile author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
+	 * The identifier that is used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the expansion profile author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -188,7 +188,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this expansion profile is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A boolean value to indicate that this expansion profile is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -208,6 +208,32 @@ public interface ExpansionProfile extends DomainResource {
 	 * @generated
 	 */
 	void setExperimental(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date  (and optionally time) when the expansion profile was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the expansion profile changes.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Date</em>' containment reference.
+	 * @see #setDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_Date()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfile#getDate <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date</em>' containment reference.
+	 * @see #getDate()
+	 * @generated
+	 */
+	void setDate(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
@@ -252,37 +278,11 @@ public interface ExpansionProfile extends DomainResource {
 	List<ContactDetail> getContact();
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the expansion profile was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the expansion profile changes.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_Date()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getDate();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExpansionProfile#getDate <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
-	 * @generated
-	 */
-	void setDate(DateTime value);
-
-	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the expansion profile from the consumer's perspective.
+	 * A free text natural language description of the expansion profile from a consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Markdown)
@@ -309,7 +309,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate expansion profile instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_UseContext()
@@ -325,7 +325,7 @@ public interface ExpansionProfile extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A jurisdiction in which the expansion profile is intended to be used.
+	 * A legal or geographic region in which the expansion profile is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExpansionProfile_Jurisdiction()

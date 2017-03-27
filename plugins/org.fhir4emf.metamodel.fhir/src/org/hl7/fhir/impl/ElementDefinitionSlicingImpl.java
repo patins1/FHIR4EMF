@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.ElementDefinitionDiscriminator;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.SlicingRules;
@@ -57,7 +58,7 @@ public class ElementDefinitionSlicingImpl extends ElementImpl implements Element
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<org.hl7.fhir.String> discriminator;
+	protected EList<ElementDefinitionDiscriminator> discriminator;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -113,11 +114,10 @@ public class ElementDefinitionSlicingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	@XmlElement
-	public List<org.hl7.fhir.String> getDiscriminator() {
+	public List<ElementDefinitionDiscriminator> getDiscriminator() {
 		if (discriminator == null) {
-			discriminator = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.ELEMENT_DEFINITION_SLICING__DISCRIMINATOR);
+			discriminator = new EObjectContainmentEList<ElementDefinitionDiscriminator>(ElementDefinitionDiscriminator.class, this, FhirPackage.ELEMENT_DEFINITION_SLICING__DISCRIMINATOR);
 		}
 		return discriminator;
 	}
@@ -306,7 +306,7 @@ public class ElementDefinitionSlicingImpl extends ElementImpl implements Element
 		switch (featureID) {
 			case FhirPackage.ELEMENT_DEFINITION_SLICING__DISCRIMINATOR:
 				getDiscriminator().clear();
-				getDiscriminator().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
+				getDiscriminator().addAll((Collection<? extends ElementDefinitionDiscriminator>)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_SLICING__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);

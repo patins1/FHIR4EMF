@@ -35,7 +35,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentPredictionImpl#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentPredictionImpl#getProbabilityDecimal <em>Probability Decimal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentPredictionImpl#getProbabilityRange <em>Probability Range</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.RiskAssessmentPredictionImpl#getProbabilityCodeableConcept <em>Probability Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RiskAssessmentPredictionImpl#getQualitativeRisk <em>Qualitative Risk</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentPredictionImpl#getRelativeRisk <em>Relative Risk</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentPredictionImpl#getWhenPeriod <em>When Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RiskAssessmentPredictionImpl#getWhenRange <em>When Range</em>}</li>
@@ -78,14 +78,14 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 	protected Range probabilityRange;
 
 	/**
-	 * The cached value of the '{@link #getProbabilityCodeableConcept() <em>Probability Codeable Concept</em>}' containment reference.
+	 * The cached value of the '{@link #getQualitativeRisk() <em>Qualitative Risk</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProbabilityCodeableConcept()
+	 * @see #getQualitativeRisk()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept probabilityCodeableConcept;
+	protected CodeableConcept qualitativeRisk;
 
 	/**
 	 * The cached value of the '{@link #getRelativeRisk() <em>Relative Risk</em>}' containment reference.
@@ -282,8 +282,8 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getProbabilityCodeableConcept() {
-		return probabilityCodeableConcept;
+	public CodeableConcept getQualitativeRisk() {
+		return qualitativeRisk;
 	}
 
 	/**
@@ -291,11 +291,11 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProbabilityCodeableConcept(CodeableConcept newProbabilityCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldProbabilityCodeableConcept = probabilityCodeableConcept;
-		probabilityCodeableConcept = newProbabilityCodeableConcept;
+	public NotificationChain basicSetQualitativeRisk(CodeableConcept newQualitativeRisk, NotificationChain msgs) {
+		CodeableConcept oldQualitativeRisk = qualitativeRisk;
+		qualitativeRisk = newQualitativeRisk;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_CODEABLE_CONCEPT, oldProbabilityCodeableConcept, newProbabilityCodeableConcept);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT_PREDICTION__QUALITATIVE_RISK, oldQualitativeRisk, newQualitativeRisk);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -306,18 +306,18 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProbabilityCodeableConcept(CodeableConcept newProbabilityCodeableConcept) {
-		if (newProbabilityCodeableConcept != probabilityCodeableConcept) {
+	public void setQualitativeRisk(CodeableConcept newQualitativeRisk) {
+		if (newQualitativeRisk != qualitativeRisk) {
 			NotificationChain msgs = null;
-			if (probabilityCodeableConcept != null)
-				msgs = ((InternalEObject)probabilityCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_CODEABLE_CONCEPT, null, msgs);
-			if (newProbabilityCodeableConcept != null)
-				msgs = ((InternalEObject)newProbabilityCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetProbabilityCodeableConcept(newProbabilityCodeableConcept, msgs);
+			if (qualitativeRisk != null)
+				msgs = ((InternalEObject)qualitativeRisk).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT_PREDICTION__QUALITATIVE_RISK, null, msgs);
+			if (newQualitativeRisk != null)
+				msgs = ((InternalEObject)newQualitativeRisk).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RISK_ASSESSMENT_PREDICTION__QUALITATIVE_RISK, null, msgs);
+			msgs = basicSetQualitativeRisk(newQualitativeRisk, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_CODEABLE_CONCEPT, newProbabilityCodeableConcept, newProbabilityCodeableConcept));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RISK_ASSESSMENT_PREDICTION__QUALITATIVE_RISK, newQualitativeRisk, newQualitativeRisk));
 	}
 
 	/**
@@ -508,8 +508,8 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 				return basicSetProbabilityDecimal(null, msgs);
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_RANGE:
 				return basicSetProbabilityRange(null, msgs);
-			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_CODEABLE_CONCEPT:
-				return basicSetProbabilityCodeableConcept(null, msgs);
+			case FhirPackage.RISK_ASSESSMENT_PREDICTION__QUALITATIVE_RISK:
+				return basicSetQualitativeRisk(null, msgs);
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__RELATIVE_RISK:
 				return basicSetRelativeRisk(null, msgs);
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__WHEN_PERIOD:
@@ -536,8 +536,8 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 				return getProbabilityDecimal();
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_RANGE:
 				return getProbabilityRange();
-			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_CODEABLE_CONCEPT:
-				return getProbabilityCodeableConcept();
+			case FhirPackage.RISK_ASSESSMENT_PREDICTION__QUALITATIVE_RISK:
+				return getQualitativeRisk();
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__RELATIVE_RISK:
 				return getRelativeRisk();
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__WHEN_PERIOD:
@@ -567,8 +567,8 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_RANGE:
 				setProbabilityRange((Range)newValue);
 				return;
-			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_CODEABLE_CONCEPT:
-				setProbabilityCodeableConcept((CodeableConcept)newValue);
+			case FhirPackage.RISK_ASSESSMENT_PREDICTION__QUALITATIVE_RISK:
+				setQualitativeRisk((CodeableConcept)newValue);
 				return;
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__RELATIVE_RISK:
 				setRelativeRisk((Decimal)newValue);
@@ -603,8 +603,8 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_RANGE:
 				setProbabilityRange((Range)null);
 				return;
-			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_CODEABLE_CONCEPT:
-				setProbabilityCodeableConcept((CodeableConcept)null);
+			case FhirPackage.RISK_ASSESSMENT_PREDICTION__QUALITATIVE_RISK:
+				setQualitativeRisk((CodeableConcept)null);
 				return;
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__RELATIVE_RISK:
 				setRelativeRisk((Decimal)null);
@@ -636,8 +636,8 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 				return probabilityDecimal != null;
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_RANGE:
 				return probabilityRange != null;
-			case FhirPackage.RISK_ASSESSMENT_PREDICTION__PROBABILITY_CODEABLE_CONCEPT:
-				return probabilityCodeableConcept != null;
+			case FhirPackage.RISK_ASSESSMENT_PREDICTION__QUALITATIVE_RISK:
+				return qualitativeRisk != null;
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__RELATIVE_RISK:
 				return relativeRisk != null;
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION__WHEN_PERIOD:

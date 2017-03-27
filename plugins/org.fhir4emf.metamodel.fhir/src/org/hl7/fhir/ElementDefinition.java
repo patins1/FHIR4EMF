@@ -30,7 +30,7 @@ import org.hl7.fhir.jaxb.ElementDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getSlicing <em>Slicing</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getShort <em>Short</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.ElementDefinition#getComments <em>Comments</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getMin <em>Min</em>}</li>
@@ -77,6 +77,7 @@ import org.hl7.fhir.jaxb.ElementDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueTiming <em>Default Value Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueMeta <em>Default Value Meta</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getMeaningWhenMissing <em>Meaning When Missing</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getOrderMeaning <em>Order Meaning</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedBase64Binary <em>Fixed Base64 Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedBoolean <em>Fixed Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedCode <em>Fixed Code</em>}</li>
@@ -261,7 +262,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
+	 * A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Label</em>' containment reference.
 	 * @see #setLabel(org.hl7.fhir.String)
@@ -288,7 +289,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code that provides the meaning for the element according to a particular terminology.
+	 * A code that has the same meaning as the element in a particular terminology.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_Code()
@@ -377,30 +378,30 @@ public interface ElementDefinition extends Element {
 	void setDefinition(Markdown value);
 
 	/**
-	 * Returns the value of the '<em><b>Comments</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Comments</em>' containment reference.
-	 * @see #setComments(Markdown)
-	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_Comments()
+	 * @return the value of the '<em>Comment</em>' containment reference.
+	 * @see #setComment(Markdown)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_Comment()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='comments' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Markdown getComments();
+	Markdown getComment();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getComments <em>Comments</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getComment <em>Comment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comments</em>' containment reference.
-	 * @see #getComments()
+	 * @param value the new value of the '<em>Comment</em>' containment reference.
+	 * @see #getComment()
 	 * @generated
 	 */
-	void setComments(Markdown value);
+	void setComment(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Requirements</b></em>' containment reference.
@@ -452,13 +453,13 @@ public interface ElementDefinition extends Element {
 	 * The minimum number of times this element SHALL appear in the instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Min</em>' containment reference.
-	 * @see #setMin(org.hl7.fhir.Integer)
+	 * @see #setMin(UnsignedInt)
 	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_Min()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='min' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Integer getMin();
+	UnsignedInt getMin();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getMin <em>Min</em>}' containment reference.
@@ -468,7 +469,7 @@ public interface ElementDefinition extends Element {
 	 * @see #getMin()
 	 * @generated
 	 */
-	void setMin(org.hl7.fhir.Integer value);
+	void setMin(UnsignedInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Max</b></em>' containment reference.
@@ -1577,6 +1578,32 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setMeaningWhenMissing(Markdown value);
+
+	/**
+	 * Returns the value of the '<em><b>Order Meaning</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Order Meaning</em>' containment reference.
+	 * @see #setOrderMeaning(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_OrderMeaning()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='orderMeaning' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getOrderMeaning();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getOrderMeaning <em>Order Meaning</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Order Meaning</em>' containment reference.
+	 * @see #getOrderMeaning()
+	 * @generated
+	 */
+	void setOrderMeaning(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Fixed Base64 Binary</b></em>' containment reference.
@@ -4179,7 +4206,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Binds to a value set if this element is coded (code, Coding, CodeableConcept).
+	 * Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Binding</em>' containment reference.
 	 * @see #setBinding(ElementDefinitionBinding)

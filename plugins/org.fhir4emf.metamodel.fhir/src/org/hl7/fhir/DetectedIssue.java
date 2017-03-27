@@ -22,14 +22,15 @@ import org.hl7.fhir.jaxb.DetectedIssueImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.DetectedIssue#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.DetectedIssue#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.DetectedIssue#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getSeverity <em>Severity</em>}</li>
- *   <li>{@link org.hl7.fhir.DetectedIssue#getImplicated <em>Implicated</em>}</li>
- *   <li>{@link org.hl7.fhir.DetectedIssue#getDetail <em>Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.DetectedIssue#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.DetectedIssue#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.DetectedIssue#getImplicated <em>Implicated</em>}</li>
+ *   <li>{@link org.hl7.fhir.DetectedIssue#getDetail <em>Detail</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getReference <em>Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getMitigation <em>Mitigation</em>}</li>
  * </ul>
@@ -41,30 +42,56 @@ import org.hl7.fhir.jaxb.DetectedIssueImplAdapter;
 @XmlJavaTypeAdapter(DetectedIssueImplAdapter.class)
 public interface DetectedIssue extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the patient whose record the detected issue is associated with.
+	 * Business identifier associated with the detected issue record.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Patient()
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Identifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPatient();
+	Identifier getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getPatient <em>Patient</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getIdentifier <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
 	 * @generated
 	 */
-	void setPatient(Reference value);
+	void setIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the status of the detected issue.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(ObservationStatus)
+	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Status()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ObservationStatus getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(ObservationStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
@@ -119,46 +146,30 @@ public interface DetectedIssue extends DomainResource {
 	void setSeverity(DetectedIssueSeverity value);
 
 	/**
-	 * Returns the value of the '<em><b>Implicated</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the resource representing the current activity or proposed activity that is potentially problematic.
+	 * Indicates the patient whose record the detected issue is associated with.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Implicated</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Implicated()
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Patient()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='implicated' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Reference> getImplicated();
+	Reference getPatient();
 
 	/**
-	 * Returns the value of the '<em><b>Detail</b></em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getPatient <em>Patient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A textual explanation of the detected issue.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Detail</em>' containment reference.
-	 * @see #setDetail(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Detail()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='detail' namespace='##targetNamespace'"
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
 	 * @generated
 	 */
-	org.hl7.fhir.String getDetail();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getDetail <em>Detail</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Detail</em>' containment reference.
-	 * @see #getDetail()
-	 * @generated
-	 */
-	void setDetail(org.hl7.fhir.String value);
+	void setPatient(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
@@ -213,30 +224,46 @@ public interface DetectedIssue extends DomainResource {
 	void setAuthor(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Implicated</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Business identifier associated with the detected issue record.
+	 * Indicates the resource representing the current activity or proposed activity that is potentially problematic.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Identifier()
+	 * @return the value of the '<em>Implicated</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Implicated()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='implicated' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
+	List<Reference> getImplicated();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getIdentifier <em>Identifier</em>}' containment reference.
+	 * Returns the value of the '<em><b>Detail</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
+	 * <!-- begin-model-doc -->
+	 * A textual explanation of the detected issue.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Detail</em>' containment reference.
+	 * @see #setDetail(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Detail()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='detail' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setIdentifier(Identifier value);
+	org.hl7.fhir.String getDetail();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getDetail <em>Detail</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Detail</em>' containment reference.
+	 * @see #getDetail()
+	 * @generated
+	 */
+	void setDetail(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Reference</b></em>' containment reference.

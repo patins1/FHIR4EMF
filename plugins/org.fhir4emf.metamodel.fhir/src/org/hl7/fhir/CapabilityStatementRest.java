@@ -42,7 +42,7 @@ public interface CapabilityStatementRest extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
+	 * Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Mode</em>' containment reference.
 	 * @see #setMode(RestfulCapabilityMode)
@@ -169,7 +169,7 @@ public interface CapabilityStatementRest extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Definition of an operation or a named query and with its parameters and their meaning and type.
+	 * Definition of an operation or a named query together with its parameters and their meaning and type.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Operation</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementRest_Operation()
@@ -185,7 +185,7 @@ public interface CapabilityStatementRest extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.
+	 * An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL .
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Compartment</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementRest_Compartment()

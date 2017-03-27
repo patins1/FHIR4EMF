@@ -34,6 +34,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionMappingImpl#getIdentity <em>Identity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionMappingImpl#getLanguage <em>Language</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionMappingImpl#getMap <em>Map</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ElementDefinitionMappingImpl#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,6 +71,16 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String map;
+
+	/**
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String comment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -229,6 +240,50 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	public org.hl7.fhir.String getComment() {
+		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComment(org.hl7.fhir.String newComment, NotificationChain msgs) {
+		org.hl7.fhir.String oldComment = comment;
+		comment = newComment;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_MAPPING__COMMENT, oldComment, newComment);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComment(org.hl7.fhir.String newComment) {
+		if (newComment != comment) {
+			NotificationChain msgs = null;
+			if (comment != null)
+				msgs = ((InternalEObject)comment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_MAPPING__COMMENT, null, msgs);
+			if (newComment != null)
+				msgs = ((InternalEObject)newComment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_MAPPING__COMMENT, null, msgs);
+			msgs = basicSetComment(newComment, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_MAPPING__COMMENT, newComment, newComment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -238,6 +293,8 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 				return basicSetLanguage(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION_MAPPING__MAP:
 				return basicSetMap(null, msgs);
+			case FhirPackage.ELEMENT_DEFINITION_MAPPING__COMMENT:
+				return basicSetComment(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -256,6 +313,8 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 				return getLanguage();
 			case FhirPackage.ELEMENT_DEFINITION_MAPPING__MAP:
 				return getMap();
+			case FhirPackage.ELEMENT_DEFINITION_MAPPING__COMMENT:
+				return getComment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -276,6 +335,9 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_MAPPING__MAP:
 				setMap((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.ELEMENT_DEFINITION_MAPPING__COMMENT:
+				setComment((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -298,6 +360,9 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 			case FhirPackage.ELEMENT_DEFINITION_MAPPING__MAP:
 				setMap((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.ELEMENT_DEFINITION_MAPPING__COMMENT:
+				setComment((org.hl7.fhir.String)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -316,6 +381,8 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 				return language != null;
 			case FhirPackage.ELEMENT_DEFINITION_MAPPING__MAP:
 				return map != null;
+			case FhirPackage.ELEMENT_DEFINITION_MAPPING__COMMENT:
+				return comment != null;
 		}
 		return super.eIsSet(featureID);
 	}

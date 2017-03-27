@@ -22,8 +22,9 @@ import org.hl7.fhir.jaxb.ConceptMapTargetImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ConceptMapTarget#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapTarget#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapTarget#getEquivalence <em>Equivalence</em>}</li>
- *   <li>{@link org.hl7.fhir.ConceptMapTarget#getComments <em>Comments</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapTarget#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapTarget#getDependsOn <em>Depends On</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapTarget#getProduct <em>Product</em>}</li>
  * </ul>
@@ -61,6 +62,32 @@ public interface ConceptMapTarget extends BackboneElement {
 	void setCode(Code value);
 
 	/**
+	 * Returns the value of the '<em><b>Display</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The display for the code. The display is only provided to help editors when editing the concept map.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Display</em>' containment reference.
+	 * @see #setDisplay(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapTarget_Display()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='display' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDisplay();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapTarget#getDisplay <em>Display</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Display</em>' containment reference.
+	 * @see #getDisplay()
+	 * @generated
+	 */
+	void setDisplay(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Equivalence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,30 +114,30 @@ public interface ConceptMapTarget extends BackboneElement {
 	void setEquivalence(ConceptMapEquivalence value);
 
 	/**
-	 * Returns the value of the '<em><b>Comments</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A description of status/issues in mapping that conveys additional information not represented in  the structured data.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Comments</em>' containment reference.
-	 * @see #setComments(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMapTarget_Comments()
+	 * @return the value of the '<em>Comment</em>' containment reference.
+	 * @see #setComment(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapTarget_Comment()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='comments' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getComments();
+	org.hl7.fhir.String getComment();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapTarget#getComments <em>Comments</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapTarget#getComment <em>Comment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comments</em>' containment reference.
-	 * @see #getComments()
+	 * @param value the new value of the '<em>Comment</em>' containment reference.
+	 * @see #getComment()
 	 * @generated
 	 */
-	void setComments(org.hl7.fhir.String value);
+	void setComment(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Depends On</b></em>' containment reference list.

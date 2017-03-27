@@ -110,12 +110,8 @@ import org.w3._1999.xhtml.jaxb.VarTypeImplAdapter;
  * @generated
  */
 @XmlType(name = "Inline", namespace = "http://www.w3.org/1999/xhtml")
-@XmlSeeAlso({ AbbrTypeImpl.class, SpanTypeImpl.class, BigTypeImpl.class, SupTypeImpl.class, SmallTypeImpl.class,
-		ITypeImpl.class, SampTypeImpl.class, StrongTypeImpl.class, SubTypeImpl.class, H6TypeImpl.class, BTypeImpl.class,
-		CaptionTypeImpl.class, CodeTypeImpl.class, CiteTypeImpl.class, H5TypeImpl.class, AddressTypeImpl.class,
-		DfnTypeImpl.class, H2TypeImpl.class, QTypeImpl.class, TtTypeImpl.class, H3TypeImpl.class, BdoTypeImpl.class,
-		H4TypeImpl.class, PTypeImpl.class, H1TypeImpl.class, DtTypeImpl.class, KbdTypeImpl.class, EmTypeImpl.class,
-		AcronymTypeImpl.class, VarTypeImpl.class })
+@XmlSeeAlso({ AbbrTypeImpl.class, BigTypeImpl.class, SpanTypeImpl.class, SupTypeImpl.class, SmallTypeImpl.class, ITypeImpl.class, SampTypeImpl.class, StrongTypeImpl.class, SubTypeImpl.class, H6TypeImpl.class, BTypeImpl.class, CaptionTypeImpl.class, CodeTypeImpl.class, CiteTypeImpl.class, H5TypeImpl.class, AddressTypeImpl.class,
+		DfnTypeImpl.class, H2TypeImpl.class, QTypeImpl.class, TtTypeImpl.class, H3TypeImpl.class, H4TypeImpl.class, BdoTypeImpl.class, PTypeImpl.class, H1TypeImpl.class, KbdTypeImpl.class, DtTypeImpl.class, EmTypeImpl.class, AcronymTypeImpl.class, VarTypeImpl.class })
 @XmlRootElement(name = "xhtml.Inline")
 public class InlineImpl extends MinimalEObjectImpl.Container implements Inline {
 	/**

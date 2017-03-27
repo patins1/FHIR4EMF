@@ -25,7 +25,6 @@ import org.hl7.fhir.jaxb.MeasureReportGroupImplAdapter;
  *   <li>{@link org.hl7.fhir.MeasureReportGroup#getPopulation <em>Population</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportGroup#getMeasureScore <em>Measure Score</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportGroup#getStratifier <em>Stratifier</em>}</li>
- *   <li>{@link org.hl7.fhir.MeasureReportGroup#getSupplementalData <em>Supplemental Data</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMeasureReportGroup()
@@ -81,7 +80,7 @@ public interface MeasureReportGroup extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The measure score.
+	 * The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Measure Score</em>' containment reference.
 	 * @see #setMeasureScore(Decimal)
@@ -117,21 +116,5 @@ public interface MeasureReportGroup extends BackboneElement {
 	 * @generated
 	 */
 	List<MeasureReportStratifier> getStratifier();
-
-	/**
-	 * Returns the value of the '<em><b>Supplemental Data</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.MeasureReportSupplementalData}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Supplemental data elements for the measure provide additional information requested by the measure for each patient involved in the populations.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Supplemental Data</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMeasureReportGroup_SupplementalData()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='supplementalData' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	List<MeasureReportSupplementalData> getSupplementalData();
 
 } // MeasureReportGroup

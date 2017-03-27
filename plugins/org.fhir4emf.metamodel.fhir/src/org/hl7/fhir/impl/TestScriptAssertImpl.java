@@ -17,21 +17,23 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.AssertionDirectionType;
 import org.hl7.fhir.AssertionOperatorType;
 import org.hl7.fhir.AssertionResponseTypes;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.ContentType;
+import org.hl7.fhir.FHIRDefinedType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.TestScriptAssert;
+import org.hl7.fhir.TestScriptRequestMethodCode;
 import org.hl7.fhir.TestScriptRule2;
 import org.hl7.fhir.TestScriptRuleset1;
 import org.hl7.fhir.jaxb.AssertionDirectionTypeImplAdapter;
 import org.hl7.fhir.jaxb.AssertionOperatorTypeImplAdapter;
 import org.hl7.fhir.jaxb.AssertionResponseTypesImplAdapter;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.ContentTypeImplAdapter;
+import org.hl7.fhir.jaxb.FHIRDefinedTypeImplAdapter;
 import org.hl7.fhir.jaxb.IdImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TestScriptRequestMethodCodeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,6 +56,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getNavigationLinks <em>Navigation Links</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getRequestMethod <em>Request Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getRequestURL <em>Request URL</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptAssertImpl#getResponse <em>Response</em>}</li>
@@ -202,6 +205,16 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	protected org.hl7.fhir.String path;
 
 	/**
+	 * The cached value of the '{@link #getRequestMethod() <em>Request Method</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected TestScriptRequestMethodCode requestMethod;
+
+	/**
 	 * The cached value of the '{@link #getRequestURL() <em>Request URL</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,7 +232,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * @generated
 	 * @ordered
 	 */
-	protected Code resource;
+	protected FHIRDefinedType resource;
 
 	/**
 	 * The cached value of the '{@link #getResponse() <em>Response</em>}' containment reference.
@@ -897,6 +910,50 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TestScriptRequestMethodCodeImplAdapter.class)
+	public TestScriptRequestMethodCode getRequestMethod() {
+		return requestMethod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequestMethod(TestScriptRequestMethodCode newRequestMethod, NotificationChain msgs) {
+		TestScriptRequestMethodCode oldRequestMethod = requestMethod;
+		requestMethod = newRequestMethod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_METHOD, oldRequestMethod, newRequestMethod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequestMethod(TestScriptRequestMethodCode newRequestMethod) {
+		if (newRequestMethod != requestMethod) {
+			NotificationChain msgs = null;
+			if (requestMethod != null)
+				msgs = ((InternalEObject)requestMethod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_METHOD, null, msgs);
+			if (newRequestMethod != null)
+				msgs = ((InternalEObject)newRequestMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_METHOD, null, msgs);
+			msgs = basicSetRequestMethod(newRequestMethod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_METHOD, newRequestMethod, newRequestMethod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getRequestURL() {
 		return requestURL;
@@ -941,8 +998,8 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getResource() {
+	@XmlJavaTypeAdapter(FHIRDefinedTypeImplAdapter.class)
+	public FHIRDefinedType getResource() {
 		return resource;
 	}
 
@@ -951,8 +1008,8 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetResource(Code newResource, NotificationChain msgs) {
-		Code oldResource = resource;
+	public NotificationChain basicSetResource(FHIRDefinedType newResource, NotificationChain msgs) {
+		FHIRDefinedType oldResource = resource;
 		resource = newResource;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE, oldResource, newResource);
@@ -966,7 +1023,7 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResource(Code newResource) {
+	public void setResource(FHIRDefinedType newResource) {
 		if (newResource != resource) {
 			NotificationChain msgs = null;
 			if (resource != null)
@@ -1364,6 +1421,8 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return basicSetOperator(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				return basicSetPath(null, msgs);
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_METHOD:
+				return basicSetRequestMethod(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
 				return basicSetRequestURL(null, msgs);
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:
@@ -1422,6 +1481,8 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return getOperator();
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				return getPath();
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_METHOD:
+				return getRequestMethod();
 			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
 				return getRequestURL();
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:
@@ -1493,11 +1554,14 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				setPath((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_METHOD:
+				setRequestMethod((TestScriptRequestMethodCode)newValue);
+				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
 				setRequestURL((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:
-				setResource((Code)newValue);
+				setResource((FHIRDefinedType)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESPONSE:
 				setResponse((AssertionResponseTypes)newValue);
@@ -1574,11 +1638,14 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				setPath((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_METHOD:
+				setRequestMethod((TestScriptRequestMethodCode)null);
+				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
 				setRequestURL((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:
-				setResource((Code)null);
+				setResource((FHIRDefinedType)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESPONSE:
 				setResponse((AssertionResponseTypes)null);
@@ -1642,6 +1709,8 @@ public class TestScriptAssertImpl extends BackboneElementImpl implements TestScr
 				return operator != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__PATH:
 				return path != null;
+			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_METHOD:
+				return requestMethod != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__REQUEST_URL:
 				return requestURL != null;
 			case FhirPackage.TEST_SCRIPT_ASSERT__RESOURCE:

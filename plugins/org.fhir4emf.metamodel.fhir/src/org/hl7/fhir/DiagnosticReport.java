@@ -23,16 +23,16 @@ import org.hl7.fhir.jaxb.DiagnosticReportImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticReport#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticReport#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticReport#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticReport#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getResult <em>Result</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getImagingStudy <em>Imaging Study</em>}</li>
@@ -54,7 +54,7 @@ public interface DiagnosticReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.
+	 * Identifiers assigned to this report by the performer or other systems.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Identifier()
@@ -63,6 +63,22 @@ public interface DiagnosticReport extends DomainResource {
 	 * @generated
 	 */
 	List<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Details concerning a test or procedure requested.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getBasedOn();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -169,30 +185,30 @@ public interface DiagnosticReport extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The link to the health care event (encounter) when the order was made.
+	 * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport per is about.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Encounter()
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Context()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getEncounter();
+	Reference getContext();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticReport#getEncounter <em>Encounter</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticReport#getContext <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
 	 * @generated
 	 */
-	void setEncounter(Reference value);
+	void setContext(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Effective Date Time</b></em>' containment reference.
@@ -287,22 +303,6 @@ public interface DiagnosticReport extends DomainResource {
 	 * @generated
 	 */
 	List<DiagnosticReportPerformer> getPerformer();
-
-	/**
-	 * Returns the value of the '<em><b>Request</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Details concerning a test or procedure requested.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Request()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='request' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	List<Reference> getRequest();
 
 	/**
 	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference list.

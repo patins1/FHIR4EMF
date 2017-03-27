@@ -39,7 +39,6 @@ import org.hl7.fhir.jaxb.DocumentRootImplAdapter;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getCapabilityStatement <em>Capability Statement</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getCarePlan <em>Care Plan</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getCareTeam <em>Care Team</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentRoot#getCatalog <em>Catalog</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getChargeItem <em>Charge Item</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getClaim <em>Claim</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getClaimResponse <em>Claim Response</em>}</li>
@@ -76,6 +75,7 @@ import org.hl7.fhir.jaxb.DocumentRootImplAdapter;
  *   <li>{@link org.hl7.fhir.DocumentRoot#getFamilyMemberHistory <em>Family Member History</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getFlag <em>Flag</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getGoal <em>Goal</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentRoot#getGraphDefinition <em>Graph Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getGroup <em>Group</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getGuidanceResponse <em>Guidance Response</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentRoot#getHealthcareService <em>Healthcare Service</em>}</li>
@@ -568,34 +568,6 @@ public interface DocumentRoot extends EObject {
 	void setCareTeam(CareTeam value);
 
 	/**
-	 * Returns the value of the '<em><b>Catalog</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...
-	 * The catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. 
-	 * The catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Catalog</em>' containment reference.
-	 * @see #setCatalog(Catalog)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_Catalog()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='Catalog' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Catalog getCatalog();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getCatalog <em>Catalog</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Catalog</em>' containment reference.
-	 * @see #getCatalog()
-	 * @generated
-	 */
-	void setCatalog(Catalog value);
-
-	/**
 	 * Returns the value of the '<em><b>Charge Item</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,7 +988,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
+	 * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Device</em>' containment reference.
 	 * @see #setDevice(Device)
@@ -1042,7 +1014,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.
+	 * The characteristics, operational status and capabilities of a medical-related component of a medical device.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Device Component</em>' containment reference.
 	 * @see #setDeviceComponent(DeviceComponent)
@@ -1172,7 +1144,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A manifest that defines a set of documents.
+	 * A collection of documents compiled for a purpose together with metadata that applies to the collection.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Document Manifest</em>' containment reference.
 	 * @see #setDocumentManifest(DocumentManifest)
@@ -1198,7 +1170,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a document .
+	 * A reference to a document.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Document Reference</em>' containment reference.
 	 * @see #setDocumentReference(DocumentReference)
@@ -1532,6 +1504,32 @@ public interface DocumentRoot extends EObject {
 	void setGoal(Goal value);
 
 	/**
+	 * Returns the value of the '<em><b>Graph Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Graph Definition</em>' containment reference.
+	 * @see #setGraphDefinition(GraphDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentRoot_GraphDefinition()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='GraphDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	GraphDefinition getGraphDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentRoot#getGraphDefinition <em>Graph Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Graph Definition</em>' containment reference.
+	 * @see #getGraphDefinition()
+	 * @generated
+	 */
+	void setGraphDefinition(GraphDefinition value);
+
+	/**
 	 * Returns the value of the '<em><b>Group</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1718,7 +1716,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.
+	 * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Implementation Guide</em>' containment reference.
 	 * @see #setImplementationGuide(ImplementationGuide)
@@ -2004,7 +2002,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
+	 * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Medication Request</em>' containment reference.
 	 * @see #setMedicationRequest(MedicationRequest)
@@ -2030,7 +2028,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains 
+	 * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains 
 	 * 
 	 * The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
 	 * <!-- end-model-doc -->
@@ -2500,7 +2498,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A record of a request for a diagnostic investigation service to be performed.
+	 * A record of a request for diagnostic investigations, treatments, or operations to be performed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Procedure Request</em>' containment reference.
 	 * @see #setProcedureRequest(ProcedureRequest)
@@ -2604,7 +2602,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+	 * A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Questionnaire</em>' containment reference.
 	 * @see #setQuestionnaire(Questionnaire)
@@ -2630,7 +2628,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+	 * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Questionnaire Response</em>' containment reference.
 	 * @see #setQuestionnaireResponse(QuestionnaireResponse)
@@ -2734,7 +2732,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects.
+	 * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Research Study</em>' containment reference.
 	 * @see #setResearchStudy(ResearchStudy)
@@ -2760,7 +2758,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects.
+	 * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Research Subject</em>' containment reference.
 	 * @see #setResearchSubject(ResearchSubject)
@@ -2968,7 +2966,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
+	 * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Structure Definition</em>' containment reference.
 	 * @see #setStructureDefinition(StructureDefinition)
@@ -3150,7 +3148,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * TestReport is a resource that includes summary information on the results of executing a TestScript.
+	 * A summary of information based on the results of executing a TestScript.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Test Report</em>' containment reference.
 	 * @see #setTestReport(TestReport)
@@ -3176,7 +3174,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+	 * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Test Script</em>' containment reference.
 	 * @see #setTestScript(TestScript)

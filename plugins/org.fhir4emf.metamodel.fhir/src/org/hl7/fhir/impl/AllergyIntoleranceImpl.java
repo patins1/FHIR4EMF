@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Age;
 import org.hl7.fhir.AllergyIntolerance;
+import org.hl7.fhir.AllergyIntoleranceCategory;
 import org.hl7.fhir.AllergyIntoleranceClinicalStatus;
 import org.hl7.fhir.AllergyIntoleranceCriticality;
 import org.hl7.fhir.AllergyIntoleranceReaction;
@@ -38,6 +39,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.AllergyIntoleranceCategoryImplAdapter;
 import org.hl7.fhir.jaxb.AllergyIntoleranceClinicalStatusImplAdapter;
 import org.hl7.fhir.jaxb.AllergyIntoleranceCriticalityImplAdapter;
 import org.hl7.fhir.jaxb.AllergyIntoleranceTypeImplAdapter;
@@ -127,7 +129,7 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> category;
+	protected EList<AllergyIntoleranceCategory> category;
 
 	/**
 	 * The cached value of the '{@link #getCriticality() <em>Criticality</em>}' containment reference.
@@ -439,10 +441,11 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AllergyIntoleranceCategoryImplAdapter.class)
 	@XmlElement
-	public List<CodeableConcept> getCategory() {
+	public List<AllergyIntoleranceCategory> getCategory() {
 		if (category == null) {
-			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ALLERGY_INTOLERANCE__CATEGORY);
+			category = new EObjectContainmentEList<AllergyIntoleranceCategory>(AllergyIntoleranceCategory.class, this, FhirPackage.ALLERGY_INTOLERANCE__CATEGORY);
 		}
 		return category;
 	}
@@ -1119,7 +1122,7 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__CATEGORY:
 				getCategory().clear();
-				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
+				getCategory().addAll((Collection<? extends AllergyIntoleranceCategory>)newValue);
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__CRITICALITY:
 				setCriticality((AllergyIntoleranceCriticality)newValue);

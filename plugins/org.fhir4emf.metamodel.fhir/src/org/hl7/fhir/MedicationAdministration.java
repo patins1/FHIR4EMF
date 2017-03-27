@@ -37,8 +37,8 @@ import org.hl7.fhir.jaxb.MedicationAdministrationImplAdapter;
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getNotGiven <em>Not Given</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonNotGiven <em>Reason Not Given</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonGivenReference <em>Reason Given Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonGivenCodeableConcept <em>Reason Given Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getPrescription <em>Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getNote <em>Note</em>}</li>
@@ -383,36 +383,36 @@ public interface MedicationAdministration extends DomainResource {
 	List<CodeableConcept> getReasonNotGiven();
 
 	/**
-	 * Returns the value of the '<em><b>Reason Given Reference</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Condition or observation that supports why the medication was administered.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason Given Reference</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_ReasonGivenReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonGivenReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	List<Reference> getReasonGivenReference();
-
-	/**
-	 * Returns the value of the '<em><b>Reason Given Codeable Concept</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A code indicating why the medication was given.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason Given Codeable Concept</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_ReasonGivenCodeableConcept()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonGivenCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<CodeableConcept> getReasonGivenCodeableConcept();
+	List<CodeableConcept> getReasonCode();
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Condition or observation that supports why the medication was administered.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Prescription</b></em>' containment reference.

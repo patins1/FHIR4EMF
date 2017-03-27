@@ -60,7 +60,7 @@ public interface ExpansionProfileDesignation2 extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Designation uses for exclusion in the expansion.
+	 * Which kinds of designation to exclude from the expansion.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use</em>' containment reference.
 	 * @see #setUse(Coding)

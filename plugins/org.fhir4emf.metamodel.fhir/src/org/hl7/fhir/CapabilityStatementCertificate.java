@@ -34,7 +34,7 @@ public interface CapabilityStatementCertificate extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Mime type for certificate.
+	 * Mime type for a certificate.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(Code)

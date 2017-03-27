@@ -22,8 +22,8 @@ import org.hl7.fhir.jaxb.DeviceMetricImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.DeviceMetric#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceMetric#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceMetric#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceMetric#getUnit <em>Unit</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceMetric#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceMetric#getParent <em>Parent</em>}</li>
@@ -40,32 +40,6 @@ import org.hl7.fhir.jaxb.DeviceMetricImplAdapter;
  */
 @XmlJavaTypeAdapter(DeviceMetricImplAdapter.class)
 public interface DeviceMetric extends DomainResource {
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getDeviceMetric_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DeviceMetric#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(CodeableConcept value);
-
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -91,6 +65,32 @@ public interface DeviceMetric extends DomainResource {
 	 * @generated
 	 */
 	void setIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getDeviceMetric_Type()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DeviceMetric#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Unit</b></em>' containment reference.
@@ -123,7 +123,7 @@ public interface DeviceMetric extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc.
+	 * Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacturer, serial number, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(Reference)

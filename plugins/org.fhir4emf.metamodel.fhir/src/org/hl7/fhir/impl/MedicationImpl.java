@@ -27,8 +27,8 @@ import org.hl7.fhir.Attachment;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Medication;
+import org.hl7.fhir.MedicationIngredient;
 import org.hl7.fhir.MedicationPackage;
-import org.hl7.fhir.MedicationProduct;
 import org.hl7.fhir.MedicationStatus;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
@@ -47,7 +47,8 @@ import org.hl7.fhir.jaxb.MedicationStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIsBrand <em>Is Brand</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIsOverTheCounter <em>Is Over The Counter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getManufacturer <em>Manufacturer</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getProduct <em>Product</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getForm <em>Form</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIngredient <em>Ingredient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getImage <em>Image</em>}</li>
  * </ul>
@@ -108,14 +109,24 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	protected Reference manufacturer;
 
 	/**
-	 * The cached value of the '{@link #getProduct() <em>Product</em>}' containment reference.
+	 * The cached value of the '{@link #getForm() <em>Form</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProduct()
+	 * @see #getForm()
 	 * @generated
 	 * @ordered
 	 */
-	protected MedicationProduct product;
+	protected CodeableConcept form;
+
+	/**
+	 * The cached value of the '{@link #getIngredient() <em>Ingredient</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIngredient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MedicationIngredient> ingredient;
 
 	/**
 	 * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference.
@@ -379,8 +390,8 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationProduct getProduct() {
-		return product;
+	public CodeableConcept getForm() {
+		return form;
 	}
 
 	/**
@@ -388,11 +399,11 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProduct(MedicationProduct newProduct, NotificationChain msgs) {
-		MedicationProduct oldProduct = product;
-		product = newProduct;
+	public NotificationChain basicSetForm(CodeableConcept newForm, NotificationChain msgs) {
+		CodeableConcept oldForm = form;
+		form = newForm;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__PRODUCT, oldProduct, newProduct);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__FORM, oldForm, newForm);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -403,18 +414,31 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProduct(MedicationProduct newProduct) {
-		if (newProduct != product) {
+	public void setForm(CodeableConcept newForm) {
+		if (newForm != form) {
 			NotificationChain msgs = null;
-			if (product != null)
-				msgs = ((InternalEObject)product).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__PRODUCT, null, msgs);
-			if (newProduct != null)
-				msgs = ((InternalEObject)newProduct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__PRODUCT, null, msgs);
-			msgs = basicSetProduct(newProduct, msgs);
+			if (form != null)
+				msgs = ((InternalEObject)form).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__FORM, null, msgs);
+			if (newForm != null)
+				msgs = ((InternalEObject)newForm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__FORM, null, msgs);
+			msgs = basicSetForm(newForm, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__PRODUCT, newProduct, newProduct));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__FORM, newForm, newForm));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<MedicationIngredient> getIngredient() {
+		if (ingredient == null) {
+			ingredient = new EObjectContainmentEList<MedicationIngredient>(MedicationIngredient.class, this, FhirPackage.MEDICATION__INGREDIENT);
+		}
+		return ingredient;
 	}
 
 	/**
@@ -491,8 +515,10 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 				return basicSetIsOverTheCounter(null, msgs);
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				return basicSetManufacturer(null, msgs);
-			case FhirPackage.MEDICATION__PRODUCT:
-				return basicSetProduct(null, msgs);
+			case FhirPackage.MEDICATION__FORM:
+				return basicSetForm(null, msgs);
+			case FhirPackage.MEDICATION__INGREDIENT:
+				return ((InternalEList<?>)getIngredient()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION__PACKAGE:
 				return basicSetPackage(null, msgs);
 			case FhirPackage.MEDICATION__IMAGE:
@@ -519,8 +545,10 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 				return getIsOverTheCounter();
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				return getManufacturer();
-			case FhirPackage.MEDICATION__PRODUCT:
-				return getProduct();
+			case FhirPackage.MEDICATION__FORM:
+				return getForm();
+			case FhirPackage.MEDICATION__INGREDIENT:
+				return getIngredient();
 			case FhirPackage.MEDICATION__PACKAGE:
 				return getPackage();
 			case FhirPackage.MEDICATION__IMAGE:
@@ -553,8 +581,12 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				setManufacturer((Reference)newValue);
 				return;
-			case FhirPackage.MEDICATION__PRODUCT:
-				setProduct((MedicationProduct)newValue);
+			case FhirPackage.MEDICATION__FORM:
+				setForm((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEDICATION__INGREDIENT:
+				getIngredient().clear();
+				getIngredient().addAll((Collection<? extends MedicationIngredient>)newValue);
 				return;
 			case FhirPackage.MEDICATION__PACKAGE:
 				setPackage((MedicationPackage)newValue);
@@ -590,8 +622,11 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				setManufacturer((Reference)null);
 				return;
-			case FhirPackage.MEDICATION__PRODUCT:
-				setProduct((MedicationProduct)null);
+			case FhirPackage.MEDICATION__FORM:
+				setForm((CodeableConcept)null);
+				return;
+			case FhirPackage.MEDICATION__INGREDIENT:
+				getIngredient().clear();
 				return;
 			case FhirPackage.MEDICATION__PACKAGE:
 				setPackage((MedicationPackage)null);
@@ -621,8 +656,10 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 				return isOverTheCounter != null;
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				return manufacturer != null;
-			case FhirPackage.MEDICATION__PRODUCT:
-				return product != null;
+			case FhirPackage.MEDICATION__FORM:
+				return form != null;
+			case FhirPackage.MEDICATION__INGREDIENT:
+				return ingredient != null && !ingredient.isEmpty();
 			case FhirPackage.MEDICATION__PACKAGE:
 				return package_ != null;
 			case FhirPackage.MEDICATION__IMAGE:

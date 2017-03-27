@@ -27,7 +27,8 @@ import org.hl7.fhir.jaxb.MedicationImplAdapter;
  *   <li>{@link org.hl7.fhir.Medication#getIsBrand <em>Is Brand</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getIsOverTheCounter <em>Is Over The Counter</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getManufacturer <em>Manufacturer</em>}</li>
- *   <li>{@link org.hl7.fhir.Medication#getProduct <em>Product</em>}</li>
+ *   <li>{@link org.hl7.fhir.Medication#getForm <em>Form</em>}</li>
+ *   <li>{@link org.hl7.fhir.Medication#getIngredient <em>Ingredient</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getPackage <em>Package</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getImage <em>Image</em>}</li>
  * </ul>
@@ -69,7 +70,7 @@ public interface Medication extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code to iindicate if the medication is in active use.
+	 * A code to indicate if the medication is in active use.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(MedicationStatus)
@@ -147,7 +148,7 @@ public interface Medication extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the details of the manufacturer.
+	 * Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Manufacturer</em>' containment reference.
 	 * @see #setManufacturer(Reference)
@@ -169,30 +170,46 @@ public interface Medication extends DomainResource {
 	void setManufacturer(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Product</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Form</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Information that only applies to products (not packages).
+	 * Describes the form of the item.  Powder; tablets; capsule.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Product</em>' containment reference.
-	 * @see #setProduct(MedicationProduct)
-	 * @see org.hl7.fhir.FhirPackage#getMedication_Product()
+	 * @return the value of the '<em>Form</em>' containment reference.
+	 * @see #setForm(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedication_Form()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='product' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='form' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationProduct getProduct();
+	CodeableConcept getForm();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Medication#getProduct <em>Product</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Medication#getForm <em>Form</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Product</em>' containment reference.
-	 * @see #getProduct()
+	 * @param value the new value of the '<em>Form</em>' containment reference.
+	 * @see #getForm()
 	 * @generated
 	 */
-	void setProduct(MedicationProduct value);
+	void setForm(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Ingredient</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.MedicationIngredient}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies a particular constituent of interest in the product.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Ingredient</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedication_Ingredient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ingredient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<MedicationIngredient> getIngredient();
 
 	/**
 	 * Returns the value of the '<em><b>Package</b></em>' containment reference.

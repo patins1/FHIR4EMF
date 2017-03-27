@@ -24,33 +24,33 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.ActivityDefinition;
-import org.hl7.fhir.ActivityDefinitionCategory;
 import org.hl7.fhir.ActivityDefinitionDynamicValue;
-import org.hl7.fhir.Code;
+import org.hl7.fhir.ActivityDefinitionParticipant;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.Contributor;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
-import org.hl7.fhir.DosageInstruction;
+import org.hl7.fhir.Dosage;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Quantity;
+import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedArtifact;
+import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.ActivityDefinitionCategoryImplAdapter;
 import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.DateImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 import org.hl7.fhir.jaxb.MarkdownImplAdapter;
 import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 import org.hl7.fhir.jaxb.UriImplAdapter;
 
@@ -70,6 +70,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getUsage <em>Usage</em>}</li>
@@ -80,21 +81,22 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getRelatedArtifact <em>Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getLibrary <em>Library</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getCode <em>Code</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingCodeableConcept <em>Timing Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingTiming <em>Timing Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingPeriod <em>Timing Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingRange <em>Timing Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getParticipantType <em>Participant Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getProductReference <em>Product Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getProductCodeableConcept <em>Product Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getQuantity <em>Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDosageInstruction <em>Dosage Instruction</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDosage <em>Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTransform <em>Transform</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDynamicValue <em>Dynamic Value</em>}</li>
@@ -184,6 +186,16 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @ordered
 	 */
 	protected DateTime date;
+
+	/**
+	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPublisher()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String publisher;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -286,16 +298,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected EList<Contributor> contributor;
 
 	/**
-	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublisher()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String publisher;
-
-	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -336,14 +338,14 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected EList<Reference> library;
 
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * The cached value of the '{@link #getKind() <em>Kind</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCategory()
+	 * @see #getKind()
 	 * @generated
 	 * @ordered
 	 */
-	protected ActivityDefinitionCategory category;
+	protected ResourceType kind;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -356,16 +358,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected CodeableConcept code;
 
 	/**
-	 * The cached value of the '{@link #getTimingCodeableConcept() <em>Timing Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTimingCodeableConcept()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept timingCodeableConcept;
-
-	/**
 	 * The cached value of the '{@link #getTimingTiming() <em>Timing Timing</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -374,6 +366,36 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @ordered
 	 */
 	protected Timing timingTiming;
+
+	/**
+	 * The cached value of the '{@link #getTimingDateTime() <em>Timing Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimingDateTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime timingDateTime;
+
+	/**
+	 * The cached value of the '{@link #getTimingPeriod() <em>Timing Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimingPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period timingPeriod;
+
+	/**
+	 * The cached value of the '{@link #getTimingRange() <em>Timing Range</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimingRange()
+	 * @generated
+	 * @ordered
+	 */
+	protected Range timingRange;
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
@@ -386,14 +408,14 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected Reference location;
 
 	/**
-	 * The cached value of the '{@link #getParticipantType() <em>Participant Type</em>}' containment reference list.
+	 * The cached value of the '{@link #getParticipant() <em>Participant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParticipantType()
+	 * @see #getParticipant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Code> participantType;
+	protected EList<ActivityDefinitionParticipant> participant;
 
 	/**
 	 * The cached value of the '{@link #getProductReference() <em>Product Reference</em>}' containment reference.
@@ -426,14 +448,14 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected Quantity quantity;
 
 	/**
-	 * The cached value of the '{@link #getDosageInstruction() <em>Dosage Instruction</em>}' containment reference list.
+	 * The cached value of the '{@link #getDosage() <em>Dosage</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDosageInstruction()
+	 * @see #getDosage()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DosageInstruction> dosageInstruction;
+	protected EList<Dosage> dosage;
 
 	/**
 	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference list.
@@ -811,6 +833,50 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	public org.hl7.fhir.String getPublisher() {
+		return publisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
+		org.hl7.fhir.String oldPublisher = publisher;
+		publisher = newPublisher;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__PUBLISHER, oldPublisher, newPublisher);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPublisher(org.hl7.fhir.String newPublisher) {
+		if (newPublisher != publisher) {
+			NotificationChain msgs = null;
+			if (publisher != null)
+				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__PUBLISHER, null, msgs);
+			if (newPublisher != null)
+				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__PUBLISHER, null, msgs);
+			msgs = basicSetPublisher(newPublisher, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__PUBLISHER, newPublisher, newPublisher));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
@@ -1126,50 +1192,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getPublisher() {
-		return publisher;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
-		org.hl7.fhir.String oldPublisher = publisher;
-		publisher = newPublisher;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__PUBLISHER, oldPublisher, newPublisher);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPublisher(org.hl7.fhir.String newPublisher) {
-		if (newPublisher != publisher) {
-			NotificationChain msgs = null;
-			if (publisher != null)
-				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__PUBLISHER, null, msgs);
-			if (newPublisher != null)
-				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__PUBLISHER, null, msgs);
-			msgs = basicSetPublisher(newPublisher, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__PUBLISHER, newPublisher, newPublisher));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@XmlElement
 	public List<ContactDetail> getContact() {
 		if (contact == null) {
@@ -1253,9 +1275,9 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActivityDefinitionCategoryImplAdapter.class)
-	public ActivityDefinitionCategory getCategory() {
-		return category;
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
+	public ResourceType getKind() {
+		return kind;
 	}
 
 	/**
@@ -1263,11 +1285,11 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCategory(ActivityDefinitionCategory newCategory, NotificationChain msgs) {
-		ActivityDefinitionCategory oldCategory = category;
-		category = newCategory;
+	public NotificationChain basicSetKind(ResourceType newKind, NotificationChain msgs) {
+		ResourceType oldKind = kind;
+		kind = newKind;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__CATEGORY, oldCategory, newCategory);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__KIND, oldKind, newKind);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1278,18 +1300,18 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCategory(ActivityDefinitionCategory newCategory) {
-		if (newCategory != category) {
+	public void setKind(ResourceType newKind) {
+		if (newKind != kind) {
 			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
+			if (kind != null)
+				msgs = ((InternalEObject)kind).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__KIND, null, msgs);
+			if (newKind != null)
+				msgs = ((InternalEObject)newKind).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__KIND, null, msgs);
+			msgs = basicSetKind(newKind, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__CATEGORY, newCategory, newCategory));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__KIND, newKind, newKind));
 	}
 
 	/**
@@ -1340,49 +1362,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getTimingCodeableConcept() {
-		return timingCodeableConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTimingCodeableConcept(CodeableConcept newTimingCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldTimingCodeableConcept = timingCodeableConcept;
-		timingCodeableConcept = newTimingCodeableConcept;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_CODEABLE_CONCEPT, oldTimingCodeableConcept, newTimingCodeableConcept);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTimingCodeableConcept(CodeableConcept newTimingCodeableConcept) {
-		if (newTimingCodeableConcept != timingCodeableConcept) {
-			NotificationChain msgs = null;
-			if (timingCodeableConcept != null)
-				msgs = ((InternalEObject)timingCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_CODEABLE_CONCEPT, null, msgs);
-			if (newTimingCodeableConcept != null)
-				msgs = ((InternalEObject)newTimingCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetTimingCodeableConcept(newTimingCodeableConcept, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_CODEABLE_CONCEPT, newTimingCodeableConcept, newTimingCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Timing getTimingTiming() {
 		return timingTiming;
 	}
@@ -1419,6 +1398,136 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING, newTimingTiming, newTimingTiming));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public DateTime getTimingDateTime() {
+		return timingDateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimingDateTime(DateTime newTimingDateTime, NotificationChain msgs) {
+		DateTime oldTimingDateTime = timingDateTime;
+		timingDateTime = newTimingDateTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME, oldTimingDateTime, newTimingDateTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimingDateTime(DateTime newTimingDateTime) {
+		if (newTimingDateTime != timingDateTime) {
+			NotificationChain msgs = null;
+			if (timingDateTime != null)
+				msgs = ((InternalEObject)timingDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME, null, msgs);
+			if (newTimingDateTime != null)
+				msgs = ((InternalEObject)newTimingDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME, null, msgs);
+			msgs = basicSetTimingDateTime(newTimingDateTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME, newTimingDateTime, newTimingDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getTimingPeriod() {
+		return timingPeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimingPeriod(Period newTimingPeriod, NotificationChain msgs) {
+		Period oldTimingPeriod = timingPeriod;
+		timingPeriod = newTimingPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD, oldTimingPeriod, newTimingPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimingPeriod(Period newTimingPeriod) {
+		if (newTimingPeriod != timingPeriod) {
+			NotificationChain msgs = null;
+			if (timingPeriod != null)
+				msgs = ((InternalEObject)timingPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD, null, msgs);
+			if (newTimingPeriod != null)
+				msgs = ((InternalEObject)newTimingPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD, null, msgs);
+			msgs = basicSetTimingPeriod(newTimingPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD, newTimingPeriod, newTimingPeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Range getTimingRange() {
+		return timingRange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimingRange(Range newTimingRange, NotificationChain msgs) {
+		Range oldTimingRange = timingRange;
+		timingRange = newTimingRange;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE, oldTimingRange, newTimingRange);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimingRange(Range newTimingRange) {
+		if (newTimingRange != timingRange) {
+			NotificationChain msgs = null;
+			if (timingRange != null)
+				msgs = ((InternalEObject)timingRange).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE, null, msgs);
+			if (newTimingRange != null)
+				msgs = ((InternalEObject)newTimingRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE, null, msgs);
+			msgs = basicSetTimingRange(newTimingRange, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE, newTimingRange, newTimingRange));
 	}
 
 	/**
@@ -1469,13 +1578,12 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	@XmlElement
-	public List<Code> getParticipantType() {
-		if (participantType == null) {
-			participantType = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT_TYPE);
+	public List<ActivityDefinitionParticipant> getParticipant() {
+		if (participant == null) {
+			participant = new EObjectContainmentEList<ActivityDefinitionParticipant>(ActivityDefinitionParticipant.class, this, FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT);
 		}
-		return participantType;
+		return participant;
 	}
 
 	/**
@@ -1613,11 +1721,11 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @generated
 	 */
 	@XmlElement
-	public List<DosageInstruction> getDosageInstruction() {
-		if (dosageInstruction == null) {
-			dosageInstruction = new EObjectContainmentEList<DosageInstruction>(DosageInstruction.class, this, FhirPackage.ACTIVITY_DEFINITION__DOSAGE_INSTRUCTION);
+	public List<Dosage> getDosage() {
+		if (dosage == null) {
+			dosage = new EObjectContainmentEList<Dosage>(Dosage.class, this, FhirPackage.ACTIVITY_DEFINITION__DOSAGE);
 		}
-		return dosageInstruction;
+		return dosage;
 	}
 
 	/**
@@ -1713,6 +1821,8 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return basicSetExperimental(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				return basicSetDate(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
+				return basicSetPublisher(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__PURPOSE:
@@ -1733,8 +1843,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR:
 				return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
-				return basicSetPublisher(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
@@ -1743,26 +1851,30 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return ((InternalEList<?>)getRelatedArtifact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__LIBRARY:
 				return ((InternalEList<?>)getLibrary()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__CATEGORY:
-				return basicSetCategory(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__KIND:
+				return basicSetKind(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				return basicSetCode(null, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__TIMING_CODEABLE_CONCEPT:
-				return basicSetTimingCodeableConcept(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				return basicSetTimingTiming(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
+				return basicSetTimingDateTime(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
+				return basicSetTimingPeriod(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
+				return basicSetTimingRange(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				return basicSetLocation(null, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT_TYPE:
-				return ((InternalEList<?>)getParticipantType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT:
+				return ((InternalEList<?>)getParticipant()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__PRODUCT_REFERENCE:
 				return basicSetProductReference(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__PRODUCT_CODEABLE_CONCEPT:
 				return basicSetProductCodeableConcept(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__QUANTITY:
 				return basicSetQuantity(null, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE_INSTRUCTION:
-				return ((InternalEList<?>)getDosageInstruction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE:
+				return ((InternalEList<?>)getDosage()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				return ((InternalEList<?>)getBodySite()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
@@ -1797,6 +1909,8 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return getExperimental();
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				return getDate();
+			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
+				return getPublisher();
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.ACTIVITY_DEFINITION__PURPOSE:
@@ -1817,8 +1931,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return getTopic();
 			case FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR:
 				return getContributor();
-			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
-				return getPublisher();
 			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
 				return getContact();
 			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
@@ -1827,26 +1939,30 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return getRelatedArtifact();
 			case FhirPackage.ACTIVITY_DEFINITION__LIBRARY:
 				return getLibrary();
-			case FhirPackage.ACTIVITY_DEFINITION__CATEGORY:
-				return getCategory();
+			case FhirPackage.ACTIVITY_DEFINITION__KIND:
+				return getKind();
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				return getCode();
-			case FhirPackage.ACTIVITY_DEFINITION__TIMING_CODEABLE_CONCEPT:
-				return getTimingCodeableConcept();
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				return getTimingTiming();
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
+				return getTimingDateTime();
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
+				return getTimingPeriod();
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
+				return getTimingRange();
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				return getLocation();
-			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT_TYPE:
-				return getParticipantType();
+			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT:
+				return getParticipant();
 			case FhirPackage.ACTIVITY_DEFINITION__PRODUCT_REFERENCE:
 				return getProductReference();
 			case FhirPackage.ACTIVITY_DEFINITION__PRODUCT_CODEABLE_CONCEPT:
 				return getProductCodeableConcept();
 			case FhirPackage.ACTIVITY_DEFINITION__QUANTITY:
 				return getQuantity();
-			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE_INSTRUCTION:
-				return getDosageInstruction();
+			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE:
+				return getDosage();
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				return getBodySite();
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
@@ -1891,6 +2007,9 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				setDate((DateTime)newValue);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)newValue);
 				return;
@@ -1925,9 +2044,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				getContributor().clear();
 				getContributor().addAll((Collection<? extends Contributor>)newValue);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
@@ -1943,24 +2059,30 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				getLibrary().clear();
 				getLibrary().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__CATEGORY:
-				setCategory((ActivityDefinitionCategory)newValue);
+			case FhirPackage.ACTIVITY_DEFINITION__KIND:
+				setKind((ResourceType)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				setCode((CodeableConcept)newValue);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__TIMING_CODEABLE_CONCEPT:
-				setTimingCodeableConcept((CodeableConcept)newValue);
-				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				setTimingTiming((Timing)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
+				setTimingDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
+				setTimingPeriod((Period)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
+				setTimingRange((Range)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				setLocation((Reference)newValue);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT_TYPE:
-				getParticipantType().clear();
-				getParticipantType().addAll((Collection<? extends Code>)newValue);
+			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT:
+				getParticipant().clear();
+				getParticipant().addAll((Collection<? extends ActivityDefinitionParticipant>)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__PRODUCT_REFERENCE:
 				setProductReference((Reference)newValue);
@@ -1971,9 +2093,9 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__QUANTITY:
 				setQuantity((Quantity)newValue);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE_INSTRUCTION:
-				getDosageInstruction().clear();
-				getDosageInstruction().addAll((Collection<? extends DosageInstruction>)newValue);
+			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE:
+				getDosage().clear();
+				getDosage().addAll((Collection<? extends Dosage>)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				getBodySite().clear();
@@ -2022,6 +2144,9 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				setDate((DateTime)null);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)null);
 				return;
@@ -2052,9 +2177,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR:
 				getContributor().clear();
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
 				getContact().clear();
 				return;
@@ -2067,23 +2189,29 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__LIBRARY:
 				getLibrary().clear();
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__CATEGORY:
-				setCategory((ActivityDefinitionCategory)null);
+			case FhirPackage.ACTIVITY_DEFINITION__KIND:
+				setKind((ResourceType)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				setCode((CodeableConcept)null);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__TIMING_CODEABLE_CONCEPT:
-				setTimingCodeableConcept((CodeableConcept)null);
-				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				setTimingTiming((Timing)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
+				setTimingDateTime((DateTime)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
+				setTimingPeriod((Period)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
+				setTimingRange((Range)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				setLocation((Reference)null);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT_TYPE:
-				getParticipantType().clear();
+			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT:
+				getParticipant().clear();
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__PRODUCT_REFERENCE:
 				setProductReference((Reference)null);
@@ -2094,8 +2222,8 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__QUANTITY:
 				setQuantity((Quantity)null);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE_INSTRUCTION:
-				getDosageInstruction().clear();
+			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE:
+				getDosage().clear();
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				getBodySite().clear();
@@ -2134,6 +2262,8 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return experimental != null;
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				return date != null;
+			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
+				return publisher != null;
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				return description != null;
 			case FhirPackage.ACTIVITY_DEFINITION__PURPOSE:
@@ -2154,8 +2284,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return topic != null && !topic.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR:
 				return contributor != null && !contributor.isEmpty();
-			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
-				return publisher != null;
 			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
 				return contact != null && !contact.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
@@ -2164,26 +2292,30 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return relatedArtifact != null && !relatedArtifact.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__LIBRARY:
 				return library != null && !library.isEmpty();
-			case FhirPackage.ACTIVITY_DEFINITION__CATEGORY:
-				return category != null;
+			case FhirPackage.ACTIVITY_DEFINITION__KIND:
+				return kind != null;
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				return code != null;
-			case FhirPackage.ACTIVITY_DEFINITION__TIMING_CODEABLE_CONCEPT:
-				return timingCodeableConcept != null;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				return timingTiming != null;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
+				return timingDateTime != null;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
+				return timingPeriod != null;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
+				return timingRange != null;
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				return location != null;
-			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT_TYPE:
-				return participantType != null && !participantType.isEmpty();
+			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT:
+				return participant != null && !participant.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__PRODUCT_REFERENCE:
 				return productReference != null;
 			case FhirPackage.ACTIVITY_DEFINITION__PRODUCT_CODEABLE_CONCEPT:
 				return productCodeableConcept != null;
 			case FhirPackage.ACTIVITY_DEFINITION__QUANTITY:
 				return quantity != null;
-			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE_INSTRUCTION:
-				return dosageInstruction != null && !dosageInstruction.isEmpty();
+			case FhirPackage.ACTIVITY_DEFINITION__DOSAGE:
+				return dosage != null && !dosage.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				return bodySite != null && !bodySite.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:

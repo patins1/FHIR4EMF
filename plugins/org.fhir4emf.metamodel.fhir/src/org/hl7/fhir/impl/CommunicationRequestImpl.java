@@ -23,17 +23,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.CommunicationRequest;
 import org.hl7.fhir.CommunicationRequestPayload;
+import org.hl7.fhir.CommunicationRequestRequester;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.RequestPriority;
+import org.hl7.fhir.RequestStatus;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,21 +48,26 @@ import org.hl7.fhir.jaxb.DateTimeImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getReplaces <em>Replaces</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getMedium <em>Medium</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getPayload <em>Payload</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getRequestedOn <em>Requested On</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getScheduledDateTime <em>Scheduled Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getScheduledPeriod <em>Scheduled Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getOccurrencePeriod <em>Occurrence Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getSender <em>Sender</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getRequester <em>Requester</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationRequestImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,6 +86,36 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> basedOn;
+
+	/**
+	 * The cached value of the '{@link #getReplaces() <em>Replaces</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReplaces()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> replaces;
+
+	/**
+	 * The cached value of the '{@link #getGroupIdentifier() <em>Group Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGroupIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier groupIdentifier;
+
+	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,17 +123,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
-
-	/**
-	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPriority()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept priority;
+	protected RequestStatus status;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
@@ -105,6 +134,16 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> category;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected RequestPriority priority;
 
 	/**
 	 * The cached value of the '{@link #getMedium() <em>Medium</em>}' containment reference list.
@@ -167,34 +206,34 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	protected EList<CommunicationRequestPayload> payload;
 
 	/**
-	 * The cached value of the '{@link #getRequestedOn() <em>Requested On</em>}' containment reference.
+	 * The cached value of the '{@link #getOccurrenceDateTime() <em>Occurrence Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestedOn()
+	 * @see #getOccurrenceDateTime()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime requestedOn;
+	protected DateTime occurrenceDateTime;
 
 	/**
-	 * The cached value of the '{@link #getScheduledDateTime() <em>Scheduled Date Time</em>}' containment reference.
+	 * The cached value of the '{@link #getOccurrencePeriod() <em>Occurrence Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getScheduledDateTime()
+	 * @see #getOccurrencePeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime scheduledDateTime;
+	protected Period occurrencePeriod;
 
 	/**
-	 * The cached value of the '{@link #getScheduledPeriod() <em>Scheduled Period</em>}' containment reference.
+	 * The cached value of the '{@link #getAuthoredOn() <em>Authored On</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getScheduledPeriod()
+	 * @see #getAuthoredOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected Period scheduledPeriod;
+	protected DateTime authoredOn;
 
 	/**
 	 * The cached value of the '{@link #getSender() <em>Sender</em>}' containment reference.
@@ -214,17 +253,37 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference requester;
+	protected CommunicationRequestRequester requester;
 
 	/**
-	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference list.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReason()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> reason;
+	protected EList<CodeableConcept> reasonCode;
+
+	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> reasonReference;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> note;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -263,9 +322,78 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement
+	public List<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION_REQUEST__BASED_ON);
+		}
+		return basedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<Reference> getReplaces() {
+		if (replaces == null) {
+			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION_REQUEST__REPLACES);
+		}
+		return replaces;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getGroupIdentifier() {
+		return groupIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGroupIdentifier(Identifier newGroupIdentifier, NotificationChain msgs) {
+		Identifier oldGroupIdentifier = groupIdentifier;
+		groupIdentifier = newGroupIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__GROUP_IDENTIFIER, oldGroupIdentifier, newGroupIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGroupIdentifier(Identifier newGroupIdentifier) {
+		if (newGroupIdentifier != groupIdentifier) {
+			NotificationChain msgs = null;
+			if (groupIdentifier != null)
+				msgs = ((InternalEObject)groupIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__GROUP_IDENTIFIER, null, msgs);
+			if (newGroupIdentifier != null)
+				msgs = ((InternalEObject)newGroupIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__GROUP_IDENTIFIER, null, msgs);
+			msgs = basicSetGroupIdentifier(newGroupIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__GROUP_IDENTIFIER, newGroupIdentifier, newGroupIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlJavaTypeAdapter(RequestStatusImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getStatus() {
+	public RequestStatus getStatus() {
 		return status;
 	}
 
@@ -274,8 +402,8 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(RequestStatus newStatus, NotificationChain msgs) {
+		RequestStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__STATUS, oldStatus, newStatus);
@@ -289,7 +417,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(RequestStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -308,7 +436,21 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getPriority() {
+	@XmlElement
+	public List<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION_REQUEST__CATEGORY);
+		}
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
+	public RequestPriority getPriority() {
 		return priority;
 	}
 
@@ -317,8 +459,8 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPriority(CodeableConcept newPriority, NotificationChain msgs) {
-		CodeableConcept oldPriority = priority;
+	public NotificationChain basicSetPriority(RequestPriority newPriority, NotificationChain msgs) {
+		RequestPriority oldPriority = priority;
 		priority = newPriority;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__PRIORITY, oldPriority, newPriority);
@@ -332,7 +474,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPriority(CodeableConcept newPriority) {
+	public void setPriority(RequestPriority newPriority) {
 		if (newPriority != priority) {
 			NotificationChain msgs = null;
 			if (priority != null)
@@ -344,19 +486,6 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__PRIORITY, newPriority, newPriority));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public List<CodeableConcept> getCategory() {
-		if (category == null) {
-			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION_REQUEST__CATEGORY);
-		}
-		return category;
 	}
 
 	/**
@@ -503,8 +632,8 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * @generated
 	 */
 	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	public DateTime getRequestedOn() {
-		return requestedOn;
+	public DateTime getOccurrenceDateTime() {
+		return occurrenceDateTime;
 	}
 
 	/**
@@ -512,11 +641,11 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequestedOn(DateTime newRequestedOn, NotificationChain msgs) {
-		DateTime oldRequestedOn = requestedOn;
-		requestedOn = newRequestedOn;
+	public NotificationChain basicSetOccurrenceDateTime(DateTime newOccurrenceDateTime, NotificationChain msgs) {
+		DateTime oldOccurrenceDateTime = occurrenceDateTime;
+		occurrenceDateTime = newOccurrenceDateTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__REQUESTED_ON, oldRequestedOn, newRequestedOn);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_DATE_TIME, oldOccurrenceDateTime, newOccurrenceDateTime);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -527,18 +656,61 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequestedOn(DateTime newRequestedOn) {
-		if (newRequestedOn != requestedOn) {
+	public void setOccurrenceDateTime(DateTime newOccurrenceDateTime) {
+		if (newOccurrenceDateTime != occurrenceDateTime) {
 			NotificationChain msgs = null;
-			if (requestedOn != null)
-				msgs = ((InternalEObject)requestedOn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__REQUESTED_ON, null, msgs);
-			if (newRequestedOn != null)
-				msgs = ((InternalEObject)newRequestedOn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__REQUESTED_ON, null, msgs);
-			msgs = basicSetRequestedOn(newRequestedOn, msgs);
+			if (occurrenceDateTime != null)
+				msgs = ((InternalEObject)occurrenceDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_DATE_TIME, null, msgs);
+			if (newOccurrenceDateTime != null)
+				msgs = ((InternalEObject)newOccurrenceDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_DATE_TIME, null, msgs);
+			msgs = basicSetOccurrenceDateTime(newOccurrenceDateTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__REQUESTED_ON, newRequestedOn, newRequestedOn));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_DATE_TIME, newOccurrenceDateTime, newOccurrenceDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getOccurrencePeriod() {
+		return occurrencePeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOccurrencePeriod(Period newOccurrencePeriod, NotificationChain msgs) {
+		Period oldOccurrencePeriod = occurrencePeriod;
+		occurrencePeriod = newOccurrencePeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_PERIOD, oldOccurrencePeriod, newOccurrencePeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOccurrencePeriod(Period newOccurrencePeriod) {
+		if (newOccurrencePeriod != occurrencePeriod) {
+			NotificationChain msgs = null;
+			if (occurrencePeriod != null)
+				msgs = ((InternalEObject)occurrencePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_PERIOD, null, msgs);
+			if (newOccurrencePeriod != null)
+				msgs = ((InternalEObject)newOccurrencePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_PERIOD, null, msgs);
+			msgs = basicSetOccurrencePeriod(newOccurrencePeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_PERIOD, newOccurrencePeriod, newOccurrencePeriod));
 	}
 
 	/**
@@ -547,8 +719,8 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * @generated
 	 */
 	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	public DateTime getScheduledDateTime() {
-		return scheduledDateTime;
+	public DateTime getAuthoredOn() {
+		return authoredOn;
 	}
 
 	/**
@@ -556,11 +728,11 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetScheduledDateTime(DateTime newScheduledDateTime, NotificationChain msgs) {
-		DateTime oldScheduledDateTime = scheduledDateTime;
-		scheduledDateTime = newScheduledDateTime;
+	public NotificationChain basicSetAuthoredOn(DateTime newAuthoredOn, NotificationChain msgs) {
+		DateTime oldAuthoredOn = authoredOn;
+		authoredOn = newAuthoredOn;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME, oldScheduledDateTime, newScheduledDateTime);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__AUTHORED_ON, oldAuthoredOn, newAuthoredOn);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -571,61 +743,18 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setScheduledDateTime(DateTime newScheduledDateTime) {
-		if (newScheduledDateTime != scheduledDateTime) {
+	public void setAuthoredOn(DateTime newAuthoredOn) {
+		if (newAuthoredOn != authoredOn) {
 			NotificationChain msgs = null;
-			if (scheduledDateTime != null)
-				msgs = ((InternalEObject)scheduledDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME, null, msgs);
-			if (newScheduledDateTime != null)
-				msgs = ((InternalEObject)newScheduledDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME, null, msgs);
-			msgs = basicSetScheduledDateTime(newScheduledDateTime, msgs);
+			if (authoredOn != null)
+				msgs = ((InternalEObject)authoredOn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__AUTHORED_ON, null, msgs);
+			if (newAuthoredOn != null)
+				msgs = ((InternalEObject)newAuthoredOn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__AUTHORED_ON, null, msgs);
+			msgs = basicSetAuthoredOn(newAuthoredOn, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME, newScheduledDateTime, newScheduledDateTime));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getScheduledPeriod() {
-		return scheduledPeriod;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetScheduledPeriod(Period newScheduledPeriod, NotificationChain msgs) {
-		Period oldScheduledPeriod = scheduledPeriod;
-		scheduledPeriod = newScheduledPeriod;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD, oldScheduledPeriod, newScheduledPeriod);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setScheduledPeriod(Period newScheduledPeriod) {
-		if (newScheduledPeriod != scheduledPeriod) {
-			NotificationChain msgs = null;
-			if (scheduledPeriod != null)
-				msgs = ((InternalEObject)scheduledPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD, null, msgs);
-			if (newScheduledPeriod != null)
-				msgs = ((InternalEObject)newScheduledPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD, null, msgs);
-			msgs = basicSetScheduledPeriod(newScheduledPeriod, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD, newScheduledPeriod, newScheduledPeriod));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__AUTHORED_ON, newAuthoredOn, newAuthoredOn));
 	}
 
 	/**
@@ -676,7 +805,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getRequester() {
+	public CommunicationRequestRequester getRequester() {
 		return requester;
 	}
 
@@ -685,8 +814,8 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequester(Reference newRequester, NotificationChain msgs) {
-		Reference oldRequester = requester;
+	public NotificationChain basicSetRequester(CommunicationRequestRequester newRequester, NotificationChain msgs) {
+		CommunicationRequestRequester oldRequester = requester;
 		requester = newRequester;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION_REQUEST__REQUESTER, oldRequester, newRequester);
@@ -700,7 +829,7 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequester(Reference newRequester) {
+	public void setRequester(CommunicationRequestRequester newRequester) {
 		if (newRequester != requester) {
 			NotificationChain msgs = null;
 			if (requester != null)
@@ -720,11 +849,37 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 	 * @generated
 	 */
 	@XmlElement
-	public List<CodeableConcept> getReason() {
-		if (reason == null) {
-			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION_REQUEST__REASON);
+	public List<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMMUNICATION_REQUEST__REASON_CODE);
 		}
-		return reason;
+		return reasonCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION_REQUEST__REASON_REFERENCE);
+		}
+		return reasonReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.COMMUNICATION_REQUEST__NOTE);
+		}
+		return note;
 	}
 
 	/**
@@ -737,12 +892,18 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 		switch (featureID) {
 			case FhirPackage.COMMUNICATION_REQUEST__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__REPLACES:
+				return ((InternalEList<?>)getReplaces()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__GROUP_IDENTIFIER:
+				return basicSetGroupIdentifier(null, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
-				return basicSetPriority(null, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__CATEGORY:
 				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
+				return basicSetPriority(null, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__MEDIUM:
 				return ((InternalEList<?>)getMedium()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__SUBJECT:
@@ -755,18 +916,22 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 				return basicSetContext(null, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__PAYLOAD:
 				return ((InternalEList<?>)getPayload()).basicRemove(otherEnd, msgs);
-			case FhirPackage.COMMUNICATION_REQUEST__REQUESTED_ON:
-				return basicSetRequestedOn(null, msgs);
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
-				return basicSetScheduledDateTime(null, msgs);
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD:
-				return basicSetScheduledPeriod(null, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_DATE_TIME:
+				return basicSetOccurrenceDateTime(null, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_PERIOD:
+				return basicSetOccurrencePeriod(null, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__AUTHORED_ON:
+				return basicSetAuthoredOn(null, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__SENDER:
 				return basicSetSender(null, msgs);
 			case FhirPackage.COMMUNICATION_REQUEST__REQUESTER:
 				return basicSetRequester(null, msgs);
-			case FhirPackage.COMMUNICATION_REQUEST__REASON:
-				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION_REQUEST__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -781,12 +946,18 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 		switch (featureID) {
 			case FhirPackage.COMMUNICATION_REQUEST__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.COMMUNICATION_REQUEST__BASED_ON:
+				return getBasedOn();
+			case FhirPackage.COMMUNICATION_REQUEST__REPLACES:
+				return getReplaces();
+			case FhirPackage.COMMUNICATION_REQUEST__GROUP_IDENTIFIER:
+				return getGroupIdentifier();
 			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
 				return getStatus();
-			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
-				return getPriority();
 			case FhirPackage.COMMUNICATION_REQUEST__CATEGORY:
 				return getCategory();
+			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
+				return getPriority();
 			case FhirPackage.COMMUNICATION_REQUEST__MEDIUM:
 				return getMedium();
 			case FhirPackage.COMMUNICATION_REQUEST__SUBJECT:
@@ -799,18 +970,22 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 				return getContext();
 			case FhirPackage.COMMUNICATION_REQUEST__PAYLOAD:
 				return getPayload();
-			case FhirPackage.COMMUNICATION_REQUEST__REQUESTED_ON:
-				return getRequestedOn();
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
-				return getScheduledDateTime();
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD:
-				return getScheduledPeriod();
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_DATE_TIME:
+				return getOccurrenceDateTime();
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_PERIOD:
+				return getOccurrencePeriod();
+			case FhirPackage.COMMUNICATION_REQUEST__AUTHORED_ON:
+				return getAuthoredOn();
 			case FhirPackage.COMMUNICATION_REQUEST__SENDER:
 				return getSender();
 			case FhirPackage.COMMUNICATION_REQUEST__REQUESTER:
 				return getRequester();
-			case FhirPackage.COMMUNICATION_REQUEST__REASON:
-				return getReason();
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_REFERENCE:
+				return getReasonReference();
+			case FhirPackage.COMMUNICATION_REQUEST__NOTE:
+				return getNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -828,15 +1003,26 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
-				setStatus((Code)newValue);
+			case FhirPackage.COMMUNICATION_REQUEST__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
-				setPriority((CodeableConcept)newValue);
+			case FhirPackage.COMMUNICATION_REQUEST__REPLACES:
+				getReplaces().clear();
+				getReplaces().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__GROUP_IDENTIFIER:
+				setGroupIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
+				setStatus((RequestStatus)newValue);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__CATEGORY:
 				getCategory().clear();
 				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
+				setPriority((RequestPriority)newValue);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__MEDIUM:
 				getMedium().clear();
@@ -860,24 +1046,32 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 				getPayload().clear();
 				getPayload().addAll((Collection<? extends CommunicationRequestPayload>)newValue);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__REQUESTED_ON:
-				setRequestedOn((DateTime)newValue);
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)newValue);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
-				setScheduledDateTime((DateTime)newValue);
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_PERIOD:
+				setOccurrencePeriod((Period)newValue);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD:
-				setScheduledPeriod((Period)newValue);
+			case FhirPackage.COMMUNICATION_REQUEST__AUTHORED_ON:
+				setAuthoredOn((DateTime)newValue);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__SENDER:
 				setSender((Reference)newValue);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__REQUESTER:
-				setRequester((Reference)newValue);
+				setRequester((CommunicationRequestRequester)newValue);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__REASON:
-				getReason().clear();
-				getReason().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -894,14 +1088,23 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 			case FhirPackage.COMMUNICATION_REQUEST__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
-				setStatus((Code)null);
+			case FhirPackage.COMMUNICATION_REQUEST__BASED_ON:
+				getBasedOn().clear();
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
-				setPriority((CodeableConcept)null);
+			case FhirPackage.COMMUNICATION_REQUEST__REPLACES:
+				getReplaces().clear();
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__GROUP_IDENTIFIER:
+				setGroupIdentifier((Identifier)null);
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
+				setStatus((RequestStatus)null);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__CATEGORY:
 				getCategory().clear();
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
+				setPriority((RequestPriority)null);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__MEDIUM:
 				getMedium().clear();
@@ -921,23 +1124,29 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 			case FhirPackage.COMMUNICATION_REQUEST__PAYLOAD:
 				getPayload().clear();
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__REQUESTED_ON:
-				setRequestedOn((DateTime)null);
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)null);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
-				setScheduledDateTime((DateTime)null);
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_PERIOD:
+				setOccurrencePeriod((Period)null);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD:
-				setScheduledPeriod((Period)null);
+			case FhirPackage.COMMUNICATION_REQUEST__AUTHORED_ON:
+				setAuthoredOn((DateTime)null);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__SENDER:
 				setSender((Reference)null);
 				return;
 			case FhirPackage.COMMUNICATION_REQUEST__REQUESTER:
-				setRequester((Reference)null);
+				setRequester((CommunicationRequestRequester)null);
 				return;
-			case FhirPackage.COMMUNICATION_REQUEST__REASON:
-				getReason().clear();
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_CODE:
+				getReasonCode().clear();
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_REFERENCE:
+				getReasonReference().clear();
+				return;
+			case FhirPackage.COMMUNICATION_REQUEST__NOTE:
+				getNote().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -953,12 +1162,18 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 		switch (featureID) {
 			case FhirPackage.COMMUNICATION_REQUEST__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.COMMUNICATION_REQUEST__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
+			case FhirPackage.COMMUNICATION_REQUEST__REPLACES:
+				return replaces != null && !replaces.isEmpty();
+			case FhirPackage.COMMUNICATION_REQUEST__GROUP_IDENTIFIER:
+				return groupIdentifier != null;
 			case FhirPackage.COMMUNICATION_REQUEST__STATUS:
 				return status != null;
-			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
-				return priority != null;
 			case FhirPackage.COMMUNICATION_REQUEST__CATEGORY:
 				return category != null && !category.isEmpty();
+			case FhirPackage.COMMUNICATION_REQUEST__PRIORITY:
+				return priority != null;
 			case FhirPackage.COMMUNICATION_REQUEST__MEDIUM:
 				return medium != null && !medium.isEmpty();
 			case FhirPackage.COMMUNICATION_REQUEST__SUBJECT:
@@ -971,18 +1186,22 @@ public class CommunicationRequestImpl extends DomainResourceImpl implements Comm
 				return context != null;
 			case FhirPackage.COMMUNICATION_REQUEST__PAYLOAD:
 				return payload != null && !payload.isEmpty();
-			case FhirPackage.COMMUNICATION_REQUEST__REQUESTED_ON:
-				return requestedOn != null;
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_DATE_TIME:
-				return scheduledDateTime != null;
-			case FhirPackage.COMMUNICATION_REQUEST__SCHEDULED_PERIOD:
-				return scheduledPeriod != null;
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_DATE_TIME:
+				return occurrenceDateTime != null;
+			case FhirPackage.COMMUNICATION_REQUEST__OCCURRENCE_PERIOD:
+				return occurrencePeriod != null;
+			case FhirPackage.COMMUNICATION_REQUEST__AUTHORED_ON:
+				return authoredOn != null;
 			case FhirPackage.COMMUNICATION_REQUEST__SENDER:
 				return sender != null;
 			case FhirPackage.COMMUNICATION_REQUEST__REQUESTER:
 				return requester != null;
-			case FhirPackage.COMMUNICATION_REQUEST__REASON:
-				return reason != null && !reason.isEmpty();
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.COMMUNICATION_REQUEST__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
+			case FhirPackage.COMMUNICATION_REQUEST__NOTE:
+				return note != null && !note.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

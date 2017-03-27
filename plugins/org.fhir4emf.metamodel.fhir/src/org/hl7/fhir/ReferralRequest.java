@@ -23,24 +23,29 @@ import org.hl7.fhir.jaxb.ReferralRequestImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.ReferralRequest#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.ReferralRequest#getReplaces <em>Replaces</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getIntent <em>Intent</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getServiceRequested <em>Service Requested</em>}</li>
- *   <li>{@link org.hl7.fhir.ReferralRequest#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.ReferralRequest#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getContext <em>Context</em>}</li>
- *   <li>{@link org.hl7.fhir.ReferralRequest#getFulfillmentTime <em>Fulfillment Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.ReferralRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.ReferralRequest#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getSpecialty <em>Specialty</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getRecipient <em>Recipient</em>}</li>
- *   <li>{@link org.hl7.fhir.ReferralRequest#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.ReferralRequest#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ReferralRequest#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.ReferralRequest#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.ReferralRequest#getRelevantHistory <em>Relevant History</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getReferralRequest()
@@ -66,6 +71,22 @@ public interface ReferralRequest extends DomainResource {
 	List<Identifier> getIdentifier();
 
 	/**
+	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Definition</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_Definition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getDefinition();
+
+	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
@@ -80,6 +101,22 @@ public interface ReferralRequest extends DomainResource {
 	 * @generated
 	 */
 	List<Reference> getBasedOn();
+
+	/**
+	 * Returns the value of the '<em><b>Replaces</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Completed or terminated request(s) whose function is taken by this new request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Replaces</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_Replaces()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='replaces' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getReplaces();
 
 	/**
 	 * Returns the value of the '<em><b>Group Identifier</b></em>' containment reference.
@@ -115,13 +152,13 @@ public interface ReferralRequest extends DomainResource {
 	 * The status of the authorization/intention reflected by the referral request record.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ReferralRequestStatus)
+	 * @see #setStatus(RequestStatus)
 	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ReferralRequestStatus getStatus();
+	RequestStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getStatus <em>Status</em>}' containment reference.
@@ -131,7 +168,7 @@ public interface ReferralRequest extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(ReferralRequestStatus value);
+	void setStatus(RequestStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Intent</b></em>' containment reference.
@@ -141,13 +178,13 @@ public interface ReferralRequest extends DomainResource {
 	 * Distinguishes the "level" of authorization/demand implicit in this request.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Intent</em>' containment reference.
-	 * @see #setIntent(Code)
+	 * @see #setIntent(RequestIntent)
 	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_Intent()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='intent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getIntent();
+	RequestIntent getIntent();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getIntent <em>Intent</em>}' containment reference.
@@ -157,7 +194,7 @@ public interface ReferralRequest extends DomainResource {
 	 * @see #getIntent()
 	 * @generated
 	 */
-	void setIntent(Code value);
+	void setIntent(RequestIntent value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -193,13 +230,13 @@ public interface ReferralRequest extends DomainResource {
 	 * An indication of the urgency of referral (or where applicable the type of transfer of care) request.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
-	 * @see #setPriority(CodeableConcept)
+	 * @see #setPriority(RequestPriority)
 	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_Priority()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getPriority();
+	RequestPriority getPriority();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getPriority <em>Priority</em>}' containment reference.
@@ -209,7 +246,7 @@ public interface ReferralRequest extends DomainResource {
 	 * @see #getPriority()
 	 * @generated
 	 */
-	void setPriority(CodeableConcept value);
+	void setPriority(RequestPriority value);
 
 	/**
 	 * Returns the value of the '<em><b>Service Requested</b></em>' containment reference list.
@@ -228,30 +265,30 @@ public interface ReferralRequest extends DomainResource {
 	List<CodeableConcept> getServiceRequested();
 
 	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The patient who is the subject of a referral or transfer of care request.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_Patient()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_Subject()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPatient();
+	Reference getSubject();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getPatient <em>Patient</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getSubject <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
 	 * @generated
 	 */
-	void setPatient(Reference value);
+	void setSubject(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
@@ -280,30 +317,56 @@ public interface ReferralRequest extends DomainResource {
 	void setContext(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Fulfillment Time</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The period of time within which the services identified in the referral/transfer of care is specified or required to occur.
+	 * The period of time within which the services identified in the referral/transfer of care is specified or required to occur. (choose any one of occurrence*, but only one)
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Fulfillment Time</em>' containment reference.
-	 * @see #setFulfillmentTime(Period)
-	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_FulfillmentTime()
+	 * @return the value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #setOccurrenceDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_OccurrenceDateTime()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='fulfillmentTime' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='occurrenceDateTime' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getFulfillmentTime();
+	DateTime getOccurrenceDateTime();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getFulfillmentTime <em>Fulfillment Time</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fulfillment Time</em>' containment reference.
-	 * @see #getFulfillmentTime()
+	 * @param value the new value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #getOccurrenceDateTime()
 	 * @generated
 	 */
-	void setFulfillmentTime(Period value);
+	void setOccurrenceDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurrence Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The period of time within which the services identified in the referral/transfer of care is specified or required to occur. (choose any one of occurrence*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #setOccurrencePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_OccurrencePeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrencePeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getOccurrencePeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getOccurrencePeriod <em>Occurrence Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #getOccurrencePeriod()
+	 * @generated
+	 */
+	void setOccurrencePeriod(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Authored On</b></em>' containment reference.
@@ -336,16 +399,16 @@ public interface ReferralRequest extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).
+	 * The individual who initiated the request and has responsibility for its activation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Requester</em>' containment reference.
-	 * @see #setRequester(Reference)
+	 * @see #setRequester(ReferralRequestRequester)
 	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_Requester()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='requester' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getRequester();
+	ReferralRequestRequester getRequester();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getRequester <em>Requester</em>}' containment reference.
@@ -355,7 +418,7 @@ public interface ReferralRequest extends DomainResource {
 	 * @see #getRequester()
 	 * @generated
 	 */
-	void setRequester(Reference value);
+	void setRequester(ReferralRequestRequester value);
 
 	/**
 	 * Returns the value of the '<em><b>Specialty</b></em>' containment reference.
@@ -400,30 +463,36 @@ public interface ReferralRequest extends DomainResource {
 	List<Reference> getRecipient();
 
 	/**
-	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason</em>' containment reference.
-	 * @see #setReason(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_Reason()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getReason();
+	List<CodeableConcept> getReasonCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ReferralRequest#getReason <em>Reason</em>}' containment reference.
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason</em>' containment reference.
-	 * @see #getReason()
+	 * <!-- begin-model-doc -->
+	 * Indicates another resource whose existence justifies this request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setReason(CodeableConcept value);
+	List<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
@@ -482,5 +551,21 @@ public interface ReferralRequest extends DomainResource {
 	 * @generated
 	 */
 	List<Annotation> getNote();
+
+	/**
+	 * Returns the value of the '<em><b>Relevant History</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Relevant History</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getReferralRequest_RelevantHistory()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='relevantHistory' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getRelevantHistory();
 
 } // ReferralRequest

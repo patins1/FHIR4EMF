@@ -72,7 +72,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Numeric identifier of this series in the study.
+	 * The numeric identifier of this series in the study.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number</em>' containment reference.
 	 * @see #setNumber(UnsignedInt)
@@ -150,7 +150,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Number of SOP Instances in Study. This value given may be larger than the number of instance elements this Resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present.
+	 * Number of SOP Instances in the Study. The value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number Of Instances</em>' containment reference.
 	 * @see #setNumberOfInstances(UnsignedInt)
@@ -218,7 +218,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT.
+	 * The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite may indicate the laterality of body part imaged; if so, it shall be consistent with any content of ImagingStudy.series.laterality.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body Site</em>' containment reference.
 	 * @see #setBodySite(Coding)
@@ -244,7 +244,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Laterality if body site is paired anatomic structure and laterality is not pre-coordinated in body site code.
+	 * The laterality of the (possibly paired) anatomic structures examined. E.g., the left knee, both lungs, or unpaired abdomen. If present, shall be consistent with any laterality information indicated in ImagingStudy.series.bodySite.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Laterality</em>' containment reference.
 	 * @see #setLaterality(Coding)
@@ -313,7 +313,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A single SOP Instance within the series, e.g. an image, or presentation state.
+	 * A single SOP instance within the series, e.g. an image, or presentation state.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Instance</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Instance()

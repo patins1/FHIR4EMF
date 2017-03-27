@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.ImplementationGuidePageImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.
+ * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -116,7 +116,7 @@ public interface ImplementationGuidePage extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Code}.
+	 * The list contents are of type {@link org.hl7.fhir.ResourceType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -128,7 +128,7 @@ public interface ImplementationGuidePage extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Code> getType();
+	List<ResourceType> getType();
 
 	/**
 	 * Returns the value of the '<em><b>Package</b></em>' containment reference list.

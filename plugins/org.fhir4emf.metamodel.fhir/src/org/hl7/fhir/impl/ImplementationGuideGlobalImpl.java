@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ImplementationGuideGlobal;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.ResourceType;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +46,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected Code type;
+	protected ResourceType type;
 
 	/**
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
@@ -82,9 +82,9 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getType() {
+	public ResourceType getType() {
 		return type;
 	}
 
@@ -93,8 +93,8 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Code newType, NotificationChain msgs) {
-		Code oldType = type;
+	public NotificationChain basicSetType(ResourceType newType, NotificationChain msgs) {
+		ResourceType oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__TYPE, oldType, newType);
@@ -108,7 +108,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Code newType) {
+	public void setType(ResourceType newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -207,7 +207,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__TYPE:
-				setType((Code)newValue);
+				setType((ResourceType)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__PROFILE:
 				setProfile((Reference)newValue);
@@ -225,7 +225,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__TYPE:
-				setType((Code)null);
+				setType((ResourceType)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__PROFILE:
 				setProfile((Reference)null);

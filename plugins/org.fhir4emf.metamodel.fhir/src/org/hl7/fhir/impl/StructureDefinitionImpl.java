@@ -69,9 +69,9 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureDefinitionImpl#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -168,6 +168,16 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
+
+	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,16 +196,6 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * @ordered
 	 */
 	protected EList<ContactDetail> contact;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -681,6 +681,50 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_DEFINITION__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_DEFINITION__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_DEFINITION__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_DEFINITION__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
@@ -731,50 +775,6 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.STRUCTURE_DEFINITION__CONTACT);
 		}
 		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_DEFINITION__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_DEFINITION__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_DEFINITION__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_DEFINITION__DATE, newDate, newDate));
 	}
 
 	/**
@@ -1408,12 +1408,12 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 				return basicSetStatus(null, msgs);
 			case FhirPackage.STRUCTURE_DEFINITION__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.STRUCTURE_DEFINITION__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.STRUCTURE_DEFINITION__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.STRUCTURE_DEFINITION__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.STRUCTURE_DEFINITION__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.STRUCTURE_DEFINITION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.STRUCTURE_DEFINITION__USE_CONTEXT:
@@ -1476,12 +1476,12 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 				return getStatus();
 			case FhirPackage.STRUCTURE_DEFINITION__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.STRUCTURE_DEFINITION__DATE:
+				return getDate();
 			case FhirPackage.STRUCTURE_DEFINITION__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.STRUCTURE_DEFINITION__CONTACT:
 				return getContact();
-			case FhirPackage.STRUCTURE_DEFINITION__DATE:
-				return getDate();
 			case FhirPackage.STRUCTURE_DEFINITION__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.STRUCTURE_DEFINITION__USE_CONTEXT:
@@ -1553,15 +1553,15 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 			case FhirPackage.STRUCTURE_DEFINITION__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.STRUCTURE_DEFINITION__DATE:
+				setDate((DateTime)newValue);
+				return;
 			case FhirPackage.STRUCTURE_DEFINITION__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.STRUCTURE_DEFINITION__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
-				return;
-			case FhirPackage.STRUCTURE_DEFINITION__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.STRUCTURE_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -1656,14 +1656,14 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 			case FhirPackage.STRUCTURE_DEFINITION__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.STRUCTURE_DEFINITION__DATE:
+				setDate((DateTime)null);
+				return;
 			case FhirPackage.STRUCTURE_DEFINITION__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.STRUCTURE_DEFINITION__CONTACT:
 				getContact().clear();
-				return;
-			case FhirPackage.STRUCTURE_DEFINITION__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.STRUCTURE_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1745,12 +1745,12 @@ public class StructureDefinitionImpl extends DomainResourceImpl implements Struc
 				return status != null;
 			case FhirPackage.STRUCTURE_DEFINITION__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.STRUCTURE_DEFINITION__DATE:
+				return date != null;
 			case FhirPackage.STRUCTURE_DEFINITION__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.STRUCTURE_DEFINITION__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.STRUCTURE_DEFINITION__DATE:
-				return date != null;
 			case FhirPackage.STRUCTURE_DEFINITION__DESCRIPTION:
 				return description != null;
 			case FhirPackage.STRUCTURE_DEFINITION__USE_CONTEXT:

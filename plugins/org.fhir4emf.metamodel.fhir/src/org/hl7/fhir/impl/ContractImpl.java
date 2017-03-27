@@ -24,12 +24,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Attachment;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Coding;
 import org.hl7.fhir.Contract;
 import org.hl7.fhir.ContractAgent;
 import org.hl7.fhir.ContractFriendly;
 import org.hl7.fhir.ContractLegal;
+import org.hl7.fhir.ContractResourceStatusCodes;
 import org.hl7.fhir.ContractRule;
 import org.hl7.fhir.ContractSigner;
 import org.hl7.fhir.ContractTerm;
@@ -39,7 +40,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.ContractResourceStatusCodesImplAdapter;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
@@ -62,6 +63,9 @@ import org.hl7.fhir.jaxb.DateTimeImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getSubType <em>Sub Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getActionReason <em>Action Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractImpl#getDecisionType <em>Decision Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractImpl#getContentDerivative <em>Content Derivative</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractImpl#getSecurityLabel <em>Security Label</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getSigner <em>Signer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractImpl#getValuedItem <em>Valued Item</em>}</li>
@@ -96,7 +100,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected ContractResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getIssued() <em>Issued</em>}' containment reference.
@@ -197,6 +201,36 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> actionReason;
+
+	/**
+	 * The cached value of the '{@link #getDecisionType() <em>Decision Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecisionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept decisionType;
+
+	/**
+	 * The cached value of the '{@link #getContentDerivative() <em>Content Derivative</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContentDerivative()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept contentDerivative;
+
+	/**
+	 * The cached value of the '{@link #getSecurityLabel() <em>Security Label</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> securityLabel;
 
 	/**
 	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
@@ -355,8 +389,8 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getStatus() {
+	@XmlJavaTypeAdapter(ContractResourceStatusCodesImplAdapter.class)
+	public ContractResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -365,8 +399,8 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(ContractResourceStatusCodes newStatus, NotificationChain msgs) {
+		ContractResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT__STATUS, oldStatus, newStatus);
@@ -380,7 +414,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(ContractResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -620,6 +654,105 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getDecisionType() {
+		return decisionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDecisionType(CodeableConcept newDecisionType, NotificationChain msgs) {
+		CodeableConcept oldDecisionType = decisionType;
+		decisionType = newDecisionType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT__DECISION_TYPE, oldDecisionType, newDecisionType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDecisionType(CodeableConcept newDecisionType) {
+		if (newDecisionType != decisionType) {
+			NotificationChain msgs = null;
+			if (decisionType != null)
+				msgs = ((InternalEObject)decisionType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT__DECISION_TYPE, null, msgs);
+			if (newDecisionType != null)
+				msgs = ((InternalEObject)newDecisionType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT__DECISION_TYPE, null, msgs);
+			msgs = basicSetDecisionType(newDecisionType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT__DECISION_TYPE, newDecisionType, newDecisionType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getContentDerivative() {
+		return contentDerivative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContentDerivative(CodeableConcept newContentDerivative, NotificationChain msgs) {
+		CodeableConcept oldContentDerivative = contentDerivative;
+		contentDerivative = newContentDerivative;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT__CONTENT_DERIVATIVE, oldContentDerivative, newContentDerivative);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContentDerivative(CodeableConcept newContentDerivative) {
+		if (newContentDerivative != contentDerivative) {
+			NotificationChain msgs = null;
+			if (contentDerivative != null)
+				msgs = ((InternalEObject)contentDerivative).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT__CONTENT_DERIVATIVE, null, msgs);
+			if (newContentDerivative != null)
+				msgs = ((InternalEObject)newContentDerivative).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT__CONTENT_DERIVATIVE, null, msgs);
+			msgs = basicSetContentDerivative(newContentDerivative, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT__CONTENT_DERIVATIVE, newContentDerivative, newContentDerivative));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<Coding> getSecurityLabel() {
+		if (securityLabel == null) {
+			securityLabel = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONTRACT__SECURITY_LABEL);
+		}
+		return securityLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@XmlElement
 	public List<ContractAgent> getAgent() {
 		if (agent == null) {
@@ -824,6 +957,12 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT__ACTION_REASON:
 				return ((InternalEList<?>)getActionReason()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONTRACT__DECISION_TYPE:
+				return basicSetDecisionType(null, msgs);
+			case FhirPackage.CONTRACT__CONTENT_DERIVATIVE:
+				return basicSetContentDerivative(null, msgs);
+			case FhirPackage.CONTRACT__SECURITY_LABEL:
+				return ((InternalEList<?>)getSecurityLabel()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT__AGENT:
 				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT__SIGNER:
@@ -878,6 +1017,12 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				return getAction();
 			case FhirPackage.CONTRACT__ACTION_REASON:
 				return getActionReason();
+			case FhirPackage.CONTRACT__DECISION_TYPE:
+				return getDecisionType();
+			case FhirPackage.CONTRACT__CONTENT_DERIVATIVE:
+				return getContentDerivative();
+			case FhirPackage.CONTRACT__SECURITY_LABEL:
+				return getSecurityLabel();
 			case FhirPackage.CONTRACT__AGENT:
 				return getAgent();
 			case FhirPackage.CONTRACT__SIGNER:
@@ -913,7 +1058,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				setIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.CONTRACT__STATUS:
-				setStatus((Code)newValue);
+				setStatus((ContractResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.CONTRACT__ISSUED:
 				setIssued((DateTime)newValue);
@@ -951,6 +1096,16 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 			case FhirPackage.CONTRACT__ACTION_REASON:
 				getActionReason().clear();
 				getActionReason().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.CONTRACT__DECISION_TYPE:
+				setDecisionType((CodeableConcept)newValue);
+				return;
+			case FhirPackage.CONTRACT__CONTENT_DERIVATIVE:
+				setContentDerivative((CodeableConcept)newValue);
+				return;
+			case FhirPackage.CONTRACT__SECURITY_LABEL:
+				getSecurityLabel().clear();
+				getSecurityLabel().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.CONTRACT__AGENT:
 				getAgent().clear();
@@ -1002,7 +1157,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				setIdentifier((Identifier)null);
 				return;
 			case FhirPackage.CONTRACT__STATUS:
-				setStatus((Code)null);
+				setStatus((ContractResourceStatusCodes)null);
 				return;
 			case FhirPackage.CONTRACT__ISSUED:
 				setIssued((DateTime)null);
@@ -1033,6 +1188,15 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				return;
 			case FhirPackage.CONTRACT__ACTION_REASON:
 				getActionReason().clear();
+				return;
+			case FhirPackage.CONTRACT__DECISION_TYPE:
+				setDecisionType((CodeableConcept)null);
+				return;
+			case FhirPackage.CONTRACT__CONTENT_DERIVATIVE:
+				setContentDerivative((CodeableConcept)null);
+				return;
+			case FhirPackage.CONTRACT__SECURITY_LABEL:
+				getSecurityLabel().clear();
 				return;
 			case FhirPackage.CONTRACT__AGENT:
 				getAgent().clear();
@@ -1097,6 +1261,12 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 				return action != null && !action.isEmpty();
 			case FhirPackage.CONTRACT__ACTION_REASON:
 				return actionReason != null && !actionReason.isEmpty();
+			case FhirPackage.CONTRACT__DECISION_TYPE:
+				return decisionType != null;
+			case FhirPackage.CONTRACT__CONTENT_DERIVATIVE:
+				return contentDerivative != null;
+			case FhirPackage.CONTRACT__SECURITY_LABEL:
+				return securityLabel != null && !securityLabel.isEmpty();
 			case FhirPackage.CONTRACT__AGENT:
 				return agent != null && !agent.isEmpty();
 			case FhirPackage.CONTRACT__SIGNER:

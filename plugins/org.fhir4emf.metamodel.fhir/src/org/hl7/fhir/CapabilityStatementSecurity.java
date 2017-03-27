@@ -65,7 +65,7 @@ public interface CapabilityStatementSecurity extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Types of security services are supported/required by the system.
+	 * Types of security services that are supported/required by the system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Service</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementSecurity_Service()

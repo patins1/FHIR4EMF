@@ -39,7 +39,7 @@ public class LinkTypeImpl extends ElementImpl implements LinkType {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final LinkTypeList VALUE_EDEFAULT = LinkTypeList.REPLACE;
+	protected static final LinkTypeList VALUE_EDEFAULT = LinkTypeList.REPLACED_BY;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

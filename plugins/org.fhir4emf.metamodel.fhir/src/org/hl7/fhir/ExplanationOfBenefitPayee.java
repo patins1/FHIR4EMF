@@ -21,8 +21,7 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitPayeeImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getResourceType <em>Resource Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getPartyIdentifier <em>Party Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getPartyReference <em>Party Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getParty <em>Party</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitPayee()
@@ -84,55 +83,29 @@ public interface ExplanationOfBenefitPayee extends BackboneElement {
 	void setResourceType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Party Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Party</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Party to be reimbursed: Subscriber, provider, other. (choose any one of party*, but only one)
+	 * Party to be reimbursed: Subscriber, provider, other.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Party Identifier</em>' containment reference.
-	 * @see #setPartyIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitPayee_PartyIdentifier()
+	 * @return the value of the '<em>Party</em>' containment reference.
+	 * @see #setParty(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitPayee_Party()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='partyIdentifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='party' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getPartyIdentifier();
+	Reference getParty();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitPayee#getPartyIdentifier <em>Party Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitPayee#getParty <em>Party</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Party Identifier</em>' containment reference.
-	 * @see #getPartyIdentifier()
+	 * @param value the new value of the '<em>Party</em>' containment reference.
+	 * @see #getParty()
 	 * @generated
 	 */
-	void setPartyIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Party Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Party to be reimbursed: Subscriber, provider, other. (choose any one of party*, but only one)
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Party Reference</em>' containment reference.
-	 * @see #setPartyReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitPayee_PartyReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='partyReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPartyReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitPayee#getPartyReference <em>Party Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Party Reference</em>' containment reference.
-	 * @see #getPartyReference()
-	 * @generated
-	 */
-	void setPartyReference(Reference value);
+	void setParty(Reference value);
 
 } // ExplanationOfBenefitPayee

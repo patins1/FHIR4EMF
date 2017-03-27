@@ -35,7 +35,7 @@ public interface CapabilityStatementDocument extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Mode of this document declaration - whether application is producer or consumer.
+	 * Mode of this document declaration - whether an application is a producer or consumer.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Mode</em>' containment reference.
 	 * @see #setMode(DocumentMode)
@@ -61,7 +61,7 @@ public interface CapabilityStatementDocument extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
+	 * A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
 	 * @see #setDocumentation(org.hl7.fhir.String)

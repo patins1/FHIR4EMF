@@ -21,34 +21,34 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum SupplyRequestStatusList implements Enumerator {
 	/**
-	 * The '<em><b>Requested</b></em>' literal object.
+	 * The '<em><b>Draft</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #REQUESTED_VALUE
+	 * @see #DRAFT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	REQUESTED(0, "requested", "requested"),
+	DRAFT(0, "draft", "draft"),
 
 	/**
-	 * The '<em><b>Completed</b></em>' literal object.
+	 * The '<em><b>Active</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #COMPLETED_VALUE
+	 * @see #ACTIVE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETED(1, "completed", "completed"),
+	ACTIVE(1, "active", "active"),
 
 	/**
-	 * The '<em><b>Failed</b></em>' literal object.
+	 * The '<em><b>Suspended</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FAILED_VALUE
+	 * @see #SUSPENDED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	FAILED(2, "failed", "failed"),
+	SUSPENDED(2, "suspended", "suspended"),
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal object.
@@ -61,6 +61,16 @@ public enum SupplyRequestStatusList implements Enumerator {
 	CANCELLED(3, "cancelled", "cancelled"),
 
 	/**
+	 * The '<em><b>Completed</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COMPLETED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	COMPLETED(4, "completed", "completed"),
+
+	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,49 +78,59 @@ public enum SupplyRequestStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(4, "enteredInError", "entered-in-error");
+	ENTERED_IN_ERROR(5, "enteredInError", "entered-in-error"),
 
 	/**
-	 * The '<em><b>Requested</b></em>' literal value.
+	 * The '<em><b>Unknown</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Requested
-	 * <!-- end-model-doc -->
-	 * @see #REQUESTED
-	 * @model name="requested"
+	 * @see #UNKNOWN_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REQUESTED_VALUE = 0;
+	UNKNOWN(6, "unknown", "unknown");
 
 	/**
-	 * The '<em><b>Completed</b></em>' literal value.
+	 * The '<em><b>Draft</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Received
+	 * Draft
 	 * <!-- end-model-doc -->
-	 * @see #COMPLETED
-	 * @model name="completed"
+	 * @see #DRAFT
+	 * @model name="draft"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETED_VALUE = 1;
+	public static final int DRAFT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Failed</b></em>' literal value.
+	 * The '<em><b>Active</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Failed
+	 * Active
 	 * <!-- end-model-doc -->
-	 * @see #FAILED
-	 * @model name="failed"
+	 * @see #ACTIVE
+	 * @model name="active"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FAILED_VALUE = 2;
+	public static final int ACTIVE_VALUE = 1;
+
+	/**
+	 * The '<em><b>Suspended</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Suspended
+	 * <!-- end-model-doc -->
+	 * @see #SUSPENDED
+	 * @model name="suspended"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SUSPENDED_VALUE = 2;
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal value.
@@ -127,6 +147,20 @@ public enum SupplyRequestStatusList implements Enumerator {
 	public static final int CANCELLED_VALUE = 3;
 
 	/**
+	 * The '<em><b>Completed</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Completed
+	 * <!-- end-model-doc -->
+	 * @see #COMPLETED
+	 * @model name="completed"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMPLETED_VALUE = 4;
+
+	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,7 +172,21 @@ public enum SupplyRequestStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 4;
+	public static final int ENTERED_IN_ERROR_VALUE = 5;
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 6;
 
 	/**
 	 * An array of all the '<em><b>Supply Request Status List</b></em>' enumerators.
@@ -148,11 +196,13 @@ public enum SupplyRequestStatusList implements Enumerator {
 	 */
 	private static final SupplyRequestStatusList[] VALUES_ARRAY =
 		new SupplyRequestStatusList[] {
-			REQUESTED,
-			COMPLETED,
-			FAILED,
+			DRAFT,
+			ACTIVE,
+			SUSPENDED,
 			CANCELLED,
+			COMPLETED,
 			ENTERED_IN_ERROR,
+			UNKNOWN,
 		};
 
 	/**
@@ -209,11 +259,13 @@ public enum SupplyRequestStatusList implements Enumerator {
 	 */
 	public static SupplyRequestStatusList get(int value) {
 		switch (value) {
-			case REQUESTED_VALUE: return REQUESTED;
-			case COMPLETED_VALUE: return COMPLETED;
-			case FAILED_VALUE: return FAILED;
+			case DRAFT_VALUE: return DRAFT;
+			case ACTIVE_VALUE: return ACTIVE;
+			case SUSPENDED_VALUE: return SUSPENDED;
 			case CANCELLED_VALUE: return CANCELLED;
+			case COMPLETED_VALUE: return COMPLETED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

@@ -27,19 +27,18 @@ import org.hl7.fhir.jaxb.ProcedureImplAdapter;
  *   <li>{@link org.hl7.fhir.Procedure#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getNotDone <em>Not Done</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getNotDoneReason <em>Not Done Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getPerformedDateTime <em>Performed Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getPerformedPeriod <em>Performed Period</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getPerformedTiming <em>Performed Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getLocation <em>Location</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getNotDone <em>Not Done</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getNotDoneReason <em>Not Done Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getReport <em>Report</em>}</li>
@@ -130,13 +129,13 @@ public interface Procedure extends DomainResource {
 	 * A code specifying the state of the procedure. Generally this will be in-progress or completed state.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ProcedureStatus)
+	 * @see #setStatus(EventStatus)
 	 * @see org.hl7.fhir.FhirPackage#getProcedure_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ProcedureStatus getStatus();
+	EventStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getStatus <em>Status</em>}' containment reference.
@@ -146,7 +145,59 @@ public interface Procedure extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(ProcedureStatus value);
+	void setStatus(EventStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Not Done</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Set this to true if the record is saying that the procedure was NOT performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Not Done</em>' containment reference.
+	 * @see #setNotDone(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_NotDone()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='notDone' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getNotDone();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getNotDone <em>Not Done</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Not Done</em>' containment reference.
+	 * @see #getNotDone()
+	 * @generated
+	 */
+	void setNotDone(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Not Done Reason</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code indicating why the procedure was not performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Not Done Reason</em>' containment reference.
+	 * @see #setNotDoneReason(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_NotDoneReason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='notDoneReason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getNotDoneReason();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getNotDoneReason <em>Not Done Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Not Done Reason</em>' containment reference.
+	 * @see #getNotDoneReason()
+	 * @generated
+	 */
+	void setNotDoneReason(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
@@ -305,32 +356,6 @@ public interface Procedure extends DomainResource {
 	void setPerformedPeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Performed Timing</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured. (choose any one of performed*, but only one)
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Performed Timing</em>' containment reference.
-	 * @see #setPerformedTiming(Timing)
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_PerformedTiming()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='performedTiming' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Timing getPerformedTiming();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getPerformedTiming <em>Performed Timing</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Performed Timing</em>' containment reference.
-	 * @see #getPerformedTiming()
-	 * @generated
-	 */
-	void setPerformedTiming(Timing value);
-
-	/**
 	 * Returns the value of the '<em><b>Performer</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ProcedurePerformer}.
 	 * <!-- begin-user-doc -->
@@ -373,20 +398,20 @@ public interface Procedure extends DomainResource {
 	void setLocation(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason Codeable Concept</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason Codeable Concept</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_ReasonCodeableConcept()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<CodeableConcept> getReasonCodeableConcept();
+	List<CodeableConcept> getReasonCode();
 
 	/**
 	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
@@ -403,58 +428,6 @@ public interface Procedure extends DomainResource {
 	 * @generated
 	 */
 	List<Reference> getReasonReference();
-
-	/**
-	 * Returns the value of the '<em><b>Not Done</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Set this to true if the record is saying that the procedure was NOT performed.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Done</em>' containment reference.
-	 * @see #setNotDone(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_NotDone()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notDone' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.Boolean getNotDone();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getNotDone <em>Not Done</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Done</em>' containment reference.
-	 * @see #getNotDone()
-	 * @generated
-	 */
-	void setNotDone(org.hl7.fhir.Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Not Done Reason</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A code indicating why the procedure was not performed.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Done Reason</em>' containment reference.
-	 * @see #setNotDoneReason(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_NotDoneReason()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notDoneReason' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getNotDoneReason();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getNotDoneReason <em>Not Done Reason</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Done Reason</em>' containment reference.
-	 * @see #getNotDoneReason()
-	 * @generated
-	 */
-	void setNotDoneReason(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference list.

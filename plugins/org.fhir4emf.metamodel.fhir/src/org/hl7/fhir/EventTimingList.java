@@ -61,6 +61,16 @@ public enum EventTimingList implements Enumerator {
 	NIGHT(3, "NIGHT", "NIGHT"),
 
 	/**
+	 * The '<em><b>PHS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PHS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PHS(4, "PHS", "PHS"),
+
+	/**
 	 * The '<em><b>HS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,7 +78,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HS(4, "HS", "HS"),
+	HS(5, "HS", "HS"),
 
 	/**
 	 * The '<em><b>WAKE</b></em>' literal object.
@@ -78,7 +88,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WAKE(5, "WAKE", "WAKE"),
+	WAKE(6, "WAKE", "WAKE"),
 
 	/**
 	 * The '<em><b>C</b></em>' literal object.
@@ -88,7 +98,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	C(6, "C", "C"),
+	C(7, "C", "C"),
 
 	/**
 	 * The '<em><b>CM</b></em>' literal object.
@@ -98,7 +108,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CM(7, "CM", "CM"),
+	CM(8, "CM", "CM"),
 
 	/**
 	 * The '<em><b>CD</b></em>' literal object.
@@ -108,7 +118,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CD(8, "CD", "CD"),
+	CD(9, "CD", "CD"),
 
 	/**
 	 * The '<em><b>CV</b></em>' literal object.
@@ -118,7 +128,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CV(9, "CV", "CV"),
+	CV(10, "CV", "CV"),
 
 	/**
 	 * The '<em><b>AC</b></em>' literal object.
@@ -128,7 +138,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AC(10, "AC", "AC"),
+	AC(11, "AC", "AC"),
 
 	/**
 	 * The '<em><b>ACM</b></em>' literal object.
@@ -138,7 +148,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACM(11, "ACM", "ACM"),
+	ACM(12, "ACM", "ACM"),
 
 	/**
 	 * The '<em><b>ACD</b></em>' literal object.
@@ -148,7 +158,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACD(12, "ACD", "ACD"),
+	ACD(13, "ACD", "ACD"),
 
 	/**
 	 * The '<em><b>ACV</b></em>' literal object.
@@ -158,7 +168,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACV(13, "ACV", "ACV"),
+	ACV(14, "ACV", "ACV"),
 
 	/**
 	 * The '<em><b>PC</b></em>' literal object.
@@ -168,7 +178,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PC(14, "PC", "PC"),
+	PC(15, "PC", "PC"),
 
 	/**
 	 * The '<em><b>PCM</b></em>' literal object.
@@ -178,7 +188,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PCM(15, "PCM", "PCM"),
+	PCM(16, "PCM", "PCM"),
 
 	/**
 	 * The '<em><b>PCD</b></em>' literal object.
@@ -188,7 +198,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PCD(16, "PCD", "PCD"),
+	PCD(17, "PCD", "PCD"),
 
 	/**
 	 * The '<em><b>PCV</b></em>' literal object.
@@ -198,7 +208,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PCV(17, "PCV", "PCV");
+	PCV(18, "PCV", "PCV");
 
 	/**
 	 * The '<em><b>MORN</b></em>' literal value.
@@ -257,6 +267,20 @@ public enum EventTimingList implements Enumerator {
 	public static final int NIGHT_VALUE = 3;
 
 	/**
+	 * The '<em><b>PHS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * After Sleep
+	 * <!-- end-model-doc -->
+	 * @see #PHS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PHS_VALUE = 4;
+
+	/**
 	 * The '<em><b>HS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -268,7 +292,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HS_VALUE = 4;
+	public static final int HS_VALUE = 5;
 
 	/**
 	 * The '<em><b>WAKE</b></em>' literal value.
@@ -282,7 +306,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WAKE_VALUE = 5;
+	public static final int WAKE_VALUE = 6;
 
 	/**
 	 * The '<em><b>C</b></em>' literal value.
@@ -296,7 +320,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int C_VALUE = 6;
+	public static final int C_VALUE = 7;
 
 	/**
 	 * The '<em><b>CM</b></em>' literal value.
@@ -310,7 +334,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CM_VALUE = 7;
+	public static final int CM_VALUE = 8;
 
 	/**
 	 * The '<em><b>CD</b></em>' literal value.
@@ -324,7 +348,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CD_VALUE = 8;
+	public static final int CD_VALUE = 9;
 
 	/**
 	 * The '<em><b>CV</b></em>' literal value.
@@ -338,7 +362,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CV_VALUE = 9;
+	public static final int CV_VALUE = 10;
 
 	/**
 	 * The '<em><b>AC</b></em>' literal value.
@@ -352,7 +376,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int AC_VALUE = 10;
+	public static final int AC_VALUE = 11;
 
 	/**
 	 * The '<em><b>ACM</b></em>' literal value.
@@ -366,7 +390,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACM_VALUE = 11;
+	public static final int ACM_VALUE = 12;
 
 	/**
 	 * The '<em><b>ACD</b></em>' literal value.
@@ -380,7 +404,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACD_VALUE = 12;
+	public static final int ACD_VALUE = 13;
 
 	/**
 	 * The '<em><b>ACV</b></em>' literal value.
@@ -394,7 +418,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACV_VALUE = 13;
+	public static final int ACV_VALUE = 14;
 
 	/**
 	 * The '<em><b>PC</b></em>' literal value.
@@ -408,7 +432,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PC_VALUE = 14;
+	public static final int PC_VALUE = 15;
 
 	/**
 	 * The '<em><b>PCM</b></em>' literal value.
@@ -422,7 +446,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PCM_VALUE = 15;
+	public static final int PCM_VALUE = 16;
 
 	/**
 	 * The '<em><b>PCD</b></em>' literal value.
@@ -436,7 +460,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PCD_VALUE = 16;
+	public static final int PCD_VALUE = 17;
 
 	/**
 	 * The '<em><b>PCV</b></em>' literal value.
@@ -450,7 +474,7 @@ public enum EventTimingList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PCV_VALUE = 17;
+	public static final int PCV_VALUE = 18;
 
 	/**
 	 * An array of all the '<em><b>Event Timing List</b></em>' enumerators.
@@ -464,6 +488,7 @@ public enum EventTimingList implements Enumerator {
 			AFT,
 			EVE,
 			NIGHT,
+			PHS,
 			HS,
 			WAKE,
 			C,
@@ -538,6 +563,7 @@ public enum EventTimingList implements Enumerator {
 			case AFT_VALUE: return AFT;
 			case EVE_VALUE: return EVE;
 			case NIGHT_VALUE: return NIGHT;
+			case PHS_VALUE: return PHS;
 			case HS_VALUE: return HS;
 			case WAKE_VALUE: return WAKE;
 			case C_VALUE: return C;

@@ -67,13 +67,13 @@ public interface ProcessResponse extends DomainResource {
 	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getProcessResponse_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	FinancialResourceStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ProcessResponse#getStatus <em>Status</em>}' containment reference.
@@ -83,7 +83,7 @@ public interface ProcessResponse extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(FinancialResourceStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Created</b></em>' containment reference.

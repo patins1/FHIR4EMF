@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.ConceptMapElement;
 import org.hl7.fhir.ConceptMapGroup;
+import org.hl7.fhir.ConceptMapUnmapped;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.jaxb.StringImplAdapter;
@@ -43,6 +44,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ConceptMapGroupImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapGroupImpl#getTargetVersion <em>Target Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapGroupImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConceptMapGroupImpl#getUnmapped <em>Unmapped</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,6 +101,16 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 	 * @ordered
 	 */
 	protected EList<ConceptMapElement> element;
+
+	/**
+	 * The cached value of the '{@link #getUnmapped() <em>Unmapped</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnmapped()
+	 * @generated
+	 * @ordered
+	 */
+	protected ConceptMapUnmapped unmapped;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -313,6 +325,49 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ConceptMapUnmapped getUnmapped() {
+		return unmapped;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUnmapped(ConceptMapUnmapped newUnmapped, NotificationChain msgs) {
+		ConceptMapUnmapped oldUnmapped = unmapped;
+		unmapped = newUnmapped;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_GROUP__UNMAPPED, oldUnmapped, newUnmapped);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnmapped(ConceptMapUnmapped newUnmapped) {
+		if (newUnmapped != unmapped) {
+			NotificationChain msgs = null;
+			if (unmapped != null)
+				msgs = ((InternalEObject)unmapped).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_GROUP__UNMAPPED, null, msgs);
+			if (newUnmapped != null)
+				msgs = ((InternalEObject)newUnmapped).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_GROUP__UNMAPPED, null, msgs);
+			msgs = basicSetUnmapped(newUnmapped, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_GROUP__UNMAPPED, newUnmapped, newUnmapped));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -326,6 +381,8 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 				return basicSetTargetVersion(null, msgs);
 			case FhirPackage.CONCEPT_MAP_GROUP__ELEMENT:
 				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONCEPT_MAP_GROUP__UNMAPPED:
+				return basicSetUnmapped(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -348,6 +405,8 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 				return getTargetVersion();
 			case FhirPackage.CONCEPT_MAP_GROUP__ELEMENT:
 				return getElement();
+			case FhirPackage.CONCEPT_MAP_GROUP__UNMAPPED:
+				return getUnmapped();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -377,6 +436,9 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 				getElement().clear();
 				getElement().addAll((Collection<? extends ConceptMapElement>)newValue);
 				return;
+			case FhirPackage.CONCEPT_MAP_GROUP__UNMAPPED:
+				setUnmapped((ConceptMapUnmapped)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -404,6 +466,9 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 			case FhirPackage.CONCEPT_MAP_GROUP__ELEMENT:
 				getElement().clear();
 				return;
+			case FhirPackage.CONCEPT_MAP_GROUP__UNMAPPED:
+				setUnmapped((ConceptMapUnmapped)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -426,6 +491,8 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 				return targetVersion != null;
 			case FhirPackage.CONCEPT_MAP_GROUP__ELEMENT:
 				return element != null && !element.isEmpty();
+			case FhirPackage.CONCEPT_MAP_GROUP__UNMAPPED:
+				return unmapped != null;
 		}
 		return super.eIsSet(featureID);
 	}

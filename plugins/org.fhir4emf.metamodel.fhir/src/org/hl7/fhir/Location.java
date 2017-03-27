@@ -24,6 +24,7 @@ import org.hl7.fhir.jaxb.LocationImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.Location#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Location#getOperationalStatus <em>Operational Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getDescription <em>Description</em>}</li>
@@ -65,7 +66,7 @@ public interface Location extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * active | suspended | inactive.
+	 * The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(LocationStatus)
@@ -85,6 +86,32 @@ public interface Location extends DomainResource {
 	 * @generated
 	 */
 	void setStatus(LocationStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Operational Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Operational status covers operation values most relevant to beds (but can also apply to rooms/units/chair/etc such as an isolation unit/dialisys chair). This typically covers concepts such as contamination, housekeeping and other activities like maintenance.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Operational Status</em>' containment reference.
+	 * @see #setOperationalStatus(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getLocation_OperationalStatus()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='operationalStatus' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Coding getOperationalStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Location#getOperationalStatus <em>Operational Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Operational Status</em>' containment reference.
+	 * @see #getOperationalStatus()
+	 * @generated
+	 */
+	void setOperationalStatus(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

@@ -152,13 +152,13 @@ public interface DeviceRequest extends DomainResource {
 	 * The status of the request.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(RequestStatus)
 	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	RequestStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.DeviceRequest#getStatus <em>Status</em>}' containment reference.
@@ -168,7 +168,7 @@ public interface DeviceRequest extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(RequestStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Intent</b></em>' containment reference.
@@ -204,13 +204,13 @@ public interface DeviceRequest extends DomainResource {
 	 * Indicates how quickly the {{title}} should be addressed with respect to other requests.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
-	 * @see #setPriority(Code)
+	 * @see #setPriority(RequestPriority)
 	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Priority()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getPriority();
+	RequestPriority getPriority();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.DeviceRequest#getPriority <em>Priority</em>}' containment reference.
@@ -220,7 +220,7 @@ public interface DeviceRequest extends DomainResource {
 	 * @see #getPriority()
 	 * @generated
 	 */
-	void setPriority(Code value);
+	void setPriority(RequestPriority value);
 
 	/**
 	 * Returns the value of the '<em><b>Code Reference</b></em>' containment reference.

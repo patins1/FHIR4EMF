@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Address;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Coding;
 import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -47,6 +48,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.LocationImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LocationImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LocationImpl#getOperationalStatus <em>Operational Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LocationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LocationImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LocationImpl#getDescription <em>Description</em>}</li>
@@ -85,6 +87,16 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * @ordered
 	 */
 	protected LocationStatus status;
+
+	/**
+	 * The cached value of the '{@link #getOperationalStatus() <em>Operational Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperationalStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected Coding operationalStatus;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -280,6 +292,49 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LOCATION__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coding getOperationalStatus() {
+		return operationalStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOperationalStatus(Coding newOperationalStatus, NotificationChain msgs) {
+		Coding oldOperationalStatus = operationalStatus;
+		operationalStatus = newOperationalStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LOCATION__OPERATIONAL_STATUS, oldOperationalStatus, newOperationalStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperationalStatus(Coding newOperationalStatus) {
+		if (newOperationalStatus != operationalStatus) {
+			NotificationChain msgs = null;
+			if (operationalStatus != null)
+				msgs = ((InternalEObject)operationalStatus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LOCATION__OPERATIONAL_STATUS, null, msgs);
+			if (newOperationalStatus != null)
+				msgs = ((InternalEObject)newOperationalStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LOCATION__OPERATIONAL_STATUS, null, msgs);
+			msgs = basicSetOperationalStatus(newOperationalStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LOCATION__OPERATIONAL_STATUS, newOperationalStatus, newOperationalStatus));
 	}
 
 	/**
@@ -724,6 +779,8 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.LOCATION__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.LOCATION__OPERATIONAL_STATUS:
+				return basicSetOperationalStatus(null, msgs);
 			case FhirPackage.LOCATION__NAME:
 				return basicSetName(null, msgs);
 			case FhirPackage.LOCATION__ALIAS:
@@ -764,6 +821,8 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 				return getIdentifier();
 			case FhirPackage.LOCATION__STATUS:
 				return getStatus();
+			case FhirPackage.LOCATION__OPERATIONAL_STATUS:
+				return getOperationalStatus();
 			case FhirPackage.LOCATION__NAME:
 				return getName();
 			case FhirPackage.LOCATION__ALIAS:
@@ -807,6 +866,9 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 				return;
 			case FhirPackage.LOCATION__STATUS:
 				setStatus((LocationStatus)newValue);
+				return;
+			case FhirPackage.LOCATION__OPERATIONAL_STATUS:
+				setOperationalStatus((Coding)newValue);
 				return;
 			case FhirPackage.LOCATION__NAME:
 				setName((org.hl7.fhir.String)newValue);
@@ -865,6 +927,9 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 			case FhirPackage.LOCATION__STATUS:
 				setStatus((LocationStatus)null);
 				return;
+			case FhirPackage.LOCATION__OPERATIONAL_STATUS:
+				setOperationalStatus((Coding)null);
+				return;
 			case FhirPackage.LOCATION__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
@@ -917,6 +982,8 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.LOCATION__STATUS:
 				return status != null;
+			case FhirPackage.LOCATION__OPERATIONAL_STATUS:
+				return operationalStatus != null;
 			case FhirPackage.LOCATION__NAME:
 				return name != null;
 			case FhirPackage.LOCATION__ALIAS:

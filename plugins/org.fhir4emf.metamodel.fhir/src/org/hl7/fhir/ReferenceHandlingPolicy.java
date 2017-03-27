@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.ReferenceHandlingPolicyImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of flags that defines how references are supported
+ * A set of flags that defines how references are supported.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

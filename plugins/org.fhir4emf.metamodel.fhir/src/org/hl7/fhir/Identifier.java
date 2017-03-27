@@ -91,7 +91,7 @@ public interface Identifier extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Establishes the namespace in which set of possible id values is unique.
+	 * Establishes the namespace for the value - that is, a URL that describes a set values that are unique.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>System</em>' containment reference.
 	 * @see #setSystem(Uri)

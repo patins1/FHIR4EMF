@@ -22,20 +22,21 @@ import org.hl7.fhir.jaxb.SupplyRequestImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.SupplyRequest#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyRequest#getSource <em>Source</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyRequest#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyRequest#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyRequest#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyRequest#getKind <em>Kind</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyRequest#getOrderedItemCodeableConcept <em>Ordered Item Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyRequest#getOrderedItemReference <em>Ordered Item Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getOrderedItem <em>Ordered Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getOccurrencePeriod <em>Occurrence Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getAuthoredOn <em>Authored On</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyRequest#getSupplier <em>Supplier</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyRequest#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyRequest#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyRequest#getWhen <em>When</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyRequest#getFrom <em>From</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyRequest#getTo <em>To</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getDeliverFrom <em>Deliver From</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyRequest#getDeliverTo <em>Deliver To</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSupplyRequest()
@@ -44,84 +45,6 @@ import org.hl7.fhir.jaxb.SupplyRequestImplAdapter;
  */
 @XmlJavaTypeAdapter(SupplyRequestImplAdapter.class)
 public interface SupplyRequest extends DomainResource {
-	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A link to a resource representing the person whom the ordered item is for.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_Patient()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPatient();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getPatient <em>Patient</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
-	 * @generated
-	 */
-	void setPatient(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The Practitioner , Organization or Patient who initiated this order for the supply.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Source</em>' containment reference.
-	 * @see #setSource(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_Source()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getSource();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getSource <em>Source</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' containment reference.
-	 * @see #getSource()
-	 * @generated
-	 */
-	void setSource(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * When the request was made.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_Date()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getDate();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getDate <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
-	 * @generated
-	 */
-	void setDate(DateTime value);
-
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -175,82 +98,212 @@ public interface SupplyRequest extends DomainResource {
 	void setStatus(SupplyRequestStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Kind</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Kind</em>' containment reference.
-	 * @see #setKind(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_Kind()
+	 * @return the value of the '<em>Category</em>' containment reference.
+	 * @see #setCategory(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_Category()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='kind' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getKind();
+	CodeableConcept getCategory();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getKind <em>Kind</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getCategory <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Kind</em>' containment reference.
-	 * @see #getKind()
+	 * @param value the new value of the '<em>Category</em>' containment reference.
+	 * @see #getCategory()
 	 * @generated
 	 */
-	void setKind(CodeableConcept value);
+	void setCategory(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Ordered Item Codeable Concept</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list. (choose any one of orderedItem*, but only one)
+	 * Indicates how quickly this SupplyRequest should be addressed with respect to other requests.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ordered Item Codeable Concept</em>' containment reference.
-	 * @see #setOrderedItemCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_OrderedItemCodeableConcept()
+	 * @return the value of the '<em>Priority</em>' containment reference.
+	 * @see #setPriority(RequestPriority)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_Priority()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='orderedItemCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getOrderedItemCodeableConcept();
+	RequestPriority getPriority();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getOrderedItemCodeableConcept <em>Ordered Item Codeable Concept</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getPriority <em>Priority</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ordered Item Codeable Concept</em>' containment reference.
-	 * @see #getOrderedItemCodeableConcept()
+	 * @param value the new value of the '<em>Priority</em>' containment reference.
+	 * @see #getPriority()
 	 * @generated
 	 */
-	void setOrderedItemCodeableConcept(CodeableConcept value);
+	void setPriority(RequestPriority value);
 
 	/**
-	 * Returns the value of the '<em><b>Ordered Item Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Ordered Item</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list. (choose any one of orderedItem*, but only one)
+	 * The item being requested.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ordered Item Reference</em>' containment reference.
-	 * @see #setOrderedItemReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_OrderedItemReference()
+	 * @return the value of the '<em>Ordered Item</em>' containment reference.
+	 * @see #setOrderedItem(SupplyRequestOrderedItem)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_OrderedItem()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='orderedItemReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='orderedItem' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getOrderedItemReference();
+	SupplyRequestOrderedItem getOrderedItem();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getOrderedItemReference <em>Ordered Item Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getOrderedItem <em>Ordered Item</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ordered Item Reference</em>' containment reference.
-	 * @see #getOrderedItemReference()
+	 * @param value the new value of the '<em>Ordered Item</em>' containment reference.
+	 * @see #getOrderedItem()
 	 * @generated
 	 */
-	void setOrderedItemReference(Reference value);
+	void setOrderedItem(SupplyRequestOrderedItem value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When the request should be fulfilled. (choose any one of occurrence*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #setOccurrenceDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_OccurrenceDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrenceDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getOccurrenceDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #getOccurrenceDateTime()
+	 * @generated
+	 */
+	void setOccurrenceDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurrence Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When the request should be fulfilled. (choose any one of occurrence*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #setOccurrencePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_OccurrencePeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrencePeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getOccurrencePeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getOccurrencePeriod <em>Occurrence Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #getOccurrencePeriod()
+	 * @generated
+	 */
+	void setOccurrencePeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurrence Timing</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When the request should be fulfilled. (choose any one of occurrence*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Occurrence Timing</em>' containment reference.
+	 * @see #setOccurrenceTiming(Timing)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_OccurrenceTiming()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrenceTiming' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Timing getOccurrenceTiming();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getOccurrenceTiming <em>Occurrence Timing</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence Timing</em>' containment reference.
+	 * @see #getOccurrenceTiming()
+	 * @generated
+	 */
+	void setOccurrenceTiming(Timing value);
+
+	/**
+	 * Returns the value of the '<em><b>Authored On</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When the request was made.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Authored On</em>' containment reference.
+	 * @see #setAuthoredOn(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_AuthoredOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='authoredOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getAuthoredOn();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getAuthoredOn <em>Authored On</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Authored On</em>' containment reference.
+	 * @see #getAuthoredOn()
+	 * @generated
+	 */
+	void setAuthoredOn(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Requester</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The individual who initiated the request and has responsibility for its activation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Requester</em>' containment reference.
+	 * @see #setRequester(SupplyRequestRequester)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_Requester()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requester' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	SupplyRequestRequester getRequester();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getRequester <em>Requester</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Requester</em>' containment reference.
+	 * @see #getRequester()
+	 * @generated
+	 */
+	void setRequester(SupplyRequestRequester value);
 
 	/**
 	 * Returns the value of the '<em><b>Supplier</b></em>' containment reference list.
@@ -321,81 +374,55 @@ public interface SupplyRequest extends DomainResource {
 	void setReasonReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>When</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * When the request should be fulfilled.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>When</em>' containment reference.
-	 * @see #setWhen(SupplyRequestWhen)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_When()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='when' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	SupplyRequestWhen getWhen();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getWhen <em>When</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>When</em>' containment reference.
-	 * @see #getWhen()
-	 * @generated
-	 */
-	void setWhen(SupplyRequestWhen value);
-
-	/**
-	 * Returns the value of the '<em><b>From</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Deliver From</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Where the supply is expected to come from.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>From</em>' containment reference.
-	 * @see #setFrom(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_From()
+	 * @return the value of the '<em>Deliver From</em>' containment reference.
+	 * @see #setDeliverFrom(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_DeliverFrom()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='from' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='deliverFrom' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getFrom();
+	Reference getDeliverFrom();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getFrom <em>From</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getDeliverFrom <em>Deliver From</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>From</em>' containment reference.
-	 * @see #getFrom()
+	 * @param value the new value of the '<em>Deliver From</em>' containment reference.
+	 * @see #getDeliverFrom()
 	 * @generated
 	 */
-	void setFrom(Reference value);
+	void setDeliverFrom(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>To</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Deliver To</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Where the supply is destined to go.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>To</em>' containment reference.
-	 * @see #setTo(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_To()
+	 * @return the value of the '<em>Deliver To</em>' containment reference.
+	 * @see #setDeliverTo(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyRequest_DeliverTo()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='to' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='deliverTo' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getTo();
+	Reference getDeliverTo();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getTo <em>To</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyRequest#getDeliverTo <em>Deliver To</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>To</em>' containment reference.
-	 * @see #getTo()
+	 * @param value the new value of the '<em>Deliver To</em>' containment reference.
+	 * @see #getDeliverTo()
 	 * @generated
 	 */
-	void setTo(Reference value);
+	void setDeliverTo(Reference value);
 
 } // SupplyRequest

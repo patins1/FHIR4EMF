@@ -22,7 +22,9 @@ import org.hl7.fhir.jaxb.ProvenanceEntityImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ProvenanceEntity#getRole <em>Role</em>}</li>
- *   <li>{@link org.hl7.fhir.ProvenanceEntity#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProvenanceEntity#getWhatUri <em>What Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProvenanceEntity#getWhatReference <em>What Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProvenanceEntity#getWhatIdentifier <em>What Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ProvenanceEntity#getAgent <em>Agent</em>}</li>
  * </ul>
  *
@@ -59,30 +61,82 @@ public interface ProvenanceEntity extends BackboneElement {
 	void setRole(ProvenanceEntityRole value);
 
 	/**
-	 * Returns the value of the '<em><b>Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>What Uri</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.
+	 * Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative. (choose any one of what*, but only one)
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reference</em>' containment reference.
-	 * @see #setReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getProvenanceEntity_Reference()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='reference' namespace='##targetNamespace'"
+	 * @return the value of the '<em>What Uri</em>' containment reference.
+	 * @see #setWhatUri(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getProvenanceEntity_WhatUri()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='whatUri' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getReference();
+	Uri getWhatUri();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceEntity#getReference <em>Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceEntity#getWhatUri <em>What Uri</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference</em>' containment reference.
-	 * @see #getReference()
+	 * @param value the new value of the '<em>What Uri</em>' containment reference.
+	 * @see #getWhatUri()
 	 * @generated
 	 */
-	void setReference(Reference value);
+	void setWhatUri(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>What Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative. (choose any one of what*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>What Reference</em>' containment reference.
+	 * @see #setWhatReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getProvenanceEntity_WhatReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='whatReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getWhatReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceEntity#getWhatReference <em>What Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>What Reference</em>' containment reference.
+	 * @see #getWhatReference()
+	 * @generated
+	 */
+	void setWhatReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>What Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative. (choose any one of what*, but only one)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>What Identifier</em>' containment reference.
+	 * @see #setWhatIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getProvenanceEntity_WhatIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='whatIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getWhatIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceEntity#getWhatIdentifier <em>What Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>What Identifier</em>' containment reference.
+	 * @see #getWhatIdentifier()
+	 * @generated
+	 */
+	void setWhatIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.

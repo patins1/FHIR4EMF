@@ -24,22 +24,21 @@ import org.hl7.fhir.jaxb.ImmunizationImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.Immunization#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getNotGiven <em>Not Given</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getVaccineCode <em>Vaccine Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getNotGiven <em>Not Given</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getPrimarySource <em>Primary Source</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getReportOrigin <em>Report Origin</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getRequester <em>Requester</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getLotNumber <em>Lot Number</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getExpirationDate <em>Expiration Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getSite <em>Site</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getRoute <em>Route</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getDoseQuantity <em>Dose Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getPractitioner <em>Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getExplanation <em>Explanation</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getReaction <em>Reaction</em>}</li>
@@ -76,13 +75,13 @@ public interface Immunization extends DomainResource {
 	 * Indicates the current status of the vaccination event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(ImmunizationStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getImmunization_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	ImmunizationStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getStatus <em>Status</em>}' containment reference.
@@ -92,33 +91,33 @@ public interface Immunization extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(ImmunizationStatusCodes value);
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Not Given</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date vaccine administered or was to be administered.
+	 * Indicates if the vaccination was or was not given.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_Date()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Not Given</em>' containment reference.
+	 * @see #setNotGiven(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_NotGiven()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='notGiven' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getDate();
+	org.hl7.fhir.Boolean getNotGiven();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getDate <em>Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getNotGiven <em>Not Given</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
+	 * @param value the new value of the '<em>Not Given</em>' containment reference.
+	 * @see #getNotGiven()
 	 * @generated
 	 */
-	void setDate(DateTime value);
+	void setNotGiven(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Vaccine Code</b></em>' containment reference.
@@ -173,30 +172,56 @@ public interface Immunization extends DomainResource {
 	void setPatient(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Not Given</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates if the vaccination was or was not given.
+	 * The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Given</em>' containment reference.
-	 * @see #setNotGiven(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_NotGiven()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='notGiven' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_Encounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getNotGiven();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getNotGiven <em>Not Given</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Given</em>' containment reference.
-	 * @see #getNotGiven()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setNotGiven(org.hl7.fhir.Boolean value);
+	void setEncounter(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Date vaccine administered or was to be administered.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Date</em>' containment reference.
+	 * @see #setDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_Date()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getDate <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date</em>' containment reference.
+	 * @see #getDate()
+	 * @generated
+	 */
+	void setDate(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Primary Source</b></em>' containment reference.
@@ -251,82 +276,30 @@ public interface Immunization extends DomainResource {
 	void setReportOrigin(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Performer</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Clinician who administered the vaccine.
+	 * The service delivery location where the vaccine administration occurred.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Performer</em>' containment reference.
-	 * @see #setPerformer(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_Performer()
+	 * @return the value of the '<em>Location</em>' containment reference.
+	 * @see #setLocation(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_Location()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='location' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPerformer();
+	Reference getLocation();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getPerformer <em>Performer</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getLocation <em>Location</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Performer</em>' containment reference.
-	 * @see #getPerformer()
+	 * @param value the new value of the '<em>Location</em>' containment reference.
+	 * @see #getLocation()
 	 * @generated
 	 */
-	void setPerformer(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Requester</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Clinician who ordered the vaccination.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Requester</em>' containment reference.
-	 * @see #setRequester(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_Requester()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requester' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getRequester();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getRequester <em>Requester</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Requester</em>' containment reference.
-	 * @see #getRequester()
-	 * @generated
-	 */
-	void setRequester(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_Encounter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getEncounter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getEncounter <em>Encounter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
-	 * @generated
-	 */
-	void setEncounter(Reference value);
+	void setLocation(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Manufacturer</b></em>' containment reference.
@@ -353,32 +326,6 @@ public interface Immunization extends DomainResource {
 	 * @generated
 	 */
 	void setManufacturer(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The service delivery location where the vaccine administration occurred.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Location</em>' containment reference.
-	 * @see #setLocation(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_Location()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='location' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getLocation();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getLocation <em>Location</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Location</em>' containment reference.
-	 * @see #getLocation()
-	 * @generated
-	 */
-	void setLocation(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Lot Number</b></em>' containment reference.
@@ -509,6 +456,22 @@ public interface Immunization extends DomainResource {
 	 * @generated
 	 */
 	void setDoseQuantity(Quantity value);
+
+	/**
+	 * Returns the value of the '<em><b>Practitioner</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ImmunizationPractitioner}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates who or what performed the event.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Practitioner</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_Practitioner()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='practitioner' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<ImmunizationPractitioner> getPractitioner();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

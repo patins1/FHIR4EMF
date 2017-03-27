@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Coding;
 import org.hl7.fhir.ContractAgent1;
 import org.hl7.fhir.ContractTerm;
 import org.hl7.fhir.ContractValuedItem1;
@@ -51,6 +52,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getActionReason <em>Action Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getSecurityLabel <em>Security Label</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getValuedItem <em>Valued Item</em>}</li>
@@ -141,6 +143,16 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> actionReason;
+
+	/**
+	 * The cached value of the '{@link #getSecurityLabel() <em>Security Label</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Coding> securityLabel;
 
 	/**
 	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
@@ -462,6 +474,19 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * @generated
 	 */
 	@XmlElement
+	public List<Coding> getSecurityLabel() {
+		if (securityLabel == null) {
+			securityLabel = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONTRACT_TERM__SECURITY_LABEL);
+		}
+		return securityLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
 	public List<ContractAgent1> getAgent() {
 		if (agent == null) {
 			agent = new EObjectContainmentEList<ContractAgent1>(ContractAgent1.class, this, FhirPackage.CONTRACT_TERM__AGENT);
@@ -563,6 +588,8 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
 				return ((InternalEList<?>)getActionReason()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				return ((InternalEList<?>)getSecurityLabel()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT_TERM__AGENT:
 				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT_TERM__TEXT:
@@ -599,6 +626,8 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 				return getAction();
 			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
 				return getActionReason();
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				return getSecurityLabel();
 			case FhirPackage.CONTRACT_TERM__AGENT:
 				return getAgent();
 			case FhirPackage.CONTRACT_TERM__TEXT:
@@ -646,6 +675,10 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
 				getActionReason().clear();
 				getActionReason().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				getSecurityLabel().clear();
+				getSecurityLabel().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.CONTRACT_TERM__AGENT:
 				getAgent().clear();
@@ -698,6 +731,9 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
 				getActionReason().clear();
 				return;
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				getSecurityLabel().clear();
+				return;
 			case FhirPackage.CONTRACT_TERM__AGENT:
 				getAgent().clear();
 				return;
@@ -738,6 +774,8 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 				return action != null && !action.isEmpty();
 			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
 				return actionReason != null && !actionReason.isEmpty();
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				return securityLabel != null && !securityLabel.isEmpty();
 			case FhirPackage.CONTRACT_TERM__AGENT:
 				return agent != null && !agent.isEmpty();
 			case FhirPackage.CONTRACT_TERM__TEXT:

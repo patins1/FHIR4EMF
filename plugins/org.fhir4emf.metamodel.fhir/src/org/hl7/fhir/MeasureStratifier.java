@@ -40,7 +40,7 @@ public interface MeasureStratifier extends BackboneElement {
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
 	 * @see org.hl7.fhir.FhirPackage#getMeasureStratifier_Identifier()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */

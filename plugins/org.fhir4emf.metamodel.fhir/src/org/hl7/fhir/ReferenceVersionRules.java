@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.ReferenceVersionRulesImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Whether a reference needs to be version specific or version independent, or whetehr either can be used
+ * Whether a reference needs to be version specific or version independent, or whether either can be used
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

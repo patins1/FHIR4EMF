@@ -40,13 +40,13 @@ public interface CompartmentDefinitionResource extends BackboneElement {
 	 * The name of a resource supported by the server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(Code)
+	 * @see #setCode(ResourceType)
 	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinitionResource_Code()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getCode();
+	ResourceType getCode();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CompartmentDefinitionResource#getCode <em>Code</em>}' containment reference.
@@ -56,7 +56,7 @@ public interface CompartmentDefinitionResource extends BackboneElement {
 	 * @see #getCode()
 	 * @generated
 	 */
-	void setCode(Code value);
+	void setCode(ResourceType value);
 
 	/**
 	 * Returns the value of the '<em><b>Param</b></em>' containment reference list.
@@ -64,7 +64,7 @@ public interface CompartmentDefinitionResource extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment more than one way.
+	 * The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment in more than one way,.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Param</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinitionResource_Param()
@@ -79,7 +79,7 @@ public interface CompartmentDefinitionResource extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional doco about the resource and compartment.
+	 * Additional documentation about the resource and compartment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
 	 * @see #setDocumentation(org.hl7.fhir.String)

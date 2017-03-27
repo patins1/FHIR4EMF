@@ -24,14 +24,12 @@ import org.hl7.fhir.jaxb.EncounterHospitalizationImplAdapter;
  *   <li>{@link org.hl7.fhir.EncounterHospitalization#getPreAdmissionIdentifier <em>Pre Admission Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterHospitalization#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterHospitalization#getAdmitSource <em>Admit Source</em>}</li>
- *   <li>{@link org.hl7.fhir.EncounterHospitalization#getAdmittingDiagnosis <em>Admitting Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterHospitalization#getReAdmission <em>Re Admission</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterHospitalization#getDietPreference <em>Diet Preference</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterHospitalization#getSpecialCourtesy <em>Special Courtesy</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterHospitalization#getSpecialArrangement <em>Special Arrangement</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterHospitalization#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterHospitalization#getDischargeDisposition <em>Discharge Disposition</em>}</li>
- *   <li>{@link org.hl7.fhir.EncounterHospitalization#getDischargeDiagnosis <em>Discharge Diagnosis</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getEncounterHospitalization()
@@ -117,22 +115,6 @@ public interface EncounterHospitalization extends BackboneElement {
 	 * @generated
 	 */
 	void setAdmitSource(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Admitting Diagnosis</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Admitting Diagnosis</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getEncounterHospitalization_AdmittingDiagnosis()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='admittingDiagnosis' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	List<Reference> getAdmittingDiagnosis();
 
 	/**
 	 * Returns the value of the '<em><b>Re Admission</b></em>' containment reference.
@@ -259,21 +241,5 @@ public interface EncounterHospitalization extends BackboneElement {
 	 * @generated
 	 */
 	void setDischargeDisposition(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Discharge Diagnosis</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Discharge Diagnosis</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getEncounterHospitalization_DischargeDiagnosis()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dischargeDiagnosis' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	List<Reference> getDischargeDiagnosis();
 
 } // EncounterHospitalization

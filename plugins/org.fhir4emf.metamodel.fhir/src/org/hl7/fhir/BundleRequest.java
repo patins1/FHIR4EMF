@@ -90,7 +90,7 @@ public interface BundleRequest extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If the ETag values match, return a 304 Not modified status. See the API documentation for ["Conditional Read"](http.html#cread).
+	 * If the ETag values match, return a 304 Not Modified status. See the API documentation for ["Conditional Read"](http.html#cread).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>If None Match</em>' containment reference.
 	 * @see #setIfNoneMatch(org.hl7.fhir.String)

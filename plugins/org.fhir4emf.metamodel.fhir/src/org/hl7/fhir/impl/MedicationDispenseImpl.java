@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
-import org.hl7.fhir.DosageInstruction;
+import org.hl7.fhir.Dosage;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicationDispense;
@@ -278,7 +278,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DosageInstruction> dosageInstruction;
+	protected EList<Dosage> dosageInstruction;
 
 	/**
 	 * The cached value of the '{@link #getSubstitution() <em>Substitution</em>}' containment reference.
@@ -975,9 +975,9 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * @generated
 	 */
 	@XmlElement
-	public List<DosageInstruction> getDosageInstruction() {
+	public List<Dosage> getDosageInstruction() {
 		if (dosageInstruction == null) {
-			dosageInstruction = new EObjectContainmentEList<DosageInstruction>(DosageInstruction.class, this, FhirPackage.MEDICATION_DISPENSE__DOSAGE_INSTRUCTION);
+			dosageInstruction = new EObjectContainmentEList<Dosage>(Dosage.class, this, FhirPackage.MEDICATION_DISPENSE__DOSAGE_INSTRUCTION);
 		}
 		return dosageInstruction;
 	}
@@ -1384,7 +1384,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return;
 			case FhirPackage.MEDICATION_DISPENSE__DOSAGE_INSTRUCTION:
 				getDosageInstruction().clear();
-				getDosageInstruction().addAll((Collection<? extends DosageInstruction>)newValue);
+				getDosageInstruction().addAll((Collection<? extends Dosage>)newValue);
 				return;
 			case FhirPackage.MEDICATION_DISPENSE__SUBSTITUTION:
 				setSubstitution((MedicationDispenseSubstitution)newValue);

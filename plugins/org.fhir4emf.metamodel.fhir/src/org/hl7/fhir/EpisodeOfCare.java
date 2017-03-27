@@ -26,7 +26,7 @@ import org.hl7.fhir.jaxb.EpisodeOfCareImplAdapter;
  *   <li>{@link org.hl7.fhir.EpisodeOfCare#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.EpisodeOfCare#getStatusHistory <em>Status History</em>}</li>
  *   <li>{@link org.hl7.fhir.EpisodeOfCare#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.EpisodeOfCare#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.hl7.fhir.EpisodeOfCare#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.EpisodeOfCare#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.EpisodeOfCare#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.EpisodeOfCare#getPeriod <em>Period</em>}</li>
@@ -48,7 +48,7 @@ public interface EpisodeOfCare extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifier(s) by which this EpisodeOfCare is known.
+	 * The EpisodeOfCare may be known by different identifiers for different contexts of use, such as when an external agency is tracking the Episode for funding purposes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getEpisodeOfCare_Identifier()
@@ -117,27 +117,27 @@ public interface EpisodeOfCare extends DomainResource {
 	List<CodeableConcept> getType();
 
 	/**
-	 * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Diagnosis</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.EpisodeOfCareDiagnosis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.
+	 * The list of diagnosis relevant to this episode of care.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Condition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getEpisodeOfCare_Condition()
+	 * @return the value of the '<em>Diagnosis</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEpisodeOfCare_Diagnosis()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='condition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='diagnosis' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Reference> getCondition();
+	List<EpisodeOfCareDiagnosis> getDiagnosis();
 
 	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The patient that this EpisodeOfCare applies to.
+	 * The patient who is the focus of this episode of care.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Patient</em>' containment reference.
 	 * @see #setPatient(Reference)

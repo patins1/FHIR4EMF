@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.DeviceImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
+ * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -23,7 +23,7 @@ import org.hl7.fhir.jaxb.DeviceImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Device#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Device#getUdiCarrier <em>Udi Carrier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Device#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.Device#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Device#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Device#getLotNumber <em>Lot Number</em>}</li>
@@ -38,6 +38,7 @@ import org.hl7.fhir.jaxb.DeviceImplAdapter;
  *   <li>{@link org.hl7.fhir.Device#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.Device#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.Device#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.Device#getSafety <em>Safety</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getDevice()
@@ -63,30 +64,30 @@ public interface Device extends DomainResource {
 	List<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Udi Carrier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Udi</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * [Unique device identifier (UDI)](device.html#5.11.3.2.2) barcode or rfid string assigned to device label or package.
+	 * [Unique device identifier (UDI)](device.html#5.11.3.2.2) assigned to device label or package.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Udi Carrier</em>' containment reference.
-	 * @see #setUdiCarrier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getDevice_UdiCarrier()
+	 * @return the value of the '<em>Udi</em>' containment reference.
+	 * @see #setUdi(DeviceUdi)
+	 * @see org.hl7.fhir.FhirPackage#getDevice_Udi()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='udiCarrier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='udi' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getUdiCarrier();
+	DeviceUdi getUdi();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Device#getUdiCarrier <em>Udi Carrier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Device#getUdi <em>Udi</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Udi Carrier</em>' containment reference.
-	 * @see #getUdiCarrier()
+	 * @param value the new value of the '<em>Udi</em>' containment reference.
+	 * @see #getUdi()
 	 * @generated
 	 */
-	void setUdiCarrier(Identifier value);
+	void setUdi(DeviceUdi value);
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -96,13 +97,13 @@ public interface Device extends DomainResource {
 	 * Status of the Device availability.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(DeviceStatus)
+	 * @see #setStatus(FHIRDeviceStatus)
 	 * @see org.hl7.fhir.FhirPackage#getDevice_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DeviceStatus getStatus();
+	FHIRDeviceStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Device#getStatus <em>Status</em>}' containment reference.
@@ -112,7 +113,7 @@ public interface Device extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(DeviceStatus value);
+	void setStatus(FHIRDeviceStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -431,5 +432,21 @@ public interface Device extends DomainResource {
 	 * @generated
 	 */
 	List<Annotation> getNote();
+
+	/**
+	 * Returns the value of the '<em><b>Safety</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Provides additional safety characteristics about a medical device.  For example devices containing latex.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Safety</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDevice_Safety()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='safety' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<CodeableConcept> getSafety();
 
 } // Device

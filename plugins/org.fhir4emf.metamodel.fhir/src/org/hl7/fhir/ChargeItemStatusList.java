@@ -95,7 +95,7 @@ public enum ChargeItemStatusList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * planned
+	 * Planned
 	 * <!-- end-model-doc -->
 	 * @see #PLANNED
 	 * @model name="planned"
@@ -109,7 +109,7 @@ public enum ChargeItemStatusList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * billable
+	 * Billable
 	 * <!-- end-model-doc -->
 	 * @see #BILLABLE
 	 * @model name="billable"
@@ -123,7 +123,7 @@ public enum ChargeItemStatusList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * not billable
+	 * Not billable
 	 * <!-- end-model-doc -->
 	 * @see #NOT_BILLABLE
 	 * @model name="notBillable" literal="not-billable"
@@ -137,7 +137,7 @@ public enum ChargeItemStatusList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * aborted
+	 * Aborted
 	 * <!-- end-model-doc -->
 	 * @see #ABORTED
 	 * @model name="aborted"
@@ -151,7 +151,7 @@ public enum ChargeItemStatusList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * billed
+	 * Billed
 	 * <!-- end-model-doc -->
 	 * @see #BILLED
 	 * @model name="billed"

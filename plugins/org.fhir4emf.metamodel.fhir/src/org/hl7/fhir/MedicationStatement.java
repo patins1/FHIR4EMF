@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.MedicationStatementImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains 
+ * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains 
  * 
  * The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
  * If the element is present, it must have either a @value, an @id, or extensions
@@ -32,16 +32,16 @@ import org.hl7.fhir.jaxb.MedicationStatementImplAdapter;
  *   <li>{@link org.hl7.fhir.MedicationStatement#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getMedicationReference <em>Medication Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getEffectivePeriod <em>Effective Period</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getInformationSource <em>Information Source</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getDerivedFrom <em>Derived From</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getDateAsserted <em>Date Asserted</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getInformationSource <em>Information Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getDerivedFrom <em>Derived From</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getTaken <em>Taken</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getReasonNotTaken <em>Reason Not Taken</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getReasonForUseCodeableConcept <em>Reason For Use Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationStatement#getReasonForUseReference <em>Reason For Use Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationStatement#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationStatement#getDosage <em>Dosage</em>}</li>
  * </ul>
@@ -231,32 +231,6 @@ public interface MedicationStatement extends DomainResource {
 	void setMedicationReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The person, animal or group who is/was taking the medication.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject</em>' containment reference.
-	 * @see #setSubject(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_Subject()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getSubject();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationStatement#getSubject <em>Subject</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject</em>' containment reference.
-	 * @see #getSubject()
-	 * @generated
-	 */
-	void setSubject(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Effective Date Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,6 +283,32 @@ public interface MedicationStatement extends DomainResource {
 	void setEffectivePeriod(Period value);
 
 	/**
+	 * Returns the value of the '<em><b>Date Asserted</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date when the medication statement was asserted by the information source.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Date Asserted</em>' containment reference.
+	 * @see #setDateAsserted(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_DateAsserted()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dateAsserted' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDateAsserted();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationStatement#getDateAsserted <em>Date Asserted</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date Asserted</em>' containment reference.
+	 * @see #getDateAsserted()
+	 * @generated
+	 */
+	void setDateAsserted(DateTime value);
+
+	/**
 	 * Returns the value of the '<em><b>Information Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -335,6 +335,32 @@ public interface MedicationStatement extends DomainResource {
 	void setInformationSource(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The person, animal or group who is/was taking the medication.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_Subject()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSubject();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationStatement#getSubject <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
+	 * @generated
+	 */
+	void setSubject(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Derived From</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
@@ -349,32 +375,6 @@ public interface MedicationStatement extends DomainResource {
 	 * @generated
 	 */
 	List<Reference> getDerivedFrom();
-
-	/**
-	 * Returns the value of the '<em><b>Date Asserted</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date when the medication statement was asserted by the information source.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date Asserted</em>' containment reference.
-	 * @see #setDateAsserted(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_DateAsserted()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dateAsserted' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getDateAsserted();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationStatement#getDateAsserted <em>Date Asserted</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date Asserted</em>' containment reference.
-	 * @see #getDateAsserted()
-	 * @generated
-	 */
-	void setDateAsserted(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Taken</b></em>' containment reference.
@@ -419,36 +419,36 @@ public interface MedicationStatement extends DomainResource {
 	List<CodeableConcept> getReasonNotTaken();
 
 	/**
-	 * Returns the value of the '<em><b>Reason For Use Codeable Concept</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A reason for why the medication is being/was taken.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason For Use Codeable Concept</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_ReasonForUseCodeableConcept()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonForUseCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<CodeableConcept> getReasonForUseCodeableConcept();
+	List<CodeableConcept> getReasonCode();
 
 	/**
-	 * Returns the value of the '<em><b>Reason For Use Reference</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Condition or observation that supports why the medication is being/was taken.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason For Use Reference</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_ReasonForUseReference()
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_ReasonReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonForUseReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Reference> getReasonForUseReference();
+	List<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
@@ -468,11 +468,11 @@ public interface MedicationStatement extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Dosage</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DosageInstruction}.
+	 * The list contents are of type {@link org.hl7.fhir.Dosage}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates how the medication is/was used by the patient.
+	 * Indicates how the medication is/was or should be taken by the patient.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dosage</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_Dosage()
@@ -480,6 +480,6 @@ public interface MedicationStatement extends DomainResource {
 	 *        extendedMetaData="kind='element' name='dosage' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<DosageInstruction> getDosage();
+	List<Dosage> getDosage();
 
 } // MedicationStatement

@@ -23,6 +23,7 @@ import org.hl7.fhir.jaxb.ImmunizationRecommendationRecommendationImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getVaccineCode <em>Vaccine Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getTargetDisease <em>Target Disease</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDoseNumber <em>Dose Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getForecastStatus <em>Forecast Status</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDateCriterion <em>Date Criterion</em>}</li>
@@ -73,7 +74,7 @@ public interface ImmunizationRecommendationRecommendation extends BackboneElemen
 	 * @return the value of the '<em>Vaccine Code</em>' containment reference.
 	 * @see #setVaccineCode(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendationRecommendation_VaccineCode()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='vaccineCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -90,11 +91,37 @@ public interface ImmunizationRecommendationRecommendation extends BackboneElemen
 	void setVaccineCode(CodeableConcept value);
 
 	/**
+	 * Returns the value of the '<em><b>Target Disease</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The targeted disease for the recommendation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Target Disease</em>' containment reference.
+	 * @see #setTargetDisease(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendationRecommendation_TargetDisease()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='targetDisease' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getTargetDisease();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getTargetDisease <em>Target Disease</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Disease</em>' containment reference.
+	 * @see #getTargetDisease()
+	 * @generated
+	 */
+	void setTargetDisease(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Dose Number</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
+	 * The next recommended dose number (e.g. dose 2 is the next recommended dose).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dose Number</em>' containment reference.
 	 * @see #setDoseNumber(PositiveInt)

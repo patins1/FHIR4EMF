@@ -31,14 +31,14 @@ public enum CodeSystemContentModeList implements Enumerator {
 	NOT_PRESENT(0, "notPresent", "not-present"),
 
 	/**
-	 * The '<em><b>Examplar</b></em>' literal object.
+	 * The '<em><b>Example</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EXAMPLAR_VALUE
+	 * @see #EXAMPLE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	EXAMPLAR(1, "examplar", "examplar"),
+	EXAMPLE(1, "example", "example"),
 
 	/**
 	 * The '<em><b>Fragment</b></em>' literal object.
@@ -75,18 +75,18 @@ public enum CodeSystemContentModeList implements Enumerator {
 	public static final int NOT_PRESENT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Examplar</b></em>' literal value.
+	 * The '<em><b>Example</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Examplar
+	 * Example
 	 * <!-- end-model-doc -->
-	 * @see #EXAMPLAR
-	 * @model name="examplar"
+	 * @see #EXAMPLE
+	 * @model name="example"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXAMPLAR_VALUE = 1;
+	public static final int EXAMPLE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Fragment</b></em>' literal value.
@@ -125,7 +125,7 @@ public enum CodeSystemContentModeList implements Enumerator {
 	private static final CodeSystemContentModeList[] VALUES_ARRAY =
 		new CodeSystemContentModeList[] {
 			NOT_PRESENT,
-			EXAMPLAR,
+			EXAMPLE,
 			FRAGMENT,
 			COMPLETE,
 		};
@@ -185,7 +185,7 @@ public enum CodeSystemContentModeList implements Enumerator {
 	public static CodeSystemContentModeList get(int value) {
 		switch (value) {
 			case NOT_PRESENT_VALUE: return NOT_PRESENT;
-			case EXAMPLAR_VALUE: return EXAMPLAR;
+			case EXAMPLE_VALUE: return EXAMPLE;
 			case FRAGMENT_VALUE: return FRAGMENT;
 			case COMPLETE_VALUE: return COMPLETE;
 		}

@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -32,10 +31,14 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.ReferralRequest;
-import org.hl7.fhir.ReferralRequestStatus;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.ReferralRequestRequester;
+import org.hl7.fhir.RequestIntent;
+import org.hl7.fhir.RequestPriority;
+import org.hl7.fhir.RequestStatus;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.ReferralRequestStatusImplAdapter;
+import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
+import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
@@ -47,24 +50,29 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getReplaces <em>Replaces</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getIntent <em>Intent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getServiceRequested <em>Service Requested</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getContext <em>Context</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getFulfillmentTime <em>Fulfillment Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getSpecialty <em>Specialty</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getRecipient <em>Recipient</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferralRequestImpl#getRelevantHistory <em>Relevant History</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,6 +91,16 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> definition;
+
+	/**
 	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,6 +109,16 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * @ordered
 	 */
 	protected EList<Reference> basedOn;
+
+	/**
+	 * The cached value of the '{@link #getReplaces() <em>Replaces</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReplaces()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> replaces;
 
 	/**
 	 * The cached value of the '{@link #getGroupIdentifier() <em>Group Identifier</em>}' containment reference.
@@ -110,7 +138,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * @generated
 	 * @ordered
 	 */
-	protected ReferralRequestStatus status;
+	protected RequestStatus status;
 
 	/**
 	 * The cached value of the '{@link #getIntent() <em>Intent</em>}' containment reference.
@@ -120,7 +148,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * @generated
 	 * @ordered
 	 */
-	protected Code intent;
+	protected RequestIntent intent;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -140,7 +168,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept priority;
+	protected RequestPriority priority;
 
 	/**
 	 * The cached value of the '{@link #getServiceRequested() <em>Service Requested</em>}' containment reference list.
@@ -153,14 +181,14 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	protected EList<CodeableConcept> serviceRequested;
 
 	/**
-	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPatient()
+	 * @see #getSubject()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference patient;
+	protected Reference subject;
 
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
@@ -173,14 +201,24 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	protected Reference context;
 
 	/**
-	 * The cached value of the '{@link #getFulfillmentTime() <em>Fulfillment Time</em>}' containment reference.
+	 * The cached value of the '{@link #getOccurrenceDateTime() <em>Occurrence Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFulfillmentTime()
+	 * @see #getOccurrenceDateTime()
 	 * @generated
 	 * @ordered
 	 */
-	protected Period fulfillmentTime;
+	protected DateTime occurrenceDateTime;
+
+	/**
+	 * The cached value of the '{@link #getOccurrencePeriod() <em>Occurrence Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOccurrencePeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period occurrencePeriod;
 
 	/**
 	 * The cached value of the '{@link #getAuthoredOn() <em>Authored On</em>}' containment reference.
@@ -200,7 +238,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference requester;
+	protected ReferralRequestRequester requester;
 
 	/**
 	 * The cached value of the '{@link #getSpecialty() <em>Specialty</em>}' containment reference.
@@ -223,14 +261,24 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	protected EList<Reference> recipient;
 
 	/**
-	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReason()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept reason;
+	protected EList<CodeableConcept> reasonCode;
+
+	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> reasonReference;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -261,6 +309,16 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * @ordered
 	 */
 	protected EList<Annotation> note;
+
+	/**
+	 * The cached value of the '{@link #getRelevantHistory() <em>Relevant History</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelevantHistory()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> relevantHistory;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -300,11 +358,37 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * @generated
 	 */
 	@XmlElement
+	public List<Reference> getDefinition() {
+		if (definition == null) {
+			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__DEFINITION);
+		}
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
 	public List<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__BASED_ON);
 		}
 		return basedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@XmlElement
+	public List<Reference> getReplaces() {
+		if (replaces == null) {
+			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__REPLACES);
+		}
+		return replaces;
 	}
 
 	/**
@@ -355,9 +439,9 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ReferralRequestStatusImplAdapter.class)
+	@XmlJavaTypeAdapter(RequestStatusImplAdapter.class)
 	@XmlElement(required = true)
-	public ReferralRequestStatus getStatus() {
+	public RequestStatus getStatus() {
 		return status;
 	}
 
@@ -366,8 +450,8 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(ReferralRequestStatus newStatus, NotificationChain msgs) {
-		ReferralRequestStatus oldStatus = status;
+	public NotificationChain basicSetStatus(RequestStatus newStatus, NotificationChain msgs) {
+		RequestStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__STATUS, oldStatus, newStatus);
@@ -381,7 +465,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(ReferralRequestStatus newStatus) {
+	public void setStatus(RequestStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -400,9 +484,9 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlJavaTypeAdapter(RequestIntentImplAdapter.class)
 	@XmlElement(required = true)
-	public Code getIntent() {
+	public RequestIntent getIntent() {
 		return intent;
 	}
 
@@ -411,8 +495,8 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIntent(Code newIntent, NotificationChain msgs) {
-		Code oldIntent = intent;
+	public NotificationChain basicSetIntent(RequestIntent newIntent, NotificationChain msgs) {
+		RequestIntent oldIntent = intent;
 		intent = newIntent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__INTENT, oldIntent, newIntent);
@@ -426,7 +510,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIntent(Code newIntent) {
+	public void setIntent(RequestIntent newIntent) {
 		if (newIntent != intent) {
 			NotificationChain msgs = null;
 			if (intent != null)
@@ -488,7 +572,8 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getPriority() {
+	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
+	public RequestPriority getPriority() {
 		return priority;
 	}
 
@@ -497,8 +582,8 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPriority(CodeableConcept newPriority, NotificationChain msgs) {
-		CodeableConcept oldPriority = priority;
+	public NotificationChain basicSetPriority(RequestPriority newPriority, NotificationChain msgs) {
+		RequestPriority oldPriority = priority;
 		priority = newPriority;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__PRIORITY, oldPriority, newPriority);
@@ -512,7 +597,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPriority(CodeableConcept newPriority) {
+	public void setPriority(RequestPriority newPriority) {
 		if (newPriority != priority) {
 			NotificationChain msgs = null;
 			if (priority != null)
@@ -544,8 +629,9 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPatient() {
-		return patient;
+	@XmlElement(required = true)
+	public Reference getSubject() {
+		return subject;
 	}
 
 	/**
@@ -553,11 +639,11 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
-		Reference oldPatient = patient;
-		patient = newPatient;
+	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
+		Reference oldSubject = subject;
+		subject = newSubject;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__PATIENT, oldPatient, newPatient);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__SUBJECT, oldSubject, newSubject);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -568,18 +654,18 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPatient(Reference newPatient) {
-		if (newPatient != patient) {
+	public void setSubject(Reference newSubject) {
+		if (newSubject != subject) {
 			NotificationChain msgs = null;
-			if (patient != null)
-				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__PATIENT, null, msgs);
-			if (newPatient != null)
-				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__PATIENT, null, msgs);
-			msgs = basicSetPatient(newPatient, msgs);
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__SUBJECT, null, msgs);
+			msgs = basicSetSubject(newSubject, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__PATIENT, newPatient, newPatient));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__SUBJECT, newSubject, newSubject));
 	}
 
 	/**
@@ -630,8 +716,9 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Period getFulfillmentTime() {
-		return fulfillmentTime;
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public DateTime getOccurrenceDateTime() {
+		return occurrenceDateTime;
 	}
 
 	/**
@@ -639,11 +726,11 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFulfillmentTime(Period newFulfillmentTime, NotificationChain msgs) {
-		Period oldFulfillmentTime = fulfillmentTime;
-		fulfillmentTime = newFulfillmentTime;
+	public NotificationChain basicSetOccurrenceDateTime(DateTime newOccurrenceDateTime, NotificationChain msgs) {
+		DateTime oldOccurrenceDateTime = occurrenceDateTime;
+		occurrenceDateTime = newOccurrenceDateTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__FULFILLMENT_TIME, oldFulfillmentTime, newFulfillmentTime);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__OCCURRENCE_DATE_TIME, oldOccurrenceDateTime, newOccurrenceDateTime);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -654,18 +741,61 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFulfillmentTime(Period newFulfillmentTime) {
-		if (newFulfillmentTime != fulfillmentTime) {
+	public void setOccurrenceDateTime(DateTime newOccurrenceDateTime) {
+		if (newOccurrenceDateTime != occurrenceDateTime) {
 			NotificationChain msgs = null;
-			if (fulfillmentTime != null)
-				msgs = ((InternalEObject)fulfillmentTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__FULFILLMENT_TIME, null, msgs);
-			if (newFulfillmentTime != null)
-				msgs = ((InternalEObject)newFulfillmentTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__FULFILLMENT_TIME, null, msgs);
-			msgs = basicSetFulfillmentTime(newFulfillmentTime, msgs);
+			if (occurrenceDateTime != null)
+				msgs = ((InternalEObject)occurrenceDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__OCCURRENCE_DATE_TIME, null, msgs);
+			if (newOccurrenceDateTime != null)
+				msgs = ((InternalEObject)newOccurrenceDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__OCCURRENCE_DATE_TIME, null, msgs);
+			msgs = basicSetOccurrenceDateTime(newOccurrenceDateTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__FULFILLMENT_TIME, newFulfillmentTime, newFulfillmentTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__OCCURRENCE_DATE_TIME, newOccurrenceDateTime, newOccurrenceDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getOccurrencePeriod() {
+		return occurrencePeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOccurrencePeriod(Period newOccurrencePeriod, NotificationChain msgs) {
+		Period oldOccurrencePeriod = occurrencePeriod;
+		occurrencePeriod = newOccurrencePeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__OCCURRENCE_PERIOD, oldOccurrencePeriod, newOccurrencePeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOccurrencePeriod(Period newOccurrencePeriod) {
+		if (newOccurrencePeriod != occurrencePeriod) {
+			NotificationChain msgs = null;
+			if (occurrencePeriod != null)
+				msgs = ((InternalEObject)occurrencePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__OCCURRENCE_PERIOD, null, msgs);
+			if (newOccurrencePeriod != null)
+				msgs = ((InternalEObject)newOccurrencePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__OCCURRENCE_PERIOD, null, msgs);
+			msgs = basicSetOccurrencePeriod(newOccurrencePeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__OCCURRENCE_PERIOD, newOccurrencePeriod, newOccurrencePeriod));
 	}
 
 	/**
@@ -717,7 +847,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getRequester() {
+	public ReferralRequestRequester getRequester() {
 		return requester;
 	}
 
@@ -726,8 +856,8 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequester(Reference newRequester, NotificationChain msgs) {
-		Reference oldRequester = requester;
+	public NotificationChain basicSetRequester(ReferralRequestRequester newRequester, NotificationChain msgs) {
+		ReferralRequestRequester oldRequester = requester;
 		requester = newRequester;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__REQUESTER, oldRequester, newRequester);
@@ -741,7 +871,7 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequester(Reference newRequester) {
+	public void setRequester(ReferralRequestRequester newRequester) {
 		if (newRequester != requester) {
 			NotificationChain msgs = null;
 			if (requester != null)
@@ -816,8 +946,12 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getReason() {
-		return reason;
+	@XmlElement
+	public List<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.REFERRAL_REQUEST__REASON_CODE);
+		}
+		return reasonCode;
 	}
 
 	/**
@@ -825,33 +959,12 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReason(CodeableConcept newReason, NotificationChain msgs) {
-		CodeableConcept oldReason = reason;
-		reason = newReason;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__REASON, oldReason, newReason);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	@XmlElement
+	public List<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__REASON_REFERENCE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReason(CodeableConcept newReason) {
-		if (newReason != reason) {
-			NotificationChain msgs = null;
-			if (reason != null)
-				msgs = ((InternalEObject)reason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__REASON, null, msgs);
-			if (newReason != null)
-				msgs = ((InternalEObject)newReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERRAL_REQUEST__REASON, null, msgs);
-			msgs = basicSetReason(newReason, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REFERRAL_REQUEST__REASON, newReason, newReason));
+		return reasonReference;
 	}
 
 	/**
@@ -929,13 +1042,30 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
+	public List<Reference> getRelevantHistory() {
+		if (relevantHistory == null) {
+			relevantHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REFERRAL_REQUEST__RELEVANT_HISTORY);
+		}
+		return relevantHistory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.REFERRAL_REQUEST__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.REFERRAL_REQUEST__DEFINITION:
+				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
 			case FhirPackage.REFERRAL_REQUEST__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
+			case FhirPackage.REFERRAL_REQUEST__REPLACES:
+				return ((InternalEList<?>)getReplaces()).basicRemove(otherEnd, msgs);
 			case FhirPackage.REFERRAL_REQUEST__GROUP_IDENTIFIER:
 				return basicSetGroupIdentifier(null, msgs);
 			case FhirPackage.REFERRAL_REQUEST__STATUS:
@@ -948,12 +1078,14 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 				return basicSetPriority(null, msgs);
 			case FhirPackage.REFERRAL_REQUEST__SERVICE_REQUESTED:
 				return ((InternalEList<?>)getServiceRequested()).basicRemove(otherEnd, msgs);
-			case FhirPackage.REFERRAL_REQUEST__PATIENT:
-				return basicSetPatient(null, msgs);
+			case FhirPackage.REFERRAL_REQUEST__SUBJECT:
+				return basicSetSubject(null, msgs);
 			case FhirPackage.REFERRAL_REQUEST__CONTEXT:
 				return basicSetContext(null, msgs);
-			case FhirPackage.REFERRAL_REQUEST__FULFILLMENT_TIME:
-				return basicSetFulfillmentTime(null, msgs);
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_DATE_TIME:
+				return basicSetOccurrenceDateTime(null, msgs);
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_PERIOD:
+				return basicSetOccurrencePeriod(null, msgs);
 			case FhirPackage.REFERRAL_REQUEST__AUTHORED_ON:
 				return basicSetAuthoredOn(null, msgs);
 			case FhirPackage.REFERRAL_REQUEST__REQUESTER:
@@ -962,14 +1094,18 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 				return basicSetSpecialty(null, msgs);
 			case FhirPackage.REFERRAL_REQUEST__RECIPIENT:
 				return ((InternalEList<?>)getRecipient()).basicRemove(otherEnd, msgs);
-			case FhirPackage.REFERRAL_REQUEST__REASON:
-				return basicSetReason(null, msgs);
+			case FhirPackage.REFERRAL_REQUEST__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.REFERRAL_REQUEST__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.REFERRAL_REQUEST__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.REFERRAL_REQUEST__SUPPORTING_INFO:
 				return ((InternalEList<?>)getSupportingInfo()).basicRemove(otherEnd, msgs);
 			case FhirPackage.REFERRAL_REQUEST__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
+			case FhirPackage.REFERRAL_REQUEST__RELEVANT_HISTORY:
+				return ((InternalEList<?>)getRelevantHistory()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -984,8 +1120,12 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 		switch (featureID) {
 			case FhirPackage.REFERRAL_REQUEST__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.REFERRAL_REQUEST__DEFINITION:
+				return getDefinition();
 			case FhirPackage.REFERRAL_REQUEST__BASED_ON:
 				return getBasedOn();
+			case FhirPackage.REFERRAL_REQUEST__REPLACES:
+				return getReplaces();
 			case FhirPackage.REFERRAL_REQUEST__GROUP_IDENTIFIER:
 				return getGroupIdentifier();
 			case FhirPackage.REFERRAL_REQUEST__STATUS:
@@ -998,12 +1138,14 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 				return getPriority();
 			case FhirPackage.REFERRAL_REQUEST__SERVICE_REQUESTED:
 				return getServiceRequested();
-			case FhirPackage.REFERRAL_REQUEST__PATIENT:
-				return getPatient();
+			case FhirPackage.REFERRAL_REQUEST__SUBJECT:
+				return getSubject();
 			case FhirPackage.REFERRAL_REQUEST__CONTEXT:
 				return getContext();
-			case FhirPackage.REFERRAL_REQUEST__FULFILLMENT_TIME:
-				return getFulfillmentTime();
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_DATE_TIME:
+				return getOccurrenceDateTime();
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_PERIOD:
+				return getOccurrencePeriod();
 			case FhirPackage.REFERRAL_REQUEST__AUTHORED_ON:
 				return getAuthoredOn();
 			case FhirPackage.REFERRAL_REQUEST__REQUESTER:
@@ -1012,14 +1154,18 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 				return getSpecialty();
 			case FhirPackage.REFERRAL_REQUEST__RECIPIENT:
 				return getRecipient();
-			case FhirPackage.REFERRAL_REQUEST__REASON:
-				return getReason();
+			case FhirPackage.REFERRAL_REQUEST__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.REFERRAL_REQUEST__REASON_REFERENCE:
+				return getReasonReference();
 			case FhirPackage.REFERRAL_REQUEST__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.REFERRAL_REQUEST__SUPPORTING_INFO:
 				return getSupportingInfo();
 			case FhirPackage.REFERRAL_REQUEST__NOTE:
 				return getNote();
+			case FhirPackage.REFERRAL_REQUEST__RELEVANT_HISTORY:
+				return getRelevantHistory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1037,43 +1183,54 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.REFERRAL_REQUEST__DEFINITION:
+				getDefinition().clear();
+				getDefinition().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.REFERRAL_REQUEST__BASED_ON:
 				getBasedOn().clear();
 				getBasedOn().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.REFERRAL_REQUEST__REPLACES:
+				getReplaces().clear();
+				getReplaces().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__GROUP_IDENTIFIER:
 				setGroupIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__STATUS:
-				setStatus((ReferralRequestStatus)newValue);
+				setStatus((RequestStatus)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__INTENT:
-				setIntent((Code)newValue);
+				setIntent((RequestIntent)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__PRIORITY:
-				setPriority((CodeableConcept)newValue);
+				setPriority((RequestPriority)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__SERVICE_REQUESTED:
 				getServiceRequested().clear();
 				getServiceRequested().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.REFERRAL_REQUEST__PATIENT:
-				setPatient((Reference)newValue);
+			case FhirPackage.REFERRAL_REQUEST__SUBJECT:
+				setSubject((Reference)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__CONTEXT:
 				setContext((Reference)newValue);
 				return;
-			case FhirPackage.REFERRAL_REQUEST__FULFILLMENT_TIME:
-				setFulfillmentTime((Period)newValue);
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_PERIOD:
+				setOccurrencePeriod((Period)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__AUTHORED_ON:
 				setAuthoredOn((DateTime)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__REQUESTER:
-				setRequester((Reference)newValue);
+				setRequester((ReferralRequestRequester)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__SPECIALTY:
 				setSpecialty((CodeableConcept)newValue);
@@ -1082,8 +1239,13 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 				getRecipient().clear();
 				getRecipient().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.REFERRAL_REQUEST__REASON:
-				setReason((CodeableConcept)newValue);
+			case FhirPackage.REFERRAL_REQUEST__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.REFERRAL_REQUEST__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -1095,6 +1257,10 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 			case FhirPackage.REFERRAL_REQUEST__NOTE:
 				getNote().clear();
 				getNote().addAll((Collection<? extends Annotation>)newValue);
+				return;
+			case FhirPackage.REFERRAL_REQUEST__RELEVANT_HISTORY:
+				getRelevantHistory().clear();
+				getRelevantHistory().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1111,41 +1277,50 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 			case FhirPackage.REFERRAL_REQUEST__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.REFERRAL_REQUEST__DEFINITION:
+				getDefinition().clear();
+				return;
 			case FhirPackage.REFERRAL_REQUEST__BASED_ON:
 				getBasedOn().clear();
+				return;
+			case FhirPackage.REFERRAL_REQUEST__REPLACES:
+				getReplaces().clear();
 				return;
 			case FhirPackage.REFERRAL_REQUEST__GROUP_IDENTIFIER:
 				setGroupIdentifier((Identifier)null);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__STATUS:
-				setStatus((ReferralRequestStatus)null);
+				setStatus((RequestStatus)null);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__INTENT:
-				setIntent((Code)null);
+				setIntent((RequestIntent)null);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__TYPE:
 				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__PRIORITY:
-				setPriority((CodeableConcept)null);
+				setPriority((RequestPriority)null);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__SERVICE_REQUESTED:
 				getServiceRequested().clear();
 				return;
-			case FhirPackage.REFERRAL_REQUEST__PATIENT:
-				setPatient((Reference)null);
+			case FhirPackage.REFERRAL_REQUEST__SUBJECT:
+				setSubject((Reference)null);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__CONTEXT:
 				setContext((Reference)null);
 				return;
-			case FhirPackage.REFERRAL_REQUEST__FULFILLMENT_TIME:
-				setFulfillmentTime((Period)null);
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)null);
+				return;
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_PERIOD:
+				setOccurrencePeriod((Period)null);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__AUTHORED_ON:
 				setAuthoredOn((DateTime)null);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__REQUESTER:
-				setRequester((Reference)null);
+				setRequester((ReferralRequestRequester)null);
 				return;
 			case FhirPackage.REFERRAL_REQUEST__SPECIALTY:
 				setSpecialty((CodeableConcept)null);
@@ -1153,8 +1328,11 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 			case FhirPackage.REFERRAL_REQUEST__RECIPIENT:
 				getRecipient().clear();
 				return;
-			case FhirPackage.REFERRAL_REQUEST__REASON:
-				setReason((CodeableConcept)null);
+			case FhirPackage.REFERRAL_REQUEST__REASON_CODE:
+				getReasonCode().clear();
+				return;
+			case FhirPackage.REFERRAL_REQUEST__REASON_REFERENCE:
+				getReasonReference().clear();
 				return;
 			case FhirPackage.REFERRAL_REQUEST__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -1164,6 +1342,9 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 				return;
 			case FhirPackage.REFERRAL_REQUEST__NOTE:
 				getNote().clear();
+				return;
+			case FhirPackage.REFERRAL_REQUEST__RELEVANT_HISTORY:
+				getRelevantHistory().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1179,8 +1360,12 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 		switch (featureID) {
 			case FhirPackage.REFERRAL_REQUEST__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.REFERRAL_REQUEST__DEFINITION:
+				return definition != null && !definition.isEmpty();
 			case FhirPackage.REFERRAL_REQUEST__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
+			case FhirPackage.REFERRAL_REQUEST__REPLACES:
+				return replaces != null && !replaces.isEmpty();
 			case FhirPackage.REFERRAL_REQUEST__GROUP_IDENTIFIER:
 				return groupIdentifier != null;
 			case FhirPackage.REFERRAL_REQUEST__STATUS:
@@ -1193,12 +1378,14 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 				return priority != null;
 			case FhirPackage.REFERRAL_REQUEST__SERVICE_REQUESTED:
 				return serviceRequested != null && !serviceRequested.isEmpty();
-			case FhirPackage.REFERRAL_REQUEST__PATIENT:
-				return patient != null;
+			case FhirPackage.REFERRAL_REQUEST__SUBJECT:
+				return subject != null;
 			case FhirPackage.REFERRAL_REQUEST__CONTEXT:
 				return context != null;
-			case FhirPackage.REFERRAL_REQUEST__FULFILLMENT_TIME:
-				return fulfillmentTime != null;
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_DATE_TIME:
+				return occurrenceDateTime != null;
+			case FhirPackage.REFERRAL_REQUEST__OCCURRENCE_PERIOD:
+				return occurrencePeriod != null;
 			case FhirPackage.REFERRAL_REQUEST__AUTHORED_ON:
 				return authoredOn != null;
 			case FhirPackage.REFERRAL_REQUEST__REQUESTER:
@@ -1207,14 +1394,18 @@ public class ReferralRequestImpl extends DomainResourceImpl implements ReferralR
 				return specialty != null;
 			case FhirPackage.REFERRAL_REQUEST__RECIPIENT:
 				return recipient != null && !recipient.isEmpty();
-			case FhirPackage.REFERRAL_REQUEST__REASON:
-				return reason != null;
+			case FhirPackage.REFERRAL_REQUEST__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.REFERRAL_REQUEST__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.REFERRAL_REQUEST__DESCRIPTION:
 				return description != null;
 			case FhirPackage.REFERRAL_REQUEST__SUPPORTING_INFO:
 				return supportingInfo != null && !supportingInfo.isEmpty();
 			case FhirPackage.REFERRAL_REQUEST__NOTE:
 				return note != null && !note.isEmpty();
+			case FhirPackage.REFERRAL_REQUEST__RELEVANT_HISTORY:
+				return relevantHistory != null && !relevantHistory.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

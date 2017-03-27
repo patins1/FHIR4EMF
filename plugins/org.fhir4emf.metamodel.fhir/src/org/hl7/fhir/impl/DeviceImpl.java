@@ -28,13 +28,14 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Device;
-import org.hl7.fhir.DeviceStatus;
+import org.hl7.fhir.DeviceUdi;
+import org.hl7.fhir.FHIRDeviceStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DeviceStatusImplAdapter;
+import org.hl7.fhir.jaxb.FHIRDeviceStatusImplAdapter;
 import org.hl7.fhir.jaxb.StringImplAdapter;
 import org.hl7.fhir.jaxb.UriImplAdapter;
 
@@ -47,7 +48,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getUdiCarrier <em>Udi Carrier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getLotNumber <em>Lot Number</em>}</li>
@@ -62,6 +63,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getSafety <em>Safety</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,14 +82,14 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getUdiCarrier() <em>Udi Carrier</em>}' containment reference.
+	 * The cached value of the '{@link #getUdi() <em>Udi</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUdiCarrier()
+	 * @see #getUdi()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier udiCarrier;
+	protected DeviceUdi udi;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -97,7 +99,7 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * @generated
 	 * @ordered
 	 */
-	protected DeviceStatus status;
+	protected FHIRDeviceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -230,6 +232,16 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	protected EList<Annotation> note;
 
 	/**
+	 * The cached value of the '{@link #getSafety() <em>Safety</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSafety()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> safety;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -266,8 +278,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getUdiCarrier() {
-		return udiCarrier;
+	public DeviceUdi getUdi() {
+		return udi;
 	}
 
 	/**
@@ -275,11 +287,11 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUdiCarrier(Identifier newUdiCarrier, NotificationChain msgs) {
-		Identifier oldUdiCarrier = udiCarrier;
-		udiCarrier = newUdiCarrier;
+	public NotificationChain basicSetUdi(DeviceUdi newUdi, NotificationChain msgs) {
+		DeviceUdi oldUdi = udi;
+		udi = newUdi;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__UDI_CARRIER, oldUdiCarrier, newUdiCarrier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__UDI, oldUdi, newUdi);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -290,18 +302,18 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUdiCarrier(Identifier newUdiCarrier) {
-		if (newUdiCarrier != udiCarrier) {
+	public void setUdi(DeviceUdi newUdi) {
+		if (newUdi != udi) {
 			NotificationChain msgs = null;
-			if (udiCarrier != null)
-				msgs = ((InternalEObject)udiCarrier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__UDI_CARRIER, null, msgs);
-			if (newUdiCarrier != null)
-				msgs = ((InternalEObject)newUdiCarrier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__UDI_CARRIER, null, msgs);
-			msgs = basicSetUdiCarrier(newUdiCarrier, msgs);
+			if (udi != null)
+				msgs = ((InternalEObject)udi).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__UDI, null, msgs);
+			if (newUdi != null)
+				msgs = ((InternalEObject)newUdi).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__UDI, null, msgs);
+			msgs = basicSetUdi(newUdi, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__UDI_CARRIER, newUdiCarrier, newUdiCarrier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__UDI, newUdi, newUdi));
 	}
 
 	/**
@@ -309,8 +321,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DeviceStatusImplAdapter.class)
-	public DeviceStatus getStatus() {
+	@XmlJavaTypeAdapter(FHIRDeviceStatusImplAdapter.class)
+	public FHIRDeviceStatus getStatus() {
 		return status;
 	}
 
@@ -319,8 +331,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(DeviceStatus newStatus, NotificationChain msgs) {
-		DeviceStatus oldStatus = status;
+	public NotificationChain basicSetStatus(FHIRDeviceStatus newStatus, NotificationChain msgs) {
+		FHIRDeviceStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__STATUS, oldStatus, newStatus);
@@ -334,7 +346,7 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(DeviceStatus newStatus) {
+	public void setStatus(FHIRDeviceStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -859,13 +871,26 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
+	public List<CodeableConcept> getSafety() {
+		if (safety == null) {
+			safety = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DEVICE__SAFETY);
+		}
+		return safety;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.DEVICE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEVICE__UDI_CARRIER:
-				return basicSetUdiCarrier(null, msgs);
+			case FhirPackage.DEVICE__UDI:
+				return basicSetUdi(null, msgs);
 			case FhirPackage.DEVICE__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.DEVICE__TYPE:
@@ -894,6 +919,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				return basicSetUrl(null, msgs);
 			case FhirPackage.DEVICE__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE__SAFETY:
+				return ((InternalEList<?>)getSafety()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -908,8 +935,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 		switch (featureID) {
 			case FhirPackage.DEVICE__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.DEVICE__UDI_CARRIER:
-				return getUdiCarrier();
+			case FhirPackage.DEVICE__UDI:
+				return getUdi();
 			case FhirPackage.DEVICE__STATUS:
 				return getStatus();
 			case FhirPackage.DEVICE__TYPE:
@@ -938,6 +965,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				return getUrl();
 			case FhirPackage.DEVICE__NOTE:
 				return getNote();
+			case FhirPackage.DEVICE__SAFETY:
+				return getSafety();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -955,11 +984,11 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.DEVICE__UDI_CARRIER:
-				setUdiCarrier((Identifier)newValue);
+			case FhirPackage.DEVICE__UDI:
+				setUdi((DeviceUdi)newValue);
 				return;
 			case FhirPackage.DEVICE__STATUS:
-				setStatus((DeviceStatus)newValue);
+				setStatus((FHIRDeviceStatus)newValue);
 				return;
 			case FhirPackage.DEVICE__TYPE:
 				setType((CodeableConcept)newValue);
@@ -1002,6 +1031,10 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				getNote().clear();
 				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
+			case FhirPackage.DEVICE__SAFETY:
+				getSafety().clear();
+				getSafety().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1017,11 +1050,11 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 			case FhirPackage.DEVICE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.DEVICE__UDI_CARRIER:
-				setUdiCarrier((Identifier)null);
+			case FhirPackage.DEVICE__UDI:
+				setUdi((DeviceUdi)null);
 				return;
 			case FhirPackage.DEVICE__STATUS:
-				setStatus((DeviceStatus)null);
+				setStatus((FHIRDeviceStatus)null);
 				return;
 			case FhirPackage.DEVICE__TYPE:
 				setType((CodeableConcept)null);
@@ -1062,6 +1095,9 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 			case FhirPackage.DEVICE__NOTE:
 				getNote().clear();
 				return;
+			case FhirPackage.DEVICE__SAFETY:
+				getSafety().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1076,8 +1112,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 		switch (featureID) {
 			case FhirPackage.DEVICE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.DEVICE__UDI_CARRIER:
-				return udiCarrier != null;
+			case FhirPackage.DEVICE__UDI:
+				return udi != null;
 			case FhirPackage.DEVICE__STATUS:
 				return status != null;
 			case FhirPackage.DEVICE__TYPE:
@@ -1106,6 +1142,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				return url != null;
 			case FhirPackage.DEVICE__NOTE:
 				return note != null && !note.isEmpty();
+			case FhirPackage.DEVICE__SAFETY:
+				return safety != null && !safety.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

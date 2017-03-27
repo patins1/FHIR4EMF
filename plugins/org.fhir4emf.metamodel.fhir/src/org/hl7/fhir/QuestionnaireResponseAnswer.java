@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.QuestionnaireResponseAnswerImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
  * <!-- end-model-doc -->
  *
  * <p>

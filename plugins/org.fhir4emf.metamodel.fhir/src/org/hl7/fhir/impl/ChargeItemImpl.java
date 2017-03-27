@@ -72,7 +72,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getOverrideReason <em>Override Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getEnterer <em>Enterer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getEnteredDate <em>Entered Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getService <em>Service</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getAccount <em>Account</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getNote <em>Note</em>}</li>
@@ -285,14 +285,14 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	protected DateTime enteredDate;
 
 	/**
-	 * The cached value of the '{@link #getReasonCodeableConcept() <em>Reason Codeable Concept</em>}' containment reference list.
+	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReasonCodeableConcept()
+	 * @see #getReason()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> reasonCodeableConcept;
+	protected EList<CodeableConcept> reason;
 
 	/**
 	 * The cached value of the '{@link #getService() <em>Service</em>}' containment reference list.
@@ -305,14 +305,14 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	protected EList<Reference> service;
 
 	/**
-	 * The cached value of the '{@link #getAccount() <em>Account</em>}' containment reference.
+	 * The cached value of the '{@link #getAccount() <em>Account</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAccount()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference account;
+	protected EList<Reference> account;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -1108,11 +1108,11 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * @generated
 	 */
 	@XmlElement
-	public List<CodeableConcept> getReasonCodeableConcept() {
-		if (reasonCodeableConcept == null) {
-			reasonCodeableConcept = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CHARGE_ITEM__REASON_CODEABLE_CONCEPT);
+	public List<CodeableConcept> getReason() {
+		if (reason == null) {
+			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CHARGE_ITEM__REASON);
 		}
-		return reasonCodeableConcept;
+		return reason;
 	}
 
 	/**
@@ -1133,42 +1133,12 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getAccount() {
+	@XmlElement
+	public List<Reference> getAccount() {
+		if (account == null) {
+			account = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CHARGE_ITEM__ACCOUNT);
+		}
 		return account;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAccount(Reference newAccount, NotificationChain msgs) {
-		Reference oldAccount = account;
-		account = newAccount;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__ACCOUNT, oldAccount, newAccount);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAccount(Reference newAccount) {
-		if (newAccount != account) {
-			NotificationChain msgs = null;
-			if (account != null)
-				msgs = ((InternalEObject)account).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__ACCOUNT, null, msgs);
-			if (newAccount != null)
-				msgs = ((InternalEObject)newAccount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__ACCOUNT, null, msgs);
-			msgs = basicSetAccount(newAccount, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__ACCOUNT, newAccount, newAccount));
 	}
 
 	/**
@@ -1245,12 +1215,12 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				return basicSetEnterer(null, msgs);
 			case FhirPackage.CHARGE_ITEM__ENTERED_DATE:
 				return basicSetEnteredDate(null, msgs);
-			case FhirPackage.CHARGE_ITEM__REASON_CODEABLE_CONCEPT:
-				return ((InternalEList<?>)getReasonCodeableConcept()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CHARGE_ITEM__REASON:
+				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CHARGE_ITEM__SERVICE:
 				return ((InternalEList<?>)getService()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
-				return basicSetAccount(null, msgs);
+				return ((InternalEList<?>)getAccount()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CHARGE_ITEM__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CHARGE_ITEM__SUPPORTING_INFORMATION:
@@ -1307,8 +1277,8 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				return getEnterer();
 			case FhirPackage.CHARGE_ITEM__ENTERED_DATE:
 				return getEnteredDate();
-			case FhirPackage.CHARGE_ITEM__REASON_CODEABLE_CONCEPT:
-				return getReasonCodeableConcept();
+			case FhirPackage.CHARGE_ITEM__REASON:
+				return getReason();
 			case FhirPackage.CHARGE_ITEM__SERVICE:
 				return getService();
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
@@ -1394,16 +1364,17 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 			case FhirPackage.CHARGE_ITEM__ENTERED_DATE:
 				setEnteredDate((DateTime)newValue);
 				return;
-			case FhirPackage.CHARGE_ITEM__REASON_CODEABLE_CONCEPT:
-				getReasonCodeableConcept().clear();
-				getReasonCodeableConcept().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.CHARGE_ITEM__REASON:
+				getReason().clear();
+				getReason().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.CHARGE_ITEM__SERVICE:
 				getService().clear();
 				getService().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
-				setAccount((Reference)newValue);
+				getAccount().clear();
+				getAccount().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CHARGE_ITEM__NOTE:
 				getNote().clear();
@@ -1485,14 +1456,14 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 			case FhirPackage.CHARGE_ITEM__ENTERED_DATE:
 				setEnteredDate((DateTime)null);
 				return;
-			case FhirPackage.CHARGE_ITEM__REASON_CODEABLE_CONCEPT:
-				getReasonCodeableConcept().clear();
+			case FhirPackage.CHARGE_ITEM__REASON:
+				getReason().clear();
 				return;
 			case FhirPackage.CHARGE_ITEM__SERVICE:
 				getService().clear();
 				return;
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
-				setAccount((Reference)null);
+				getAccount().clear();
 				return;
 			case FhirPackage.CHARGE_ITEM__NOTE:
 				getNote().clear();
@@ -1552,12 +1523,12 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				return enterer != null;
 			case FhirPackage.CHARGE_ITEM__ENTERED_DATE:
 				return enteredDate != null;
-			case FhirPackage.CHARGE_ITEM__REASON_CODEABLE_CONCEPT:
-				return reasonCodeableConcept != null && !reasonCodeableConcept.isEmpty();
+			case FhirPackage.CHARGE_ITEM__REASON:
+				return reason != null && !reason.isEmpty();
 			case FhirPackage.CHARGE_ITEM__SERVICE:
 				return service != null && !service.isEmpty();
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
-				return account != null;
+				return account != null && !account.isEmpty();
 			case FhirPackage.CHARGE_ITEM__NOTE:
 				return note != null && !note.isEmpty();
 			case FhirPackage.CHARGE_ITEM__SUPPORTING_INFORMATION:

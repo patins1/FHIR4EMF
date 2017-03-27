@@ -71,6 +71,16 @@ public enum ContactPointSystemList implements Enumerator {
 	URL(4, "url", "url"),
 
 	/**
+	 * The '<em><b>Sms</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SMS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SMS(5, "sms", "sms"),
+
+	/**
 	 * The '<em><b>Other</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,7 +88,7 @@ public enum ContactPointSystemList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OTHER(5, "other", "other");
+	OTHER(6, "other", "other");
 
 	/**
 	 * The '<em><b>Phone</b></em>' literal value.
@@ -151,6 +161,20 @@ public enum ContactPointSystemList implements Enumerator {
 	public static final int URL_VALUE = 4;
 
 	/**
+	 * The '<em><b>Sms</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * SMS
+	 * <!-- end-model-doc -->
+	 * @see #SMS
+	 * @model name="sms"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SMS_VALUE = 5;
+
+	/**
 	 * The '<em><b>Other</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,7 +186,7 @@ public enum ContactPointSystemList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OTHER_VALUE = 5;
+	public static final int OTHER_VALUE = 6;
 
 	/**
 	 * An array of all the '<em><b>Contact Point System List</b></em>' enumerators.
@@ -177,6 +201,7 @@ public enum ContactPointSystemList implements Enumerator {
 			EMAIL,
 			PAGER,
 			URL,
+			SMS,
 			OTHER,
 		};
 
@@ -239,6 +264,7 @@ public enum ContactPointSystemList implements Enumerator {
 			case EMAIL_VALUE: return EMAIL;
 			case PAGER_VALUE: return PAGER;
 			case URL_VALUE: return URL;
+			case SMS_VALUE: return SMS;
 			case OTHER_VALUE: return OTHER;
 		}
 		return null;

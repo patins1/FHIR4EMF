@@ -48,7 +48,17 @@ public enum PublicationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RETIRED(2, "retired", "retired");
+	RETIRED(2, "retired", "retired"),
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(3, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Draft</b></em>' literal value.
@@ -99,6 +109,20 @@ public enum PublicationStatusList implements Enumerator {
 	public static final int RETIRED_VALUE = 2;
 
 	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Publication Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,6 +133,7 @@ public enum PublicationStatusList implements Enumerator {
 			DRAFT,
 			ACTIVE,
 			RETIRED,
+			UNKNOWN,
 		};
 
 	/**
@@ -168,6 +193,7 @@ public enum PublicationStatusList implements Enumerator {
 			case DRAFT_VALUE: return DRAFT;
 			case ACTIVE_VALUE: return ACTIVE;
 			case RETIRED_VALUE: return RETIRED;
+			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

@@ -22,7 +22,7 @@ import org.hl7.fhir.jaxb.RiskAssessmentPredictionImplAdapter;
  *   <li>{@link org.hl7.fhir.RiskAssessmentPrediction#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessmentPrediction#getProbabilityDecimal <em>Probability Decimal</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessmentPrediction#getProbabilityRange <em>Probability Range</em>}</li>
- *   <li>{@link org.hl7.fhir.RiskAssessmentPrediction#getProbabilityCodeableConcept <em>Probability Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.RiskAssessmentPrediction#getQualitativeRisk <em>Qualitative Risk</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessmentPrediction#getRelativeRisk <em>Relative Risk</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessmentPrediction#getWhenPeriod <em>When Period</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessmentPrediction#getWhenRange <em>When Range</em>}</li>
@@ -114,30 +114,30 @@ public interface RiskAssessmentPrediction extends BackboneElement {
 	void setProbabilityRange(Range value);
 
 	/**
-	 * Returns the value of the '<em><b>Probability Codeable Concept</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Qualitative Risk</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * How likely is the outcome (in the specified timeframe). (choose any one of probability*, but only one)
+	 * How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Probability Codeable Concept</em>' containment reference.
-	 * @see #setProbabilityCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getRiskAssessmentPrediction_ProbabilityCodeableConcept()
+	 * @return the value of the '<em>Qualitative Risk</em>' containment reference.
+	 * @see #setQualitativeRisk(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getRiskAssessmentPrediction_QualitativeRisk()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='probabilityCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='qualitativeRisk' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getProbabilityCodeableConcept();
+	CodeableConcept getQualitativeRisk();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessmentPrediction#getProbabilityCodeableConcept <em>Probability Codeable Concept</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessmentPrediction#getQualitativeRisk <em>Qualitative Risk</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Probability Codeable Concept</em>' containment reference.
-	 * @see #getProbabilityCodeableConcept()
+	 * @param value the new value of the '<em>Qualitative Risk</em>' containment reference.
+	 * @see #getQualitativeRisk()
 	 * @generated
 	 */
-	void setProbabilityCodeableConcept(CodeableConcept value);
+	void setQualitativeRisk(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Relative Risk</b></em>' containment reference.

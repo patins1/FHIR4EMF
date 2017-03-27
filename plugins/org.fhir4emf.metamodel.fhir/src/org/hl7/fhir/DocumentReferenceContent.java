@@ -2,8 +2,6 @@
  */
 package org.hl7.fhir;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.hl7.fhir.jaxb.DocumentReferenceContentImplAdapter;
@@ -14,7 +12,7 @@ import org.hl7.fhir.jaxb.DocumentReferenceContentImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A reference to a document .
+ * A reference to a document.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -36,7 +34,7 @@ public interface DocumentReferenceContent extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The document or url of the document along with critical metadata to prove content has integrity.
+	 * The document or URL of the document along with critical metadata to prove content has integrity.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Attachment</em>' containment reference.
 	 * @see #setAttachment(Attachment)
@@ -58,19 +56,29 @@ public interface DocumentReferenceContent extends BackboneElement {
 	void setAttachment(Attachment value);
 
 	/**
-	 * Returns the value of the '<em><b>Format</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * Returns the value of the '<em><b>Format</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Format</em>' containment reference list.
+	 * @return the value of the '<em>Format</em>' containment reference.
+	 * @see #setFormat(Coding)
 	 * @see org.hl7.fhir.FhirPackage#getDocumentReferenceContent_Format()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='format' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<Coding> getFormat();
+	Coding getFormat();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentReferenceContent#getFormat <em>Format</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Format</em>' containment reference.
+	 * @see #getFormat()
+	 * @generated
+	 */
+	void setFormat(Coding value);
 
 } // DocumentReferenceContent

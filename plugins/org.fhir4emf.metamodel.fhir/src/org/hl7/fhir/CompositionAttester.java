@@ -53,7 +53,7 @@ public interface CompositionAttester extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * When composition was attested by the party.
+	 * When the composition was attested by the party.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Time</em>' containment reference.
 	 * @see #setTime(DateTime)

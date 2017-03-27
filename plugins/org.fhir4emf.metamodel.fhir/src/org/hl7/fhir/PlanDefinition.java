@@ -31,6 +31,7 @@ import org.hl7.fhir.jaxb.PlanDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.PlanDefinition#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinition#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getUsage <em>Usage</em>}</li>
@@ -41,12 +42,12 @@ import org.hl7.fhir.jaxb.PlanDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.PlanDefinition#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.PlanDefinition#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getRelatedArtifact <em>Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinition#getLibrary <em>Library</em>}</li>
- *   <li>{@link org.hl7.fhir.PlanDefinition#getActionDefinition <em>Action Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinition#getGoal <em>Goal</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinition#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getPlanDefinition()
@@ -60,7 +61,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this plan definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this plan definition is (or will be) published. The URL SHOULD include the major version of the plan definition. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this plan definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this plan definition is (or will be) published. The URL SHOULD include the major version of the plan definition. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -102,7 +103,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
+	 * The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -232,7 +233,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -258,7 +259,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the plan definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes.
+	 * The date  (and optionally time) when the plan definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -280,11 +281,37 @@ public interface PlanDefinition extends DomainResource {
 	void setDate(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the individual or organization that published the plan definition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Publisher</em>' containment reference.
+	 * @see #setPublisher(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinition_Publisher()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getPublisher();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinition#getPublisher <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Publisher</em>' containment reference.
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	void setPublisher(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the plan definition from the consumer's perspective.
+	 * A free text natural language description of the plan definition from a consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Markdown)
@@ -310,7 +337,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explains why this plan definition is needed and why it has been designed as it has.
+	 * Explaination of why this plan definition is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -362,7 +389,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+	 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Approval Date</em>' containment reference.
 	 * @see #setApprovalDate(Date)
@@ -388,7 +415,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
+	 * The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Last Review Date</em>' containment reference.
 	 * @see #setLastReviewDate(Date)
@@ -414,7 +441,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The period during which the plan definition content was or is planned to be effective.
+	 * The period during which the plan definition content was or is planned to be in active use.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Effective Period</em>' containment reference.
 	 * @see #setEffectivePeriod(Period)
@@ -441,7 +468,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate plan definition instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPlanDefinition_UseContext()
@@ -457,7 +484,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A jurisdiction in which the plan definition is intended to be used.
+	 * A legal or geographic region in which the plan definition is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPlanDefinition_Jurisdiction()
@@ -473,7 +500,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Clinical topics related to the content of the asset.
+	 * Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Topic</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPlanDefinition_Topic()
@@ -498,32 +525,6 @@ public interface PlanDefinition extends DomainResource {
 	 * @generated
 	 */
 	List<Contributor> getContributor();
-
-	/**
-	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the plan definition.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Publisher</em>' containment reference.
-	 * @see #setPublisher(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getPlanDefinition_Publisher()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getPublisher();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinition#getPublisher <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Publisher</em>' containment reference.
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	void setPublisher(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
@@ -600,19 +601,35 @@ public interface PlanDefinition extends DomainResource {
 	List<Reference> getLibrary();
 
 	/**
-	 * Returns the value of the '<em><b>Action Definition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.PlanDefinitionActionDefinition}.
+	 * Returns the value of the '<em><b>Goal</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PlanDefinitionGoal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Goal</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinition_Goal()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='goal' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<PlanDefinitionGoal> getGoal();
+
+	/**
+	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PlanDefinitionAction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An action to be taken as part of the plan.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getPlanDefinition_ActionDefinition()
+	 * @return the value of the '<em>Action</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinition_Action()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='actionDefinition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='action' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<PlanDefinitionActionDefinition> getActionDefinition();
+	List<PlanDefinitionAction> getAction();
 
 } // PlanDefinition

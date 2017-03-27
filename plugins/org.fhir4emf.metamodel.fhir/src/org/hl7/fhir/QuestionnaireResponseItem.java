@@ -14,7 +14,7 @@ import org.hl7.fhir.jaxb.QuestionnaireResponseItemImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -40,7 +40,7 @@ public interface QuestionnaireResponseItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
+	 * The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Link Id</em>' containment reference.
 	 * @see #setLinkId(org.hl7.fhir.String)

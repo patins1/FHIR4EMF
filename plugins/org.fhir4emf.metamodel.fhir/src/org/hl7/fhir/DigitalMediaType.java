@@ -12,7 +12,7 @@ import org.hl7.fhir.jaxb.DigitalMediaTypeImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Whether the Media is a photo, video, or audio
+ * Whether the media is a photo, video, or audio
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

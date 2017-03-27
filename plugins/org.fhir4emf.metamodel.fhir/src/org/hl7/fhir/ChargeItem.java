@@ -42,7 +42,7 @@ import org.hl7.fhir.jaxb.ChargeItemImplAdapter;
  *   <li>{@link org.hl7.fhir.ChargeItem#getOverrideReason <em>Override Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getEnterer <em>Enterer</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getEnteredDate <em>Entered Date</em>}</li>
- *   <li>{@link org.hl7.fhir.ChargeItem#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.ChargeItem#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getService <em>Service</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getAccount <em>Account</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getNote <em>Note</em>}</li>
@@ -87,7 +87,7 @@ public interface ChargeItem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource.
+	 * References the source of pricing information, rules of application for the code this ChargeItem uses.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Definition</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getChargeItem_Definition()
@@ -536,20 +536,20 @@ public interface ChargeItem extends DomainResource {
 	void setEnteredDate(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason Codeable Concept</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Describes why the event occurred in coded or textual form.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason Codeable Concept</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getChargeItem_ReasonCodeableConcept()
+	 * @return the value of the '<em>Reason</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getChargeItem_Reason()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	List<CodeableConcept> getReasonCodeableConcept();
+	List<CodeableConcept> getReason();
 
 	/**
 	 * Returns the value of the '<em><b>Service</b></em>' containment reference list.
@@ -568,30 +568,20 @@ public interface ChargeItem extends DomainResource {
 	List<Reference> getService();
 
 	/**
-	 * Returns the value of the '<em><b>Account</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Account</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Account into which this ChargeItems belongs.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Account</em>' containment reference.
-	 * @see #setAccount(Reference)
+	 * @return the value of the '<em>Account</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getChargeItem_Account()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='account' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getAccount();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ChargeItem#getAccount <em>Account</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Account</em>' containment reference.
-	 * @see #getAccount()
-	 * @generated
-	 */
-	void setAccount(Reference value);
+	List<Reference> getAccount();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

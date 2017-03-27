@@ -19,7 +19,8 @@ import org.hl7.fhir.jaxb.MeasureReportPopulation1ImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MeasureReportPopulation1#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReportPopulation1#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReportPopulation1#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportPopulation1#getCount <em>Count</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportPopulation1#getPatients <em>Patients</em>}</li>
  * </ul>
@@ -31,30 +32,56 @@ import org.hl7.fhir.jaxb.MeasureReportPopulation1ImplAdapter;
 @XmlJavaTypeAdapter(MeasureReportPopulation1ImplAdapter.class)
 public interface MeasureReportPopulation1 extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The identifier of the population being reported, as defined by the population element of the measure.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReportPopulation1_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportPopulation1#getIdentifier <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
+	 * @generated
+	 */
+	void setIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The type of the population.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Code)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureReportPopulation1_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReportPopulation1_Code()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getType();
+	CodeableConcept getCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportPopulation1#getType <em>Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportPopulation1#getCode <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
 	 * @generated
 	 */
-	void setType(Code value);
+	void setCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Count</b></em>' containment reference.

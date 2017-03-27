@@ -27,8 +27,11 @@ import org.hl7.fhir.jaxb.CareTeamImplAdapter;
  *   <li>{@link org.hl7.fhir.CareTeam#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.CareTeam#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getParticipant <em>Participant</em>}</li>
+ *   <li>{@link org.hl7.fhir.CareTeam#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.CareTeam#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getNote <em>Note</em>}</li>
  * </ul>
@@ -150,6 +153,32 @@ public interface CareTeam extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The encounter or episode of care that establishes the context for this care team.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCareTeam_Context()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CareTeam#getContext <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
+	 * @generated
+	 */
+	void setContext(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -190,6 +219,38 @@ public interface CareTeam extends DomainResource {
 	 * @generated
 	 */
 	List<CareTeamParticipant> getParticipant();
+
+	/**
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Describes why the care team exists.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCareTeam_ReasonCode()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<CodeableConcept> getReasonCode();
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Condition(s) that this care team addresses.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCareTeam_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	List<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Managing Organization</b></em>' containment reference list.

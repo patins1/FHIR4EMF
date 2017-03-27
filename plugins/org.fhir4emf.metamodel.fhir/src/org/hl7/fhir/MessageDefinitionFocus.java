@@ -39,13 +39,13 @@ public interface MessageDefinitionFocus extends BackboneElement {
 	 * The kind of resource that must be the focus for this message.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(Code)
+	 * @see #setCode(ResourceType)
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinitionFocus_Code()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getCode();
+	ResourceType getCode();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinitionFocus#getCode <em>Code</em>}' containment reference.
@@ -55,7 +55,7 @@ public interface MessageDefinitionFocus extends BackboneElement {
 	 * @see #getCode()
 	 * @generated
 	 */
-	void setCode(Code value);
+	void setCode(ResourceType value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.

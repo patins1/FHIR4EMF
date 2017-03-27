@@ -34,7 +34,7 @@ public interface AuditEventDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Name of the property.
+	 * The type of extra detail provided in the value.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(org.hl7.fhir.String)
@@ -60,7 +60,7 @@ public interface AuditEventDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Property value.
+	 * The details, base64 encoded. Used to carry bulk information.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(Base64Binary)
