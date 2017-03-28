@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -28,6 +29,7 @@ import org.hl7.fhir.Extension;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Narrative;
 import org.hl7.fhir.ResourceContainer;
+import org.hl7.fhir.jaxb.ResourceContainerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -166,6 +168,7 @@ public class DomainResourceImpl extends ResourceImpl implements DomainResource {
 	 * @generated
 	 */
 	@XmlElement
+	@XmlJavaTypeAdapter(ResourceContainerImplAdapter.class)
 	public List<ResourceContainer> getContained() {
 		if (contained == null) {
 			contained = new EObjectContainmentEList<ResourceContainer>(ResourceContainer.class, this, FhirPackage.DOMAIN_RESOURCE__CONTAINED);

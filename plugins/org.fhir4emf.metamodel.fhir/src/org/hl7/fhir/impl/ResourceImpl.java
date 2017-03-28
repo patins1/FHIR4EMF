@@ -9,13 +9,10 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
@@ -25,6 +22,8 @@ import org.hl7.fhir.Uri;
 import org.hl7.fhir.jaxb.CodeImplAdapter;
 import org.hl7.fhir.jaxb.IdImplAdapter;
 import org.hl7.fhir.jaxb.UriImplAdapter;
+
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,6 +53,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
 		CoverageImpl.class, FlagImpl.class, ReferralRequestImpl.class, TestReportImpl.class, ActivityDefinitionImpl.class, NamingSystemImpl.class, ValueSetImpl.class, ProcedureImpl.class, ExpansionProfileImpl.class, BodySiteImpl.class, GoalImpl.class, ChargeItemImpl.class, PractitionerRoleImpl.class, SubscriptionImpl.class,
 		MessageHeaderImpl.class, LocationImpl.class, ResearchSubjectImpl.class, DeviceRequestImpl.class })
 @XmlRootElement(name = "fhir.Resource")
+@JsonTypeInfo(property = "resourceType", include = JsonTypeInfo.As.EXTERNAL_PROPERTY, use = JsonTypeInfo.Id.NAME)
 public class ResourceImpl extends MinimalEObjectImpl.Container implements Resource {
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' containment reference.
