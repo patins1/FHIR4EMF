@@ -201,7 +201,7 @@ function performRESTRequest(urlSuffix, success) {
 
 $(function() { 
 	var scope = $("#appId").scope();
-//	scope.loadExample2(scope,'?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport-example-101.json'); 
+//	scope.loadExample2(scope,'?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport-example.json'); 
 	scope.loadExample2(scope,'?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/MyQuestionnaire.structuredefinition.json'); 
 //	scope.loadExample(scope,'StructureDefinition','examplestu2','RAASJSON'); 
 });
