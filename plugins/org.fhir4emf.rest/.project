@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.fhir.rest</name>
+	<name>org.fhir4emf.rest</name>
 	<comment></comment>
 	<projects>
 	</projects>
