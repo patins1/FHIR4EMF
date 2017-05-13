@@ -12,5 +12,5 @@ Export-Package: fhirrest,
  fhirrest.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.fhir4emf.metamodel.fhir;bundle-version="1.0.0";visibility:=reexport
+ org.eclipse.mdht.fhir.xsd
 Bundle-ActivationPolicy: lazy

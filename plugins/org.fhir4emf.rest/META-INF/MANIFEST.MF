@@ -23,7 +23,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.raas4emf.server,
  org.raas4emf.service,
  com.ibm.icu.base,
- org.fhir4emf.metamodel.fhir,
+ org.eclipse.mdht.fhir.xsd,
  org.fhir4emf.metamodel.fhir-rest
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

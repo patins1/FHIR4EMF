@@ -9,8 +9,12 @@ package org.fhir4emf.rest;
 
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
+import org.hl7.fhir.ResourceContainer;
+import org.hl7.fhir.impl.DomainResourceImpl;
+import org.hl7.fhir.impl.ResourceImpl;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.osgi.framework.BundleContext;
+import org.raas4emf.cms.core.RAASUtils;
 
 import ca.uhn.fhir.context.FhirContext;
 
@@ -39,7 +43,12 @@ public class Activator extends Plugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		final String restUri = System.getProperty("CALLBACK_URL");
+		// support for the resourceType property holding the type info
+		RAASUtils.SOURCE_MIXINS.put(ResourceImpl.class, MixinResourceImpl.class);
+		// we don't want ResourceContainer represented in JSON
+		RAASUtils.SOURCE_MIXINS.put(ResourceContainer.class, MixinResourceContainer.class);
+		// this would not be necessary if jackson implemented a clean support for ResourceContainerImplAdapter for the content of lists :(
+		RAASUtils.SOURCE_MIXINS.put(DomainResourceImpl.class, MixinDomainResourceImpl.class);
 	}
 
 	/*

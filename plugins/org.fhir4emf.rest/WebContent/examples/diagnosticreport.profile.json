@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "DiagnosticReport",
   "meta": {
-    "lastUpdated": "2017-03-21T06:09:53.925+11:00"
+    "lastUpdated": "2017-04-19T07:44:43.294+10:00"
   },
   "text": {
     "status": "generated",
@@ -21,7 +21,7 @@
   "url": "http://hl7.org/fhir/StructureDefinition/DiagnosticReport",
   "name": "DiagnosticReport",
   "status": "draft",
-  "date": "2017-03-21T06:09:53+11:00",
+  "date": "2017-04-19T07:44:43+10:00",
   "publisher": "Health Level Seven International (Orders and Observations)",
   "contact": [
     {
@@ -43,7 +43,7 @@
   ],
   "description": "Base StructureDefinition for DiagnosticReport Resource",
   "purpose": "To support reporting for any diagnostic report into a clinical data repository.",
-  "fhirVersion": "3.0.0",
+  "fhirVersion": "3.0.1",
   "mapping": [
     {
       "identity": "workflow",
@@ -799,7 +799,7 @@
             "key": "ele-1",
             "severity": "error",
             "human": "All FHIR elements must have a @value or children",
-            "expression": "children().count() > id.count()",
+            "expression": "hasValue() | (children().count() > id.count())",
             "xpath": "@value|f:*|h:div",
             "source": "Element"
           }
@@ -1098,7 +1098,7 @@
             "key": "ele-1",
             "severity": "error",
             "human": "All FHIR elements must have a @value or children",
-            "expression": "children().count() > id.count()",
+            "expression": "hasValue() | (children().count() > id.count())",
             "xpath": "@value|f:*|h:div",
             "source": "Element"
           }

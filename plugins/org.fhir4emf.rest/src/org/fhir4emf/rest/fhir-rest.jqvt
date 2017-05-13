@@ -214,12 +214,14 @@ transformation documentinformationgenerator ( source : documents , target : embe
 			if ( "JSON" == inputFormat ) { fhirResource = RAASUtils.decodeJSON(content , eClass) as Resource ; };
 			if ( "YALM" == inputFormat ) { fhirResource = RAASUtils.decodeYALMJackson(content , eClass) as Resource ; };
 			if ( "Java Properties" == inputFormat ) { fhirResource = RAASUtils.decodeJavaPropsJackson(content , eClass) as Resource ; };
+			if ( "JAXBXML" == inputFormat ) { fhirResource = RAASUtils.decodeXMLJackson(content , eClass) as Resource ; };
 			if ( "BSON" == inputFormat ) { fhirResource = RAASUtils.decodeBSONJackson(upload , eClass) as Resource ; };
 			if ( "CBOR" == inputFormat ) { fhirResource = RAASUtils.decodeCBORJackson(upload , eClass) as Resource ; };
 			if ( "SMILE" == inputFormat ) { fhirResource = RAASUtils.decodeSMILEJackson(upload , eClass) as Resource ; };
 			if ( "XML" == outputFormat ) { content = removeNamespacePrefixes(RAASUtils.encodeEMFXML(fhirResource)) ; };
 			if ( "JSON" == outputFormat ) { content = RAASUtils.encodeJAXBJSON(fhirResource) ; };
 			if ( "Java Properties" == outputFormat ) { content = RAASUtils.encodeJavaPropsJackson(fhirResource) ; };
+			if ( "JAXBXML" == outputFormat ) { content = RAASUtils.encodeXMLJackson(fhirResource) ; };
 			if ( "YALM" == outputFormat ) { content = RAASUtils.encodeYALMJackson(fhirResource) ; };
 			if ( "BSON" == outputFormat ) { file = RAASUtils.encodeBSONJackson(fhirResource,"response.bson") ; };
 			if ( "CBOR" == outputFormat ) { file = RAASUtils.encodeCBORJackson(fhirResource,"response.cbor") ; };

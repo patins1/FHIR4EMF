@@ -19,6 +19,7 @@
 				<option value="BSON">BSON (binary format)</option>
 				<option value="CBOR">CBOR (binary format)</option>
 				<option value="SMILE">SMILE (binary format)</option>
+				<option value="JAXBXML">XML (by JAXB)</option>
 			</select>
 
 			<textarea id="text1" type="text" class="choosetext" ng-show="!FormatIsBinary()" ng-model="text"></textarea>
@@ -41,6 +42,7 @@
 				<option value="BSON">BSON (binary format)</option>
 				<option value="CBOR">CBOR (binary format)</option>
 				<option value="SMILE">SMILE (binary format)</option>
+				<option value="JAXBXML">XML (by JAXB)</option>
 			</select>
 
 			<textarea id="text2" type="text" class="choosetext" ng-show="!FormatIsBinary()" ng-model="text"></textarea>
@@ -49,11 +51,14 @@
 	</div>
 
 	<div id="status">Press buttons to convert between left or right representations !</div>
-
-	<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport.profile.json','JSON','XML')" class="examplebutton">Load diagnosticreport.profile.json</button>
-	<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport-example.json','JSON','XML')" class="examplebutton">Load diagnosticreport-example.json</button>
-	<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/MyQuestionnaire.structuredefinition.xml','XML','JSON')" class="examplebutton">Load MyQuestionnaire.structuredefinition.xml</button>
-
+	
+	<div class="loadexamples">
+		<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport.profile.json','JSON','XML')">Load diagnosticreport.profile.json</button>
+		<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport.profile.xml','XML','JSON')">Load diagnosticreport.profile.xml</button>
+		<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport-example.json','JSON','XML')">Load diagnosticreport-example.json</button>
+		<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/diagnosticreport-example(101).xml','XML','JSON')">Load diagnosticreport-example(101).xml</button>
+		<button onclick="loadExample2('?servicehandler=downloadServiceHandler&artifact=plugin/org.fhir4emf.rest/WebContent/examples/MyQuestionnaire.structuredefinition.xml','XML','JSON')">Load MyQuestionnaire.structuredefinition.xml</button>
+	</div>
 <!-- 
 	<button onclick="loadExample('StructureDefinition','example','XML','JSON')" class="examplebutton">Load an example StructureDefinition for DiagnosticReport</button>
 	<button onclick="loadExample('StructureDefinition','example','JSON','XML','RAASJSON')" class="examplebutton">Load an example StructureDefinition for DiagnosticReport as JSON</button>
